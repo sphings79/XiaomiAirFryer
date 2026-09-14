@@ -29,6 +29,7 @@ from .const import (
     MODEL_FRYER_MAF14,
     MODEL_FRYER_MAF15,
     MODEL_FRYER_MAF16,
+    MODEL_FRYER_MAF65,
     MODEL_FRYER_SCK501,
     MODEL_FRYER_SCK505,
     MODEL_FRYER_V3,
@@ -414,6 +415,32 @@ MIOT_MAPPING = {
         "resume_cooking": {"siid": 2, "aiid": 4},
         "start_recipe_cook": {"siid": 2, "aiid": 5}
     },
+    # https://miot-spec.org/miot-spec-v2/instance?type=urn:miot-spec-v2:device:air-fryer:0000A0A4:xiaomi-maf65:1
+    MODEL_FRYER_MAF65: {
+        "status": {"siid": 2, "piid": 1},  # read, notify
+        "device_fault": {"siid": 2, "piid": 2},  # read, notify
+        "target_time": {"siid": 2, "piid": 3},  # read, notify, write
+        "target_temperature": {"siid": 2, "piid": 4},  # read, notify, write
+        "left_time": {"siid": 2, "piid": 5},  # read, notify
+        "auto_keep_warm": {"siid": 2, "piid": 6},  # read, notify, write
+        "current_keep_warm": {"siid": 2, "piid": 7},  # read, notify, write
+        "mode": {"siid": 2, "piid": 8},  # read, notify, write
+        "preheat": {"siid": 2, "piid": 9},  # read, notify, write
+        "recipe_id": {"siid": 2, "piid": 10},  # read, notify, write
+        "recipe_name": {"siid": 2, "piid": 11},  # read, notify, write
+        "recipe_sync": {"siid": 2, "piid": 12},  # read, notify, write
+        "target_cooking_measure": {"siid": 2, "piid": 13},  # read, notify, write
+        "turn_pot": {"siid": 2, "piid": 14},  # read, notify
+        "turn_pot_config": {"siid": 2, "piid": 15},  # read, notify, write
+        "texture": {"siid": 2, "piid": 16},  # read, notify, write
+        "reservation_left_time": {"siid": 2, "piid": 17},  # read, notify, write
+        "cooking_weight": {"siid": 2, "piid": 18},  # read, notify, write
+        "start_cook": {"siid": 2, "aiid": 1},
+        "cancel_cooking": {"siid": 2, "aiid": 2},
+        "pause": {"siid": 2, "aiid": 3},
+        "resume_cooking": {"siid": 2, "aiid": 4},
+        "start_recipe_cook": {"siid": 2, "aiid": 5}
+    },
     # https://miot-spec.org/miot-spec-v2/instance?type=urn:miot-spec-v2:device:air-fryer:0000A0A4:xiaomi-maf14:1
     MODEL_FRYER_MAF14: {
         "status": {"siid": 2, "piid": 1},  # read, notify
@@ -695,6 +722,188 @@ RECIPE_SLOTS = {
         "M9": "yogurt",
         "M10": "defrost",
     },
+    MODEL_FRYER_MAF06A: {
+        "M0": "favorites",
+        "M1": "french_fries",
+        "M2": "chicken_wing",
+        "M3": "egg_tart",
+        "M4": "sweet_potato",
+        "M5": "yogurt",
+    },
+    MODEL_FRYER_MAF06B: {
+        "M0": "favorites",
+        "M1": "french_fries",
+        "M2": "chicken_wing",
+        "M3": "egg_tart",
+        "M4": "sweet_potato",
+        "M5": "yogurt",
+    },
+    MODEL_FRYER_MAF07C: {
+        "M0": "manual",
+        "M1": "french_fries",
+        "M2": "chicken_wing",
+        "M3": "steak",
+        "M4": "lamb_chops",
+        "M5": "pork_belly",
+        "M6": "fish",
+        "M7": "sweet_potato",
+        "M8": "cake",
+        "M9": "egg_tart",
+        "M10": "defrost",
+        "M11": "dried_fruit",
+        "M12": "yogurt",
+    },
+    MODEL_FRYER_MAF07D: {
+        "M0": "manual",
+        "M1": "french_fries",
+        "M2": "chicken_wing",
+        "M3": "steak",
+        "M4": "lamb_chops",
+        "M5": "fish",
+        "M6": "shrimp",
+        "M7": "vegetables",
+        "M8": "cake",
+        "M9": "pizza",
+        "M10": "defrost",
+        "M11": "dried_fruit",
+        "M12": "yogurt",
+    },
+    MODEL_FRYER_MAF09A: {
+        "M0": "manual",
+        "M1": "french_fries",
+        "M2": "chicken_wing",
+        "M3": "steak",
+        "M4": "lamb_chops",
+        "M5": "pork_belly",
+        "M6": "fish",
+        "M7": "sweet_potato",
+        "M8": "cake",
+        "M9": "egg_tart",
+        "M10": "defrost",
+        "M11": "dried_fruit",
+        "M12": "yogurt",
+    },
+    MODEL_FRYER_MAF10A: {
+        "M0": "manual",
+        "M1": "french_fries",
+        "M2": "chicken_wing",
+        "M3": "steak",
+        "M4": "lamb_chops",
+        "M5": "fish",
+        "M6": "shrimp",
+        "M7": "vegetables",
+        "M8": "cake",
+        "M9": "pizza",
+        "M10": "defrost",
+        "M11": "dried_fruit",
+        "M12": "yogurt",
+    },
+    MODEL_FRYER_MAF14: {
+        "M0": "manual",
+        "M1": "french_fries",
+        "M2": "chicken_wing",
+        "M3": "steak",
+        "M4": "fish",
+        "M5": "shrimp",
+        "M6": "vegetables",
+        "M7": "cake",
+        "M8": "defrost",
+        "M9": "dried_fruit",
+        "M10": "yogurt",
+    },
+    MODEL_FRYER_MAF15: {
+        "M0": "manual",
+        "M1": "french_fries",
+        "M2": "chicken_wing",
+        "M3": "steak",
+        "M4": "fish",
+        "M5": "shrimp",
+        "M6": "vegetables",
+        "M7": "cake",
+        "M8": "defrost",
+        "M9": "dried_fruit",
+        "M10": "yogurt",
+    },
+    MODEL_FRYER_MAF16: {
+        "M0": "manual",
+        "M1": "french_fries",
+        "M2": "chicken_wing",
+        "M3": "sweet_potato",
+        "M4": "egg_tart",
+        "M5": "steak",
+        "M6": "pork_belly",
+        "M7": "shrimp",
+        "M8": "cake",
+        "M9": "pizza",
+        "M10": "dried_fruit",
+        "M11": "defrost",
+        "M12": "reheat",
+    },
+    MODEL_FRYER_MAF65: {
+        "M0": "manual",
+        "M1": "french_fries",
+        "M2": "chicken_wing",
+        "M3": "steak",
+        "M4": "lamb_chops",
+        "M5": "fish",
+        "M6": "shrimp",
+        "M7": "vegetables",
+        "M8": "cake",
+        "M9": "pizza",
+        "M10": "defrost",
+        "M11": "dried_fruit",
+        "M12": "yogurt",
+    },
+    MODEL_FRYER_YBAF03: {
+        "C1": "potato_wedges",
+        "C2": "chicken_cutlet",
+        "C3": "steak",
+        "C4": "lamb_chops",
+        "C5": "curry_beef",
+        "C6": "popcorn_chicken",
+        "C7": "sausage",
+        "C8": "sweet_potato",
+        "C9": "clams",
+        "C10": "oysters",
+        "C11": "scallops",
+        "C12": "crab_sticks",
+        "C13": "durian_pastry",
+        "C14": "spring_rolls",
+        "M0": "default_program",
+        "M1": "chicken",
+        "M2": "steak",
+        "M3": "fish",
+        "M4": "cake",
+        "M5": "pizza",
+        "M6": "hot_dog",
+        "M7": "french_fries",
+        "M8": "bacon",
+    },
+    MODEL_FRYER_YBAF04: {
+        "C1": "potato_wedges",
+        "C2": "chicken_cutlet",
+        "C3": "steak",
+        "C4": "lamb_chops",
+        "C5": "curry_beef",
+        "C6": "popcorn_chicken",
+        "C7": "sausage",
+        "C8": "sweet_potato",
+        "C9": "clams",
+        "C10": "oysters",
+        "C11": "scallops",
+        "C12": "crab_sticks",
+        "C13": "durian_pastry",
+        "C14": "spring_rolls",
+        "M0": "default_program",
+        "M1": "chicken",
+        "M2": "steak",
+        "M3": "fish",
+        "M4": "cake",
+        "M5": "pizza",
+        "M6": "hot_dog",
+        "M7": "french_fries",
+        "M8": "bacon",
+    },
 }
 
 
@@ -708,6 +917,7 @@ MODELS_TURN_POT_ONE_BASED = [
     MODEL_FRYER_MAF14,
     MODEL_FRYER_MAF15,
     MODEL_FRYER_MAF16,
+    MODEL_FRYER_MAF65,
 ]
 
 

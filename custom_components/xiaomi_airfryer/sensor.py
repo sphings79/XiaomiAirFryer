@@ -28,7 +28,7 @@ from .const import (
     MODELS_MIOT,
     MODELS_SILEN,
     MODELS_VIOMI,
-    MODELS_XIAOMI, MODEL_FRYER_MAF07C, MODEL_FRYER_MAF09A
+    MODELS_XIAOMI, MODEL_FRYER_MAF07C, MODEL_FRYER_MAF09A, MODEL_FRYER_MAF65
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -179,7 +179,8 @@ async def async_setup_entry(hass, config, async_add_devices, discovery_info=None
 
     if model == MODEL_FRYER_YBAF01:
         sensor_types = SENSOR_TYPES_YBAF
-    elif model in [MODEL_FRYER_MAF10A, MODEL_FRYER_MAF07C, MODEL_FRYER_MAF09A]:
+    elif model in [MODEL_FRYER_MAF10A, MODEL_FRYER_MAF07C, MODEL_FRYER_MAF09A,
+                   MODEL_FRYER_MAF65]:
         sensor_types = SENSOR_TYPES_MAF10A
     elif model in MODELS_CARELI:
         sensor_types = SENSOR_TYPES_MAF
