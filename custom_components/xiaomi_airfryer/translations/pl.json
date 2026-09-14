@@ -244,6 +244,61 @@
           "NeedTurnOverPot": "Przewróć potrawę"
         }
       }
+    },
+    "number": {
+      "target_time": {
+        "name": "Czas docelowy"
+      },
+      "target_temperature": {
+        "name": "Temperatura docelowa"
+      },
+      "appoint_time": {
+        "name": "Opóźniony start"
+      }
+    },
+    "select": {
+      "food_quanty": {
+        "name": "Ilość",
+        "state": {
+          "Null": "Brak",
+          "Single": "Pojedyncza porcja",
+          "Double": "Podwójna porcja",
+          "Half": "Do połowy",
+          "Full": "Pełny"
+        }
+      },
+      "recipe_id": {
+        "name": "ID przepisu",
+        "state": {
+          "Manual": "Ręczny",
+          "FrenchFries": "Frytki",
+          "ChickenWing": "Skrzydełka",
+          "Fish": "Ryba",
+          "Steak": "Stek",
+          "Shrimp": "Krewetki",
+          "Vegetables": "Warzywa",
+          "Cake": "Ciasto",
+          "DriedFruit": "Suszone owoce",
+          "Yogurt": "Jogurt",
+          "Defrost": "Rozmrażanie"
+        }
+      }
+    },
+    "button": {
+      "pause": {
+        "name": "Wstrzymaj"
+      },
+      "resume": {
+        "name": "Wznów"
+      }
+    },
+    "switch": {
+      "preheat": {
+        "name": "Nagrzewanie"
+      },
+      "turn_pot_config": {
+        "name": "Przypomnienie o przewróceniu"
+      }
     }
   }
 }

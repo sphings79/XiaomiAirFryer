@@ -28,6 +28,8 @@ from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from homeassistant.components.xiaomi_miio.const import (
     CONF_FLOW_TYPE,
 )
+from .entity import XiaomiAirFryerControl
+
 from .const import (
     ATTR_FOOD_QUANTY,
     ATTR_TIME,
@@ -242,6 +244,19 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
                 DOMAIN, service, async_service_handler, schema=schema
             )
 
+    # Settings that are simply on or off, where the model supports them.
+    mapping = getattr(coordinator.device, "mapping", {}) or {}
+    for key, attribute, method in (
+        ("preheat", "preheat_switch", "preheat"),
+        ("turn_pot_config", "turn_pot_config", "turn_pot_config"),
+    ):
+        source = "preheat_switch" if key == "preheat" else key
+        if source in mapping or (key == "preheat" and "preheat" in mapping):
+            attribute = attribute if source in mapping else "preheat"
+            entities.append(
+                XiaomiAirFryerToggle(coordinator, config_entry, key, attribute, method)
+            )
+
     async_add_entities(entities, update_before_add=False)
 
 
@@ -382,3 +397,36 @@ class XiaomiAirFryer(CoordinatorEntity, SwitchEntity):
     async def async_target_temperature(self, target_temperature: int):
         """Set target temperature."""
         await self._async_call_device(self._device.target_temperature, target_temperature)
+
+
+class XiaomiAirFryerToggle(XiaomiAirFryerControl, SwitchEntity):
+    """A setting on the fryer that is simply on or off."""
+
+    def __init__(self, coordinator, entry, key, attribute, method):
+        """Initialize the toggle."""
+        super().__init__(coordinator, entry, key)
+        self._attribute = attribute
+        self._method_name = method
+
+    @property
+    def is_on(self):
+        """Return whether the setting is on, as last reported."""
+        value = self._status_value(self._attribute)
+
+        if value is None:
+            return None
+
+        # preheat_switch is an enum (1 off, 2 on), the others are plain.
+        name = getattr(value, "name", None)
+        if name is not None:
+            return name == "On"
+
+        return bool(value)
+
+    async def async_turn_on(self, **kwargs):
+        """Turn the setting on."""
+        await self._async_write(getattr(self._device, self._method_name), True)
+
+    async def async_turn_off(self, **kwargs):
+        """Turn the setting off."""
+        await self._async_write(getattr(self._device, self._method_name), False)

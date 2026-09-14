@@ -3,7 +3,7 @@ from datetime import timedelta
 
 DEFAULT_NAME = "Xiaomi AirFryer"
 DOMAIN = "xiaomi_airfryer"
-DOMAINS = ["sensor", "switch"]
+DOMAINS = ["sensor", "switch", "number", "select", "button"]
 DATA_KEY = "xiaomi_airfryer_data"
 DATA_STATE = "state"
 DATA_DEVICE = "device"

@@ -244,6 +244,61 @@
           "NeedTurnOverPot": "請翻面"
         }
       }
+    },
+    "number": {
+      "target_time": {
+        "name": "目標時間"
+      },
+      "target_temperature": {
+        "name": "目標溫度"
+      },
+      "appoint_time": {
+        "name": "預約啟動"
+      }
+    },
+    "select": {
+      "food_quanty": {
+        "name": "食材份量",
+        "state": {
+          "Null": "無",
+          "Single": "單份",
+          "Double": "雙份",
+          "Half": "半滿",
+          "Full": "全滿"
+        }
+      },
+      "recipe_id": {
+        "name": "食譜編號",
+        "state": {
+          "Manual": "手動",
+          "FrenchFries": "薯條",
+          "ChickenWing": "雞翅",
+          "Fish": "魚",
+          "Steak": "牛排",
+          "Shrimp": "蝦",
+          "Vegetables": "蔬菜",
+          "Cake": "蛋糕",
+          "DriedFruit": "果乾",
+          "Yogurt": "優格",
+          "Defrost": "解凍"
+        }
+      }
+    },
+    "button": {
+      "pause": {
+        "name": "暫停"
+      },
+      "resume": {
+        "name": "繼續"
+      }
+    },
+    "switch": {
+      "preheat": {
+        "name": "預熱"
+      },
+      "turn_pot_config": {
+        "name": "翻面提醒"
+      }
     }
   }
 }

@@ -244,6 +244,61 @@
           "NeedTurnOverPot": "Vend maden"
         }
       }
+    },
+    "number": {
+      "target_time": {
+        "name": "Måltid"
+      },
+      "target_temperature": {
+        "name": "Måltemperatur"
+      },
+      "appoint_time": {
+        "name": "Udskudt start"
+      }
+    },
+    "select": {
+      "food_quanty": {
+        "name": "Mængde",
+        "state": {
+          "Null": "Ingen",
+          "Single": "Enkelt portion",
+          "Double": "Dobbelt portion",
+          "Half": "Halvt fyldt",
+          "Full": "Fuld"
+        }
+      },
+      "recipe_id": {
+        "name": "Opskrifts-ID",
+        "state": {
+          "Manual": "Manuel",
+          "FrenchFries": "Pommes frites",
+          "ChickenWing": "Kyllingevinger",
+          "Fish": "Fisk",
+          "Steak": "Bøf",
+          "Shrimp": "Rejer",
+          "Vegetables": "Grøntsager",
+          "Cake": "Kage",
+          "DriedFruit": "Tørret frugt",
+          "Yogurt": "Yoghurt",
+          "Defrost": "Optøning"
+        }
+      }
+    },
+    "button": {
+      "pause": {
+        "name": "Sæt på pause"
+      },
+      "resume": {
+        "name": "Genoptag"
+      }
+    },
+    "switch": {
+      "preheat": {
+        "name": "Forvarmning"
+      },
+      "turn_pot_config": {
+        "name": "Påmindelse om vending"
+      }
     }
   }
 }

@@ -68,6 +68,39 @@
     "switch": {
       "xiaomi_airfryer": {
         "default": "mdi:pot-mix"
+      },
+      "preheat": {
+        "default": "mdi:pot-steam-outline"
+      },
+      "turn_pot_config": {
+        "default": "mdi:rotate-3d-variant"
+      }
+    },
+    "number": {
+      "target_time": {
+        "default": "mdi:menu"
+      },
+      "target_temperature": {
+        "default": "mdi:thermometer"
+      },
+      "appoint_time": {
+        "default": "mdi:timelapse"
+      }
+    },
+    "select": {
+      "food_quanty": {
+        "default": "mdi:scale"
+      },
+      "recipe_id": {
+        "default": "mdi:chef-hat"
+      }
+    },
+    "button": {
+      "pause": {
+        "default": "mdi:pause"
+      },
+      "resume": {
+        "default": "mdi:play"
       }
     }
   },

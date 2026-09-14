@@ -244,6 +244,61 @@
           "NeedTurnOverPot": "Retournez les aliments"
         }
       }
+    },
+    "number": {
+      "target_time": {
+        "name": "Durée cible"
+      },
+      "target_temperature": {
+        "name": "Température cible"
+      },
+      "appoint_time": {
+        "name": "Départ différé"
+      }
+    },
+    "select": {
+      "food_quanty": {
+        "name": "Quantité",
+        "state": {
+          "Null": "Aucun",
+          "Single": "Portion simple",
+          "Double": "Portion double",
+          "Half": "À moitié plein",
+          "Full": "Plein"
+        }
+      },
+      "recipe_id": {
+        "name": "ID de recette",
+        "state": {
+          "Manual": "Manuel",
+          "FrenchFries": "Frites",
+          "ChickenWing": "Ailes de poulet",
+          "Fish": "Poisson",
+          "Steak": "Steak",
+          "Shrimp": "Crevettes",
+          "Vegetables": "Légumes",
+          "Cake": "Gâteau",
+          "DriedFruit": "Fruits secs",
+          "Yogurt": "Yaourt",
+          "Defrost": "Décongélation"
+        }
+      }
+    },
+    "button": {
+      "pause": {
+        "name": "Mettre en pause"
+      },
+      "resume": {
+        "name": "Reprendre"
+      }
+    },
+    "switch": {
+      "preheat": {
+        "name": "Préchauffage"
+      },
+      "turn_pot_config": {
+        "name": "Rappel de retournement"
+      }
     }
   }
 }

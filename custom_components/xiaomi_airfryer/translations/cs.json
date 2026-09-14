@@ -244,6 +244,61 @@
           "NeedTurnOverPot": "Obraťte pokrm"
         }
       }
+    },
+    "number": {
+      "target_time": {
+        "name": "Cílový čas"
+      },
+      "target_temperature": {
+        "name": "Cílová teplota"
+      },
+      "appoint_time": {
+        "name": "Odložený start"
+      }
+    },
+    "select": {
+      "food_quanty": {
+        "name": "Množství",
+        "state": {
+          "Null": "Žádné",
+          "Single": "Jedna porce",
+          "Double": "Dvojitá porce",
+          "Half": "Poloviční",
+          "Full": "Plné"
+        }
+      },
+      "recipe_id": {
+        "name": "ID receptu",
+        "state": {
+          "Manual": "Ruční",
+          "FrenchFries": "Hranolky",
+          "ChickenWing": "Kuřecí křídla",
+          "Fish": "Ryba",
+          "Steak": "Steak",
+          "Shrimp": "Krevety",
+          "Vegetables": "Zelenina",
+          "Cake": "Koláč",
+          "DriedFruit": "Sušené ovoce",
+          "Yogurt": "Jogurt",
+          "Defrost": "Rozmrazování"
+        }
+      }
+    },
+    "button": {
+      "pause": {
+        "name": "Pozastavit"
+      },
+      "resume": {
+        "name": "Pokračovat"
+      }
+    },
+    "switch": {
+      "preheat": {
+        "name": "Předehřev"
+      },
+      "turn_pot_config": {
+        "name": "Připomenutí obracení"
+      }
     }
   }
 }

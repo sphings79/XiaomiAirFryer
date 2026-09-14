@@ -244,6 +244,61 @@
           "NeedTurnOverPot": "Vänd maten"
         }
       }
+    },
+    "number": {
+      "target_time": {
+        "name": "Måltid"
+      },
+      "target_temperature": {
+        "name": "Måltemperatur"
+      },
+      "appoint_time": {
+        "name": "Fördröjd start"
+      }
+    },
+    "select": {
+      "food_quanty": {
+        "name": "Mängd",
+        "state": {
+          "Null": "Ingen",
+          "Single": "Enkel portion",
+          "Double": "Dubbel portion",
+          "Half": "Halvfull",
+          "Full": "Full"
+        }
+      },
+      "recipe_id": {
+        "name": "Recept-ID",
+        "state": {
+          "Manual": "Manuell",
+          "FrenchFries": "Pommes frites",
+          "ChickenWing": "Kycklingvingar",
+          "Fish": "Fisk",
+          "Steak": "Biff",
+          "Shrimp": "Räkor",
+          "Vegetables": "Grönsaker",
+          "Cake": "Kaka",
+          "DriedFruit": "Torkad frukt",
+          "Yogurt": "Yoghurt",
+          "Defrost": "Upptining"
+        }
+      }
+    },
+    "button": {
+      "pause": {
+        "name": "Pausa"
+      },
+      "resume": {
+        "name": "Återuppta"
+      }
+    },
+    "switch": {
+      "preheat": {
+        "name": "Förvärmning"
+      },
+      "turn_pot_config": {
+        "name": "Påminnelse om vändning"
+      }
     }
   }
 }

@@ -244,6 +244,61 @@
           "NeedTurnOverPot": "Переверните продукты"
         }
       }
+    },
+    "number": {
+      "target_time": {
+        "name": "Целевое время"
+      },
+      "target_temperature": {
+        "name": "Целевая температура"
+      },
+      "appoint_time": {
+        "name": "Отложенный старт"
+      }
+    },
+    "select": {
+      "food_quanty": {
+        "name": "Количество",
+        "state": {
+          "Null": "Нет",
+          "Single": "Одна порция",
+          "Double": "Двойная порция",
+          "Half": "Наполовину",
+          "Full": "Полная"
+        }
+      },
+      "recipe_id": {
+        "name": "ID рецепта",
+        "state": {
+          "Manual": "Ручной",
+          "FrenchFries": "Картофель фри",
+          "ChickenWing": "Куриные крылышки",
+          "Fish": "Рыба",
+          "Steak": "Стейк",
+          "Shrimp": "Креветки",
+          "Vegetables": "Овощи",
+          "Cake": "Кекс",
+          "DriedFruit": "Сухофрукты",
+          "Yogurt": "Йогурт",
+          "Defrost": "Разморозка"
+        }
+      }
+    },
+    "button": {
+      "pause": {
+        "name": "Пауза"
+      },
+      "resume": {
+        "name": "Продолжить"
+      }
+    },
+    "switch": {
+      "preheat": {
+        "name": "Разогрев"
+      },
+      "turn_pot_config": {
+        "name": "Напоминание перевернуть"
+      }
     }
   }
 }

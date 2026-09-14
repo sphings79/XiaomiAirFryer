@@ -244,6 +244,61 @@
           "NeedTurnOverPot": "Keer het eten om"
         }
       }
+    },
+    "number": {
+      "target_time": {
+        "name": "Doeltijd"
+      },
+      "target_temperature": {
+        "name": "Doeltemperatuur"
+      },
+      "appoint_time": {
+        "name": "Uitgestelde start"
+      }
+    },
+    "select": {
+      "food_quanty": {
+        "name": "Hoeveelheid",
+        "state": {
+          "Null": "Geen",
+          "Single": "Enkele portie",
+          "Double": "Dubbele portie",
+          "Half": "Half vol",
+          "Full": "Vol"
+        }
+      },
+      "recipe_id": {
+        "name": "Recept-ID",
+        "state": {
+          "Manual": "Handmatig",
+          "FrenchFries": "Frieten",
+          "ChickenWing": "Kippenvleugels",
+          "Fish": "Vis",
+          "Steak": "Biefstuk",
+          "Shrimp": "Garnalen",
+          "Vegetables": "Groenten",
+          "Cake": "Cake",
+          "DriedFruit": "Gedroogd fruit",
+          "Yogurt": "Yoghurt",
+          "Defrost": "Ontdooien"
+        }
+      }
+    },
+    "button": {
+      "pause": {
+        "name": "Pauzeren"
+      },
+      "resume": {
+        "name": "Hervatten"
+      }
+    },
+    "switch": {
+      "preheat": {
+        "name": "Voorverwarmen"
+      },
+      "turn_pot_config": {
+        "name": "Omdraaiherinnering"
+      }
     }
   }
 }

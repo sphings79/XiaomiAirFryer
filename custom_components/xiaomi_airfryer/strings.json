@@ -244,6 +244,61 @@
           "NeedTurnOverPot": "Turn the food"
         }
       }
+    },
+    "number": {
+      "target_time": {
+        "name": "Target time"
+      },
+      "target_temperature": {
+        "name": "Target temperature"
+      },
+      "appoint_time": {
+        "name": "Delayed start"
+      }
+    },
+    "select": {
+      "food_quanty": {
+        "name": "Food quantity",
+        "state": {
+          "Null": "None",
+          "Single": "Single portion",
+          "Double": "Double portion",
+          "Half": "Half full",
+          "Full": "Full"
+        }
+      },
+      "recipe_id": {
+        "name": "Recipe ID",
+        "state": {
+          "Manual": "Manual",
+          "FrenchFries": "French fries",
+          "ChickenWing": "Chicken wings",
+          "Fish": "Fish",
+          "Steak": "Steak",
+          "Shrimp": "Shrimp",
+          "Vegetables": "Vegetables",
+          "Cake": "Cake",
+          "DriedFruit": "Dried fruit",
+          "Yogurt": "Yoghurt",
+          "Defrost": "Defrost"
+        }
+      }
+    },
+    "button": {
+      "pause": {
+        "name": "Pause"
+      },
+      "resume": {
+        "name": "Resume"
+      }
+    },
+    "switch": {
+      "preheat": {
+        "name": "Preheat"
+      },
+      "turn_pot_config": {
+        "name": "Turn food reminder"
+      }
     }
   }
 }

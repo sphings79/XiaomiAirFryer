@@ -244,6 +244,61 @@
           "NeedTurnOverPot": "Αναποδογυρίστε το φαγητό"
         }
       }
+    },
+    "number": {
+      "target_time": {
+        "name": "Χρόνος στόχος"
+      },
+      "target_temperature": {
+        "name": "Θερμοκρασία στόχος"
+      },
+      "appoint_time": {
+        "name": "Καθυστερημένη έναρξη"
+      }
+    },
+    "select": {
+      "food_quanty": {
+        "name": "Ποσότητα",
+        "state": {
+          "Null": "Κανένα",
+          "Single": "Μονή μερίδα",
+          "Double": "Διπλή μερίδα",
+          "Half": "Μισογεμάτο",
+          "Full": "Γεμάτο"
+        }
+      },
+      "recipe_id": {
+        "name": "Αναγνωριστικό συνταγής",
+        "state": {
+          "Manual": "Χειροκίνητο",
+          "FrenchFries": "Τηγανητές πατάτες",
+          "ChickenWing": "Φτερούγες κοτόπουλου",
+          "Fish": "Ψάρι",
+          "Steak": "Μπριζόλα",
+          "Shrimp": "Γαρίδες",
+          "Vegetables": "Λαχανικά",
+          "Cake": "Κέικ",
+          "DriedFruit": "Αποξηραμένα φρούτα",
+          "Yogurt": "Γιαούρτι",
+          "Defrost": "Απόψυξη"
+        }
+      }
+    },
+    "button": {
+      "pause": {
+        "name": "Παύση"
+      },
+      "resume": {
+        "name": "Συνέχεια"
+      }
+    },
+    "switch": {
+      "preheat": {
+        "name": "Προθέρμανση"
+      },
+      "turn_pot_config": {
+        "name": "Υπενθύμιση αναποδογυρίσματος"
+      }
     }
   }
 }

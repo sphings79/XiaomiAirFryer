@@ -244,6 +244,61 @@
           "NeedTurnOverPot": "Bitte wenden"
         }
       }
+    },
+    "number": {
+      "target_time": {
+        "name": "Zielzeit"
+      },
+      "target_temperature": {
+        "name": "Zieltemperatur"
+      },
+      "appoint_time": {
+        "name": "Startverzögerung"
+      }
+    },
+    "select": {
+      "food_quanty": {
+        "name": "Füllmenge",
+        "state": {
+          "Null": "Keine",
+          "Single": "Einfache Portion",
+          "Double": "Doppelte Portion",
+          "Half": "Halb voll",
+          "Full": "Voll"
+        }
+      },
+      "recipe_id": {
+        "name": "Rezept-ID",
+        "state": {
+          "Manual": "Manuell",
+          "FrenchFries": "Pommes frites",
+          "ChickenWing": "Hähnchenflügel",
+          "Fish": "Fisch",
+          "Steak": "Steak",
+          "Shrimp": "Garnelen",
+          "Vegetables": "Gemüse",
+          "Cake": "Kuchen",
+          "DriedFruit": "Trockenobst",
+          "Yogurt": "Joghurt",
+          "Defrost": "Auftauen"
+        }
+      }
+    },
+    "button": {
+      "pause": {
+        "name": "Pausieren"
+      },
+      "resume": {
+        "name": "Fortsetzen"
+      }
+    },
+    "switch": {
+      "preheat": {
+        "name": "Vorheizen"
+      },
+      "turn_pot_config": {
+        "name": "Wende-Erinnerung"
+      }
     }
   }
 }

@@ -1057,6 +1057,19 @@ class FryerMiot(MiotDevice):
         return self.set_property("appoint_time", minutes)
 
     @command(
+        click.argument("turn_pot_config", type=bool),
+        default_output=format_output("Setting turn pot reminder to {turn_pot_config}"),
+    )
+    def turn_pot_config(self, turn_pot_config: bool):
+        """Turn the reminder to turn the food on or off."""
+        if "turn_pot_config" not in self.mapping:
+            raise DeviceException(
+                "Turn pot reminder is not supported by %s" % self._model
+            )
+
+        return self.set_property("turn_pot_config", 1 if turn_pot_config else 0)
+
+    @command(
         click.argument("preheat", type=bool),
         default_output=format_output("Setting preheat to {preheat}"),
     )
