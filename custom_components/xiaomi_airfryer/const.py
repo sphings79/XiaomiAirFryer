@@ -94,6 +94,7 @@ MODELS_XIAOMI = [
 MODELS_ALL_DEVICES = MODELS_CARELI + MODELS_SILEN + MODELS_MIOT + MODELS_VIOMI + MODELS_XIAOMI
 
 ATTR_FOOD_QUANTY = "food_quanty"
+ATTR_PREHEAT = "preheat"
 ATTR_MODEL = "model"
 ATTR_MODE = "mode"
 ATTR_TIME = "time"
@@ -109,6 +110,7 @@ SCAN_INTERVAL = timedelta(seconds=30)
 SERVICE_START = "start"
 SERVICE_STOP = "stop"
 SERVICE_PAUSE = "pause"
+SERVICE_PREHEAT = "preheat"
 SERVICE_START_CUSTOM = "start_custom"
 SERVICE_RESUME = "resume"
 SERVICE_APPOINT_TIME = "appoint_time"

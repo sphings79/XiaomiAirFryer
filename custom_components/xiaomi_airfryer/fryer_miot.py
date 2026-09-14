@@ -914,12 +914,33 @@ class FryerMiot(MiotDevice):
         click.argument("hours", type=int),
         default_output=format_output("Setting appoint time to {hours} hours"),
     )
-    def appoint_time(self, hours: int):
-        """Set appoint time hours."""
-        if hours < 0 or hours > 24 * 60:
-            raise DeviceException("Invalid value for a appoint time: %s" % hours)
+    def appoint_time(self, minutes: int):
+        """Set the delay in minutes before cooking starts."""
+        # The parameter used to be called hours while being validated and sent
+        # as minutes, and the service selector offered a 1-24 range to match
+        # the name -- so asking for "2" meant two minutes, not two hours.
+        if minutes < 0 or minutes > 24 * 60:
+            raise DeviceException("Invalid value for a appoint time: %s" % minutes)
 
-        return self.set_property("appoint_time", hours)
+        return self.set_property("appoint_time", minutes)
+
+    @command(
+        click.argument("preheat", type=bool),
+        default_output=format_output("Setting preheat to {preheat}"),
+    )
+    def preheat(self, preheat: bool):
+        """Turn the preheat phase on or off."""
+        # Two spellings exist across the models: preheat_switch is an enum
+        # (1 off, 2 on), preheat is a plain bool.
+        if "preheat_switch" in self.mapping:
+            return self.set_property("preheat_switch", 2 if preheat else 1)
+
+        if "preheat" in self.mapping:
+            return self.set_property("preheat", preheat)
+
+        raise DeviceException(
+            "Preheat is not supported by %s" % self._model
+        )
 
     @command(
         click.argument("recipe_id", type=str),

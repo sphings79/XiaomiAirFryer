@@ -1,3 +1,21 @@
+preheat:
+  name: Preheat
+  description: Turn the preheat phase on or off. Not every model supports it.
+  fields:
+    entity_id:
+      description: Name of the xiaomi airfryer entity.
+      selector:
+        entity:
+          integration: xiaomi_airfryer
+          domain: switch
+    preheat:
+      name: Preheat
+      description: Whether the fryer should preheat before cooking.
+      required: true
+      example: true
+      selector:
+        boolean:
+
 start:
   name: Start AirFryer Cooking
   description: Start cooking a profile.
@@ -78,11 +96,15 @@ appoint_time:
           domain: switch
     time:
       name: Time
-      description: Appoint Time.
+      description: >-
+        Delay in minutes before cooking starts, up to 1440 (24 hours).
+        Set 0 to clear a pending appointment.
+      example: 120
       selector:
         number:
-          min: 1
-          max: 24
+          min: 0
+          max: 1440
+          unit_of_measurement: min
 
 recipe_id:
   name: Set Recipe ID of AirFryer

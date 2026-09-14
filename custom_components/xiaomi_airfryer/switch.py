@@ -31,6 +31,7 @@ from .const import (
     ATTR_RECIPE_ID,
     ATTR_MODE,
     ATTR_MODEL,
+    ATTR_PREHEAT,
     ATTR_TARGET_TEMPERATURE,
     ATTR_TARGET_TIME,
     CONF_MODEL,
@@ -44,6 +45,7 @@ from .const import (
     SERVICE_APPOINT_TIME,
     SERVICE_FOOD_QUANTY,
     SERVICE_PAUSE,
+    SERVICE_PREHEAT,
     SERVICE_START,
     SERVICE_STOP,
     SERVICE_START_CUSTOM,
@@ -92,6 +94,10 @@ SERVICE_SCHEMA_APPOINT_TIME = SERVICE_SCHEMA.extend(
     {vol.Required(ATTR_TIME): cv.positive_int}
 )
 
+SERVICE_SCHEMA_PREHEAT = SERVICE_SCHEMA.extend(
+    {vol.Required(ATTR_PREHEAT): cv.boolean}
+)
+
 SERVICE_SCHEMA_FOOD_QUANTY = SERVICE_SCHEMA.extend(
     {vol.Required(ATTR_FOOD_QUANTY): cv.positive_int}
 )
@@ -116,6 +122,10 @@ SERVICE_TO_METHOD = {
     SERVICE_START_CUSTOM: {
         "method": "async_start_custom",
         "schema": SERVICE_SCHEMA_START_CUSTOM,
+    },
+    SERVICE_PREHEAT: {
+        "method": "async_preheat",
+        "schema": SERVICE_SCHEMA_PREHEAT,
     },
     SERVICE_FOOD_QUANTY: {
         "method": "async_food_quanty",
@@ -325,6 +335,11 @@ class XiaomiAirFryer(CoordinatorEntity, SwitchEntity):
         await self.hass.async_add_executor_job(
             self._device.start_custom_cook, mode_value
         )
+
+    async def async_preheat(self, preheat: bool):
+        """Turn the preheat phase on or off."""
+        await self.hass.async_add_executor_job(self._device.preheat, preheat)
+        await self.coordinator.async_request_refresh()
 
     async def async_food_quanty(self, food_quanty: int):
         """Set food quanty."""
