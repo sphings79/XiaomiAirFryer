@@ -174,7 +174,10 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
             coordinator = hass.data[DOMAIN][config_entry.entry_id]
             device = XiaomiAirFryer(name, coordinator, config_entry, unique_id)
             entities.append(device)
-            hass.data[DATA_KEY][host][DATA_DEVICE] = device
+            # setdefault rather than indexing: this raised a KeyError when a
+            # second fryer was set up (issue #43), which aborted the whole
+            # switch platform for that entry.
+            hass.data[DATA_KEY].setdefault(host, {})[DATA_DEVICE] = device
         else:
             _LOGGER.error(
                 "Unsupported device found! Please create an issue at "
