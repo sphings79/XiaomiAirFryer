@@ -4,6 +4,13 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.0.1] - 2026-09-14
+
+### Fixed
+
+- The "Unsupported device found" message pointed at the upstream issue tracker,
+  so reports about missing models never reached this repository.
+
 ## [2.0.0] - 2026-09-14
 
 First release of the independently maintained continuation of

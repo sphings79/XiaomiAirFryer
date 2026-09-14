@@ -194,7 +194,7 @@ async def async_setup_entry(hass, config, async_add_devices, discovery_info=None
     else:
         _LOGGER.error(
             "Unsupported device found! Please create an issue at "
-            "https://github.com/tsunglung/XiaomiAirFryer/issues "
+            "https://github.com/sphings79/XiaomiAirFryer/issues "
             "and provide the following data: %s",
             model,
         )
