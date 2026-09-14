@@ -8,7 +8,9 @@ import voluptuous as vol
 from homeassistant import config_entries
 from homeassistant.config_entries import SOURCE_REAUTH
 from homeassistant.core import callback
+from homeassistant.components.file_upload import process_uploaded_file
 from homeassistant.helpers.device_registry import format_mac
+from homeassistant.helpers.selector import FileSelector, FileSelectorConfig
 from homeassistant.const import (
     CONF_HOST,
     CONF_NAME,
@@ -34,6 +36,7 @@ from homeassistant.components.xiaomi_miio.const import (
 )
 from homeassistant.components.xiaomi_miio.device import ConnectXiaomiDevice
 
+from .token_backup import TokenBackupException, extract_devices
 from .xiaomi_cloud import XiaomiCloud, XiaomiCloudException
 
 from .const import (
@@ -55,6 +58,18 @@ DEVICE_CLOUD_CONFIG = vol.Schema(
             SERVER_COUNTRY_CODES
         ),
         vol.Optional(CONF_MANUAL, default=False): bool,
+    }
+)
+
+CONF_BACKUP_FILE = "backup_file"
+CONF_BACKUP_PASSWORD = "backup_password"
+
+DEVICE_BACKUP_CONFIG = vol.Schema(
+    {
+        vol.Required(CONF_BACKUP_FILE): FileSelector(
+            FileSelectorConfig(accept=".ab,.db,.sqlite,.sqlite3")
+        ),
+        vol.Optional(CONF_BACKUP_PASSWORD): str,
     }
 )
 
@@ -170,8 +185,44 @@ class XiaomiAirFryerFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         return await self.async_step_connect()
 
     async def async_step_user(self, user_input=None):
-        """Handle a flow initialized by the user."""
-        return await self.async_step_cloud()
+        """Let the user pick how the token should be obtained."""
+        return self.async_show_menu(
+            step_id="user",
+            menu_options=["cloud", "backup", "manual"],
+        )
+
+    async def async_step_backup(self, user_input=None):
+        """Read the token out of a Mi Home app backup, without the cloud."""
+        errors = {}
+
+        if user_input is not None:
+            def _read():
+                with process_uploaded_file(self.hass, user_input[CONF_BACKUP_FILE]) as path:
+                    return extract_devices(str(path), user_input.get(CONF_BACKUP_PASSWORD))
+
+            try:
+                devices_raw = await self.hass.async_add_executor_job(_read)
+            except TokenBackupException as ex:
+                _LOGGER.error("Could not read the backup: %s", ex)
+                errors["base"] = "backup_unreadable"
+            else:
+                self.cloud_devices = {
+                    f"{device['name']} - {device['model']}": device
+                    for device in devices_raw
+                    if device.get("model") in MODELS_ALL_DEVICES
+                }
+
+                if not self.cloud_devices:
+                    errors["base"] = "backup_no_devices"
+                elif len(self.cloud_devices) == 1:
+                    self.extract_cloud_info(list(self.cloud_devices.values())[0])
+                    return await self.async_step_connect()
+                else:
+                    return await self.async_step_select()
+
+        return self.async_show_form(
+            step_id="backup", data_schema=DEVICE_BACKUP_CONFIG, errors=errors
+        )
 
     def _async_update_known_host(self, entry) -> bool:
         """Store a changed IP address on an entry that is already set up.

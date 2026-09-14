@@ -15,7 +15,9 @@
       "cloud_login_error": "無法登入小米 氣炸鍋 雲服務，請檢查憑證。",
       "cloud_no_devices": "小米 氣炸鍋 雲端帳號未找到任何裝置。",
       "no_device_selected": "未選擇裝置，請選擇一項裝置。",
-      "unknown_device": "裝置型號未知，無法使用設定流程。"
+      "unknown_device": "裝置型號未知，無法使用設定流程。",
+      "backup_unreadable": "That file could not be read as a Mi Home backup. If it is an encrypted Android backup, enter its password.",
+      "backup_no_devices": "No supported air fryer was found in that backup."
     },
     "flow_title": "{name}",
     "step": {
@@ -64,11 +66,21 @@
         "title": "連線至小米 氣炸鍋 裝置"
       },
       "user": {
+        "title": "Connect to a Xiaomi Air Fryer",
+        "description": "How should the device token be obtained?",
+        "menu_options": {
+          "cloud": "Sign in to the Xiaomi cloud (scan a QR code)",
+          "backup": "Read it from a Mi Home app backup (no cloud)",
+          "manual": "Enter the IP address and token myself"
+        }
+      },
+      "backup": {
+        "title": "Read the token from a backup",
+        "description": "Upload a Mi Home app backup. On Android that is an `.ab` file made with `adb backup com.xiaomi.smarthome`; an already extracted `miio2.db` works too, as does the database from an iOS backup. Nothing is sent to Xiaomi.",
         "data": {
-          "gateway": "連線至小米網關"
-        },
-        "description": "選擇所要連線的裝置。",
-        "title": "小米 氣炸鍋 "
+          "backup_file": "Backup file",
+          "backup_password": "Backup password (only if encrypted)"
+        }
       }
     },
     "progress": {

@@ -16,7 +16,9 @@
       "cloud_no_devices": "В этом аккаунте Xiaomi Miio устройства не найдены.",
       "no_device_selected": "Не выбрано устройство. Пожалуйста, выберите одно.",
       "unknown_device": "Модель устройства не опознана, невозможно продолжить настройку.",
-      "wrong_token": "Ошибка проверки контрольной суммы, неверный токен"
+      "wrong_token": "Ошибка проверки контрольной суммы, неверный токен",
+      "backup_unreadable": "That file could not be read as a Mi Home backup. If it is an encrypted Android backup, enter its password.",
+      "backup_no_devices": "No supported air fryer was found in that backup."
     },
     "flow_title": "{name}",
     "step": {
@@ -63,6 +65,23 @@
         },
         "description": "Выберите аэрогриль Xiaomi для настройки.",
         "title": "Подключение к аэрогрилю Xiaomi"
+      },
+      "user": {
+        "title": "Connect to a Xiaomi Air Fryer",
+        "description": "How should the device token be obtained?",
+        "menu_options": {
+          "cloud": "Sign in to the Xiaomi cloud (scan a QR code)",
+          "backup": "Read it from a Mi Home app backup (no cloud)",
+          "manual": "Enter the IP address and token myself"
+        }
+      },
+      "backup": {
+        "title": "Read the token from a backup",
+        "description": "Upload a Mi Home app backup. On Android that is an `.ab` file made with `adb backup com.xiaomi.smarthome`; an already extracted `miio2.db` works too, as does the database from an iOS backup. Nothing is sent to Xiaomi.",
+        "data": {
+          "backup_file": "Backup file",
+          "backup_password": "Backup password (only if encrypted)"
+        }
       }
     },
     "progress": {
