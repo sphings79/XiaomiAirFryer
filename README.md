@@ -234,6 +234,9 @@ script:
           entity_id: switch.kitchen_air_fryer
 ```
 
+> An automation matches the **raw state** (`cooked`, `turn_pot`), not the translation.
+> Home Assistant always stores the raw value and translates only for display.
+
 ---
 
 ## Languages
