@@ -1,0 +1,31 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  zip:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Set the version from the tag
+        run: |
+          version="${GITHUB_REF#refs/tags/}"
+          jq --arg v "${version#v}" '.version = $v' \
+            custom_components/xiaomi_airfryer/manifest.json > manifest.tmp
+          mv manifest.tmp custom_components/xiaomi_airfryer/manifest.json
+
+      - name: Build the archive
+        run: |
+          cd custom_components/xiaomi_airfryer
+          zip -r ../../xiaomi_airfryer.zip . -x '*.pyc' -x '__pycache__/*'
+
+      - name: Attach it to the release
+        run: gh release upload "${GITHUB_REF#refs/tags/}" xiaomi_airfryer.zip --clobber
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

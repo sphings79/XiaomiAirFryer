@@ -2,5 +2,7 @@
   "name": "Xiaomi Air Fryer",
   "hide_default_branch": true,
   "homeassistant": "2024.6.0",
-  "render_readme": true
+  "render_readme": true,
+  "zip_release": true,
+  "filename": "xiaomi_airfryer.zip"
 }
