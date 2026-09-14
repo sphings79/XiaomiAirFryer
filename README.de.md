@@ -105,34 +105,44 @@ was welches Modell kann.
 
 | Modell | ID | Zeit | Temp. | Vorwahl | Menge | Vorheizen | Rezeptnamen |
 |---|---|---|---|---|---|---|---|
-| Mi Smart Air Fryer | `careli.fryer.maf01` | ✅ | ✅ | ✅ | ✅ | ✅ | — |
-| Mi Smart Air Fryer | `careli.fryer.maf02` | ✅ | ✅ | ✅ | ✅ | ✅ | — |
-| Mi Smart Air Fryer 3.5L | `careli.fryer.maf03` | ✅ | ✅ | ✅ | ✅ | ✅ | — |
+| Mi Smart Air Fryer | `careli.fryer.maf01` | ✅ | ✅ | ✅ | ✅ | ✅ | ☆ |
+| Mi Smart Air Fryer | `careli.fryer.maf02` | ✅ | ✅ | ✅ | ✅ | ✅ | ☆ |
+| Mi Smart Air Fryer 3.5L | `careli.fryer.maf03` | ✅ | ✅ | ✅ | ✅ | ✅ | ☆ |
 | Xiaomi Smart Air Fryer Pro 4L | `careli.fryer.maf05a` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Mi Smart Air Fryer | `careli.fryer.maf06` | ✅ | ✅ | ✅ | ✅ | ✅ | — |
-| Mijia Smart Air Fryer 4.5L | `careli.fryer.maf06a` | ✅ | ✅ | ✅ | ✅ | ✅ | — |
-| Mijia Smart Air Fryer 4.5L | `careli.fryer.maf06b` | ✅ | ✅ | — | — | — | — |
-| Mi Smart Air Fryer 3.5L Global | `careli.fryer.maf07` | ✅ | ✅ | ✅ | ✅ | ✅ | — |
-| Mijia Smart Air Fryer 5.5L | `careli.fryer.maf07c` | ✅ | ✅ | — | — | — | — |
-| Youban Mijia Smart Air Fryer 6.5L | `careli.fryer.maf09a` | ✅ | ✅ | — | — | — | — |
-| Xiaomi Smart Air Fryer 6.5L | `careli.fryer.maf10` | ✅ | ✅ | ✅ | ✅ | ✅ | — |
-| Mi Smart Air Fryer EU 6.5L | `careli.fryer.maf10a` | ✅ | ✅ | — | — | ✅ | — |
-| Upany Air Fryer YB-02208DTW | `careli.fryer.ybaf01` | ✅ | ✅ | — | — | — | — |
-| Youban Smart Air Fryer 2208DTW | `careli.fryer.ybaf02` | ✅ | ✅ | ✅ | ✅ | ✅ | — |
-| Youban KitchenMi 6007WA | `careli.fryer.ybaf03` | ✅ | ✅ | ✅ | ✅ | ✅ | — |
-| Youban KitchenMi 6007WAB | `careli.fryer.ybaf04` | ✅ | ✅ | ✅ | ✅ | ✅ | — |
-| Mi Smart Air Fryer | `miot.fryer.534` | ✅ | ✅ | — | — | ✅ | — |
-| Silencare Air Fryer 1.8L | `silen.fryer.sck501` | ✅ | ✅ | — | — | — | — |
-| Silencare Silent Smart Air Fryer | `silen.fryer.sck505` | ✅ | ✅ | — | — | — | — |
-| Viomi Smart Air Fryer Pro 6L | `viomi.fryer.v3` | ✅ | ✅ | — | — | — | — |
-| Xiaomi Smart Air Fryer | `xiaomi.fryer.maf07d` | ✅ | ✅ | — | — | — | — |
-| Xiaomi Smart Air Fryer 4.5L Global | `xiaomi.fryer.maf14` | ✅ | ✅ | — | — | — | — |
-| Xiaomi Smart Air Fryer 4.5L | `xiaomi.fryer.maf15` | ✅ | ✅ | — | — | — | — |
-| Xiaomi Smart Air Fryer | `xiaomi.fryer.maf16` | ✅ | ✅ | — | — | — | — |
+| Mi Smart Air Fryer | `careli.fryer.maf06` | ✅ | ✅ | ✅ | ✅ | ✅ | ☆ |
+| Mijia Smart Air Fryer 4.5L | `careli.fryer.maf06a` | ✅ | ✅ | ✅ | ✅ | ✅ | ☆ |
+| Mijia Smart Air Fryer 4.5L | `careli.fryer.maf06b` | ✅ | ✅ | — | — | — | ☆ |
+| Mi Smart Air Fryer 3.5L Global | `careli.fryer.maf07` | ✅ | ✅ | ✅ | ✅ | ✅ | ☆ |
+| Mijia Smart Air Fryer 5.5L | `careli.fryer.maf07c` | ✅ | ✅ | — | — | — | ☆ |
+| Youban Mijia Smart Air Fryer 6.5L | `careli.fryer.maf09a` | ✅ | ✅ | — | — | — | ☆ |
+| Xiaomi Smart Air Fryer 6.5L | `careli.fryer.maf10` | ✅ | ✅ | ✅ | ✅ | ✅ | ☆ |
+| Mi Smart Air Fryer EU 6.5L | `careli.fryer.maf10a` | ✅ | ✅ | — | — | ✅ | ☆ |
+| Upany Air Fryer YB-02208DTW | `careli.fryer.ybaf01` | ✅ | ✅ | — | — | — | ☆ |
+| Youban Smart Air Fryer 2208DTW | `careli.fryer.ybaf02` | ✅ | ✅ | ✅ | ✅ | ✅ | ☆ |
+| Youban KitchenMi 6007WA | `careli.fryer.ybaf03` | ✅ | ✅ | ✅ | ✅ | ✅ | ☆ |
+| Youban KitchenMi 6007WAB | `careli.fryer.ybaf04` | ✅ | ✅ | ✅ | ✅ | ✅ | ☆ |
+| Mi Smart Air Fryer | `miot.fryer.534` | ✅ | ✅ | — | — | ✅ | ☆ |
+| Silencare Air Fryer 1.8L | `silen.fryer.sck501` | ✅ | ✅ | — | — | — | ☆ |
+| Silencare Silent Smart Air Fryer | `silen.fryer.sck505` | ✅ | ✅ | — | — | — | ☆ |
+| Viomi Smart Air Fryer Pro 6L | `viomi.fryer.v3` | ✅ | ✅ | — | — | — | ☆ |
+| Xiaomi Smart Air Fryer | `xiaomi.fryer.maf07d` | ✅ | ✅ | — | — | — | ☆ |
+| Xiaomi Smart Air Fryer 4.5L Global | `xiaomi.fryer.maf14` | ✅ | ✅ | — | — | — | ☆ |
+| Xiaomi Smart Air Fryer 4.5L | `xiaomi.fryer.maf15` | ✅ | ✅ | — | — | — | ☆ |
+| Xiaomi Smart Air Fryer | `xiaomi.fryer.maf16` | ✅ | ✅ | — | — | — | ☆ |
 
-**Rezeptnamen** heißt: Die Integration weiß, welches Rezept in Slot `M1`, `M2` und so
-weiter liegt, und zeigt *Pommes frites* statt `M1`. Das muss pro Modell an einem echten
-Gerät ermittelt werden. Beiträge sind sehr willkommen — siehe [Mitmachen](#mitmachen).
+✅ unterstützt · — kann das Modell nicht · ☆ Rezept-Slots noch nicht zugeordnet
+
+> [!WARNING]
+> **☆ in der letzten Spalte heißt: Für dieses Modell sind die Rezept-Slots noch unbekannt.**
+> Die Fritteuse meldet immer nur `M1`, `M2` und so weiter — welches Gericht in welchem Slot
+> liegt, entscheidet die Mi-Home-App und nicht das Gerät. Das muss deshalb pro Modell an
+> einer echten Fritteuse ermittelt werden. Bis dahin zeigen diese Modelle den rohen Slot.
+>
+> **Das ist der eine Punkt, den ich nicht allein lösen kann** — mir steht nur eine `maf05a`
+> zur Verfügung. Wer ein anderes Modell hat: in der Mi-Home-App die Rezepte nacheinander
+> auswählen, notieren welche `M`-Nummer dabei in `sensor.…_recipe_id` erscheint, und die
+> Liste als Issue schicken. Fünf Minuten Arbeit, und aus einem ☆ wird ein ✅ für alle mit
+> dieser Fritteuse. Siehe [Mitmachen](#mitmachen).
 
 Deine Fritteuse fehlt? Öffne eine
 [Modell-Anfrage](https://github.com/sphings79/XiaomiAirFryer/issues/new?template=model_request.yml)
@@ -238,9 +248,9 @@ script:
 Entitätsnamen, deren **Zustände** und der komplette Einrichtungsdialog sind in vierzehn
 Sprachen übersetzt:
 
-Chinesisch (traditionell) · Dänisch · Deutsch · Englisch · Französisch · Griechisch ·
-Italienisch · Niederländisch · Polnisch · Portugiesisch · Russisch · Schwedisch ·
-Spanisch · Tschechisch
+🇹🇼 Chinesisch (traditionell) · 🇩🇰 Dänisch · 🇩🇪 Deutsch · 🇬🇧 Englisch · 🇫🇷 Französisch ·
+🇬🇷 Griechisch · 🇮🇹 Italienisch · 🇳🇱 Niederländisch · 🇵🇱 Polnisch · 🇵🇹 Portugiesisch ·
+🇷🇺 Russisch · 🇸🇪 Schwedisch · 🇪🇸 Spanisch · 🇨🇿 Tschechisch
 
 Das schließt die Werte selbst ein: Im Dashboard steht *Gart* und *Kein Wenden nötig* statt
 `cooking` und `not_turn_pot`, Rezepte erscheinen als *Pommes frites* statt `M1`.
