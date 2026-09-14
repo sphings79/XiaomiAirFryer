@@ -13,6 +13,15 @@ _LOGGER = logging.getLogger(__name__)
 BUTTONS = {
     "pause": ("pause", "pause"),
     "resume": ("resume_cooking", "resume_cooking"),
+    # dual basket models: each basket starts, pauses and stops on its own
+    "upper_start": ("upper_start_cook", "upper_start_cook"),
+    "upper_pause": ("upper_pause", "upper_pause"),
+    "upper_resume": ("upper_resume_cooking", "upper_resume_cooking"),
+    "upper_stop": ("upper_cancel_cooking", "upper_cancel_cooking"),
+    "lower_start": ("lower_start_cook", "lower_start_cook"),
+    "lower_pause": ("lower_pause", "lower_pause"),
+    "lower_resume": ("lower_resume_cooking", "lower_resume_cooking"),
+    "lower_stop": ("lower_cancel_cooking", "lower_cancel_cooking"),
 }
 
 

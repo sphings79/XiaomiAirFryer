@@ -248,8 +248,14 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
     for key, attribute, method in (
         ("preheat", "preheat_switch", "preheat"),
         ("turn_pot_config", "turn_pot_config", "turn_pot_config"),
+        # dual basket models
+        ("upper_turn_pot_config", "upper_turn_pot_config", "upper_turn_pot_config"),
+        ("lower_turn_pot_config", "lower_turn_pot_config", "lower_turn_pot_config"),
+        ("end_cooking_together", "end_cooking_together", "end_cooking_together"),
     ):
         source = "preheat_switch" if key == "preheat" else key
+        if key.endswith("turn_pot_config") and key != "turn_pot_config":
+            source = key.replace("turn_pot_config", "turn_pot_reminder")
         if source in mapping or (key == "preheat" and "preheat" in mapping):
             attribute = attribute if source in mapping else "preheat"
             entities.append(

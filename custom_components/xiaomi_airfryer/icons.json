@@ -19,6 +19,21 @@
       "left_time": {
         "default": "mdi:timer"
       },
+      "lower_left_time": {
+        "default": "mdi:timer"
+      },
+      "lower_mode": {
+        "default": "mdi:stairs"
+      },
+      "lower_recipe_id": {
+        "default": "mdi:rice"
+      },
+      "lower_status": {
+        "default": "mdi:bowl"
+      },
+      "lower_turn_pot": {
+        "default": "mdi:rotate-3d-variant"
+      },
       "mode": {
         "default": "mdi:stairs"
       },
@@ -63,44 +78,110 @@
       },
       "turn_pot_status": {
         "default": "mdi:rotate-3d-variant"
+      },
+      "upper_left_time": {
+        "default": "mdi:timer"
+      },
+      "upper_mode": {
+        "default": "mdi:stairs"
+      },
+      "upper_recipe_id": {
+        "default": "mdi:rice"
+      },
+      "upper_status": {
+        "default": "mdi:bowl"
+      },
+      "upper_turn_pot": {
+        "default": "mdi:rotate-3d-variant"
       }
     },
     "switch": {
-      "xiaomi_airfryer": {
-        "default": "mdi:pot-mix"
+      "end_cooking_together": {
+        "default": "mdi:timer-sync-outline"
+      },
+      "lower_turn_pot_config": {
+        "default": "mdi:rotate-3d-variant"
       },
       "preheat": {
         "default": "mdi:pot-steam-outline"
       },
       "turn_pot_config": {
         "default": "mdi:rotate-3d-variant"
+      },
+      "upper_turn_pot_config": {
+        "default": "mdi:rotate-3d-variant"
+      },
+      "xiaomi_airfryer": {
+        "default": "mdi:pot-mix"
       }
     },
     "number": {
-      "target_time": {
+      "appoint_time": {
+        "default": "mdi:timelapse"
+      },
+      "lower_target_temperature": {
+        "default": "mdi:thermometer"
+      },
+      "lower_target_time": {
         "default": "mdi:menu"
       },
       "target_temperature": {
         "default": "mdi:thermometer"
       },
-      "appoint_time": {
-        "default": "mdi:timelapse"
+      "target_time": {
+        "default": "mdi:menu"
+      },
+      "upper_target_temperature": {
+        "default": "mdi:thermometer"
+      },
+      "upper_target_time": {
+        "default": "mdi:menu"
       }
     },
     "select": {
       "food_quanty": {
         "default": "mdi:scale"
       },
+      "lower_recipe_id": {
+        "default": "mdi:chef-hat"
+      },
       "recipe_id": {
+        "default": "mdi:chef-hat"
+      },
+      "upper_recipe_id": {
         "default": "mdi:chef-hat"
       }
     },
     "button": {
+      "lower_pause": {
+        "default": "mdi:pause"
+      },
+      "lower_resume": {
+        "default": "mdi:play"
+      },
+      "lower_start": {
+        "default": "mdi:play-circle"
+      },
+      "lower_stop": {
+        "default": "mdi:stop-circle"
+      },
       "pause": {
         "default": "mdi:pause"
       },
       "resume": {
         "default": "mdi:play"
+      },
+      "upper_pause": {
+        "default": "mdi:pause"
+      },
+      "upper_resume": {
+        "default": "mdi:play"
+      },
+      "upper_start": {
+        "default": "mdi:play-circle"
+      },
+      "upper_stop": {
+        "default": "mdi:stop-circle"
       }
     }
   },

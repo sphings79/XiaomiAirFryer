@@ -29,7 +29,7 @@ from .const import (
     MODELS_SILEN,
     MODELS_VIOMI,
     MODELS_XIAOMI, MODEL_FRYER_MAF07C, MODEL_FRYER_MAF09A, MODEL_FRYER_MAF65,
-    MODEL_FRYER_ST701O
+    MODEL_FRYER_ST701O, MODELS_DUAL_BASKET
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -48,6 +48,9 @@ SENSOR_OPTIONS = {
         # the steam combi models add water-related states
         "WaterShortagePause", "WaterShortTimeout", "WaterShortPaused",
         "StandbyNetworking",
+        # the dual basket models report their own cycle
+        "WaitCooking", "WaitCookingPause", "CoolingDown", "CoolingFinish",
+        "CookCancel", "KeepwarmCancel", "CoolingDownAlt", "ConnectedStandby",
     ],
     "mode": [
         "Manual", "FrenchFries", "ChickenWing", "Steak", "LambChops", "Fish",
@@ -63,6 +66,9 @@ SENSOR_OPTIONS = {
         "BakePizza", "BakeBread", "SousVideCustom", "SousVideBeefSteak",
         "SousVideChickenSteak", "SousVideSalmon", "SousVideEgg", "Roast",
         "AirDry", "Ferment", "CareDry", "CareWaterCleaning", "CareDeodorize",
+        # programmes of the dual basket models
+        "ChickenDrumstick", "Reheat", "ManualDouble", "ChickenAndPotato",
+        "ChickenAndBroccoli", "SalmonAndAsparagus", "SteakAndAsparagus",
     ],
     "food_quanty": ["Unknown", "Null", "Single", "Double", "Half", "Full"],
     "turn_pot": [
@@ -77,6 +83,12 @@ SENSOR_OPTIONS = {
         "AirFryer", "SteamFrying", "Steam",
     ],
 }
+
+# The dual basket models carry one set of readings per basket; they take the
+# same value lists as the shared ones.
+for _basket in ("upper", "lower"):
+    for _key in ("status", "mode", "turn_pot"):
+        SENSOR_OPTIONS[f"{_basket}_{_key}"] = SENSOR_OPTIONS[_key]
 
 
 SENSOR_TYPES_MAF = {
@@ -151,6 +163,21 @@ SENSOR_TYPES_XIAOMI = {
     "turn_pot": ["Turn Pot", None, "turn_pot", None, "mdi:rotate-3d-variant", None],
 }
 
+SENSOR_TYPES_JL12 = {
+    "status": ["Status", None, "status", None, "mdi:bowl", None],
+    "left_time": ["Remaining", None, "left_time", UnitOfTime.MINUTES, "mdi:timer", None],
+    "upper_status": ["Upper Basket Status", None, "upper_status", None, "mdi:bowl", None],
+    "upper_mode": ["Upper Basket Mode", None, "upper_mode", None, "mdi:stairs", None],
+    "upper_recipe_id": ["Upper Basket Recipe Id", None, "upper_recipe_id", None, "mdi:rice", None],
+    "upper_left_time": ["Upper Basket Remaining", None, "upper_left_time", UnitOfTime.MINUTES, "mdi:timer", None],
+    "upper_turn_pot": ["Upper Basket Turn Pot", None, "upper_turn_pot", None, "mdi:rotate-3d-variant", None],
+    "lower_status": ["Lower Basket Status", None, "lower_status", None, "mdi:bowl", None],
+    "lower_mode": ["Lower Basket Mode", None, "lower_mode", None, "mdi:stairs", None],
+    "lower_recipe_id": ["Lower Basket Recipe Id", None, "lower_recipe_id", None, "mdi:rice", None],
+    "lower_left_time": ["Lower Basket Remaining", None, "lower_left_time", UnitOfTime.MINUTES, "mdi:timer", None],
+    "lower_turn_pot": ["Lower Basket Turn Pot", None, "lower_turn_pot", None, "mdi:rotate-3d-variant", None],
+}
+
 SENSOR_TYPES_ST701O = {
     "status": ["Status", None, "status", None, "mdi:bowl", None],
     "mode": ["Mode", None, "mode", None, "mdi:stairs", None],
@@ -210,7 +237,9 @@ async def async_setup_entry(hass, config, async_add_devices, discovery_info=None
         except DeviceException as ex:
             raise PlatformNotReady from ex
 
-    if model == MODEL_FRYER_ST701O:
+    if model in MODELS_DUAL_BASKET:
+        sensor_types = SENSOR_TYPES_JL12
+    elif model == MODEL_FRYER_ST701O:
         sensor_types = SENSOR_TYPES_ST701O
     elif model == MODEL_FRYER_YBAF01:
         sensor_types = SENSOR_TYPES_YBAF
@@ -274,7 +303,7 @@ class XiaomiAirFryerSensor(CoordinatorEntity, SensorEntity):
         options = SENSOR_OPTIONS.get(config[2])
         if options:
             options = [slugify_state(o) for o in options]
-        if config[2] == "recipe_id":
+        if config[2].endswith("recipe_id"):
             # Only the slots this model is known to have; without an entry the
             # sensor reports the raw slot and stays a plain string sensor.
             slots = RECIPE_SLOTS.get(self._model)

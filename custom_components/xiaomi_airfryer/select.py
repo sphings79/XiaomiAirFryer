@@ -30,8 +30,12 @@ async def async_setup_entry(hass, entry, async_add_entities):
 
     # Only worth offering when the slots are known; otherwise there is nothing
     # readable to choose between.
-    if "recipe_id" in mapping and RECIPE_SLOTS.get(model):
-        entities.append(XiaomiAirFryerRecipe(coordinator, entry, model))
+    if RECIPE_SLOTS.get(model):
+        for key in ("recipe_id", "upper_recipe_id", "lower_recipe_id"):
+            if key in mapping:
+                entities.append(
+                    XiaomiAirFryerRecipe(coordinator, entry, model, key)
+                )
 
     async_add_entities(entities)
 
@@ -63,9 +67,10 @@ class XiaomiAirFryerFoodQuanty(XiaomiAirFryerControl, SelectEntity):
 class XiaomiAirFryerRecipe(XiaomiAirFryerControl, SelectEntity):
     """Which of the built-in recipes is selected."""
 
-    def __init__(self, coordinator, entry, model):
+    def __init__(self, coordinator, entry, model, key="recipe_id"):
         """Initialize the select."""
-        super().__init__(coordinator, entry, "recipe_id")
+        super().__init__(coordinator, entry, key)
+        self._attribute = key
         self._slots = RECIPE_SLOTS[model]
         # name -> slot, so picking a name writes the slot the device expects
         self._by_name = {name: slot for slot, name in self._slots.items()}
@@ -74,9 +79,11 @@ class XiaomiAirFryerRecipe(XiaomiAirFryerControl, SelectEntity):
     @property
     def current_option(self):
         """Return the recipe the fryer last reported."""
-        value = self._status_value("recipe_id")
+        value = self._status_value(self._attribute)
         return value if value in self._by_name else None
 
     async def async_select_option(self, option: str) -> None:
         """Send a new recipe to the fryer."""
-        await self._async_write(self._device.recipe_id, self._by_name[option])
+        await self._async_write(
+            getattr(self._device, self._attribute), self._by_name[option]
+        )

@@ -30,6 +30,8 @@ MODEL_FRYER_MAF16 = "xiaomi.fryer.maf16"
 MODEL_FRYER_MAF15 = "xiaomi.fryer.maf15"
 MODEL_FRYER_MAF65 = "xiaomi.fryer.maf65"
 MODEL_FRYER_ST701O = "xiaomi.fryer.st701o"
+MODEL_FRYER_JL12 = "xiaomi.fryer.jl12"
+MODEL_FRYER_JL12W = "xiaomi.fryer.jl12w"
 MODEL_FRYER_SCK501 = "silen.fryer.sck501"
 MODEL_FRYER_SCK505 = "silen.fryer.sck505"
 MODEL_FRYER_V3 = "viomi.fryer.v3"
@@ -58,6 +60,8 @@ OPT_MODEL = {
     MODEL_FRYER_MAF16: "Xiaomi Smart Air Fryer",
     MODEL_FRYER_MAF65: "Xiaomi Smart Air Fryer 6.5L",
     MODEL_FRYER_ST701O: "Mijia Smart Steam Air Fryer 7L",
+    MODEL_FRYER_JL12: "Xiaomi Smart Double Stack Air Fryer 12L",
+    MODEL_FRYER_JL12W: "Xiaomi Smart Double Stack Air Fryer 12L",
     MODEL_FRYER_SCK501: "Silencare AirFryer 1.8L",
     MODEL_FRYER_SCK505: "Silencare Silent Smart Air Fryer",
     MODEL_FRYER_V3: "Viomi Smart Air Fryer Pro 6L",
@@ -102,6 +106,8 @@ MODELS_XIAOMI = [
     MODEL_FRYER_MAF16,
     MODEL_FRYER_MAF65,
     MODEL_FRYER_ST701O,
+    MODEL_FRYER_JL12,
+    MODEL_FRYER_JL12W,
 ]
 MODELS_ALL_DEVICES = MODELS_CARELI + MODELS_SILEN + MODELS_MIOT + MODELS_VIOMI + MODELS_XIAOMI
 
@@ -130,3 +136,11 @@ SERVICE_RECIPE_ID = "recipe_id"
 SERVICE_FOOD_QUANTY = "food_quanty"
 SERVICE_TARGET_TIME = "target_time"
 SERVICE_TARGET_TEMPERATURE = "target_temperature"
+
+
+# Models with two independent baskets. Their entities exist twice, once per
+# basket, because each one cooks on its own schedule.
+MODELS_DUAL_BASKET = [
+    MODEL_FRYER_JL12,
+    MODEL_FRYER_JL12W,
+]

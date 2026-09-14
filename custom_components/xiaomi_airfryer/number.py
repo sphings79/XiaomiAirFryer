@@ -17,6 +17,21 @@ NUMBERS = {
         "target_temperature", "target_temperature", UnitOfTemperature.CELSIUS, 40, 200, 1,
     ),
     "appoint_time": ("appoint_time", "appoint_time", UnitOfTime.MINUTES, 0, 1440, 1),
+    # dual basket models: one set per basket
+    "upper_target_time": (
+        "upper_target_time", "upper_target_time", UnitOfTime.MINUTES, 0, 1440, 1,
+    ),
+    "upper_target_temperature": (
+        "upper_target_temperature", "upper_target_temperature",
+        UnitOfTemperature.CELSIUS, 40, 300, 1,
+    ),
+    "lower_target_time": (
+        "lower_target_time", "lower_target_time", UnitOfTime.MINUTES, 0, 1440, 1,
+    ),
+    "lower_target_temperature": (
+        "lower_target_temperature", "lower_target_temperature",
+        UnitOfTemperature.CELSIUS, 40, 300, 1,
+    ),
 }
 
 

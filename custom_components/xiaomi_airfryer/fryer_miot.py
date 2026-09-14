@@ -13,6 +13,8 @@ from miio.device import DeviceStatus
 from miio.miot_device import MiotDevice
 from .const import (
     MODEL_FRYER_534,
+    MODEL_FRYER_JL12,
+    MODEL_FRYER_JL12W,
     MODEL_FRYER_MAF01,
     MODEL_FRYER_MAF02,
     MODEL_FRYER_MAF03,
@@ -490,6 +492,98 @@ MIOT_MAPPING = {
         "start_recipe_cook": {"siid": 2, "aiid": 4},
         "resume_cooking": {"siid": 2, "aiid": 5},
     },
+    # https://miot-spec.org/miot-spec-v2/instance?type=urn:miot-spec-v2:device:air-fryer:0000A0A4:xiaomi-jl12:1
+    # Two baskets that cook independently: siid 6 is the upper one, siid 7 the
+    # lower. Everything shared sits on siid 2, the per-basket reminders on
+    # siid 8.
+    MODEL_FRYER_JL12: {
+        "device_fault": {"siid": 2, "piid": 3},  # read, notify
+        "auto_keep_warm": {"siid": 2, "piid": 19},  # read, notify, write
+        "end_cooking_together": {"siid": 2, "piid": 22},  # read, notify, write
+        "switch_status": {"siid": 2, "piid": 24},  # read, notify, write
+        "left_time": {"siid": 2, "piid": 25},  # read, notify
+        "status": {"siid": 2, "piid": 26},  # read, notify
+        "upper_status": {"siid": 6, "piid": 2},  # read, notify
+        "upper_mode": {"siid": 6, "piid": 3},  # read, notify, write
+        "upper_target_time": {"siid": 6, "piid": 4},  # read, notify, write
+        "upper_left_time": {"siid": 6, "piid": 5},  # read, notify
+        "upper_target_temperature": {"siid": 6, "piid": 6},  # read, notify, write
+        "upper_recipe_id": {"siid": 6, "piid": 7},  # read, notify, write
+        "upper_turn_pot": {"siid": 6, "piid": 8},  # read, notify
+        "upper_turn_pot_config": {"siid": 6, "piid": 9},  # read, notify, write
+        "upper_current_keep_warm": {"siid": 6, "piid": 10},  # read, notify, write
+        "upper_reservation_left_time": {"siid": 6, "piid": 11},  # read, notify, write
+        "upper_start_cook": {"siid": 6, "aiid": 1},
+        "upper_cancel_cooking": {"siid": 6, "aiid": 2},
+        "upper_pause": {"siid": 6, "aiid": 3},
+        "upper_resume_cooking": {"siid": 6, "aiid": 4},
+        "upper_start_recipe_cook": {"siid": 6, "aiid": 5},
+        "lower_status": {"siid": 7, "piid": 2},  # read, notify
+        "lower_mode": {"siid": 7, "piid": 3},  # read, notify, write
+        "lower_target_time": {"siid": 7, "piid": 4},  # read, notify, write
+        "lower_left_time": {"siid": 7, "piid": 5},  # read, notify
+        "lower_target_temperature": {"siid": 7, "piid": 6},  # read, notify, write
+        "lower_recipe_id": {"siid": 7, "piid": 7},  # read, notify, write
+        "lower_turn_pot": {"siid": 7, "piid": 8},  # read, notify
+        "lower_turn_pot_config": {"siid": 7, "piid": 9},  # read, notify, write
+        "lower_current_keep_warm": {"siid": 7, "piid": 10},  # read, notify, write
+        "lower_reservation_left_time": {"siid": 7, "piid": 11},  # read, notify, write
+        "lower_start_cook": {"siid": 7, "aiid": 1},
+        "lower_cancel_cooking": {"siid": 7, "aiid": 2},
+        "lower_pause": {"siid": 7, "aiid": 3},
+        "lower_resume_cooking": {"siid": 7, "aiid": 4},
+        "lower_start_recipe_cook": {"siid": 7, "aiid": 5},
+        "current_pot": {"siid": 8, "piid": 1},  # read, notify, write
+        "upper_turn_pot_reminder": {"siid": 8, "piid": 2},  # read, notify, write
+        "lower_turn_pot_reminder": {"siid": 8, "piid": 3},  # read, notify, write
+        "is_dual_baskets": {"siid": 8, "piid": 4},  # read, notify, write
+    },
+    # https://miot-spec.org/miot-spec-v2/instance?type=urn:miot-spec-v2:device:air-fryer:0000A0A4:xiaomi-jl12w:1
+    # Two baskets that cook independently: siid 6 is the upper one, siid 7 the
+    # lower. Everything shared sits on siid 2, the per-basket reminders on
+    # siid 8.
+    MODEL_FRYER_JL12W: {
+        "device_fault": {"siid": 2, "piid": 3},  # read, notify
+        "auto_keep_warm": {"siid": 2, "piid": 19},  # read, notify, write
+        "end_cooking_together": {"siid": 2, "piid": 22},  # read, notify, write
+        "switch_status": {"siid": 2, "piid": 24},  # read, notify, write
+        "left_time": {"siid": 2, "piid": 25},  # read, notify
+        "status": {"siid": 2, "piid": 26},  # read, notify
+        "upper_status": {"siid": 6, "piid": 2},  # read, notify
+        "upper_mode": {"siid": 6, "piid": 3},  # read, notify, write
+        "upper_target_time": {"siid": 6, "piid": 4},  # read, notify, write
+        "upper_left_time": {"siid": 6, "piid": 5},  # read, notify
+        "upper_target_temperature": {"siid": 6, "piid": 6},  # read, notify, write
+        "upper_recipe_id": {"siid": 6, "piid": 7},  # read, notify, write
+        "upper_turn_pot": {"siid": 6, "piid": 8},  # read, notify
+        "upper_turn_pot_config": {"siid": 6, "piid": 9},  # read, notify, write
+        "upper_current_keep_warm": {"siid": 6, "piid": 10},  # read, notify, write
+        "upper_reservation_left_time": {"siid": 6, "piid": 11},  # read, notify, write
+        "upper_start_cook": {"siid": 6, "aiid": 1},
+        "upper_cancel_cooking": {"siid": 6, "aiid": 2},
+        "upper_pause": {"siid": 6, "aiid": 3},
+        "upper_resume_cooking": {"siid": 6, "aiid": 4},
+        "upper_start_recipe_cook": {"siid": 6, "aiid": 5},
+        "lower_status": {"siid": 7, "piid": 2},  # read, notify
+        "lower_mode": {"siid": 7, "piid": 3},  # read, notify, write
+        "lower_target_time": {"siid": 7, "piid": 4},  # read, notify, write
+        "lower_left_time": {"siid": 7, "piid": 5},  # read, notify
+        "lower_target_temperature": {"siid": 7, "piid": 6},  # read, notify, write
+        "lower_recipe_id": {"siid": 7, "piid": 7},  # read, notify, write
+        "lower_turn_pot": {"siid": 7, "piid": 8},  # read, notify
+        "lower_turn_pot_config": {"siid": 7, "piid": 9},  # read, notify, write
+        "lower_current_keep_warm": {"siid": 7, "piid": 10},  # read, notify, write
+        "lower_reservation_left_time": {"siid": 7, "piid": 11},  # read, notify, write
+        "lower_start_cook": {"siid": 7, "aiid": 1},
+        "lower_cancel_cooking": {"siid": 7, "aiid": 2},
+        "lower_pause": {"siid": 7, "aiid": 3},
+        "lower_resume_cooking": {"siid": 7, "aiid": 4},
+        "lower_start_recipe_cook": {"siid": 7, "aiid": 5},
+        "current_pot": {"siid": 8, "piid": 1},  # read, notify, write
+        "upper_turn_pot_reminder": {"siid": 8, "piid": 2},  # read, notify, write
+        "lower_turn_pot_reminder": {"siid": 8, "piid": 3},  # read, notify, write
+        "is_dual_baskets": {"siid": 8, "piid": 4},  # read, notify, write
+    },
     # https://miot-spec.org/miot-spec-v2/instance?type=urn:miot-spec-v2:device:air-fryer:0000A0A4:xiaomi-st701o:1
     # Steam combi appliance: the same air fryer service, but with water-related
     # states and a programme list that covers steaming and baking as well.
@@ -880,6 +974,45 @@ RECIPE_SLOTS = {
         "M11": "dried_fruit",
         "M12": "yogurt",
     },
+    MODEL_FRYER_JL12: {
+        "M0": "manual",
+        "M1": "french_fries",
+        "M2": "chicken_drumstick",
+        "M3": "steak",
+        "M4": "fish",
+        "M5": "vegetables",
+        "M6": "pizza",
+        "M7": "cake",
+        "M8": "dried_fruit",
+        "M9": "reheat",
+        "M10": "double_layer_roast",
+        # the second custom slot is the one offered while both baskets run
+        "M11": "manual_double",
+        "M12": "chicken_and_potato",
+        "M13": "chicken_and_broccoli",
+        "M14": "salmon_and_asparagus",
+        "M15": "steak_and_asparagus",
+        "M16": "chops_and_sprouts",
+    },
+    MODEL_FRYER_JL12W: {
+        "M0": "manual",
+        "M1": "french_fries",
+        "M2": "chicken_drumstick",
+        "M3": "steak",
+        "M4": "fish",
+        "M5": "vegetables",
+        "M6": "pizza",
+        "M7": "cake",
+        "M8": "dried_fruit",
+        "M9": "reheat",
+        "M10": "double_layer_roast",
+        "M11": "manual_double",
+        "M12": "chicken_and_potato",
+        "M13": "chicken_and_broccoli",
+        "M14": "salmon_and_asparagus",
+        "M15": "steak_and_asparagus",
+        "M16": "chops_and_sprouts",
+    },
     MODEL_FRYER_ST701O: {
         "M1": "air_fry_custom",
         "M2": "air_fry_frozen_fries",
@@ -1100,6 +1233,49 @@ class CookingTextureSteam(enum.Enum):
     Steam = 3
 
 
+class StatusDualBasket(enum.Enum):
+    """Status of the dual basket models, per basket and for the appliance."""
+    Unknown = -1
+    Shutdown = 0
+    Standby = 1
+    Delay = 2
+    Cooking = 3
+    Pause = 4
+    PotPause = 5
+    Keepwarm = 6
+    KeepwarmFinish = 7
+    Cooked = 8
+    WaitCooking = 9
+    WaitCookingPause = 10
+    CoolingDown = 11
+    CoolingFinish = 12
+    CookCancel = 13
+    KeepwarmCancel = 14
+    # the spec lists "Cooling Down" a second time under 15
+    CoolingDownAlt = 15
+    ConnectedStandby = 16
+
+
+class CookingModeDualBasket(enum.Enum):
+    """Programmes of the dual basket models."""
+    Manual = 0
+    FrenchFries = 1
+    ChickenDrumstick = 2
+    Steak = 3
+    Fish = 4
+    Vegetables = 5
+    Pizza = 6
+    Cake = 7
+    DriedFruit = 8
+    Reheat = 9
+    # the second manual entry is the one used while both baskets run
+    ManualDouble = 10
+    ChickenAndPotato = 11
+    ChickenAndBroccoli = 12
+    SalmonAndAsparagus = 13
+    SteakAndAsparagus = 14
+
+
 class FryerStatusMiot(DeviceStatus):
     """Container for status reports for Xiaomi FryerStatusMiot."""
 
@@ -1208,6 +1384,139 @@ class FryerStatusMiot(DeviceStatus):
             return raw
 
         return slots.get(raw, "unknown")
+
+    def _basket_status(self, prefix: str):
+        """Status of one basket."""
+        raw = self.data.get(f"{prefix}_status")
+        if raw is None:
+            return None
+        try:
+            return StatusDualBasket(raw)
+        except ValueError:
+            _LOGGER.error("Unknown Status (%s)", raw)
+            return StatusDualBasket.Unknown
+
+    def _basket_mode(self, prefix: str):
+        """Programme of one basket."""
+        raw = self.data.get(f"{prefix}_mode")
+        if raw is None:
+            return None
+        try:
+            return CookingModeDualBasket(raw)
+        except ValueError:
+            _LOGGER.error("Unknown Mode (%s)", raw)
+            return None
+
+    def _basket_recipe(self, prefix: str):
+        """Recipe of one basket, named where the slot is known."""
+        raw = self.data.get(f"{prefix}_recipe_id")
+        if raw is None:
+            return None
+        slots = RECIPE_SLOTS.get(self.model)
+        if not slots:
+            return raw
+        return slots.get(raw, "unknown")
+
+    def _basket_turn_pot(self, prefix: str):
+        """Turn-food hint of one basket."""
+        raw = self.data.get(f"{prefix}_turn_pot")
+        if raw is None:
+            return None
+        try:
+            return TurnPotXiaomi(raw)
+        except ValueError:
+            _LOGGER.error("Unknown Turn Pot (%s)", raw)
+            return TurnPotXiaomi.Unknown
+
+    @property
+    def upper_status(self):
+        """Status of the upper basket."""
+        return self._basket_status("upper")
+
+    @property
+    def lower_status(self):
+        """Status of the lower basket."""
+        return self._basket_status("lower")
+
+    @property
+    def upper_mode(self):
+        """Programme of the upper basket."""
+        return self._basket_mode("upper")
+
+    @property
+    def lower_mode(self):
+        """Programme of the lower basket."""
+        return self._basket_mode("lower")
+
+    @property
+    def upper_recipe_id(self):
+        """Recipe of the upper basket."""
+        return self._basket_recipe("upper")
+
+    @property
+    def lower_recipe_id(self):
+        """Recipe of the lower basket."""
+        return self._basket_recipe("lower")
+
+    @property
+    def upper_turn_pot(self):
+        """Whether the upper basket wants the food turned."""
+        return self._basket_turn_pot("upper")
+
+    @property
+    def lower_turn_pot(self):
+        """Whether the lower basket wants the food turned."""
+        return self._basket_turn_pot("lower")
+
+    @property
+    def upper_target_time(self):
+        """Target time of the upper basket."""
+        return self.data.get("upper_target_time")
+
+    @property
+    def lower_target_time(self):
+        """Target time of the lower basket."""
+        return self.data.get("lower_target_time")
+
+    @property
+    def upper_target_temperature(self):
+        """Target temperature of the upper basket."""
+        return self.data.get("upper_target_temperature")
+
+    @property
+    def lower_target_temperature(self):
+        """Target temperature of the lower basket."""
+        return self.data.get("lower_target_temperature")
+
+    @property
+    def upper_left_time(self):
+        """Remaining time of the upper basket."""
+        return self.data.get("upper_left_time")
+
+    @property
+    def lower_left_time(self):
+        """Remaining time of the lower basket."""
+        return self.data.get("lower_left_time")
+
+    @property
+    def upper_turn_pot_config(self):
+        """Turn reminder of the upper basket."""
+        return self.data.get("upper_turn_pot_reminder")
+
+    @property
+    def lower_turn_pot_config(self):
+        """Turn reminder of the lower basket."""
+        return self.data.get("lower_turn_pot_reminder")
+
+    @property
+    def end_cooking_together(self):
+        """Whether both baskets should finish at the same time."""
+        return self.data.get("end_cooking_together")
+
+    @property
+    def is_dual_baskets(self):
+        """Whether the appliance runs as two baskets."""
+        return self.data.get("is_dual_baskets")
 
     @property
     def recipe_slot(self) -> str:
@@ -1513,6 +1822,110 @@ class FryerMiot(MiotDevice):
     def resume_cooking(self) -> None:
         """Resume cooking."""
         return self.call_action("resume_cooking")
+
+    @command(
+        click.argument("target_time", type=int),
+        default_output=format_output("Setting the upper basket to {target_time} min"),
+    )
+    def upper_target_time(self, target_time: int):
+        """Set the target time of the upper basket."""
+        return self._set_basket("upper", "target_time", target_time, 0, 1440)
+
+    @command(
+        click.argument("target_time", type=int),
+        default_output=format_output("Setting the lower basket to {target_time} min"),
+    )
+    def lower_target_time(self, target_time: int):
+        """Set the target time of the lower basket."""
+        return self._set_basket("lower", "target_time", target_time, 0, 1440)
+
+    @command(
+        click.argument("target_temperature", type=int),
+        default_output=format_output("Setting the upper basket to {target_temperature}"),
+    )
+    def upper_target_temperature(self, target_temperature: int):
+        """Set the target temperature of the upper basket."""
+        return self._set_basket("upper", "target_temperature", target_temperature, 0, 300)
+
+    @command(
+        click.argument("target_temperature", type=int),
+        default_output=format_output("Setting the lower basket to {target_temperature}"),
+    )
+    def lower_target_temperature(self, target_temperature: int):
+        """Set the target temperature of the lower basket."""
+        return self._set_basket("lower", "target_temperature", target_temperature, 0, 300)
+
+    @command(click.argument("recipe_id", type=str))
+    def upper_recipe_id(self, recipe_id: str):
+        """Set the recipe of the upper basket."""
+        return self.set_property("upper_recipe_id", recipe_id)
+
+    @command(click.argument("recipe_id", type=str))
+    def lower_recipe_id(self, recipe_id: str):
+        """Set the recipe of the lower basket."""
+        return self.set_property("lower_recipe_id", recipe_id)
+
+    @command(click.argument("on", type=bool))
+    def upper_turn_pot_config(self, on: bool):
+        """Turn the shake reminder of the upper basket on or off."""
+        return self.set_property("upper_turn_pot_reminder", on)
+
+    @command(click.argument("on", type=bool))
+    def lower_turn_pot_config(self, on: bool):
+        """Turn the shake reminder of the lower basket on or off."""
+        return self.set_property("lower_turn_pot_reminder", on)
+
+    @command(click.argument("on", type=bool))
+    def end_cooking_together(self, on: bool):
+        """Have both baskets finish at the same time."""
+        return self.set_property("end_cooking_together", on)
+
+    @command()
+    def upper_pause(self) -> None:
+        """Pause the upper basket."""
+        return self.call_action("upper_pause")
+
+    @command()
+    def lower_pause(self) -> None:
+        """Pause the lower basket."""
+        return self.call_action("lower_pause")
+
+    @command()
+    def upper_resume_cooking(self) -> None:
+        """Resume the upper basket."""
+        return self.call_action("upper_resume_cooking")
+
+    @command()
+    def lower_resume_cooking(self) -> None:
+        """Resume the lower basket."""
+        return self.call_action("lower_resume_cooking")
+
+    @command()
+    def upper_start_cook(self) -> None:
+        """Start the upper basket."""
+        return self.call_action("upper_start_cook")
+
+    @command()
+    def lower_start_cook(self) -> None:
+        """Start the lower basket."""
+        return self.call_action("lower_start_cook")
+
+    @command()
+    def upper_cancel_cooking(self) -> None:
+        """Stop the upper basket."""
+        return self.call_action("upper_cancel_cooking")
+
+    @command()
+    def lower_cancel_cooking(self) -> None:
+        """Stop the lower basket."""
+        return self.call_action("lower_cancel_cooking")
+
+    def _set_basket(self, prefix: str, name: str, value: int, low: int, high: int):
+        """Write a per-basket value after checking its range."""
+        if value < low or value > high:
+            raise DeviceException(
+                "Invalid value for %s_%s: %s" % (prefix, name, value))
+        return self.set_property(f"{prefix}_{name}", value)
 
 
 class FryerMiotYBAF(FryerMiot):
