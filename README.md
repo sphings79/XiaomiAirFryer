@@ -193,7 +193,7 @@ automation:
     triggers:
       - trigger: state
         entity_id: sensor.kitchen_air_fryer_status
-        to: Cooked
+        to: cooked
     actions:
       - action: notify.mobile_app_phone
         data:
@@ -208,7 +208,7 @@ automation:
     triggers:
       - trigger: state
         entity_id: sensor.kitchen_air_fryer_turn_pot
-        to: TurnPot
+        to: turn_pot
     actions:
       - action: notify.mobile_app_phone
         data:

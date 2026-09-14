@@ -197,7 +197,7 @@ automation:
     triggers:
       - trigger: state
         entity_id: sensor.kuche_heissluftfritteuse_status
-        to: Cooked
+        to: cooked
     actions:
       - action: notify.mobile_app_handy
         data:
@@ -212,7 +212,7 @@ automation:
     triggers:
       - trigger: state
         entity_id: sensor.kuche_heissluftfritteuse_wenden
-        to: TurnPot
+        to: turn_pot
     actions:
       - action: notify.mobile_app_handy
         data:
@@ -238,7 +238,7 @@ script:
           entity_id: switch.kuche_heissluftfritteuse
 ```
 
-> In den Automationen steht der **Rohwert** (`Cooked`, `TurnPot`), nicht die Übersetzung.
+> In den Automationen steht der **Rohwert** (`cooked`, `turn_pot`), nicht die Übersetzung.
 > Home Assistant speichert immer den Rohwert und übersetzt erst bei der Anzeige.
 
 ---
