@@ -4,7 +4,7 @@ import logging
 from enum import Enum
 from typing import Optional
 
-from homeassistant.components.sensor import ENTITY_ID_FORMAT, SensorEntity
+from homeassistant.components.sensor import SensorEntity
 from homeassistant.components.sensor.const import SensorDeviceClass
 from homeassistant.config_entries import SOURCE_IMPORT
 from homeassistant.const import (
@@ -15,7 +15,6 @@ from homeassistant.const import (
 from homeassistant.exceptions import PlatformNotReady
 from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
-from homeassistant.util import slugify
 from miio import DeviceException
 
 from .const import (
@@ -171,6 +170,8 @@ async def async_setup_entry(hass, config, async_add_devices, discovery_info=None
 class XiaomiAirFryerSensor(CoordinatorEntity, SensorEntity):
     """ Xiaomi AirFryer Sensor """
 
+    _attr_has_entity_name = True
+
     def __init__(self, coordinator, config, entry):
         """Initialize sensor."""
         super().__init__(coordinator)
@@ -187,10 +188,6 @@ class XiaomiAirFryerSensor(CoordinatorEntity, SensorEntity):
         self._attr_device_class = config[5]
         self._attr_unique_id = "{}.{}-{}".format(
             DOMAIN, entry.unique_id, self._attr_name.lower().replace(" ", "-"))
-
-        self.entity_id = ENTITY_ID_FORMAT.format(
-            "{}_{}".format(DOMAIN, slugify(self._attr_name))
-        )
 
     @property
     def device_info(self):

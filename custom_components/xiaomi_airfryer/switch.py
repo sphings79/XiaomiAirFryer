@@ -6,7 +6,6 @@ import logging
 import voluptuous as vol
 
 from homeassistant.components.switch import (
-    ENTITY_ID_FORMAT,
     PLATFORM_SCHEMA,
     SwitchEntity,
 )
@@ -23,7 +22,6 @@ from homeassistant.const import (
 import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
-from homeassistant.util import slugify
 from homeassistant.components.xiaomi_miio.const import (
     CONF_FLOW_TYPE,
 )
@@ -231,13 +229,18 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 class XiaomiAirFryer(CoordinatorEntity, SwitchEntity):
     """Representation of a Xiaomi AirFryer."""
 
+    # The switch represents the appliance itself, so it carries no entity name
+    # of its own and is named after the device.
+    _attr_has_entity_name = True
+    _attr_name = None
+
     def __init__(self, name, coordinator, entry, unique_id):
         """Initialize the AirFryer."""
         super().__init__(coordinator)
 
         self._device = coordinator.device
         self._host = entry.options[CONF_HOST]
-        self._attr_name = name
+        self._device_name = name
         self._attr_unique_id = "{}.{}-{}".format(
             DOMAIN, unique_id, name.lower().replace(" ", "-"))
         self._device_id = unique_id
@@ -245,10 +248,6 @@ class XiaomiAirFryer(CoordinatorEntity, SwitchEntity):
         self._mac = entry.options[CONF_MAC]
         self._state_attrs = {ATTR_MODEL: self._model}
         self._device_features = FEATURE_FLAGS_GENERIC
-
-        self.entity_id = ENTITY_ID_FORMAT.format(
-            "{}_{}".format(DOMAIN, slugify(name))
-        )
 
     @property
     def icon(self):
@@ -274,7 +273,7 @@ class XiaomiAirFryer(CoordinatorEntity, SwitchEntity):
         device_info = {
             "identifiers": {(DOMAIN, self._device_id)},
             "manufacturer": (self._model or "Xiaomi").split(".", 1)[0].capitalize(),
-            "name": self._attr_name,
+            "name": self._device_name,
             "model": self._model,
         }
 
