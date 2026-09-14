@@ -12,6 +12,9 @@
     "python-miio>=0.5.12"
   ],
   "dependencies": [],
+  "zeroconf": [
+    "_miio._udp.local."
+  ],
   "codeowners": [
     "@tsunglung"
   ]

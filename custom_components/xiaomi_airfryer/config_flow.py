@@ -172,13 +172,40 @@ class XiaomiAirFryerFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         """Handle a flow initialized by the user."""
         return await self.async_step_cloud()
 
+    def _async_update_known_host(self, entry) -> bool:
+        """Store a changed IP address on an entry that is already set up.
+
+        _abort_if_unique_id_configured(updates=...) cannot be used here: it
+        writes into entry.data, and async_setup_entry migrates a non-empty
+        entry.data over the options wholesale. That migration would replace
+        the options with just the host and drop the token, model and mac.
+        So the host is updated where it actually lives.
+        """
+        if entry.options.get(CONF_HOST) is not None:
+            if entry.options[CONF_HOST] == self.host:
+                return False
+            self.hass.config_entries.async_update_entry(
+                entry, options={**entry.options, CONF_HOST: self.host}
+            )
+            return True
+
+        if entry.data.get(CONF_HOST) is not None:
+            if entry.data[CONF_HOST] == self.host:
+                return False
+            self.hass.config_entries.async_update_entry(
+                entry, data={**entry.data, CONF_HOST: self.host}
+            )
+            return True
+
+        return False
+
     async def async_step_zeroconf(self, discovery_info):
         """Handle zeroconf discovery."""
-        name = discovery_info.get("name")
-        self.host = discovery_info.get("host")
-        self.mac = discovery_info.get("properties", {}).get("mac")
+        name = discovery_info.name
+        self.host = str(discovery_info.ip_address)
+        self.mac = discovery_info.properties.get("mac")
         if self.mac is None:
-            poch = discovery_info.get("properties", {}).get("poch", "")
+            poch = discovery_info.properties.get("poch", "")
             result = search(r"mac=\w+", poch)
             if result is not None:
                 self.mac = result.group(0).split("=")[1]
@@ -191,8 +218,16 @@ class XiaomiAirFryerFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         for device_model in MODELS_ALL_DEVICES:
             if name.startswith(device_model.replace(".", "-")):
                 unique_id = self.mac
-                await self.async_set_unique_id(unique_id)
-                self._abort_if_unique_id_configured({CONF_HOST: self.host})
+                existing_entry = await self.async_set_unique_id(unique_id)
+
+                if existing_entry is not None:
+                    if self._async_update_known_host(existing_entry):
+                        _LOGGER.info(
+                            "%s moved to %s, updating the configuration entry",
+                            device_model,
+                            self.host,
+                        )
+                    return self.async_abort(reason="already_configured")
 
                 self.context.update(
                     {"title_placeholders": {"name": f"{device_model} {self.host}"}}
