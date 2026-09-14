@@ -24,9 +24,11 @@ from .const import (
     MODEL_FRYER_MAF07C,
     MODEL_FRYER_MAF07D,
     MODEL_FRYER_MAF09A,
+    MODEL_FRYER_MAF10,
     MODEL_FRYER_MAF10A,
     MODEL_FRYER_MAF14,
     MODEL_FRYER_MAF15,
+    MODEL_FRYER_MAF16,
     MODEL_FRYER_SCK501,
     MODEL_FRYER_SCK505,
     MODEL_FRYER_V3,
@@ -324,6 +326,54 @@ MIOT_MAPPING = {
         "resume_cooking": {"siid": 2, "aiid": 4},
         "start_recipe_cook": {"siid": 2, "aiid": 5},
     },
+    # https://miot-spec.org/miot-spec-v2/instance?type=urn:miot-spec-v2:device:air-fryer:0000A0A4:careli-maf10:1
+    MODEL_FRYER_MAF10: {
+        "status": {"siid": 2, "piid": 1},
+        "device_fault": {"siid": 2, "piid": 2},
+        "target_time": {"siid": 2, "piid": 3},
+        "target_temperature": {"siid": 2, "piid": 4},
+        "left_time": {"siid": 2, "piid": 5},
+        "recipe_id": {"siid": 3, "piid": 1},
+        "recipe_name": {"siid": 3, "piid": 2},
+        "work_time": {"siid": 3, "piid": 3},
+        "work_temp": {"siid": 3, "piid": 4},
+        "appoint_time": {"siid": 3, "piid": 5},
+        "food_quanty": {"siid": 3, "piid": 6},
+        "preheat_switch": {"siid": 3, "piid": 7},
+        "appoint_time_left": {"siid": 3, "piid": 8},
+        "turn_pot": {"siid": 3, "piid": 10},
+        "turn_pot_config": {"siid": 3, "piid": 11},
+        "start_cook": {"siid": 2, "aiid": 1},
+        "cancel_cooking": {"siid": 2, "aiid": 2},
+        "pause": {"siid": 2, "aiid": 3},
+        "start_custom_cook": {"siid": 3, "aiid": 1},
+        "resume_cooking": {"siid": 3, "aiid": 2},
+    },
+    # https://miot-spec.org/miot-spec-v2/instance?type=urn:miot-spec-v2:device:air-fryer:0000A0A4:xiaomi-maf16:1:0000D043
+    MODEL_FRYER_MAF16: {
+        "status": {"siid": 2, "piid": 2},
+        "device_fault": {"siid": 2, "piid": 3},
+        "target_time": {"siid": 2, "piid": 5},
+        "target_temperature": {"siid": 2, "piid": 7},
+        "left_time": {"siid": 2, "piid": 22},
+        "auto_keep_warm": {"siid": 2, "piid": 23},
+        "current_keep_warm": {"siid": 2, "piid": 24},
+        "mode": {"siid": 2, "piid": 25},
+        "recipe_id": {"siid": 2, "piid": 26},
+        "recipe_name": {"siid": 2, "piid": 27},
+        "recipe_sync": {"siid": 2, "piid": 28},
+        "target_cooking_measure": {"siid": 2, "piid": 29},
+        "turn_pot": {"siid": 2, "piid": 30},
+        "turn_pot_config": {"siid": 2, "piid": 31},
+        "texture": {"siid": 2, "piid": 32},
+        "reservation_left_time": {"siid": 2, "piid": 33},
+        "cooking_weight": {"siid": 2, "piid": 34},
+        "start_cook": {"siid": 2, "aiid": 1},
+        "cancel_cooking": {"siid": 2, "aiid": 6},
+        "pause": {"siid": 2, "aiid": 7},
+        "resume_cooking": {"siid": 2, "aiid": 8},
+        "start_recipe_cook": {"siid": 2, "aiid": 9},
+    },
     # http://miot-spec.org/miot-spec-v2/instance?type=urn:miot-spec-v2:device:air-fryer:0000A0A4:careli-maf10a:1
     MODEL_FRYER_MAF10A: {
         "status": {"siid": 2, "piid": 1},  # read, notify
@@ -360,8 +410,8 @@ MIOT_MAPPING = {
         "left_time": {"siid": 2, "piid": 6},  # read, notify
         "target_cooking_measure": {"siid": 2, "piid": 7},  # read, notify, write
         "recipe_id": {"siid": 2, "piid": 8},  # read, notify, write
-        "recipe_sync": {"siid": 2, "piid": 9},  # read, notify, write
-        "recipe_name": {"siid": 2, "piid": 10},  # read, notify, write
+        "recipe_name": {"siid": 2, "piid": 9},  # read, notify, write
+        "recipe_sync": {"siid": 2, "piid": 10},  # read, notify, write
         "turn_pot_config": {"siid": 2, "piid": 11},  # read, notify, write
         "turn_pot": {"siid": 2, "piid": 12},  # read, notify
         "current_keep_warm": {"siid": 2, "piid": 13},  # read, notify, write

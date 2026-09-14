@@ -85,13 +85,19 @@ FEATURE_FLAGS_GENERIC = 0
 
 SERVICE_SCHEMA = vol.Schema({vol.Optional(ATTR_ENTITY_ID): cv.entity_ids})
 
+# cv.positive_int rejects "42.0", which is exactly what a template over an
+# input_number renders to, so passing a helper into these services failed
+# with "expected int" (issue #5). Going through float first accepts the
+# helper, a plain number and a plain numeric string alike.
+positive_number = vol.All(vol.Coerce(float), vol.Coerce(int), vol.Range(min=0))
+
 SERVICE_SCHEMA_START_CUSTOM = SERVICE_SCHEMA.extend(
     {vol.Required(ATTR_MODE): vol.All(vol.In(
         ["Standby", "Appointment", "Cooking", "Preheat", "Cooked", "PreheatFinish"]))}
 )
 
 SERVICE_SCHEMA_APPOINT_TIME = SERVICE_SCHEMA.extend(
-    {vol.Required(ATTR_TIME): cv.positive_int}
+    {vol.Required(ATTR_TIME): positive_number}
 )
 
 SERVICE_SCHEMA_PREHEAT = SERVICE_SCHEMA.extend(
@@ -99,7 +105,7 @@ SERVICE_SCHEMA_PREHEAT = SERVICE_SCHEMA.extend(
 )
 
 SERVICE_SCHEMA_FOOD_QUANTY = SERVICE_SCHEMA.extend(
-    {vol.Required(ATTR_FOOD_QUANTY): cv.positive_int}
+    {vol.Required(ATTR_FOOD_QUANTY): positive_number}
 )
 
 SERVICE_SCHEMA_RECIPE_ID = SERVICE_SCHEMA.extend(
@@ -107,11 +113,11 @@ SERVICE_SCHEMA_RECIPE_ID = SERVICE_SCHEMA.extend(
 )
 
 SERVICE_SCHEMA_TARGET_TIME = SERVICE_SCHEMA.extend(
-    {vol.Required(ATTR_TARGET_TIME): cv.positive_int}
+    {vol.Required(ATTR_TARGET_TIME): positive_number}
 )
 
 SERVICE_SCHEMA_TARGET_TEMPERATURE = SERVICE_SCHEMA.extend(
-    {vol.Required(ATTR_TARGET_TEMPERATURE): cv.positive_int}
+    {vol.Required(ATTR_TARGET_TEMPERATURE): positive_number}
 )
 
 SERVICE_TO_METHOD = {
