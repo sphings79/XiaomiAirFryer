@@ -105,147 +105,147 @@
   "entity": {
     "sensor": {
       "appoint_time": {
-        "name": "Delayed start"
+        "name": "Uitgestelde start"
       },
       "appoint_time_left": {
-        "name": "Delayed start remaining"
+        "name": "Uitgestelde start resterend"
       },
       "cooking_weight": {
-        "name": "Cooking weight"
+        "name": "Bereidingsgewicht"
       },
       "food_quanty": {
-        "name": "Food quantity",
+        "name": "Hoeveelheid",
         "state": {
-          "Unknown": "Unknown",
-          "Null": "None",
-          "Single": "Single portion",
-          "Double": "Double portion",
-          "Half": "Half full",
-          "Full": "Full"
+          "Unknown": "Onbekend",
+          "Null": "Geen",
+          "Single": "Enkele portie",
+          "Double": "Dubbele portie",
+          "Half": "Half vol",
+          "Full": "Vol"
         }
       },
       "left_percent": {
-        "name": "Remaining percent"
+        "name": "Resterend percentage"
       },
       "left_time": {
-        "name": "Remaining"
+        "name": "Resterend"
       },
       "mode": {
-        "name": "Mode",
+        "name": "Modus",
         "state": {
-          "Manual": "Manual",
-          "FrenchFries": "French fries",
-          "ChickenWing": "Chicken wings",
-          "Steak": "Steak",
-          "LambChops": "Lamb chops",
-          "Fish": "Fish",
-          "Shrimp": "Shrimp",
-          "Vegetables": "Vegetables",
+          "Manual": "Handmatig",
+          "FrenchFries": "Frieten",
+          "ChickenWing": "Kippenvleugels",
+          "Steak": "Biefstuk",
+          "LambChops": "Lamskoteletten",
+          "Fish": "Vis",
+          "Shrimp": "Garnalen",
+          "Vegetables": "Groenten",
           "Cake": "Cake",
           "Pizza": "Pizza",
-          "Defrost": "Defrost",
-          "DriedFruit": "Dried fruit",
+          "Defrost": "Ontdooien",
+          "DriedFruit": "Gedroogd fruit",
           "Yogurt": "Yoghurt"
         }
       },
       "preheat": {
-        "name": "Preheat phase",
+        "name": "Voorverwarmfase",
         "state": {
-          "Unknown": "Unknown",
-          "Null": "None",
-          "Off": "Off",
-          "On": "On"
+          "Unknown": "Onbekend",
+          "Null": "Geen",
+          "Off": "Uit",
+          "On": "Aan"
         }
       },
       "preheat_switch": {
-        "name": "Preheat phase",
+        "name": "Voorverwarmfase",
         "state": {
-          "Unknown": "Unknown",
-          "Null": "None",
-          "Off": "Off",
-          "On": "On"
+          "Unknown": "Onbekend",
+          "Null": "Geen",
+          "Off": "Uit",
+          "On": "Aan"
         }
       },
       "recipe_command": {
-        "name": "Recipe command"
+        "name": "Receptopdracht"
       },
       "recipe_id": {
-        "name": "Recipe ID"
+        "name": "Recept-ID"
       },
       "recipe_name": {
-        "name": "Recipe name"
+        "name": "Receptnaam"
       },
       "reservation_left_time": {
-        "name": "Reservation remaining"
+        "name": "Reservering resterend"
       },
       "status": {
         "name": "Status",
         "state": {
-          "Unknown": "Unknown",
-          "Shutdown": "Off",
-          "Standby": "Standby",
-          "Pause": "Paused",
-          "Appointment": "Delayed start",
-          "Cooking": "Cooking",
-          "Preheat": "Preheating",
-          "Cooked": "Finished",
-          "PreheatFinish": "Preheated",
-          "PreheatPause": "Preheating paused",
-          "Pause2": "Paused",
-          "Keepwarm": "Keeping warm",
-          "KeepwarmPause": "Keeping warm paused",
-          "KeepwarmFinish": "Keeping warm finished",
-          "CrispyRoast": "Crispy roast",
-          "Degrease": "Degreasing",
-          "Delay": "Delayed start",
-          "PotPause": "Paused to turn food"
+          "Unknown": "Onbekend",
+          "Shutdown": "Uit",
+          "Standby": "Stand-by",
+          "Pause": "Gepauzeerd",
+          "Appointment": "Uitgestelde start",
+          "Cooking": "Bereidt",
+          "Preheat": "Verwarmt voor",
+          "Cooked": "Klaar",
+          "PreheatFinish": "Voorverwarmd",
+          "PreheatPause": "Voorverwarmen gepauzeerd",
+          "Pause2": "Gepauzeerd",
+          "Keepwarm": "Houdt warm",
+          "KeepwarmPause": "Warmhouden gepauzeerd",
+          "KeepwarmFinish": "Warmhouden beëindigd",
+          "CrispyRoast": "Knapperig",
+          "Degrease": "Ontvet",
+          "Delay": "Uitgestelde start",
+          "PotPause": "Pauze om te keren"
         }
       },
       "switch_status": {
-        "name": "Switch status"
+        "name": "Schakelstatus"
       },
       "target_cooking_measure": {
-        "name": "Target cooking measure"
+        "name": "Doelhoeveelheid"
       },
       "target_temperature": {
-        "name": "Target temperature"
+        "name": "Doeltemperatuur"
       },
       "target_time": {
-        "name": "Target time"
+        "name": "Doeltijd"
       },
       "temperature": {
-        "name": "Temperature"
+        "name": "Temperatuur"
       },
       "texture": {
-        "name": "Texture",
+        "name": "Bruining",
         "state": {
-          "Unknown": "Unknown",
-          "NONE": "None",
-          "CrispyRoast": "Crispy roast",
-          "TenderRoast": "Tender roast",
-          "Degrease": "Degreasing"
+          "Unknown": "Onbekend",
+          "NONE": "Geen",
+          "CrispyRoast": "Knapperig",
+          "TenderRoast": "Zacht",
+          "Degrease": "Ontvet"
         }
       },
       "turn_pot": {
-        "name": "Turn food",
+        "name": "Omdraaien",
         "state": {
-          "Unknown": "Unknown",
-          "NotTurnPot": "No need to turn",
-          "SwitchOff": "Off",
-          "TurnPot": "Turn the food",
-          "NoNeedTurnOverPot": "No need to turn",
-          "NeedTurnOverPot": "Turn the food"
+          "Unknown": "Onbekend",
+          "NotTurnPot": "Niet keren nodig",
+          "SwitchOff": "Uit",
+          "TurnPot": "Keer het eten om",
+          "NoNeedTurnOverPot": "Niet keren nodig",
+          "NeedTurnOverPot": "Keer het eten om"
         }
       },
       "turn_pot_config": {
-        "name": "Turn food reminder"
+        "name": "Omdraaiherinnering"
       },
       "turn_pot_status": {
-        "name": "Turn food status",
+        "name": "Omdraaistatus",
         "state": {
-          "Unknown": "Unknown",
-          "NoNeedTurnOverPot": "No need to turn",
-          "NeedTurnOverPot": "Turn the food"
+          "Unknown": "Onbekend",
+          "NoNeedTurnOverPot": "Niet keren nodig",
+          "NeedTurnOverPot": "Keer het eten om"
         }
       }
     }

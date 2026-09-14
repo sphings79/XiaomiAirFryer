@@ -105,147 +105,147 @@
   "entity": {
     "sensor": {
       "appoint_time": {
-        "name": "Delayed start"
+        "name": "Inicio diferido"
       },
       "appoint_time_left": {
-        "name": "Delayed start remaining"
+        "name": "Inicio diferido restante"
       },
       "cooking_weight": {
-        "name": "Cooking weight"
+        "name": "Peso de cocción"
       },
       "food_quanty": {
-        "name": "Food quantity",
+        "name": "Cantidad",
         "state": {
-          "Unknown": "Unknown",
-          "Null": "None",
-          "Single": "Single portion",
-          "Double": "Double portion",
-          "Half": "Half full",
-          "Full": "Full"
+          "Unknown": "Desconocido",
+          "Null": "Ninguno",
+          "Single": "Ración simple",
+          "Double": "Ración doble",
+          "Half": "Medio lleno",
+          "Full": "Lleno"
         }
       },
       "left_percent": {
-        "name": "Remaining percent"
+        "name": "Porcentaje restante"
       },
       "left_time": {
-        "name": "Remaining"
+        "name": "Tiempo restante"
       },
       "mode": {
-        "name": "Mode",
+        "name": "Modo",
         "state": {
           "Manual": "Manual",
-          "FrenchFries": "French fries",
-          "ChickenWing": "Chicken wings",
-          "Steak": "Steak",
-          "LambChops": "Lamb chops",
-          "Fish": "Fish",
-          "Shrimp": "Shrimp",
-          "Vegetables": "Vegetables",
-          "Cake": "Cake",
+          "FrenchFries": "Patatas fritas",
+          "ChickenWing": "Alitas de pollo",
+          "Steak": "Filete",
+          "LambChops": "Chuletas de cordero",
+          "Fish": "Pescado",
+          "Shrimp": "Gambas",
+          "Vegetables": "Verduras",
+          "Cake": "Pastel",
           "Pizza": "Pizza",
-          "Defrost": "Defrost",
-          "DriedFruit": "Dried fruit",
-          "Yogurt": "Yoghurt"
+          "Defrost": "Descongelar",
+          "DriedFruit": "Fruta deshidratada",
+          "Yogurt": "Yogur"
         }
       },
       "preheat": {
-        "name": "Preheat phase",
+        "name": "Fase de precalentamiento",
         "state": {
-          "Unknown": "Unknown",
-          "Null": "None",
-          "Off": "Off",
-          "On": "On"
+          "Unknown": "Desconocido",
+          "Null": "Ninguno",
+          "Off": "Apagado",
+          "On": "Encendido"
         }
       },
       "preheat_switch": {
-        "name": "Preheat phase",
+        "name": "Fase de precalentamiento",
         "state": {
-          "Unknown": "Unknown",
-          "Null": "None",
-          "Off": "Off",
-          "On": "On"
+          "Unknown": "Desconocido",
+          "Null": "Ninguno",
+          "Off": "Apagado",
+          "On": "Encendido"
         }
       },
       "recipe_command": {
-        "name": "Recipe command"
+        "name": "Comando de receta"
       },
       "recipe_id": {
-        "name": "Recipe ID"
+        "name": "ID de receta"
       },
       "recipe_name": {
-        "name": "Recipe name"
+        "name": "Nombre de la receta"
       },
       "reservation_left_time": {
-        "name": "Reservation remaining"
+        "name": "Reserva restante"
       },
       "status": {
-        "name": "Status",
+        "name": "Estado",
         "state": {
-          "Unknown": "Unknown",
-          "Shutdown": "Off",
-          "Standby": "Standby",
-          "Pause": "Paused",
-          "Appointment": "Delayed start",
-          "Cooking": "Cooking",
-          "Preheat": "Preheating",
-          "Cooked": "Finished",
-          "PreheatFinish": "Preheated",
-          "PreheatPause": "Preheating paused",
-          "Pause2": "Paused",
-          "Keepwarm": "Keeping warm",
-          "KeepwarmPause": "Keeping warm paused",
-          "KeepwarmFinish": "Keeping warm finished",
-          "CrispyRoast": "Crispy roast",
-          "Degrease": "Degreasing",
-          "Delay": "Delayed start",
-          "PotPause": "Paused to turn food"
+          "Unknown": "Desconocido",
+          "Shutdown": "Apagado",
+          "Standby": "En espera",
+          "Pause": "En pausa",
+          "Appointment": "Inicio diferido",
+          "Cooking": "Cocinando",
+          "Preheat": "Precalentando",
+          "Cooked": "Terminado",
+          "PreheatFinish": "Precalentado",
+          "PreheatPause": "Precalentamiento en pausa",
+          "Pause2": "En pausa",
+          "Keepwarm": "Manteniendo caliente",
+          "KeepwarmPause": "Mantener caliente en pausa",
+          "KeepwarmFinish": "Mantener caliente finalizado",
+          "CrispyRoast": "Crujiente",
+          "Degrease": "Desengrasando",
+          "Delay": "Inicio diferido",
+          "PotPause": "Pausa para dar la vuelta"
         }
       },
       "switch_status": {
-        "name": "Switch status"
+        "name": "Estado del interruptor"
       },
       "target_cooking_measure": {
-        "name": "Target cooking measure"
+        "name": "Cantidad objetivo"
       },
       "target_temperature": {
-        "name": "Target temperature"
+        "name": "Temperatura objetivo"
       },
       "target_time": {
-        "name": "Target time"
+        "name": "Tiempo objetivo"
       },
       "temperature": {
-        "name": "Temperature"
+        "name": "Temperatura"
       },
       "texture": {
-        "name": "Texture",
+        "name": "Textura",
         "state": {
-          "Unknown": "Unknown",
-          "NONE": "None",
-          "CrispyRoast": "Crispy roast",
-          "TenderRoast": "Tender roast",
-          "Degrease": "Degreasing"
+          "Unknown": "Desconocido",
+          "NONE": "Ninguno",
+          "CrispyRoast": "Crujiente",
+          "TenderRoast": "Tierno",
+          "Degrease": "Desengrasando"
         }
       },
       "turn_pot": {
-        "name": "Turn food",
+        "name": "Dar la vuelta",
         "state": {
-          "Unknown": "Unknown",
-          "NotTurnPot": "No need to turn",
-          "SwitchOff": "Off",
-          "TurnPot": "Turn the food",
-          "NoNeedTurnOverPot": "No need to turn",
-          "NeedTurnOverPot": "Turn the food"
+          "Unknown": "Desconocido",
+          "NotTurnPot": "No hace falta dar la vuelta",
+          "SwitchOff": "Apagado",
+          "TurnPot": "Da la vuelta a la comida",
+          "NoNeedTurnOverPot": "No hace falta dar la vuelta",
+          "NeedTurnOverPot": "Da la vuelta a la comida"
         }
       },
       "turn_pot_config": {
-        "name": "Turn food reminder"
+        "name": "Aviso para dar la vuelta"
       },
       "turn_pot_status": {
-        "name": "Turn food status",
+        "name": "Estado de volteo",
         "state": {
-          "Unknown": "Unknown",
-          "NoNeedTurnOverPot": "No need to turn",
-          "NeedTurnOverPot": "Turn the food"
+          "Unknown": "Desconocido",
+          "NoNeedTurnOverPot": "No hace falta dar la vuelta",
+          "NeedTurnOverPot": "Da la vuelta a la comida"
         }
       }
     }

@@ -105,147 +105,147 @@
   "entity": {
     "sensor": {
       "appoint_time": {
-        "name": "Delayed start"
+        "name": "Départ différé"
       },
       "appoint_time_left": {
-        "name": "Delayed start remaining"
+        "name": "Départ différé restant"
       },
       "cooking_weight": {
-        "name": "Cooking weight"
+        "name": "Poids de cuisson"
       },
       "food_quanty": {
-        "name": "Food quantity",
+        "name": "Quantité",
         "state": {
-          "Unknown": "Unknown",
-          "Null": "None",
-          "Single": "Single portion",
-          "Double": "Double portion",
-          "Half": "Half full",
-          "Full": "Full"
+          "Unknown": "Inconnu",
+          "Null": "Aucun",
+          "Single": "Portion simple",
+          "Double": "Portion double",
+          "Half": "À moitié plein",
+          "Full": "Plein"
         }
       },
       "left_percent": {
-        "name": "Remaining percent"
+        "name": "Pourcentage restant"
       },
       "left_time": {
-        "name": "Remaining"
+        "name": "Temps restant"
       },
       "mode": {
         "name": "Mode",
         "state": {
-          "Manual": "Manual",
-          "FrenchFries": "French fries",
-          "ChickenWing": "Chicken wings",
+          "Manual": "Manuel",
+          "FrenchFries": "Frites",
+          "ChickenWing": "Ailes de poulet",
           "Steak": "Steak",
-          "LambChops": "Lamb chops",
-          "Fish": "Fish",
-          "Shrimp": "Shrimp",
-          "Vegetables": "Vegetables",
-          "Cake": "Cake",
+          "LambChops": "Côtelettes d'agneau",
+          "Fish": "Poisson",
+          "Shrimp": "Crevettes",
+          "Vegetables": "Légumes",
+          "Cake": "Gâteau",
           "Pizza": "Pizza",
-          "Defrost": "Defrost",
-          "DriedFruit": "Dried fruit",
-          "Yogurt": "Yoghurt"
+          "Defrost": "Décongélation",
+          "DriedFruit": "Fruits secs",
+          "Yogurt": "Yaourt"
         }
       },
       "preheat": {
-        "name": "Preheat phase",
+        "name": "Phase de préchauffage",
         "state": {
-          "Unknown": "Unknown",
-          "Null": "None",
-          "Off": "Off",
-          "On": "On"
+          "Unknown": "Inconnu",
+          "Null": "Aucun",
+          "Off": "Désactivé",
+          "On": "Activé"
         }
       },
       "preheat_switch": {
-        "name": "Preheat phase",
+        "name": "Phase de préchauffage",
         "state": {
-          "Unknown": "Unknown",
-          "Null": "None",
-          "Off": "Off",
-          "On": "On"
+          "Unknown": "Inconnu",
+          "Null": "Aucun",
+          "Off": "Désactivé",
+          "On": "Activé"
         }
       },
       "recipe_command": {
-        "name": "Recipe command"
+        "name": "Commande de recette"
       },
       "recipe_id": {
-        "name": "Recipe ID"
+        "name": "ID de recette"
       },
       "recipe_name": {
-        "name": "Recipe name"
+        "name": "Nom de la recette"
       },
       "reservation_left_time": {
-        "name": "Reservation remaining"
+        "name": "Réservation restante"
       },
       "status": {
-        "name": "Status",
+        "name": "État",
         "state": {
-          "Unknown": "Unknown",
-          "Shutdown": "Off",
-          "Standby": "Standby",
-          "Pause": "Paused",
-          "Appointment": "Delayed start",
-          "Cooking": "Cooking",
-          "Preheat": "Preheating",
-          "Cooked": "Finished",
-          "PreheatFinish": "Preheated",
-          "PreheatPause": "Preheating paused",
-          "Pause2": "Paused",
-          "Keepwarm": "Keeping warm",
-          "KeepwarmPause": "Keeping warm paused",
-          "KeepwarmFinish": "Keeping warm finished",
-          "CrispyRoast": "Crispy roast",
-          "Degrease": "Degreasing",
-          "Delay": "Delayed start",
-          "PotPause": "Paused to turn food"
+          "Unknown": "Inconnu",
+          "Shutdown": "Éteint",
+          "Standby": "En attente",
+          "Pause": "En pause",
+          "Appointment": "Départ différé",
+          "Cooking": "Cuisson",
+          "Preheat": "Préchauffage",
+          "Cooked": "Terminé",
+          "PreheatFinish": "Préchauffé",
+          "PreheatPause": "Préchauffage en pause",
+          "Pause2": "En pause",
+          "Keepwarm": "Maintien au chaud",
+          "KeepwarmPause": "Maintien au chaud en pause",
+          "KeepwarmFinish": "Maintien au chaud terminé",
+          "CrispyRoast": "Croustillant",
+          "Degrease": "Dégraissage",
+          "Delay": "Départ différé",
+          "PotPause": "Pause pour retourner"
         }
       },
       "switch_status": {
-        "name": "Switch status"
+        "name": "État de l'interrupteur"
       },
       "target_cooking_measure": {
-        "name": "Target cooking measure"
+        "name": "Quantité cible"
       },
       "target_temperature": {
-        "name": "Target temperature"
+        "name": "Température cible"
       },
       "target_time": {
-        "name": "Target time"
+        "name": "Durée cible"
       },
       "temperature": {
-        "name": "Temperature"
+        "name": "Température"
       },
       "texture": {
         "name": "Texture",
         "state": {
-          "Unknown": "Unknown",
-          "NONE": "None",
-          "CrispyRoast": "Crispy roast",
-          "TenderRoast": "Tender roast",
-          "Degrease": "Degreasing"
+          "Unknown": "Inconnu",
+          "NONE": "Aucun",
+          "CrispyRoast": "Croustillant",
+          "TenderRoast": "Tendre",
+          "Degrease": "Dégraissage"
         }
       },
       "turn_pot": {
-        "name": "Turn food",
+        "name": "Retourner",
         "state": {
-          "Unknown": "Unknown",
-          "NotTurnPot": "No need to turn",
-          "SwitchOff": "Off",
-          "TurnPot": "Turn the food",
-          "NoNeedTurnOverPot": "No need to turn",
-          "NeedTurnOverPot": "Turn the food"
+          "Unknown": "Inconnu",
+          "NotTurnPot": "Pas besoin de retourner",
+          "SwitchOff": "Éteint",
+          "TurnPot": "Retournez les aliments",
+          "NoNeedTurnOverPot": "Pas besoin de retourner",
+          "NeedTurnOverPot": "Retournez les aliments"
         }
       },
       "turn_pot_config": {
-        "name": "Turn food reminder"
+        "name": "Rappel de retournement"
       },
       "turn_pot_status": {
-        "name": "Turn food status",
+        "name": "État du retournement",
         "state": {
-          "Unknown": "Unknown",
-          "NoNeedTurnOverPot": "No need to turn",
-          "NeedTurnOverPot": "Turn the food"
+          "Unknown": "Inconnu",
+          "NoNeedTurnOverPot": "Pas besoin de retourner",
+          "NeedTurnOverPot": "Retournez les aliments"
         }
       }
     }

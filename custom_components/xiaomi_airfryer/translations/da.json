@@ -105,147 +105,147 @@
   "entity": {
     "sensor": {
       "appoint_time": {
-        "name": "Delayed start"
+        "name": "Udskudt start"
       },
       "appoint_time_left": {
-        "name": "Delayed start remaining"
+        "name": "Udskudt start tilbage"
       },
       "cooking_weight": {
-        "name": "Cooking weight"
+        "name": "Tilberedningsvægt"
       },
       "food_quanty": {
-        "name": "Food quantity",
+        "name": "Mængde",
         "state": {
-          "Unknown": "Unknown",
-          "Null": "None",
-          "Single": "Single portion",
-          "Double": "Double portion",
-          "Half": "Half full",
-          "Full": "Full"
+          "Unknown": "Ukendt",
+          "Null": "Ingen",
+          "Single": "Enkelt portion",
+          "Double": "Dobbelt portion",
+          "Half": "Halvt fyldt",
+          "Full": "Fuld"
         }
       },
       "left_percent": {
-        "name": "Remaining percent"
+        "name": "Resterende procent"
       },
       "left_time": {
-        "name": "Remaining"
+        "name": "Resterende tid"
       },
       "mode": {
-        "name": "Mode",
+        "name": "Tilstand",
         "state": {
-          "Manual": "Manual",
-          "FrenchFries": "French fries",
-          "ChickenWing": "Chicken wings",
-          "Steak": "Steak",
-          "LambChops": "Lamb chops",
-          "Fish": "Fish",
-          "Shrimp": "Shrimp",
-          "Vegetables": "Vegetables",
-          "Cake": "Cake",
+          "Manual": "Manuel",
+          "FrenchFries": "Pommes frites",
+          "ChickenWing": "Kyllingevinger",
+          "Steak": "Bøf",
+          "LambChops": "Lammekoteletter",
+          "Fish": "Fisk",
+          "Shrimp": "Rejer",
+          "Vegetables": "Grøntsager",
+          "Cake": "Kage",
           "Pizza": "Pizza",
-          "Defrost": "Defrost",
-          "DriedFruit": "Dried fruit",
+          "Defrost": "Optøning",
+          "DriedFruit": "Tørret frugt",
           "Yogurt": "Yoghurt"
         }
       },
       "preheat": {
-        "name": "Preheat phase",
+        "name": "Forvarmningsfase",
         "state": {
-          "Unknown": "Unknown",
-          "Null": "None",
-          "Off": "Off",
-          "On": "On"
+          "Unknown": "Ukendt",
+          "Null": "Ingen",
+          "Off": "Fra",
+          "On": "Til"
         }
       },
       "preheat_switch": {
-        "name": "Preheat phase",
+        "name": "Forvarmningsfase",
         "state": {
-          "Unknown": "Unknown",
-          "Null": "None",
-          "Off": "Off",
-          "On": "On"
+          "Unknown": "Ukendt",
+          "Null": "Ingen",
+          "Off": "Fra",
+          "On": "Til"
         }
       },
       "recipe_command": {
-        "name": "Recipe command"
+        "name": "Opskriftskommando"
       },
       "recipe_id": {
-        "name": "Recipe ID"
+        "name": "Opskrifts-ID"
       },
       "recipe_name": {
-        "name": "Recipe name"
+        "name": "Opskriftsnavn"
       },
       "reservation_left_time": {
-        "name": "Reservation remaining"
+        "name": "Reservation tilbage"
       },
       "status": {
         "name": "Status",
         "state": {
-          "Unknown": "Unknown",
-          "Shutdown": "Off",
-          "Standby": "Standby",
-          "Pause": "Paused",
-          "Appointment": "Delayed start",
-          "Cooking": "Cooking",
-          "Preheat": "Preheating",
-          "Cooked": "Finished",
-          "PreheatFinish": "Preheated",
-          "PreheatPause": "Preheating paused",
-          "Pause2": "Paused",
-          "Keepwarm": "Keeping warm",
-          "KeepwarmPause": "Keeping warm paused",
-          "KeepwarmFinish": "Keeping warm finished",
-          "CrispyRoast": "Crispy roast",
-          "Degrease": "Degreasing",
-          "Delay": "Delayed start",
-          "PotPause": "Paused to turn food"
+          "Unknown": "Ukendt",
+          "Shutdown": "Slukket",
+          "Standby": "Klar",
+          "Pause": "Pause",
+          "Appointment": "Udskudt start",
+          "Cooking": "Tilbereder",
+          "Preheat": "Forvarmer",
+          "Cooked": "Færdig",
+          "PreheatFinish": "Forvarmet",
+          "PreheatPause": "Forvarmning på pause",
+          "Pause2": "Pause",
+          "Keepwarm": "Holder varm",
+          "KeepwarmPause": "Varmholdning på pause",
+          "KeepwarmFinish": "Varmholdning afsluttet",
+          "CrispyRoast": "Sprød",
+          "Degrease": "Affedter",
+          "Delay": "Udskudt start",
+          "PotPause": "Pause for at vende"
         }
       },
       "switch_status": {
-        "name": "Switch status"
+        "name": "Kontaktstatus"
       },
       "target_cooking_measure": {
-        "name": "Target cooking measure"
+        "name": "Ønsket mængde"
       },
       "target_temperature": {
-        "name": "Target temperature"
+        "name": "Måltemperatur"
       },
       "target_time": {
-        "name": "Target time"
+        "name": "Måltid"
       },
       "temperature": {
-        "name": "Temperature"
+        "name": "Temperatur"
       },
       "texture": {
-        "name": "Texture",
+        "name": "Bruning",
         "state": {
-          "Unknown": "Unknown",
-          "NONE": "None",
-          "CrispyRoast": "Crispy roast",
-          "TenderRoast": "Tender roast",
-          "Degrease": "Degreasing"
+          "Unknown": "Ukendt",
+          "NONE": "Ingen",
+          "CrispyRoast": "Sprød",
+          "TenderRoast": "Mør",
+          "Degrease": "Affedter"
         }
       },
       "turn_pot": {
-        "name": "Turn food",
+        "name": "Vend maden",
         "state": {
-          "Unknown": "Unknown",
-          "NotTurnPot": "No need to turn",
-          "SwitchOff": "Off",
-          "TurnPot": "Turn the food",
-          "NoNeedTurnOverPot": "No need to turn",
-          "NeedTurnOverPot": "Turn the food"
+          "Unknown": "Ukendt",
+          "NotTurnPot": "Behøver ikke vendes",
+          "SwitchOff": "Slukket",
+          "TurnPot": "Vend maden",
+          "NoNeedTurnOverPot": "Behøver ikke vendes",
+          "NeedTurnOverPot": "Vend maden"
         }
       },
       "turn_pot_config": {
-        "name": "Turn food reminder"
+        "name": "Påmindelse om vending"
       },
       "turn_pot_status": {
-        "name": "Turn food status",
+        "name": "Vendestatus",
         "state": {
-          "Unknown": "Unknown",
-          "NoNeedTurnOverPot": "No need to turn",
-          "NeedTurnOverPot": "Turn the food"
+          "Unknown": "Ukendt",
+          "NoNeedTurnOverPot": "Behøver ikke vendes",
+          "NeedTurnOverPot": "Vend maden"
         }
       }
     }

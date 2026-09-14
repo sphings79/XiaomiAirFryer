@@ -2,7 +2,6 @@
 # pylint: disable=import-error
 import logging
 from enum import Enum
-from typing import Optional
 
 from homeassistant.components.sensor import SensorEntity
 from homeassistant.components.sensor.const import SensorDeviceClass
@@ -193,14 +192,18 @@ class XiaomiAirFryerSensor(CoordinatorEntity, SensorEntity):
         self._mac = entry.options[CONF_MAC]
         self._device_id = entry.unique_id
         self._device_name = entry.title
-        self._attr_name = config[0]
         self._child = config[1]
         self._attr = config[2]
         self._attr_native_unit_of_measurement = config[3]
-        self._icon = config[4]
         self._attr_device_class = config[5]
+
+        # The attribute name doubles as the translation key, so the display
+        # name and the state values come from translations/*.json rather than
+        # being hard-coded English. The unique_id still derives from the old
+        # hard-coded label so existing entities keep their identity.
+        self._attr_translation_key = config[2]
         self._attr_unique_id = "{}.{}-{}".format(
-            DOMAIN, entry.unique_id, self._attr_name.lower().replace(" ", "-"))
+            DOMAIN, entry.unique_id, config[0].lower().replace(" ", "-"))
 
     @property
     def device_info(self):
@@ -237,8 +240,3 @@ class XiaomiAirFryerSensor(CoordinatorEntity, SensorEntity):
             return value.name
 
         return value
-
-    @property
-    def icon(self) -> Optional[str]:
-        """Return the icon to use in the frontend, if any."""
-        return self._icon

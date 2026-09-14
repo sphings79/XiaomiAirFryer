@@ -1,0 +1,87 @@
+{
+  "entity": {
+    "sensor": {
+      "appoint_time": {
+        "default": "mdi:timelapse"
+      },
+      "appoint_time_left": {
+        "default": "mdi:timer"
+      },
+      "cooking_weight": {
+        "default": "mdi:scale"
+      },
+      "food_quanty": {
+        "default": "mdi:flash-outline"
+      },
+      "left_percent": {
+        "default": "mdi:timer-sand"
+      },
+      "left_time": {
+        "default": "mdi:timer"
+      },
+      "mode": {
+        "default": "mdi:stairs"
+      },
+      "preheat": {
+        "default": "mdi:pot-steam-outline"
+      },
+      "preheat_switch": {
+        "default": "mdi:pot-steam-outline"
+      },
+      "recipe_command": {
+        "default": "mdi:rice"
+      },
+      "recipe_id": {
+        "default": "mdi:rice"
+      },
+      "recipe_name": {
+        "default": "mdi:chef-hat"
+      },
+      "reservation_left_time": {
+        "default": "mdi:timer"
+      },
+      "status": {
+        "default": "mdi:bowl"
+      },
+      "switch_status": {
+        "default": "mdi:pot-steam-outline"
+      },
+      "target_cooking_measure": {
+        "default": "mdi:scale"
+      },
+      "target_time": {
+        "default": "mdi:menu"
+      },
+      "texture": {
+        "default": "mdi:pot-steam"
+      },
+      "turn_pot": {
+        "default": "mdi:rotate-3d-variant"
+      },
+      "turn_pot_config": {
+        "default": "mdi:rotate-3d-variant"
+      },
+      "turn_pot_status": {
+        "default": "mdi:rotate-3d-variant"
+      }
+    },
+    "switch": {
+      "xiaomi_airfryer": {
+        "default": "mdi:pot-mix"
+      }
+    }
+  },
+  "services": {
+    "start": "mdi:play",
+    "stop": "mdi:stop",
+    "pause": "mdi:pause",
+    "resume": "mdi:play-pause",
+    "preheat": "mdi:pot-steam-outline",
+    "start_custom": "mdi:chef-hat",
+    "appoint_time": "mdi:timelapse",
+    "recipe_id": "mdi:rice",
+    "food_quanty": "mdi:scale",
+    "target_time": "mdi:menu",
+    "target_temperature": "mdi:thermometer"
+  }
+}

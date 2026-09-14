@@ -101,5 +101,153 @@
         "title": "Xiaomi AirFryer"
       }
     }
+  },
+  "entity": {
+    "sensor": {
+      "appoint_time": {
+        "name": "Καθυστερημένη έναρξη"
+      },
+      "appoint_time_left": {
+        "name": "Υπόλοιπο καθυστέρησης"
+      },
+      "cooking_weight": {
+        "name": "Βάρος μαγειρέματος"
+      },
+      "food_quanty": {
+        "name": "Ποσότητα",
+        "state": {
+          "Unknown": "Άγνωστο",
+          "Null": "Κανένα",
+          "Single": "Μονή μερίδα",
+          "Double": "Διπλή μερίδα",
+          "Half": "Μισογεμάτο",
+          "Full": "Γεμάτο"
+        }
+      },
+      "left_percent": {
+        "name": "Υπόλοιπο ποσοστό"
+      },
+      "left_time": {
+        "name": "Υπόλοιπος χρόνος"
+      },
+      "mode": {
+        "name": "Λειτουργία",
+        "state": {
+          "Manual": "Χειροκίνητο",
+          "FrenchFries": "Τηγανητές πατάτες",
+          "ChickenWing": "Φτερούγες κοτόπουλου",
+          "Steak": "Μπριζόλα",
+          "LambChops": "Αρνίσια παϊδάκια",
+          "Fish": "Ψάρι",
+          "Shrimp": "Γαρίδες",
+          "Vegetables": "Λαχανικά",
+          "Cake": "Κέικ",
+          "Pizza": "Πίτσα",
+          "Defrost": "Απόψυξη",
+          "DriedFruit": "Αποξηραμένα φρούτα",
+          "Yogurt": "Γιαούρτι"
+        }
+      },
+      "preheat": {
+        "name": "Φάση προθέρμανσης",
+        "state": {
+          "Unknown": "Άγνωστο",
+          "Null": "Κανένα",
+          "Off": "Ανενεργό",
+          "On": "Ενεργό"
+        }
+      },
+      "preheat_switch": {
+        "name": "Φάση προθέρμανσης",
+        "state": {
+          "Unknown": "Άγνωστο",
+          "Null": "Κανένα",
+          "Off": "Ανενεργό",
+          "On": "Ενεργό"
+        }
+      },
+      "recipe_command": {
+        "name": "Εντολή συνταγής"
+      },
+      "recipe_id": {
+        "name": "Αναγνωριστικό συνταγής"
+      },
+      "recipe_name": {
+        "name": "Όνομα συνταγής"
+      },
+      "reservation_left_time": {
+        "name": "Υπόλοιπο κράτησης"
+      },
+      "status": {
+        "name": "Κατάσταση",
+        "state": {
+          "Unknown": "Άγνωστο",
+          "Shutdown": "Εκτός",
+          "Standby": "Αναμονή",
+          "Pause": "Σε παύση",
+          "Appointment": "Καθυστερημένη έναρξη",
+          "Cooking": "Μαγειρεύει",
+          "Preheat": "Προθερμαίνεται",
+          "Cooked": "Ολοκληρώθηκε",
+          "PreheatFinish": "Προθερμάνθηκε",
+          "PreheatPause": "Προθέρμανση σε παύση",
+          "Pause2": "Σε παύση",
+          "Keepwarm": "Διατήρηση ζέστης",
+          "KeepwarmPause": "Διατήρηση σε παύση",
+          "KeepwarmFinish": "Διατήρηση ολοκληρώθηκε",
+          "CrispyRoast": "Τραγανό",
+          "Degrease": "Απολίπανση",
+          "Delay": "Καθυστερημένη έναρξη",
+          "PotPause": "Παύση για αναποδογύρισμα"
+        }
+      },
+      "switch_status": {
+        "name": "Κατάσταση διακόπτη"
+      },
+      "target_cooking_measure": {
+        "name": "Στόχος ποσότητας"
+      },
+      "target_temperature": {
+        "name": "Θερμοκρασία στόχος"
+      },
+      "target_time": {
+        "name": "Χρόνος στόχος"
+      },
+      "temperature": {
+        "name": "Θερμοκρασία"
+      },
+      "texture": {
+        "name": "Ροδοκοκκίνισμα",
+        "state": {
+          "Unknown": "Άγνωστο",
+          "NONE": "Κανένα",
+          "CrispyRoast": "Τραγανό",
+          "TenderRoast": "Τρυφερό",
+          "Degrease": "Απολίπανση"
+        }
+      },
+      "turn_pot": {
+        "name": "Αναποδογύρισμα",
+        "state": {
+          "Unknown": "Άγνωστο",
+          "NotTurnPot": "Δεν χρειάζεται αναποδογύρισμα",
+          "SwitchOff": "Εκτός",
+          "TurnPot": "Αναποδογυρίστε το φαγητό",
+          "NoNeedTurnOverPot": "Δεν χρειάζεται αναποδογύρισμα",
+          "NeedTurnOverPot": "Αναποδογυρίστε το φαγητό"
+        }
+      },
+      "turn_pot_config": {
+        "name": "Υπενθύμιση αναποδογυρίσματος"
+      },
+      "turn_pot_status": {
+        "name": "Κατάσταση αναποδογυρίσματος",
+        "state": {
+          "Unknown": "Άγνωστο",
+          "NoNeedTurnOverPot": "Δεν χρειάζεται αναποδογύρισμα",
+          "NeedTurnOverPot": "Αναποδογυρίστε το φαγητό"
+        }
+      }
+    }
   }
 }

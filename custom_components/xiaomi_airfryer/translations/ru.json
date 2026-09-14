@@ -101,5 +101,153 @@
         "title": "Аэрогриль Xiaomi"
       }
     }
+  },
+  "entity": {
+    "sensor": {
+      "appoint_time": {
+        "name": "Отложенный старт"
+      },
+      "appoint_time_left": {
+        "name": "До отложенного старта"
+      },
+      "cooking_weight": {
+        "name": "Вес продукта"
+      },
+      "food_quanty": {
+        "name": "Количество",
+        "state": {
+          "Unknown": "Неизвестно",
+          "Null": "Нет",
+          "Single": "Одна порция",
+          "Double": "Двойная порция",
+          "Half": "Наполовину",
+          "Full": "Полная"
+        }
+      },
+      "left_percent": {
+        "name": "Осталось процентов"
+      },
+      "left_time": {
+        "name": "Осталось времени"
+      },
+      "mode": {
+        "name": "Режим",
+        "state": {
+          "Manual": "Ручной",
+          "FrenchFries": "Картофель фри",
+          "ChickenWing": "Куриные крылышки",
+          "Steak": "Стейк",
+          "LambChops": "Бараньи отбивные",
+          "Fish": "Рыба",
+          "Shrimp": "Креветки",
+          "Vegetables": "Овощи",
+          "Cake": "Кекс",
+          "Pizza": "Пицца",
+          "Defrost": "Разморозка",
+          "DriedFruit": "Сухофрукты",
+          "Yogurt": "Йогурт"
+        }
+      },
+      "preheat": {
+        "name": "Фаза разогрева",
+        "state": {
+          "Unknown": "Неизвестно",
+          "Null": "Нет",
+          "Off": "Выключено",
+          "On": "Включено"
+        }
+      },
+      "preheat_switch": {
+        "name": "Фаза разогрева",
+        "state": {
+          "Unknown": "Неизвестно",
+          "Null": "Нет",
+          "Off": "Выключено",
+          "On": "Включено"
+        }
+      },
+      "recipe_command": {
+        "name": "Команда рецепта"
+      },
+      "recipe_id": {
+        "name": "ID рецепта"
+      },
+      "recipe_name": {
+        "name": "Название рецепта"
+      },
+      "reservation_left_time": {
+        "name": "Осталось до запуска"
+      },
+      "status": {
+        "name": "Состояние",
+        "state": {
+          "Unknown": "Неизвестно",
+          "Shutdown": "Выключено",
+          "Standby": "Ожидание",
+          "Pause": "Пауза",
+          "Appointment": "Отложенный старт",
+          "Cooking": "Готовит",
+          "Preheat": "Разогрев",
+          "Cooked": "Готово",
+          "PreheatFinish": "Разогрет",
+          "PreheatPause": "Разогрев на паузе",
+          "Pause2": "Пауза",
+          "Keepwarm": "Поддержание тепла",
+          "KeepwarmPause": "Поддержание на паузе",
+          "KeepwarmFinish": "Поддержание завершено",
+          "CrispyRoast": "Хрустящая корочка",
+          "Degrease": "Обезжиривание",
+          "Delay": "Отложенный старт",
+          "PotPause": "Пауза для переворота"
+        }
+      },
+      "switch_status": {
+        "name": "Состояние переключателя"
+      },
+      "target_cooking_measure": {
+        "name": "Целевое количество"
+      },
+      "target_temperature": {
+        "name": "Целевая температура"
+      },
+      "target_time": {
+        "name": "Целевое время"
+      },
+      "temperature": {
+        "name": "Температура"
+      },
+      "texture": {
+        "name": "Румяность",
+        "state": {
+          "Unknown": "Неизвестно",
+          "NONE": "Нет",
+          "CrispyRoast": "Хрустящая корочка",
+          "TenderRoast": "Мягкое",
+          "Degrease": "Обезжиривание"
+        }
+      },
+      "turn_pot": {
+        "name": "Перевернуть",
+        "state": {
+          "Unknown": "Неизвестно",
+          "NotTurnPot": "Переворачивать не нужно",
+          "SwitchOff": "Выключено",
+          "TurnPot": "Переверните продукты",
+          "NoNeedTurnOverPot": "Переворачивать не нужно",
+          "NeedTurnOverPot": "Переверните продукты"
+        }
+      },
+      "turn_pot_config": {
+        "name": "Напоминание перевернуть"
+      },
+      "turn_pot_status": {
+        "name": "Статус переворота",
+        "state": {
+          "Unknown": "Неизвестно",
+          "NoNeedTurnOverPot": "Переворачивать не нужно",
+          "NeedTurnOverPot": "Переверните продукты"
+        }
+      }
+    }
   }
 }

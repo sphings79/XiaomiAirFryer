@@ -105,147 +105,147 @@
   "entity": {
     "sensor": {
       "appoint_time": {
-        "name": "Delayed start"
+        "name": "Fördröjd start"
       },
       "appoint_time_left": {
-        "name": "Delayed start remaining"
+        "name": "Fördröjd start kvar"
       },
       "cooking_weight": {
-        "name": "Cooking weight"
+        "name": "Tillagningsvikt"
       },
       "food_quanty": {
-        "name": "Food quantity",
+        "name": "Mängd",
         "state": {
-          "Unknown": "Unknown",
-          "Null": "None",
-          "Single": "Single portion",
-          "Double": "Double portion",
-          "Half": "Half full",
+          "Unknown": "Okänd",
+          "Null": "Ingen",
+          "Single": "Enkel portion",
+          "Double": "Dubbel portion",
+          "Half": "Halvfull",
           "Full": "Full"
         }
       },
       "left_percent": {
-        "name": "Remaining percent"
+        "name": "Återstående procent"
       },
       "left_time": {
-        "name": "Remaining"
+        "name": "Återstående tid"
       },
       "mode": {
-        "name": "Mode",
+        "name": "Läge",
         "state": {
-          "Manual": "Manual",
-          "FrenchFries": "French fries",
-          "ChickenWing": "Chicken wings",
-          "Steak": "Steak",
-          "LambChops": "Lamb chops",
-          "Fish": "Fish",
-          "Shrimp": "Shrimp",
-          "Vegetables": "Vegetables",
-          "Cake": "Cake",
+          "Manual": "Manuell",
+          "FrenchFries": "Pommes frites",
+          "ChickenWing": "Kycklingvingar",
+          "Steak": "Biff",
+          "LambChops": "Lammkotletter",
+          "Fish": "Fisk",
+          "Shrimp": "Räkor",
+          "Vegetables": "Grönsaker",
+          "Cake": "Kaka",
           "Pizza": "Pizza",
-          "Defrost": "Defrost",
-          "DriedFruit": "Dried fruit",
+          "Defrost": "Upptining",
+          "DriedFruit": "Torkad frukt",
           "Yogurt": "Yoghurt"
         }
       },
       "preheat": {
-        "name": "Preheat phase",
+        "name": "Förvärmningsfas",
         "state": {
-          "Unknown": "Unknown",
-          "Null": "None",
-          "Off": "Off",
-          "On": "On"
+          "Unknown": "Okänd",
+          "Null": "Ingen",
+          "Off": "Av",
+          "On": "På"
         }
       },
       "preheat_switch": {
-        "name": "Preheat phase",
+        "name": "Förvärmningsfas",
         "state": {
-          "Unknown": "Unknown",
-          "Null": "None",
-          "Off": "Off",
-          "On": "On"
+          "Unknown": "Okänd",
+          "Null": "Ingen",
+          "Off": "Av",
+          "On": "På"
         }
       },
       "recipe_command": {
-        "name": "Recipe command"
+        "name": "Receptkommando"
       },
       "recipe_id": {
-        "name": "Recipe ID"
+        "name": "Recept-ID"
       },
       "recipe_name": {
-        "name": "Recipe name"
+        "name": "Receptnamn"
       },
       "reservation_left_time": {
-        "name": "Reservation remaining"
+        "name": "Reservation kvar"
       },
       "status": {
         "name": "Status",
         "state": {
-          "Unknown": "Unknown",
-          "Shutdown": "Off",
-          "Standby": "Standby",
-          "Pause": "Paused",
-          "Appointment": "Delayed start",
-          "Cooking": "Cooking",
-          "Preheat": "Preheating",
-          "Cooked": "Finished",
-          "PreheatFinish": "Preheated",
-          "PreheatPause": "Preheating paused",
-          "Pause2": "Paused",
-          "Keepwarm": "Keeping warm",
-          "KeepwarmPause": "Keeping warm paused",
-          "KeepwarmFinish": "Keeping warm finished",
-          "CrispyRoast": "Crispy roast",
-          "Degrease": "Degreasing",
-          "Delay": "Delayed start",
-          "PotPause": "Paused to turn food"
+          "Unknown": "Okänd",
+          "Shutdown": "Avstängd",
+          "Standby": "Redo",
+          "Pause": "Pausad",
+          "Appointment": "Fördröjd start",
+          "Cooking": "Tillagar",
+          "Preheat": "Förvärmer",
+          "Cooked": "Klar",
+          "PreheatFinish": "Förvärmd",
+          "PreheatPause": "Förvärmning pausad",
+          "Pause2": "Pausad",
+          "Keepwarm": "Håller varm",
+          "KeepwarmPause": "Varmhållning pausad",
+          "KeepwarmFinish": "Varmhållning avslutad",
+          "CrispyRoast": "Krispig",
+          "Degrease": "Avfettar",
+          "Delay": "Fördröjd start",
+          "PotPause": "Paus för att vända"
         }
       },
       "switch_status": {
-        "name": "Switch status"
+        "name": "Brytarstatus"
       },
       "target_cooking_measure": {
-        "name": "Target cooking measure"
+        "name": "Målmängd"
       },
       "target_temperature": {
-        "name": "Target temperature"
+        "name": "Måltemperatur"
       },
       "target_time": {
-        "name": "Target time"
+        "name": "Måltid"
       },
       "temperature": {
-        "name": "Temperature"
+        "name": "Temperatur"
       },
       "texture": {
-        "name": "Texture",
+        "name": "Bryning",
         "state": {
-          "Unknown": "Unknown",
-          "NONE": "None",
-          "CrispyRoast": "Crispy roast",
-          "TenderRoast": "Tender roast",
-          "Degrease": "Degreasing"
+          "Unknown": "Okänd",
+          "NONE": "Ingen",
+          "CrispyRoast": "Krispig",
+          "TenderRoast": "Mör",
+          "Degrease": "Avfettar"
         }
       },
       "turn_pot": {
-        "name": "Turn food",
+        "name": "Vänd maten",
         "state": {
-          "Unknown": "Unknown",
-          "NotTurnPot": "No need to turn",
-          "SwitchOff": "Off",
-          "TurnPot": "Turn the food",
-          "NoNeedTurnOverPot": "No need to turn",
-          "NeedTurnOverPot": "Turn the food"
+          "Unknown": "Okänd",
+          "NotTurnPot": "Behöver inte vändas",
+          "SwitchOff": "Avstängd",
+          "TurnPot": "Vänd maten",
+          "NoNeedTurnOverPot": "Behöver inte vändas",
+          "NeedTurnOverPot": "Vänd maten"
         }
       },
       "turn_pot_config": {
-        "name": "Turn food reminder"
+        "name": "Påminnelse om vändning"
       },
       "turn_pot_status": {
-        "name": "Turn food status",
+        "name": "Vändstatus",
         "state": {
-          "Unknown": "Unknown",
-          "NoNeedTurnOverPot": "No need to turn",
-          "NeedTurnOverPot": "Turn the food"
+          "Unknown": "Okänd",
+          "NoNeedTurnOverPot": "Behöver inte vändas",
+          "NeedTurnOverPot": "Vänd maten"
         }
       }
     }

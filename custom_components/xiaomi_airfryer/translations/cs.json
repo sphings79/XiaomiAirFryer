@@ -105,147 +105,147 @@
   "entity": {
     "sensor": {
       "appoint_time": {
-        "name": "Delayed start"
+        "name": "Odložený start"
       },
       "appoint_time_left": {
-        "name": "Delayed start remaining"
+        "name": "Zbývá do odloženého startu"
       },
       "cooking_weight": {
-        "name": "Cooking weight"
+        "name": "Hmotnost pokrmu"
       },
       "food_quanty": {
-        "name": "Food quantity",
+        "name": "Množství",
         "state": {
-          "Unknown": "Unknown",
-          "Null": "None",
-          "Single": "Single portion",
-          "Double": "Double portion",
-          "Half": "Half full",
-          "Full": "Full"
+          "Unknown": "Neznámý",
+          "Null": "Žádné",
+          "Single": "Jedna porce",
+          "Double": "Dvojitá porce",
+          "Half": "Poloviční",
+          "Full": "Plné"
         }
       },
       "left_percent": {
-        "name": "Remaining percent"
+        "name": "Zbývá procent"
       },
       "left_time": {
-        "name": "Remaining"
+        "name": "Zbývající čas"
       },
       "mode": {
-        "name": "Mode",
+        "name": "Režim",
         "state": {
-          "Manual": "Manual",
-          "FrenchFries": "French fries",
-          "ChickenWing": "Chicken wings",
+          "Manual": "Ruční",
+          "FrenchFries": "Hranolky",
+          "ChickenWing": "Kuřecí křídla",
           "Steak": "Steak",
-          "LambChops": "Lamb chops",
-          "Fish": "Fish",
-          "Shrimp": "Shrimp",
-          "Vegetables": "Vegetables",
-          "Cake": "Cake",
+          "LambChops": "Jehněčí kotlety",
+          "Fish": "Ryba",
+          "Shrimp": "Krevety",
+          "Vegetables": "Zelenina",
+          "Cake": "Koláč",
           "Pizza": "Pizza",
-          "Defrost": "Defrost",
-          "DriedFruit": "Dried fruit",
-          "Yogurt": "Yoghurt"
+          "Defrost": "Rozmrazování",
+          "DriedFruit": "Sušené ovoce",
+          "Yogurt": "Jogurt"
         }
       },
       "preheat": {
-        "name": "Preheat phase",
+        "name": "Fáze předehřevu",
         "state": {
-          "Unknown": "Unknown",
-          "Null": "None",
-          "Off": "Off",
-          "On": "On"
+          "Unknown": "Neznámý",
+          "Null": "Žádné",
+          "Off": "Vypnuto",
+          "On": "Zapnuto"
         }
       },
       "preheat_switch": {
-        "name": "Preheat phase",
+        "name": "Fáze předehřevu",
         "state": {
-          "Unknown": "Unknown",
-          "Null": "None",
-          "Off": "Off",
-          "On": "On"
+          "Unknown": "Neznámý",
+          "Null": "Žádné",
+          "Off": "Vypnuto",
+          "On": "Zapnuto"
         }
       },
       "recipe_command": {
-        "name": "Recipe command"
+        "name": "Příkaz receptu"
       },
       "recipe_id": {
-        "name": "Recipe ID"
+        "name": "ID receptu"
       },
       "recipe_name": {
-        "name": "Recipe name"
+        "name": "Název receptu"
       },
       "reservation_left_time": {
-        "name": "Reservation remaining"
+        "name": "Zbývající rezervace"
       },
       "status": {
-        "name": "Status",
+        "name": "Stav",
         "state": {
-          "Unknown": "Unknown",
-          "Shutdown": "Off",
-          "Standby": "Standby",
-          "Pause": "Paused",
-          "Appointment": "Delayed start",
-          "Cooking": "Cooking",
-          "Preheat": "Preheating",
-          "Cooked": "Finished",
-          "PreheatFinish": "Preheated",
-          "PreheatPause": "Preheating paused",
-          "Pause2": "Paused",
-          "Keepwarm": "Keeping warm",
-          "KeepwarmPause": "Keeping warm paused",
-          "KeepwarmFinish": "Keeping warm finished",
-          "CrispyRoast": "Crispy roast",
-          "Degrease": "Degreasing",
-          "Delay": "Delayed start",
-          "PotPause": "Paused to turn food"
+          "Unknown": "Neznámý",
+          "Shutdown": "Vypnuto",
+          "Standby": "Připraveno",
+          "Pause": "Pozastaveno",
+          "Appointment": "Odložený start",
+          "Cooking": "Vaří",
+          "Preheat": "Předehřívá",
+          "Cooked": "Hotovo",
+          "PreheatFinish": "Předehřáto",
+          "PreheatPause": "Předehřev pozastaven",
+          "Pause2": "Pozastaveno",
+          "Keepwarm": "Udržuje teplotu",
+          "KeepwarmPause": "Udržování pozastaveno",
+          "KeepwarmFinish": "Udržování ukončeno",
+          "CrispyRoast": "Křupavé",
+          "Degrease": "Odmašťuje",
+          "Delay": "Odložený start",
+          "PotPause": "Pauza na obrácení"
         }
       },
       "switch_status": {
-        "name": "Switch status"
+        "name": "Stav spínače"
       },
       "target_cooking_measure": {
-        "name": "Target cooking measure"
+        "name": "Cílové množství"
       },
       "target_temperature": {
-        "name": "Target temperature"
+        "name": "Cílová teplota"
       },
       "target_time": {
-        "name": "Target time"
+        "name": "Cílový čas"
       },
       "temperature": {
-        "name": "Temperature"
+        "name": "Teplota"
       },
       "texture": {
-        "name": "Texture",
+        "name": "Propečení",
         "state": {
-          "Unknown": "Unknown",
-          "NONE": "None",
-          "CrispyRoast": "Crispy roast",
-          "TenderRoast": "Tender roast",
-          "Degrease": "Degreasing"
+          "Unknown": "Neznámý",
+          "NONE": "Žádné",
+          "CrispyRoast": "Křupavé",
+          "TenderRoast": "Jemné",
+          "Degrease": "Odmašťuje"
         }
       },
       "turn_pot": {
-        "name": "Turn food",
+        "name": "Obrátit",
         "state": {
-          "Unknown": "Unknown",
-          "NotTurnPot": "No need to turn",
-          "SwitchOff": "Off",
-          "TurnPot": "Turn the food",
-          "NoNeedTurnOverPot": "No need to turn",
-          "NeedTurnOverPot": "Turn the food"
+          "Unknown": "Neznámý",
+          "NotTurnPot": "Není třeba obracet",
+          "SwitchOff": "Vypnuto",
+          "TurnPot": "Obraťte pokrm",
+          "NoNeedTurnOverPot": "Není třeba obracet",
+          "NeedTurnOverPot": "Obraťte pokrm"
         }
       },
       "turn_pot_config": {
-        "name": "Turn food reminder"
+        "name": "Připomenutí obracení"
       },
       "turn_pot_status": {
-        "name": "Turn food status",
+        "name": "Stav obracení",
         "state": {
-          "Unknown": "Unknown",
-          "NoNeedTurnOverPot": "No need to turn",
-          "NeedTurnOverPot": "Turn the food"
+          "Unknown": "Neznámý",
+          "NoNeedTurnOverPot": "Není třeba obracet",
+          "NeedTurnOverPot": "Obraťte pokrm"
         }
       }
     }
