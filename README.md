@@ -237,7 +237,7 @@ Czech · Danish · Dutch · English · French · German · Greek · Italian · P
 Portuguese · Russian · Spanish · Swedish · Traditional Chinese
 
 That includes the values themselves. A German dashboard reads *Gart* and *Kein Wenden
-nötig* rather than `Cooking` and `NotTurnPot`, and recipes show as *Pommes frites*
+nötig* rather than `cooking` and `not_turn_pot`, and recipes show as *Pommes frites*
 instead of `M1`.
 
 ---

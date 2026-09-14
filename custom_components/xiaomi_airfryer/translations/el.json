@@ -98,12 +98,12 @@
       "food_quanty": {
         "name": "Ποσότητα",
         "state": {
-          "Unknown": "Άγνωστο",
-          "Null": "Κανένα",
-          "Single": "Μονή μερίδα",
-          "Double": "Διπλή μερίδα",
-          "Half": "Μισογεμάτο",
-          "Full": "Γεμάτο"
+          "double": "Διπλή μερίδα",
+          "full": "Γεμάτο",
+          "half": "Μισογεμάτο",
+          "null": "Κανένα",
+          "single": "Μονή μερίδα",
+          "unknown": "Άγνωστο"
         }
       },
       "left_percent": {
@@ -115,37 +115,37 @@
       "mode": {
         "name": "Λειτουργία",
         "state": {
-          "Manual": "Χειροκίνητο",
-          "FrenchFries": "Τηγανητές πατάτες",
-          "ChickenWing": "Φτερούγες κοτόπουλου",
-          "Steak": "Μπριζόλα",
-          "LambChops": "Αρνίσια παϊδάκια",
-          "Fish": "Ψάρι",
-          "Shrimp": "Γαρίδες",
-          "Vegetables": "Λαχανικά",
-          "Cake": "Κέικ",
-          "Pizza": "Πίτσα",
-          "Defrost": "Απόψυξη",
-          "DriedFruit": "Αποξηραμένα φρούτα",
-          "Yogurt": "Γιαούρτι"
+          "cake": "Κέικ",
+          "chicken_wing": "Φτερούγες κοτόπουλου",
+          "defrost": "Απόψυξη",
+          "dried_fruit": "Αποξηραμένα φρούτα",
+          "fish": "Ψάρι",
+          "french_fries": "Τηγανητές πατάτες",
+          "lamb_chops": "Αρνίσια παϊδάκια",
+          "manual": "Χειροκίνητο",
+          "pizza": "Πίτσα",
+          "shrimp": "Γαρίδες",
+          "steak": "Μπριζόλα",
+          "vegetables": "Λαχανικά",
+          "yogurt": "Γιαούρτι"
         }
       },
       "preheat": {
         "name": "Φάση προθέρμανσης",
         "state": {
-          "Unknown": "Άγνωστο",
-          "Null": "Κανένα",
-          "Off": "Ανενεργό",
-          "On": "Ενεργό"
+          "null": "Κανένα",
+          "off": "Ανενεργό",
+          "on": "Ενεργό",
+          "unknown": "Άγνωστο"
         }
       },
       "preheat_switch": {
         "name": "Φάση προθέρμανσης",
         "state": {
-          "Unknown": "Άγνωστο",
-          "Null": "Κανένα",
-          "Off": "Ανενεργό",
-          "On": "Ενεργό"
+          "null": "Κανένα",
+          "off": "Ανενεργό",
+          "on": "Ενεργό",
+          "unknown": "Άγνωστο"
         }
       },
       "recipe_command": {
@@ -154,18 +154,18 @@
       "recipe_id": {
         "name": "Αναγνωριστικό συνταγής",
         "state": {
-          "Manual": "Χειροκίνητο",
-          "FrenchFries": "Τηγανητές πατάτες",
-          "ChickenWing": "Φτερούγες κοτόπουλου",
-          "Fish": "Ψάρι",
-          "Steak": "Μπριζόλα",
-          "Shrimp": "Γαρίδες",
-          "Vegetables": "Λαχανικά",
-          "Cake": "Κέικ",
-          "DriedFruit": "Αποξηραμένα φρούτα",
-          "Yogurt": "Γιαούρτι",
-          "Defrost": "Απόψυξη",
-          "Unknown": "Άγνωστο"
+          "cake": "Κέικ",
+          "chicken_wing": "Φτερούγες κοτόπουλου",
+          "defrost": "Απόψυξη",
+          "dried_fruit": "Αποξηραμένα φρούτα",
+          "fish": "Ψάρι",
+          "french_fries": "Τηγανητές πατάτες",
+          "manual": "Χειροκίνητο",
+          "shrimp": "Γαρίδες",
+          "steak": "Μπριζόλα",
+          "unknown": "Άγνωστο",
+          "vegetables": "Λαχανικά",
+          "yogurt": "Γιαούρτι"
         }
       },
       "recipe_name": {
@@ -177,24 +177,24 @@
       "status": {
         "name": "Κατάσταση",
         "state": {
-          "Unknown": "Άγνωστο",
-          "Shutdown": "Εκτός",
-          "Standby": "Αναμονή",
-          "Pause": "Σε παύση",
-          "Appointment": "Καθυστερημένη έναρξη",
-          "Cooking": "Μαγειρεύει",
-          "Preheat": "Προθερμαίνεται",
-          "Cooked": "Ολοκληρώθηκε",
-          "PreheatFinish": "Προθερμάνθηκε",
-          "PreheatPause": "Προθέρμανση σε παύση",
-          "Pause2": "Σε παύση",
-          "Keepwarm": "Διατήρηση ζέστης",
-          "KeepwarmPause": "Διατήρηση σε παύση",
-          "KeepwarmFinish": "Διατήρηση ολοκληρώθηκε",
-          "CrispyRoast": "Τραγανό",
-          "Degrease": "Απολίπανση",
-          "Delay": "Καθυστερημένη έναρξη",
-          "PotPause": "Παύση για αναποδογύρισμα"
+          "appointment": "Καθυστερημένη έναρξη",
+          "cooked": "Ολοκληρώθηκε",
+          "cooking": "Μαγειρεύει",
+          "crispy_roast": "Τραγανό",
+          "degrease": "Απολίπανση",
+          "delay": "Καθυστερημένη έναρξη",
+          "keepwarm": "Διατήρηση ζέστης",
+          "keepwarm_finish": "Διατήρηση ολοκληρώθηκε",
+          "keepwarm_pause": "Διατήρηση σε παύση",
+          "pause": "Σε παύση",
+          "pause2": "Σε παύση",
+          "pot_pause": "Παύση για αναποδογύρισμα",
+          "preheat": "Προθερμαίνεται",
+          "preheat_finish": "Προθερμάνθηκε",
+          "preheat_pause": "Προθέρμανση σε παύση",
+          "shutdown": "Εκτός",
+          "standby": "Αναμονή",
+          "unknown": "Άγνωστο"
         }
       },
       "switch_status": {
@@ -215,22 +215,22 @@
       "texture": {
         "name": "Ροδοκοκκίνισμα",
         "state": {
-          "Unknown": "Άγνωστο",
-          "NONE": "Κανένα",
-          "CrispyRoast": "Τραγανό",
-          "TenderRoast": "Τρυφερό",
-          "Degrease": "Απολίπανση"
+          "crispy_roast": "Τραγανό",
+          "degrease": "Απολίπανση",
+          "none": "Κανένα",
+          "tender_roast": "Τρυφερό",
+          "unknown": "Άγνωστο"
         }
       },
       "turn_pot": {
         "name": "Αναποδογύρισμα",
         "state": {
-          "Unknown": "Άγνωστο",
-          "NotTurnPot": "Δεν χρειάζεται αναποδογύρισμα",
-          "SwitchOff": "Εκτός",
-          "TurnPot": "Αναποδογυρίστε το φαγητό",
-          "NoNeedTurnOverPot": "Δεν χρειάζεται αναποδογύρισμα",
-          "NeedTurnOverPot": "Αναποδογυρίστε το φαγητό"
+          "need_turn_over_pot": "Αναποδογυρίστε το φαγητό",
+          "no_need_turn_over_pot": "Δεν χρειάζεται αναποδογύρισμα",
+          "not_turn_pot": "Δεν χρειάζεται αναποδογύρισμα",
+          "switch_off": "Εκτός",
+          "turn_pot": "Αναποδογυρίστε το φαγητό",
+          "unknown": "Άγνωστο"
         }
       },
       "turn_pot_config": {
@@ -239,9 +239,9 @@
       "turn_pot_status": {
         "name": "Κατάσταση αναποδογυρίσματος",
         "state": {
-          "Unknown": "Άγνωστο",
-          "NoNeedTurnOverPot": "Δεν χρειάζεται αναποδογύρισμα",
-          "NeedTurnOverPot": "Αναποδογυρίστε το φαγητό"
+          "need_turn_over_pot": "Αναποδογυρίστε το φαγητό",
+          "no_need_turn_over_pot": "Δεν χρειάζεται αναποδογύρισμα",
+          "unknown": "Άγνωστο"
         }
       }
     },
@@ -260,27 +260,27 @@
       "food_quanty": {
         "name": "Ποσότητα",
         "state": {
-          "Null": "Κανένα",
-          "Single": "Μονή μερίδα",
-          "Double": "Διπλή μερίδα",
-          "Half": "Μισογεμάτο",
-          "Full": "Γεμάτο"
+          "double": "Διπλή μερίδα",
+          "full": "Γεμάτο",
+          "half": "Μισογεμάτο",
+          "null": "Κανένα",
+          "single": "Μονή μερίδα"
         }
       },
       "recipe_id": {
         "name": "Αναγνωριστικό συνταγής",
         "state": {
-          "Manual": "Χειροκίνητο",
-          "FrenchFries": "Τηγανητές πατάτες",
-          "ChickenWing": "Φτερούγες κοτόπουλου",
-          "Fish": "Ψάρι",
-          "Steak": "Μπριζόλα",
-          "Shrimp": "Γαρίδες",
-          "Vegetables": "Λαχανικά",
-          "Cake": "Κέικ",
-          "DriedFruit": "Αποξηραμένα φρούτα",
-          "Yogurt": "Γιαούρτι",
-          "Defrost": "Απόψυξη"
+          "cake": "Κέικ",
+          "chicken_wing": "Φτερούγες κοτόπουλου",
+          "defrost": "Απόψυξη",
+          "dried_fruit": "Αποξηραμένα φρούτα",
+          "fish": "Ψάρι",
+          "french_fries": "Τηγανητές πατάτες",
+          "manual": "Χειροκίνητο",
+          "shrimp": "Γαρίδες",
+          "steak": "Μπριζόλα",
+          "vegetables": "Λαχανικά",
+          "yogurt": "Γιαούρτι"
         }
       }
     },

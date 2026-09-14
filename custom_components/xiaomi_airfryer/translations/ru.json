@@ -98,12 +98,12 @@
       "food_quanty": {
         "name": "Количество",
         "state": {
-          "Unknown": "Неизвестно",
-          "Null": "Нет",
-          "Single": "Одна порция",
-          "Double": "Двойная порция",
-          "Half": "Наполовину",
-          "Full": "Полная"
+          "double": "Двойная порция",
+          "full": "Полная",
+          "half": "Наполовину",
+          "null": "Нет",
+          "single": "Одна порция",
+          "unknown": "Неизвестно"
         }
       },
       "left_percent": {
@@ -115,37 +115,37 @@
       "mode": {
         "name": "Режим",
         "state": {
-          "Manual": "Ручной",
-          "FrenchFries": "Картофель фри",
-          "ChickenWing": "Куриные крылышки",
-          "Steak": "Стейк",
-          "LambChops": "Бараньи отбивные",
-          "Fish": "Рыба",
-          "Shrimp": "Креветки",
-          "Vegetables": "Овощи",
-          "Cake": "Кекс",
-          "Pizza": "Пицца",
-          "Defrost": "Разморозка",
-          "DriedFruit": "Сухофрукты",
-          "Yogurt": "Йогурт"
+          "cake": "Кекс",
+          "chicken_wing": "Куриные крылышки",
+          "defrost": "Разморозка",
+          "dried_fruit": "Сухофрукты",
+          "fish": "Рыба",
+          "french_fries": "Картофель фри",
+          "lamb_chops": "Бараньи отбивные",
+          "manual": "Ручной",
+          "pizza": "Пицца",
+          "shrimp": "Креветки",
+          "steak": "Стейк",
+          "vegetables": "Овощи",
+          "yogurt": "Йогурт"
         }
       },
       "preheat": {
         "name": "Фаза разогрева",
         "state": {
-          "Unknown": "Неизвестно",
-          "Null": "Нет",
-          "Off": "Выключено",
-          "On": "Включено"
+          "null": "Нет",
+          "off": "Выключено",
+          "on": "Включено",
+          "unknown": "Неизвестно"
         }
       },
       "preheat_switch": {
         "name": "Фаза разогрева",
         "state": {
-          "Unknown": "Неизвестно",
-          "Null": "Нет",
-          "Off": "Выключено",
-          "On": "Включено"
+          "null": "Нет",
+          "off": "Выключено",
+          "on": "Включено",
+          "unknown": "Неизвестно"
         }
       },
       "recipe_command": {
@@ -154,18 +154,18 @@
       "recipe_id": {
         "name": "ID рецепта",
         "state": {
-          "Manual": "Ручной",
-          "FrenchFries": "Картофель фри",
-          "ChickenWing": "Куриные крылышки",
-          "Fish": "Рыба",
-          "Steak": "Стейк",
-          "Shrimp": "Креветки",
-          "Vegetables": "Овощи",
-          "Cake": "Кекс",
-          "DriedFruit": "Сухофрукты",
-          "Yogurt": "Йогурт",
-          "Defrost": "Разморозка",
-          "Unknown": "Неизвестно"
+          "cake": "Кекс",
+          "chicken_wing": "Куриные крылышки",
+          "defrost": "Разморозка",
+          "dried_fruit": "Сухофрукты",
+          "fish": "Рыба",
+          "french_fries": "Картофель фри",
+          "manual": "Ручной",
+          "shrimp": "Креветки",
+          "steak": "Стейк",
+          "unknown": "Неизвестно",
+          "vegetables": "Овощи",
+          "yogurt": "Йогурт"
         }
       },
       "recipe_name": {
@@ -177,24 +177,24 @@
       "status": {
         "name": "Состояние",
         "state": {
-          "Unknown": "Неизвестно",
-          "Shutdown": "Выключено",
-          "Standby": "Ожидание",
-          "Pause": "Пауза",
-          "Appointment": "Отложенный старт",
-          "Cooking": "Готовит",
-          "Preheat": "Разогрев",
-          "Cooked": "Готово",
-          "PreheatFinish": "Разогрет",
-          "PreheatPause": "Разогрев на паузе",
-          "Pause2": "Пауза",
-          "Keepwarm": "Поддержание тепла",
-          "KeepwarmPause": "Поддержание на паузе",
-          "KeepwarmFinish": "Поддержание завершено",
-          "CrispyRoast": "Хрустящая корочка",
-          "Degrease": "Обезжиривание",
-          "Delay": "Отложенный старт",
-          "PotPause": "Пауза для переворота"
+          "appointment": "Отложенный старт",
+          "cooked": "Готово",
+          "cooking": "Готовит",
+          "crispy_roast": "Хрустящая корочка",
+          "degrease": "Обезжиривание",
+          "delay": "Отложенный старт",
+          "keepwarm": "Поддержание тепла",
+          "keepwarm_finish": "Поддержание завершено",
+          "keepwarm_pause": "Поддержание на паузе",
+          "pause": "Пауза",
+          "pause2": "Пауза",
+          "pot_pause": "Пауза для переворота",
+          "preheat": "Разогрев",
+          "preheat_finish": "Разогрет",
+          "preheat_pause": "Разогрев на паузе",
+          "shutdown": "Выключено",
+          "standby": "Ожидание",
+          "unknown": "Неизвестно"
         }
       },
       "switch_status": {
@@ -215,22 +215,22 @@
       "texture": {
         "name": "Румяность",
         "state": {
-          "Unknown": "Неизвестно",
-          "NONE": "Нет",
-          "CrispyRoast": "Хрустящая корочка",
-          "TenderRoast": "Мягкое",
-          "Degrease": "Обезжиривание"
+          "crispy_roast": "Хрустящая корочка",
+          "degrease": "Обезжиривание",
+          "none": "Нет",
+          "tender_roast": "Мягкое",
+          "unknown": "Неизвестно"
         }
       },
       "turn_pot": {
         "name": "Перевернуть",
         "state": {
-          "Unknown": "Неизвестно",
-          "NotTurnPot": "Переворачивать не нужно",
-          "SwitchOff": "Выключено",
-          "TurnPot": "Переверните продукты",
-          "NoNeedTurnOverPot": "Переворачивать не нужно",
-          "NeedTurnOverPot": "Переверните продукты"
+          "need_turn_over_pot": "Переверните продукты",
+          "no_need_turn_over_pot": "Переворачивать не нужно",
+          "not_turn_pot": "Переворачивать не нужно",
+          "switch_off": "Выключено",
+          "turn_pot": "Переверните продукты",
+          "unknown": "Неизвестно"
         }
       },
       "turn_pot_config": {
@@ -239,9 +239,9 @@
       "turn_pot_status": {
         "name": "Статус переворота",
         "state": {
-          "Unknown": "Неизвестно",
-          "NoNeedTurnOverPot": "Переворачивать не нужно",
-          "NeedTurnOverPot": "Переверните продукты"
+          "need_turn_over_pot": "Переверните продукты",
+          "no_need_turn_over_pot": "Переворачивать не нужно",
+          "unknown": "Неизвестно"
         }
       }
     },
@@ -260,27 +260,27 @@
       "food_quanty": {
         "name": "Количество",
         "state": {
-          "Null": "Нет",
-          "Single": "Одна порция",
-          "Double": "Двойная порция",
-          "Half": "Наполовину",
-          "Full": "Полная"
+          "double": "Двойная порция",
+          "full": "Полная",
+          "half": "Наполовину",
+          "null": "Нет",
+          "single": "Одна порция"
         }
       },
       "recipe_id": {
         "name": "ID рецепта",
         "state": {
-          "Manual": "Ручной",
-          "FrenchFries": "Картофель фри",
-          "ChickenWing": "Куриные крылышки",
-          "Fish": "Рыба",
-          "Steak": "Стейк",
-          "Shrimp": "Креветки",
-          "Vegetables": "Овощи",
-          "Cake": "Кекс",
-          "DriedFruit": "Сухофрукты",
-          "Yogurt": "Йогурт",
-          "Defrost": "Разморозка"
+          "cake": "Кекс",
+          "chicken_wing": "Куриные крылышки",
+          "defrost": "Разморозка",
+          "dried_fruit": "Сухофрукты",
+          "fish": "Рыба",
+          "french_fries": "Картофель фри",
+          "manual": "Ручной",
+          "shrimp": "Креветки",
+          "steak": "Стейк",
+          "vegetables": "Овощи",
+          "yogurt": "Йогурт"
         }
       }
     },

@@ -6,7 +6,8 @@
   ],
   "config_flow": true,
   "dependencies": [
-    "file_upload"
+    "file_upload",
+    "xiaomi_miio"
   ],
   "documentation": "https://github.com/sphings79/XiaomiAirFryer",
   "integration_type": "device",

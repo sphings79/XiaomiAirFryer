@@ -98,12 +98,12 @@
       "food_quanty": {
         "name": "Množství",
         "state": {
-          "Unknown": "Neznámý",
-          "Null": "Žádné",
-          "Single": "Jedna porce",
-          "Double": "Dvojitá porce",
-          "Half": "Poloviční",
-          "Full": "Plné"
+          "double": "Dvojitá porce",
+          "full": "Plné",
+          "half": "Poloviční",
+          "null": "Žádné",
+          "single": "Jedna porce",
+          "unknown": "Neznámý"
         }
       },
       "left_percent": {
@@ -115,37 +115,37 @@
       "mode": {
         "name": "Režim",
         "state": {
-          "Manual": "Ruční",
-          "FrenchFries": "Hranolky",
-          "ChickenWing": "Kuřecí křídla",
-          "Steak": "Steak",
-          "LambChops": "Jehněčí kotlety",
-          "Fish": "Ryba",
-          "Shrimp": "Krevety",
-          "Vegetables": "Zelenina",
-          "Cake": "Koláč",
-          "Pizza": "Pizza",
-          "Defrost": "Rozmrazování",
-          "DriedFruit": "Sušené ovoce",
-          "Yogurt": "Jogurt"
+          "cake": "Koláč",
+          "chicken_wing": "Kuřecí křídla",
+          "defrost": "Rozmrazování",
+          "dried_fruit": "Sušené ovoce",
+          "fish": "Ryba",
+          "french_fries": "Hranolky",
+          "lamb_chops": "Jehněčí kotlety",
+          "manual": "Ruční",
+          "pizza": "Pizza",
+          "shrimp": "Krevety",
+          "steak": "Steak",
+          "vegetables": "Zelenina",
+          "yogurt": "Jogurt"
         }
       },
       "preheat": {
         "name": "Fáze předehřevu",
         "state": {
-          "Unknown": "Neznámý",
-          "Null": "Žádné",
-          "Off": "Vypnuto",
-          "On": "Zapnuto"
+          "null": "Žádné",
+          "off": "Vypnuto",
+          "on": "Zapnuto",
+          "unknown": "Neznámý"
         }
       },
       "preheat_switch": {
         "name": "Fáze předehřevu",
         "state": {
-          "Unknown": "Neznámý",
-          "Null": "Žádné",
-          "Off": "Vypnuto",
-          "On": "Zapnuto"
+          "null": "Žádné",
+          "off": "Vypnuto",
+          "on": "Zapnuto",
+          "unknown": "Neznámý"
         }
       },
       "recipe_command": {
@@ -154,18 +154,18 @@
       "recipe_id": {
         "name": "ID receptu",
         "state": {
-          "Manual": "Ruční",
-          "FrenchFries": "Hranolky",
-          "ChickenWing": "Kuřecí křídla",
-          "Fish": "Ryba",
-          "Steak": "Steak",
-          "Shrimp": "Krevety",
-          "Vegetables": "Zelenina",
-          "Cake": "Koláč",
-          "DriedFruit": "Sušené ovoce",
-          "Yogurt": "Jogurt",
-          "Defrost": "Rozmrazování",
-          "Unknown": "Neznámý"
+          "cake": "Koláč",
+          "chicken_wing": "Kuřecí křídla",
+          "defrost": "Rozmrazování",
+          "dried_fruit": "Sušené ovoce",
+          "fish": "Ryba",
+          "french_fries": "Hranolky",
+          "manual": "Ruční",
+          "shrimp": "Krevety",
+          "steak": "Steak",
+          "unknown": "Neznámý",
+          "vegetables": "Zelenina",
+          "yogurt": "Jogurt"
         }
       },
       "recipe_name": {
@@ -177,24 +177,24 @@
       "status": {
         "name": "Stav",
         "state": {
-          "Unknown": "Neznámý",
-          "Shutdown": "Vypnuto",
-          "Standby": "Připraveno",
-          "Pause": "Pozastaveno",
-          "Appointment": "Odložený start",
-          "Cooking": "Vaří",
-          "Preheat": "Předehřívá",
-          "Cooked": "Hotovo",
-          "PreheatFinish": "Předehřáto",
-          "PreheatPause": "Předehřev pozastaven",
-          "Pause2": "Pozastaveno",
-          "Keepwarm": "Udržuje teplotu",
-          "KeepwarmPause": "Udržování pozastaveno",
-          "KeepwarmFinish": "Udržování ukončeno",
-          "CrispyRoast": "Křupavé",
-          "Degrease": "Odmašťuje",
-          "Delay": "Odložený start",
-          "PotPause": "Pauza na obrácení"
+          "appointment": "Odložený start",
+          "cooked": "Hotovo",
+          "cooking": "Vaří",
+          "crispy_roast": "Křupavé",
+          "degrease": "Odmašťuje",
+          "delay": "Odložený start",
+          "keepwarm": "Udržuje teplotu",
+          "keepwarm_finish": "Udržování ukončeno",
+          "keepwarm_pause": "Udržování pozastaveno",
+          "pause": "Pozastaveno",
+          "pause2": "Pozastaveno",
+          "pot_pause": "Pauza na obrácení",
+          "preheat": "Předehřívá",
+          "preheat_finish": "Předehřáto",
+          "preheat_pause": "Předehřev pozastaven",
+          "shutdown": "Vypnuto",
+          "standby": "Připraveno",
+          "unknown": "Neznámý"
         }
       },
       "switch_status": {
@@ -215,22 +215,22 @@
       "texture": {
         "name": "Propečení",
         "state": {
-          "Unknown": "Neznámý",
-          "NONE": "Žádné",
-          "CrispyRoast": "Křupavé",
-          "TenderRoast": "Jemné",
-          "Degrease": "Odmašťuje"
+          "crispy_roast": "Křupavé",
+          "degrease": "Odmašťuje",
+          "none": "Žádné",
+          "tender_roast": "Jemné",
+          "unknown": "Neznámý"
         }
       },
       "turn_pot": {
         "name": "Obrátit",
         "state": {
-          "Unknown": "Neznámý",
-          "NotTurnPot": "Není třeba obracet",
-          "SwitchOff": "Vypnuto",
-          "TurnPot": "Obraťte pokrm",
-          "NoNeedTurnOverPot": "Není třeba obracet",
-          "NeedTurnOverPot": "Obraťte pokrm"
+          "need_turn_over_pot": "Obraťte pokrm",
+          "no_need_turn_over_pot": "Není třeba obracet",
+          "not_turn_pot": "Není třeba obracet",
+          "switch_off": "Vypnuto",
+          "turn_pot": "Obraťte pokrm",
+          "unknown": "Neznámý"
         }
       },
       "turn_pot_config": {
@@ -239,9 +239,9 @@
       "turn_pot_status": {
         "name": "Stav obracení",
         "state": {
-          "Unknown": "Neznámý",
-          "NoNeedTurnOverPot": "Není třeba obracet",
-          "NeedTurnOverPot": "Obraťte pokrm"
+          "need_turn_over_pot": "Obraťte pokrm",
+          "no_need_turn_over_pot": "Není třeba obracet",
+          "unknown": "Neznámý"
         }
       }
     },
@@ -260,27 +260,27 @@
       "food_quanty": {
         "name": "Množství",
         "state": {
-          "Null": "Žádné",
-          "Single": "Jedna porce",
-          "Double": "Dvojitá porce",
-          "Half": "Poloviční",
-          "Full": "Plné"
+          "double": "Dvojitá porce",
+          "full": "Plné",
+          "half": "Poloviční",
+          "null": "Žádné",
+          "single": "Jedna porce"
         }
       },
       "recipe_id": {
         "name": "ID receptu",
         "state": {
-          "Manual": "Ruční",
-          "FrenchFries": "Hranolky",
-          "ChickenWing": "Kuřecí křídla",
-          "Fish": "Ryba",
-          "Steak": "Steak",
-          "Shrimp": "Krevety",
-          "Vegetables": "Zelenina",
-          "Cake": "Koláč",
-          "DriedFruit": "Sušené ovoce",
-          "Yogurt": "Jogurt",
-          "Defrost": "Rozmrazování"
+          "cake": "Koláč",
+          "chicken_wing": "Kuřecí křídla",
+          "defrost": "Rozmrazování",
+          "dried_fruit": "Sušené ovoce",
+          "fish": "Ryba",
+          "french_fries": "Hranolky",
+          "manual": "Ruční",
+          "shrimp": "Krevety",
+          "steak": "Steak",
+          "vegetables": "Zelenina",
+          "yogurt": "Jogurt"
         }
       }
     },

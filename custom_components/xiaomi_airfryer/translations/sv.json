@@ -98,12 +98,12 @@
       "food_quanty": {
         "name": "Mängd",
         "state": {
-          "Unknown": "Okänd",
-          "Null": "Ingen",
-          "Single": "Enkel portion",
-          "Double": "Dubbel portion",
-          "Half": "Halvfull",
-          "Full": "Full"
+          "double": "Dubbel portion",
+          "full": "Full",
+          "half": "Halvfull",
+          "null": "Ingen",
+          "single": "Enkel portion",
+          "unknown": "Okänd"
         }
       },
       "left_percent": {
@@ -115,37 +115,37 @@
       "mode": {
         "name": "Läge",
         "state": {
-          "Manual": "Manuell",
-          "FrenchFries": "Pommes frites",
-          "ChickenWing": "Kycklingvingar",
-          "Steak": "Biff",
-          "LambChops": "Lammkotletter",
-          "Fish": "Fisk",
-          "Shrimp": "Räkor",
-          "Vegetables": "Grönsaker",
-          "Cake": "Kaka",
-          "Pizza": "Pizza",
-          "Defrost": "Upptining",
-          "DriedFruit": "Torkad frukt",
-          "Yogurt": "Yoghurt"
+          "cake": "Kaka",
+          "chicken_wing": "Kycklingvingar",
+          "defrost": "Upptining",
+          "dried_fruit": "Torkad frukt",
+          "fish": "Fisk",
+          "french_fries": "Pommes frites",
+          "lamb_chops": "Lammkotletter",
+          "manual": "Manuell",
+          "pizza": "Pizza",
+          "shrimp": "Räkor",
+          "steak": "Biff",
+          "vegetables": "Grönsaker",
+          "yogurt": "Yoghurt"
         }
       },
       "preheat": {
         "name": "Förvärmningsfas",
         "state": {
-          "Unknown": "Okänd",
-          "Null": "Ingen",
-          "Off": "Av",
-          "On": "På"
+          "null": "Ingen",
+          "off": "Av",
+          "on": "På",
+          "unknown": "Okänd"
         }
       },
       "preheat_switch": {
         "name": "Förvärmningsfas",
         "state": {
-          "Unknown": "Okänd",
-          "Null": "Ingen",
-          "Off": "Av",
-          "On": "På"
+          "null": "Ingen",
+          "off": "Av",
+          "on": "På",
+          "unknown": "Okänd"
         }
       },
       "recipe_command": {
@@ -154,18 +154,18 @@
       "recipe_id": {
         "name": "Recept-ID",
         "state": {
-          "Manual": "Manuell",
-          "FrenchFries": "Pommes frites",
-          "ChickenWing": "Kycklingvingar",
-          "Fish": "Fisk",
-          "Steak": "Biff",
-          "Shrimp": "Räkor",
-          "Vegetables": "Grönsaker",
-          "Cake": "Kaka",
-          "DriedFruit": "Torkad frukt",
-          "Yogurt": "Yoghurt",
-          "Defrost": "Upptining",
-          "Unknown": "Okänd"
+          "cake": "Kaka",
+          "chicken_wing": "Kycklingvingar",
+          "defrost": "Upptining",
+          "dried_fruit": "Torkad frukt",
+          "fish": "Fisk",
+          "french_fries": "Pommes frites",
+          "manual": "Manuell",
+          "shrimp": "Räkor",
+          "steak": "Biff",
+          "unknown": "Okänd",
+          "vegetables": "Grönsaker",
+          "yogurt": "Yoghurt"
         }
       },
       "recipe_name": {
@@ -177,24 +177,24 @@
       "status": {
         "name": "Status",
         "state": {
-          "Unknown": "Okänd",
-          "Shutdown": "Avstängd",
-          "Standby": "Redo",
-          "Pause": "Pausad",
-          "Appointment": "Fördröjd start",
-          "Cooking": "Tillagar",
-          "Preheat": "Förvärmer",
-          "Cooked": "Klar",
-          "PreheatFinish": "Förvärmd",
-          "PreheatPause": "Förvärmning pausad",
-          "Pause2": "Pausad",
-          "Keepwarm": "Håller varm",
-          "KeepwarmPause": "Varmhållning pausad",
-          "KeepwarmFinish": "Varmhållning avslutad",
-          "CrispyRoast": "Krispig",
-          "Degrease": "Avfettar",
-          "Delay": "Fördröjd start",
-          "PotPause": "Paus för att vända"
+          "appointment": "Fördröjd start",
+          "cooked": "Klar",
+          "cooking": "Tillagar",
+          "crispy_roast": "Krispig",
+          "degrease": "Avfettar",
+          "delay": "Fördröjd start",
+          "keepwarm": "Håller varm",
+          "keepwarm_finish": "Varmhållning avslutad",
+          "keepwarm_pause": "Varmhållning pausad",
+          "pause": "Pausad",
+          "pause2": "Pausad",
+          "pot_pause": "Paus för att vända",
+          "preheat": "Förvärmer",
+          "preheat_finish": "Förvärmd",
+          "preheat_pause": "Förvärmning pausad",
+          "shutdown": "Avstängd",
+          "standby": "Redo",
+          "unknown": "Okänd"
         }
       },
       "switch_status": {
@@ -215,22 +215,22 @@
       "texture": {
         "name": "Bryning",
         "state": {
-          "Unknown": "Okänd",
-          "NONE": "Ingen",
-          "CrispyRoast": "Krispig",
-          "TenderRoast": "Mör",
-          "Degrease": "Avfettar"
+          "crispy_roast": "Krispig",
+          "degrease": "Avfettar",
+          "none": "Ingen",
+          "tender_roast": "Mör",
+          "unknown": "Okänd"
         }
       },
       "turn_pot": {
         "name": "Vänd maten",
         "state": {
-          "Unknown": "Okänd",
-          "NotTurnPot": "Behöver inte vändas",
-          "SwitchOff": "Avstängd",
-          "TurnPot": "Vänd maten",
-          "NoNeedTurnOverPot": "Behöver inte vändas",
-          "NeedTurnOverPot": "Vänd maten"
+          "need_turn_over_pot": "Vänd maten",
+          "no_need_turn_over_pot": "Behöver inte vändas",
+          "not_turn_pot": "Behöver inte vändas",
+          "switch_off": "Avstängd",
+          "turn_pot": "Vänd maten",
+          "unknown": "Okänd"
         }
       },
       "turn_pot_config": {
@@ -239,9 +239,9 @@
       "turn_pot_status": {
         "name": "Vändstatus",
         "state": {
-          "Unknown": "Okänd",
-          "NoNeedTurnOverPot": "Behöver inte vändas",
-          "NeedTurnOverPot": "Vänd maten"
+          "need_turn_over_pot": "Vänd maten",
+          "no_need_turn_over_pot": "Behöver inte vändas",
+          "unknown": "Okänd"
         }
       }
     },
@@ -260,27 +260,27 @@
       "food_quanty": {
         "name": "Mängd",
         "state": {
-          "Null": "Ingen",
-          "Single": "Enkel portion",
-          "Double": "Dubbel portion",
-          "Half": "Halvfull",
-          "Full": "Full"
+          "double": "Dubbel portion",
+          "full": "Full",
+          "half": "Halvfull",
+          "null": "Ingen",
+          "single": "Enkel portion"
         }
       },
       "recipe_id": {
         "name": "Recept-ID",
         "state": {
-          "Manual": "Manuell",
-          "FrenchFries": "Pommes frites",
-          "ChickenWing": "Kycklingvingar",
-          "Fish": "Fisk",
-          "Steak": "Biff",
-          "Shrimp": "Räkor",
-          "Vegetables": "Grönsaker",
-          "Cake": "Kaka",
-          "DriedFruit": "Torkad frukt",
-          "Yogurt": "Yoghurt",
-          "Defrost": "Upptining"
+          "cake": "Kaka",
+          "chicken_wing": "Kycklingvingar",
+          "defrost": "Upptining",
+          "dried_fruit": "Torkad frukt",
+          "fish": "Fisk",
+          "french_fries": "Pommes frites",
+          "manual": "Manuell",
+          "shrimp": "Räkor",
+          "steak": "Biff",
+          "vegetables": "Grönsaker",
+          "yogurt": "Yoghurt"
         }
       }
     },

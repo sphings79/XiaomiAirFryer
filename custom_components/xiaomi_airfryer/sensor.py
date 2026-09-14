@@ -17,7 +17,7 @@ from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from miio import DeviceException
 
-from .fryer_miot import RECIPE_SLOTS
+from .fryer_miot import RECIPE_SLOTS, slugify_state
 
 from .const import (
     CONF_MODEL,
@@ -236,11 +236,13 @@ class XiaomiAirFryerSensor(CoordinatorEntity, SensorEntity):
             DOMAIN, entry.unique_id, config[0].lower().replace(" ", "-"))
 
         options = SENSOR_OPTIONS.get(config[2])
+        if options:
+            options = [slugify_state(o) for o in options]
         if config[2] == "recipe_id":
             # Only the slots this model is known to have; without an entry the
             # sensor reports the raw slot and stays a plain string sensor.
             slots = RECIPE_SLOTS.get(self._model)
-            options = sorted(set(slots.values()) | {"Unknown"}) if slots else None
+            options = sorted(set(slots.values()) | {"unknown"}) if slots else None
         if options:
             self._attr_device_class = SensorDeviceClass.ENUM
             self._attr_options = options
@@ -286,6 +288,6 @@ class XiaomiAirFryerSensor(CoordinatorEntity, SensorEntity):
         value = getattr(state, self._attr, None)
 
         if isinstance(value, Enum):
-            return value.name
+            return slugify_state(value.name)
 
         return value

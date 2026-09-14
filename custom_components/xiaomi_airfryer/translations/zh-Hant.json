@@ -98,12 +98,12 @@
       "food_quanty": {
         "name": "食材份量",
         "state": {
-          "Unknown": "未知",
-          "Null": "無",
-          "Single": "單份",
-          "Double": "雙份",
-          "Half": "半滿",
-          "Full": "全滿"
+          "double": "雙份",
+          "full": "全滿",
+          "half": "半滿",
+          "null": "無",
+          "single": "單份",
+          "unknown": "未知"
         }
       },
       "left_percent": {
@@ -115,37 +115,37 @@
       "mode": {
         "name": "模式",
         "state": {
-          "Manual": "手動",
-          "FrenchFries": "薯條",
-          "ChickenWing": "雞翅",
-          "Steak": "牛排",
-          "LambChops": "羊排",
-          "Fish": "魚",
-          "Shrimp": "蝦",
-          "Vegetables": "蔬菜",
-          "Cake": "蛋糕",
-          "Pizza": "披薩",
-          "Defrost": "解凍",
-          "DriedFruit": "果乾",
-          "Yogurt": "優格"
+          "cake": "蛋糕",
+          "chicken_wing": "雞翅",
+          "defrost": "解凍",
+          "dried_fruit": "果乾",
+          "fish": "魚",
+          "french_fries": "薯條",
+          "lamb_chops": "羊排",
+          "manual": "手動",
+          "pizza": "披薩",
+          "shrimp": "蝦",
+          "steak": "牛排",
+          "vegetables": "蔬菜",
+          "yogurt": "優格"
         }
       },
       "preheat": {
         "name": "預熱階段",
         "state": {
-          "Unknown": "未知",
-          "Null": "無",
-          "Off": "關",
-          "On": "開"
+          "null": "無",
+          "off": "關",
+          "on": "開",
+          "unknown": "未知"
         }
       },
       "preheat_switch": {
         "name": "預熱階段",
         "state": {
-          "Unknown": "未知",
-          "Null": "無",
-          "Off": "關",
-          "On": "開"
+          "null": "無",
+          "off": "關",
+          "on": "開",
+          "unknown": "未知"
         }
       },
       "recipe_command": {
@@ -154,18 +154,18 @@
       "recipe_id": {
         "name": "食譜編號",
         "state": {
-          "Manual": "手動",
-          "FrenchFries": "薯條",
-          "ChickenWing": "雞翅",
-          "Fish": "魚",
-          "Steak": "牛排",
-          "Shrimp": "蝦",
-          "Vegetables": "蔬菜",
-          "Cake": "蛋糕",
-          "DriedFruit": "果乾",
-          "Yogurt": "優格",
-          "Defrost": "解凍",
-          "Unknown": "未知"
+          "cake": "蛋糕",
+          "chicken_wing": "雞翅",
+          "defrost": "解凍",
+          "dried_fruit": "果乾",
+          "fish": "魚",
+          "french_fries": "薯條",
+          "manual": "手動",
+          "shrimp": "蝦",
+          "steak": "牛排",
+          "unknown": "未知",
+          "vegetables": "蔬菜",
+          "yogurt": "優格"
         }
       },
       "recipe_name": {
@@ -177,24 +177,24 @@
       "status": {
         "name": "狀態",
         "state": {
-          "Unknown": "未知",
-          "Shutdown": "關閉",
-          "Standby": "待機",
-          "Pause": "暫停",
-          "Appointment": "預約啟動",
-          "Cooking": "烹飪中",
-          "Preheat": "預熱中",
-          "Cooked": "已完成",
-          "PreheatFinish": "預熱完成",
-          "PreheatPause": "預熱暫停",
-          "Pause2": "暫停",
-          "Keepwarm": "保溫中",
-          "KeepwarmPause": "保溫暫停",
-          "KeepwarmFinish": "保溫結束",
-          "CrispyRoast": "酥脆",
-          "Degrease": "去油",
-          "Delay": "預約啟動",
-          "PotPause": "暫停翻面"
+          "appointment": "預約啟動",
+          "cooked": "已完成",
+          "cooking": "烹飪中",
+          "crispy_roast": "酥脆",
+          "degrease": "去油",
+          "delay": "預約啟動",
+          "keepwarm": "保溫中",
+          "keepwarm_finish": "保溫結束",
+          "keepwarm_pause": "保溫暫停",
+          "pause": "暫停",
+          "pause2": "暫停",
+          "pot_pause": "暫停翻面",
+          "preheat": "預熱中",
+          "preheat_finish": "預熱完成",
+          "preheat_pause": "預熱暫停",
+          "shutdown": "關閉",
+          "standby": "待機",
+          "unknown": "未知"
         }
       },
       "switch_status": {
@@ -215,22 +215,22 @@
       "texture": {
         "name": "口感",
         "state": {
-          "Unknown": "未知",
-          "NONE": "無",
-          "CrispyRoast": "酥脆",
-          "TenderRoast": "軟嫩",
-          "Degrease": "去油"
+          "crispy_roast": "酥脆",
+          "degrease": "去油",
+          "none": "無",
+          "tender_roast": "軟嫩",
+          "unknown": "未知"
         }
       },
       "turn_pot": {
         "name": "翻面",
         "state": {
-          "Unknown": "未知",
-          "NotTurnPot": "無需翻面",
-          "SwitchOff": "關閉",
-          "TurnPot": "請翻面",
-          "NoNeedTurnOverPot": "無需翻面",
-          "NeedTurnOverPot": "請翻面"
+          "need_turn_over_pot": "請翻面",
+          "no_need_turn_over_pot": "無需翻面",
+          "not_turn_pot": "無需翻面",
+          "switch_off": "關閉",
+          "turn_pot": "請翻面",
+          "unknown": "未知"
         }
       },
       "turn_pot_config": {
@@ -239,9 +239,9 @@
       "turn_pot_status": {
         "name": "翻面狀態",
         "state": {
-          "Unknown": "未知",
-          "NoNeedTurnOverPot": "無需翻面",
-          "NeedTurnOverPot": "請翻面"
+          "need_turn_over_pot": "請翻面",
+          "no_need_turn_over_pot": "無需翻面",
+          "unknown": "未知"
         }
       }
     },
@@ -260,27 +260,27 @@
       "food_quanty": {
         "name": "食材份量",
         "state": {
-          "Null": "無",
-          "Single": "單份",
-          "Double": "雙份",
-          "Half": "半滿",
-          "Full": "全滿"
+          "double": "雙份",
+          "full": "全滿",
+          "half": "半滿",
+          "null": "無",
+          "single": "單份"
         }
       },
       "recipe_id": {
         "name": "食譜編號",
         "state": {
-          "Manual": "手動",
-          "FrenchFries": "薯條",
-          "ChickenWing": "雞翅",
-          "Fish": "魚",
-          "Steak": "牛排",
-          "Shrimp": "蝦",
-          "Vegetables": "蔬菜",
-          "Cake": "蛋糕",
-          "DriedFruit": "果乾",
-          "Yogurt": "優格",
-          "Defrost": "解凍"
+          "cake": "蛋糕",
+          "chicken_wing": "雞翅",
+          "defrost": "解凍",
+          "dried_fruit": "果乾",
+          "fish": "魚",
+          "french_fries": "薯條",
+          "manual": "手動",
+          "shrimp": "蝦",
+          "steak": "牛排",
+          "vegetables": "蔬菜",
+          "yogurt": "優格"
         }
       }
     },

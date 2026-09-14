@@ -243,7 +243,7 @@ Italienisch · Niederländisch · Polnisch · Portugiesisch · Russisch · Schwe
 Spanisch · Tschechisch
 
 Das schließt die Werte selbst ein: Im Dashboard steht *Gart* und *Kein Wenden nötig* statt
-`Cooking` und `NotTurnPot`, Rezepte erscheinen als *Pommes frites* statt `M1`.
+`cooking` und `not_turn_pot`, Rezepte erscheinen als *Pommes frites* statt `M1`.
 
 ---
 

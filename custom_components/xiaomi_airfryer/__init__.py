@@ -9,6 +9,7 @@ from homeassistant.const import (
 )
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers import config_validation as cv
 
 from .coordinator import XiaomiAirFryerCoordinator
 from .fryer_miot import (
@@ -35,11 +36,9 @@ from .const import (
 
 _LOGGER = logging.getLogger(__name__)
 
-
-async def async_setup(hass: HomeAssistant, hass_config: dict):
-    """Set up the Xiaomi AirFryer Component."""
-
-    return True
+# The integration is set up from the UI only, there is nothing to configure in
+# configuration.yaml.
+CONFIG_SCHEMA = cv.config_entry_only_config_schema(DOMAIN)
 
 
 async def async_update_options(hass: HomeAssistant, entry: ConfigEntry):

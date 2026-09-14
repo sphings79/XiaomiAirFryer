@@ -98,12 +98,12 @@
       "food_quanty": {
         "name": "Food quantity",
         "state": {
-          "Unknown": "Unknown",
-          "Null": "None",
-          "Single": "Single portion",
-          "Double": "Double portion",
-          "Half": "Half full",
-          "Full": "Full"
+          "double": "Double portion",
+          "full": "Full",
+          "half": "Half full",
+          "null": "None",
+          "single": "Single portion",
+          "unknown": "Unknown"
         }
       },
       "left_percent": {
@@ -115,37 +115,37 @@
       "mode": {
         "name": "Mode",
         "state": {
-          "Manual": "Manual",
-          "FrenchFries": "French fries",
-          "ChickenWing": "Chicken wings",
-          "Steak": "Steak",
-          "LambChops": "Lamb chops",
-          "Fish": "Fish",
-          "Shrimp": "Shrimp",
-          "Vegetables": "Vegetables",
-          "Cake": "Cake",
-          "Pizza": "Pizza",
-          "Defrost": "Defrost",
-          "DriedFruit": "Dried fruit",
-          "Yogurt": "Yoghurt"
+          "cake": "Cake",
+          "chicken_wing": "Chicken wings",
+          "defrost": "Defrost",
+          "dried_fruit": "Dried fruit",
+          "fish": "Fish",
+          "french_fries": "French fries",
+          "lamb_chops": "Lamb chops",
+          "manual": "Manual",
+          "pizza": "Pizza",
+          "shrimp": "Shrimp",
+          "steak": "Steak",
+          "vegetables": "Vegetables",
+          "yogurt": "Yoghurt"
         }
       },
       "preheat": {
         "name": "Preheat phase",
         "state": {
-          "Unknown": "Unknown",
-          "Null": "None",
-          "Off": "Off",
-          "On": "On"
+          "null": "None",
+          "off": "Off",
+          "on": "On",
+          "unknown": "Unknown"
         }
       },
       "preheat_switch": {
         "name": "Preheat phase",
         "state": {
-          "Unknown": "Unknown",
-          "Null": "None",
-          "Off": "Off",
-          "On": "On"
+          "null": "None",
+          "off": "Off",
+          "on": "On",
+          "unknown": "Unknown"
         }
       },
       "recipe_command": {
@@ -154,18 +154,18 @@
       "recipe_id": {
         "name": "Recipe ID",
         "state": {
-          "Manual": "Manual",
-          "FrenchFries": "French fries",
-          "ChickenWing": "Chicken wings",
-          "Fish": "Fish",
-          "Steak": "Steak",
-          "Shrimp": "Shrimp",
-          "Vegetables": "Vegetables",
-          "Cake": "Cake",
-          "DriedFruit": "Dried fruit",
-          "Yogurt": "Yoghurt",
-          "Defrost": "Defrost",
-          "Unknown": "Unknown"
+          "cake": "Cake",
+          "chicken_wing": "Chicken wings",
+          "defrost": "Defrost",
+          "dried_fruit": "Dried fruit",
+          "fish": "Fish",
+          "french_fries": "French fries",
+          "manual": "Manual",
+          "shrimp": "Shrimp",
+          "steak": "Steak",
+          "unknown": "Unknown",
+          "vegetables": "Vegetables",
+          "yogurt": "Yoghurt"
         }
       },
       "recipe_name": {
@@ -177,24 +177,24 @@
       "status": {
         "name": "Status",
         "state": {
-          "Unknown": "Unknown",
-          "Shutdown": "Off",
-          "Standby": "Standby",
-          "Pause": "Paused",
-          "Appointment": "Delayed start",
-          "Cooking": "Cooking",
-          "Preheat": "Preheating",
-          "Cooked": "Finished",
-          "PreheatFinish": "Preheated",
-          "PreheatPause": "Preheating paused",
-          "Pause2": "Paused",
-          "Keepwarm": "Keeping warm",
-          "KeepwarmPause": "Keeping warm paused",
-          "KeepwarmFinish": "Keeping warm finished",
-          "CrispyRoast": "Crispy roast",
-          "Degrease": "Degreasing",
-          "Delay": "Delayed start",
-          "PotPause": "Paused to turn food"
+          "appointment": "Delayed start",
+          "cooked": "Finished",
+          "cooking": "Cooking",
+          "crispy_roast": "Crispy roast",
+          "degrease": "Degreasing",
+          "delay": "Delayed start",
+          "keepwarm": "Keeping warm",
+          "keepwarm_finish": "Keeping warm finished",
+          "keepwarm_pause": "Keeping warm paused",
+          "pause": "Paused",
+          "pause2": "Paused",
+          "pot_pause": "Paused to turn food",
+          "preheat": "Preheating",
+          "preheat_finish": "Preheated",
+          "preheat_pause": "Preheating paused",
+          "shutdown": "Off",
+          "standby": "Standby",
+          "unknown": "Unknown"
         }
       },
       "switch_status": {
@@ -215,22 +215,22 @@
       "texture": {
         "name": "Texture",
         "state": {
-          "Unknown": "Unknown",
-          "NONE": "None",
-          "CrispyRoast": "Crispy roast",
-          "TenderRoast": "Tender roast",
-          "Degrease": "Degreasing"
+          "crispy_roast": "Crispy roast",
+          "degrease": "Degreasing",
+          "none": "None",
+          "tender_roast": "Tender roast",
+          "unknown": "Unknown"
         }
       },
       "turn_pot": {
         "name": "Turn food",
         "state": {
-          "Unknown": "Unknown",
-          "NotTurnPot": "No need to turn",
-          "SwitchOff": "Off",
-          "TurnPot": "Turn the food",
-          "NoNeedTurnOverPot": "No need to turn",
-          "NeedTurnOverPot": "Turn the food"
+          "need_turn_over_pot": "Turn the food",
+          "no_need_turn_over_pot": "No need to turn",
+          "not_turn_pot": "No need to turn",
+          "switch_off": "Off",
+          "turn_pot": "Turn the food",
+          "unknown": "Unknown"
         }
       },
       "turn_pot_config": {
@@ -239,9 +239,9 @@
       "turn_pot_status": {
         "name": "Turn food status",
         "state": {
-          "Unknown": "Unknown",
-          "NoNeedTurnOverPot": "No need to turn",
-          "NeedTurnOverPot": "Turn the food"
+          "need_turn_over_pot": "Turn the food",
+          "no_need_turn_over_pot": "No need to turn",
+          "unknown": "Unknown"
         }
       }
     },
@@ -260,27 +260,27 @@
       "food_quanty": {
         "name": "Food quantity",
         "state": {
-          "Null": "None",
-          "Single": "Single portion",
-          "Double": "Double portion",
-          "Half": "Half full",
-          "Full": "Full"
+          "double": "Double portion",
+          "full": "Full",
+          "half": "Half full",
+          "null": "None",
+          "single": "Single portion"
         }
       },
       "recipe_id": {
         "name": "Recipe ID",
         "state": {
-          "Manual": "Manual",
-          "FrenchFries": "French fries",
-          "ChickenWing": "Chicken wings",
-          "Fish": "Fish",
-          "Steak": "Steak",
-          "Shrimp": "Shrimp",
-          "Vegetables": "Vegetables",
-          "Cake": "Cake",
-          "DriedFruit": "Dried fruit",
-          "Yogurt": "Yoghurt",
-          "Defrost": "Defrost"
+          "cake": "Cake",
+          "chicken_wing": "Chicken wings",
+          "defrost": "Defrost",
+          "dried_fruit": "Dried fruit",
+          "fish": "Fish",
+          "french_fries": "French fries",
+          "manual": "Manual",
+          "shrimp": "Shrimp",
+          "steak": "Steak",
+          "vegetables": "Vegetables",
+          "yogurt": "Yoghurt"
         }
       }
     },

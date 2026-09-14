@@ -98,12 +98,12 @@
       "food_quanty": {
         "name": "Mængde",
         "state": {
-          "Unknown": "Ukendt",
-          "Null": "Ingen",
-          "Single": "Enkelt portion",
-          "Double": "Dobbelt portion",
-          "Half": "Halvt fyldt",
-          "Full": "Fuld"
+          "double": "Dobbelt portion",
+          "full": "Fuld",
+          "half": "Halvt fyldt",
+          "null": "Ingen",
+          "single": "Enkelt portion",
+          "unknown": "Ukendt"
         }
       },
       "left_percent": {
@@ -115,37 +115,37 @@
       "mode": {
         "name": "Tilstand",
         "state": {
-          "Manual": "Manuel",
-          "FrenchFries": "Pommes frites",
-          "ChickenWing": "Kyllingevinger",
-          "Steak": "Bøf",
-          "LambChops": "Lammekoteletter",
-          "Fish": "Fisk",
-          "Shrimp": "Rejer",
-          "Vegetables": "Grøntsager",
-          "Cake": "Kage",
-          "Pizza": "Pizza",
-          "Defrost": "Optøning",
-          "DriedFruit": "Tørret frugt",
-          "Yogurt": "Yoghurt"
+          "cake": "Kage",
+          "chicken_wing": "Kyllingevinger",
+          "defrost": "Optøning",
+          "dried_fruit": "Tørret frugt",
+          "fish": "Fisk",
+          "french_fries": "Pommes frites",
+          "lamb_chops": "Lammekoteletter",
+          "manual": "Manuel",
+          "pizza": "Pizza",
+          "shrimp": "Rejer",
+          "steak": "Bøf",
+          "vegetables": "Grøntsager",
+          "yogurt": "Yoghurt"
         }
       },
       "preheat": {
         "name": "Forvarmningsfase",
         "state": {
-          "Unknown": "Ukendt",
-          "Null": "Ingen",
-          "Off": "Fra",
-          "On": "Til"
+          "null": "Ingen",
+          "off": "Fra",
+          "on": "Til",
+          "unknown": "Ukendt"
         }
       },
       "preheat_switch": {
         "name": "Forvarmningsfase",
         "state": {
-          "Unknown": "Ukendt",
-          "Null": "Ingen",
-          "Off": "Fra",
-          "On": "Til"
+          "null": "Ingen",
+          "off": "Fra",
+          "on": "Til",
+          "unknown": "Ukendt"
         }
       },
       "recipe_command": {
@@ -154,18 +154,18 @@
       "recipe_id": {
         "name": "Opskrifts-ID",
         "state": {
-          "Manual": "Manuel",
-          "FrenchFries": "Pommes frites",
-          "ChickenWing": "Kyllingevinger",
-          "Fish": "Fisk",
-          "Steak": "Bøf",
-          "Shrimp": "Rejer",
-          "Vegetables": "Grøntsager",
-          "Cake": "Kage",
-          "DriedFruit": "Tørret frugt",
-          "Yogurt": "Yoghurt",
-          "Defrost": "Optøning",
-          "Unknown": "Ukendt"
+          "cake": "Kage",
+          "chicken_wing": "Kyllingevinger",
+          "defrost": "Optøning",
+          "dried_fruit": "Tørret frugt",
+          "fish": "Fisk",
+          "french_fries": "Pommes frites",
+          "manual": "Manuel",
+          "shrimp": "Rejer",
+          "steak": "Bøf",
+          "unknown": "Ukendt",
+          "vegetables": "Grøntsager",
+          "yogurt": "Yoghurt"
         }
       },
       "recipe_name": {
@@ -177,24 +177,24 @@
       "status": {
         "name": "Status",
         "state": {
-          "Unknown": "Ukendt",
-          "Shutdown": "Slukket",
-          "Standby": "Klar",
-          "Pause": "Pause",
-          "Appointment": "Udskudt start",
-          "Cooking": "Tilbereder",
-          "Preheat": "Forvarmer",
-          "Cooked": "Færdig",
-          "PreheatFinish": "Forvarmet",
-          "PreheatPause": "Forvarmning på pause",
-          "Pause2": "Pause",
-          "Keepwarm": "Holder varm",
-          "KeepwarmPause": "Varmholdning på pause",
-          "KeepwarmFinish": "Varmholdning afsluttet",
-          "CrispyRoast": "Sprød",
-          "Degrease": "Affedter",
-          "Delay": "Udskudt start",
-          "PotPause": "Pause for at vende"
+          "appointment": "Udskudt start",
+          "cooked": "Færdig",
+          "cooking": "Tilbereder",
+          "crispy_roast": "Sprød",
+          "degrease": "Affedter",
+          "delay": "Udskudt start",
+          "keepwarm": "Holder varm",
+          "keepwarm_finish": "Varmholdning afsluttet",
+          "keepwarm_pause": "Varmholdning på pause",
+          "pause": "Pause",
+          "pause2": "Pause",
+          "pot_pause": "Pause for at vende",
+          "preheat": "Forvarmer",
+          "preheat_finish": "Forvarmet",
+          "preheat_pause": "Forvarmning på pause",
+          "shutdown": "Slukket",
+          "standby": "Klar",
+          "unknown": "Ukendt"
         }
       },
       "switch_status": {
@@ -215,22 +215,22 @@
       "texture": {
         "name": "Bruning",
         "state": {
-          "Unknown": "Ukendt",
-          "NONE": "Ingen",
-          "CrispyRoast": "Sprød",
-          "TenderRoast": "Mør",
-          "Degrease": "Affedter"
+          "crispy_roast": "Sprød",
+          "degrease": "Affedter",
+          "none": "Ingen",
+          "tender_roast": "Mør",
+          "unknown": "Ukendt"
         }
       },
       "turn_pot": {
         "name": "Vend maden",
         "state": {
-          "Unknown": "Ukendt",
-          "NotTurnPot": "Behøver ikke vendes",
-          "SwitchOff": "Slukket",
-          "TurnPot": "Vend maden",
-          "NoNeedTurnOverPot": "Behøver ikke vendes",
-          "NeedTurnOverPot": "Vend maden"
+          "need_turn_over_pot": "Vend maden",
+          "no_need_turn_over_pot": "Behøver ikke vendes",
+          "not_turn_pot": "Behøver ikke vendes",
+          "switch_off": "Slukket",
+          "turn_pot": "Vend maden",
+          "unknown": "Ukendt"
         }
       },
       "turn_pot_config": {
@@ -239,9 +239,9 @@
       "turn_pot_status": {
         "name": "Vendestatus",
         "state": {
-          "Unknown": "Ukendt",
-          "NoNeedTurnOverPot": "Behøver ikke vendes",
-          "NeedTurnOverPot": "Vend maden"
+          "need_turn_over_pot": "Vend maden",
+          "no_need_turn_over_pot": "Behøver ikke vendes",
+          "unknown": "Ukendt"
         }
       }
     },
@@ -260,27 +260,27 @@
       "food_quanty": {
         "name": "Mængde",
         "state": {
-          "Null": "Ingen",
-          "Single": "Enkelt portion",
-          "Double": "Dobbelt portion",
-          "Half": "Halvt fyldt",
-          "Full": "Fuld"
+          "double": "Dobbelt portion",
+          "full": "Fuld",
+          "half": "Halvt fyldt",
+          "null": "Ingen",
+          "single": "Enkelt portion"
         }
       },
       "recipe_id": {
         "name": "Opskrifts-ID",
         "state": {
-          "Manual": "Manuel",
-          "FrenchFries": "Pommes frites",
-          "ChickenWing": "Kyllingevinger",
-          "Fish": "Fisk",
-          "Steak": "Bøf",
-          "Shrimp": "Rejer",
-          "Vegetables": "Grøntsager",
-          "Cake": "Kage",
-          "DriedFruit": "Tørret frugt",
-          "Yogurt": "Yoghurt",
-          "Defrost": "Optøning"
+          "cake": "Kage",
+          "chicken_wing": "Kyllingevinger",
+          "defrost": "Optøning",
+          "dried_fruit": "Tørret frugt",
+          "fish": "Fisk",
+          "french_fries": "Pommes frites",
+          "manual": "Manuel",
+          "shrimp": "Rejer",
+          "steak": "Bøf",
+          "vegetables": "Grøntsager",
+          "yogurt": "Yoghurt"
         }
       }
     },

@@ -98,12 +98,12 @@
       "food_quanty": {
         "name": "Hoeveelheid",
         "state": {
-          "Unknown": "Onbekend",
-          "Null": "Geen",
-          "Single": "Enkele portie",
-          "Double": "Dubbele portie",
-          "Half": "Half vol",
-          "Full": "Vol"
+          "double": "Dubbele portie",
+          "full": "Vol",
+          "half": "Half vol",
+          "null": "Geen",
+          "single": "Enkele portie",
+          "unknown": "Onbekend"
         }
       },
       "left_percent": {
@@ -115,37 +115,37 @@
       "mode": {
         "name": "Modus",
         "state": {
-          "Manual": "Handmatig",
-          "FrenchFries": "Frieten",
-          "ChickenWing": "Kippenvleugels",
-          "Steak": "Biefstuk",
-          "LambChops": "Lamskoteletten",
-          "Fish": "Vis",
-          "Shrimp": "Garnalen",
-          "Vegetables": "Groenten",
-          "Cake": "Cake",
-          "Pizza": "Pizza",
-          "Defrost": "Ontdooien",
-          "DriedFruit": "Gedroogd fruit",
-          "Yogurt": "Yoghurt"
+          "cake": "Cake",
+          "chicken_wing": "Kippenvleugels",
+          "defrost": "Ontdooien",
+          "dried_fruit": "Gedroogd fruit",
+          "fish": "Vis",
+          "french_fries": "Frieten",
+          "lamb_chops": "Lamskoteletten",
+          "manual": "Handmatig",
+          "pizza": "Pizza",
+          "shrimp": "Garnalen",
+          "steak": "Biefstuk",
+          "vegetables": "Groenten",
+          "yogurt": "Yoghurt"
         }
       },
       "preheat": {
         "name": "Voorverwarmfase",
         "state": {
-          "Unknown": "Onbekend",
-          "Null": "Geen",
-          "Off": "Uit",
-          "On": "Aan"
+          "null": "Geen",
+          "off": "Uit",
+          "on": "Aan",
+          "unknown": "Onbekend"
         }
       },
       "preheat_switch": {
         "name": "Voorverwarmfase",
         "state": {
-          "Unknown": "Onbekend",
-          "Null": "Geen",
-          "Off": "Uit",
-          "On": "Aan"
+          "null": "Geen",
+          "off": "Uit",
+          "on": "Aan",
+          "unknown": "Onbekend"
         }
       },
       "recipe_command": {
@@ -154,18 +154,18 @@
       "recipe_id": {
         "name": "Recept-ID",
         "state": {
-          "Manual": "Handmatig",
-          "FrenchFries": "Frieten",
-          "ChickenWing": "Kippenvleugels",
-          "Fish": "Vis",
-          "Steak": "Biefstuk",
-          "Shrimp": "Garnalen",
-          "Vegetables": "Groenten",
-          "Cake": "Cake",
-          "DriedFruit": "Gedroogd fruit",
-          "Yogurt": "Yoghurt",
-          "Defrost": "Ontdooien",
-          "Unknown": "Onbekend"
+          "cake": "Cake",
+          "chicken_wing": "Kippenvleugels",
+          "defrost": "Ontdooien",
+          "dried_fruit": "Gedroogd fruit",
+          "fish": "Vis",
+          "french_fries": "Frieten",
+          "manual": "Handmatig",
+          "shrimp": "Garnalen",
+          "steak": "Biefstuk",
+          "unknown": "Onbekend",
+          "vegetables": "Groenten",
+          "yogurt": "Yoghurt"
         }
       },
       "recipe_name": {
@@ -177,24 +177,24 @@
       "status": {
         "name": "Status",
         "state": {
-          "Unknown": "Onbekend",
-          "Shutdown": "Uit",
-          "Standby": "Stand-by",
-          "Pause": "Gepauzeerd",
-          "Appointment": "Uitgestelde start",
-          "Cooking": "Bereidt",
-          "Preheat": "Verwarmt voor",
-          "Cooked": "Klaar",
-          "PreheatFinish": "Voorverwarmd",
-          "PreheatPause": "Voorverwarmen gepauzeerd",
-          "Pause2": "Gepauzeerd",
-          "Keepwarm": "Houdt warm",
-          "KeepwarmPause": "Warmhouden gepauzeerd",
-          "KeepwarmFinish": "Warmhouden beëindigd",
-          "CrispyRoast": "Knapperig",
-          "Degrease": "Ontvet",
-          "Delay": "Uitgestelde start",
-          "PotPause": "Pauze om te keren"
+          "appointment": "Uitgestelde start",
+          "cooked": "Klaar",
+          "cooking": "Bereidt",
+          "crispy_roast": "Knapperig",
+          "degrease": "Ontvet",
+          "delay": "Uitgestelde start",
+          "keepwarm": "Houdt warm",
+          "keepwarm_finish": "Warmhouden beëindigd",
+          "keepwarm_pause": "Warmhouden gepauzeerd",
+          "pause": "Gepauzeerd",
+          "pause2": "Gepauzeerd",
+          "pot_pause": "Pauze om te keren",
+          "preheat": "Verwarmt voor",
+          "preheat_finish": "Voorverwarmd",
+          "preheat_pause": "Voorverwarmen gepauzeerd",
+          "shutdown": "Uit",
+          "standby": "Stand-by",
+          "unknown": "Onbekend"
         }
       },
       "switch_status": {
@@ -215,22 +215,22 @@
       "texture": {
         "name": "Bruining",
         "state": {
-          "Unknown": "Onbekend",
-          "NONE": "Geen",
-          "CrispyRoast": "Knapperig",
-          "TenderRoast": "Zacht",
-          "Degrease": "Ontvet"
+          "crispy_roast": "Knapperig",
+          "degrease": "Ontvet",
+          "none": "Geen",
+          "tender_roast": "Zacht",
+          "unknown": "Onbekend"
         }
       },
       "turn_pot": {
         "name": "Omdraaien",
         "state": {
-          "Unknown": "Onbekend",
-          "NotTurnPot": "Niet keren nodig",
-          "SwitchOff": "Uit",
-          "TurnPot": "Keer het eten om",
-          "NoNeedTurnOverPot": "Niet keren nodig",
-          "NeedTurnOverPot": "Keer het eten om"
+          "need_turn_over_pot": "Keer het eten om",
+          "no_need_turn_over_pot": "Niet keren nodig",
+          "not_turn_pot": "Niet keren nodig",
+          "switch_off": "Uit",
+          "turn_pot": "Keer het eten om",
+          "unknown": "Onbekend"
         }
       },
       "turn_pot_config": {
@@ -239,9 +239,9 @@
       "turn_pot_status": {
         "name": "Omdraaistatus",
         "state": {
-          "Unknown": "Onbekend",
-          "NoNeedTurnOverPot": "Niet keren nodig",
-          "NeedTurnOverPot": "Keer het eten om"
+          "need_turn_over_pot": "Keer het eten om",
+          "no_need_turn_over_pot": "Niet keren nodig",
+          "unknown": "Onbekend"
         }
       }
     },
@@ -260,27 +260,27 @@
       "food_quanty": {
         "name": "Hoeveelheid",
         "state": {
-          "Null": "Geen",
-          "Single": "Enkele portie",
-          "Double": "Dubbele portie",
-          "Half": "Half vol",
-          "Full": "Vol"
+          "double": "Dubbele portie",
+          "full": "Vol",
+          "half": "Half vol",
+          "null": "Geen",
+          "single": "Enkele portie"
         }
       },
       "recipe_id": {
         "name": "Recept-ID",
         "state": {
-          "Manual": "Handmatig",
-          "FrenchFries": "Frieten",
-          "ChickenWing": "Kippenvleugels",
-          "Fish": "Vis",
-          "Steak": "Biefstuk",
-          "Shrimp": "Garnalen",
-          "Vegetables": "Groenten",
-          "Cake": "Cake",
-          "DriedFruit": "Gedroogd fruit",
-          "Yogurt": "Yoghurt",
-          "Defrost": "Ontdooien"
+          "cake": "Cake",
+          "chicken_wing": "Kippenvleugels",
+          "defrost": "Ontdooien",
+          "dried_fruit": "Gedroogd fruit",
+          "fish": "Vis",
+          "french_fries": "Frieten",
+          "manual": "Handmatig",
+          "shrimp": "Garnalen",
+          "steak": "Biefstuk",
+          "vegetables": "Groenten",
+          "yogurt": "Yoghurt"
         }
       }
     },

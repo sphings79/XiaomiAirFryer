@@ -98,12 +98,12 @@
       "food_quanty": {
         "name": "Füllmenge",
         "state": {
-          "Unknown": "Unbekannt",
-          "Null": "Keine",
-          "Single": "Einfache Portion",
-          "Double": "Doppelte Portion",
-          "Half": "Halb voll",
-          "Full": "Voll"
+          "double": "Doppelte Portion",
+          "full": "Voll",
+          "half": "Halb voll",
+          "null": "Keine",
+          "single": "Einfache Portion",
+          "unknown": "Unbekannt"
         }
       },
       "left_percent": {
@@ -115,37 +115,37 @@
       "mode": {
         "name": "Modus",
         "state": {
-          "Manual": "Manuell",
-          "FrenchFries": "Pommes frites",
-          "ChickenWing": "Hähnchenflügel",
-          "Steak": "Steak",
-          "LambChops": "Lammkoteletts",
-          "Fish": "Fisch",
-          "Shrimp": "Garnelen",
-          "Vegetables": "Gemüse",
-          "Cake": "Kuchen",
-          "Pizza": "Pizza",
-          "Defrost": "Auftauen",
-          "DriedFruit": "Trockenobst",
-          "Yogurt": "Joghurt"
+          "cake": "Kuchen",
+          "chicken_wing": "Hähnchenflügel",
+          "defrost": "Auftauen",
+          "dried_fruit": "Trockenobst",
+          "fish": "Fisch",
+          "french_fries": "Pommes frites",
+          "lamb_chops": "Lammkoteletts",
+          "manual": "Manuell",
+          "pizza": "Pizza",
+          "shrimp": "Garnelen",
+          "steak": "Steak",
+          "vegetables": "Gemüse",
+          "yogurt": "Joghurt"
         }
       },
       "preheat": {
         "name": "Vorheizphase",
         "state": {
-          "Unknown": "Unbekannt",
-          "Null": "Keine",
-          "Off": "Aus",
-          "On": "An"
+          "null": "Keine",
+          "off": "Aus",
+          "on": "An",
+          "unknown": "Unbekannt"
         }
       },
       "preheat_switch": {
         "name": "Vorheizphase",
         "state": {
-          "Unknown": "Unbekannt",
-          "Null": "Keine",
-          "Off": "Aus",
-          "On": "An"
+          "null": "Keine",
+          "off": "Aus",
+          "on": "An",
+          "unknown": "Unbekannt"
         }
       },
       "recipe_command": {
@@ -154,18 +154,18 @@
       "recipe_id": {
         "name": "Rezept-ID",
         "state": {
-          "Manual": "Manuell",
-          "FrenchFries": "Pommes frites",
-          "ChickenWing": "Hähnchenflügel",
-          "Fish": "Fisch",
-          "Steak": "Steak",
-          "Shrimp": "Garnelen",
-          "Vegetables": "Gemüse",
-          "Cake": "Kuchen",
-          "DriedFruit": "Trockenobst",
-          "Yogurt": "Joghurt",
-          "Defrost": "Auftauen",
-          "Unknown": "Unbekannt"
+          "cake": "Kuchen",
+          "chicken_wing": "Hähnchenflügel",
+          "defrost": "Auftauen",
+          "dried_fruit": "Trockenobst",
+          "fish": "Fisch",
+          "french_fries": "Pommes frites",
+          "manual": "Manuell",
+          "shrimp": "Garnelen",
+          "steak": "Steak",
+          "unknown": "Unbekannt",
+          "vegetables": "Gemüse",
+          "yogurt": "Joghurt"
         }
       },
       "recipe_name": {
@@ -177,24 +177,24 @@
       "status": {
         "name": "Status",
         "state": {
-          "Unknown": "Unbekannt",
-          "Shutdown": "Aus",
-          "Standby": "Bereit",
-          "Pause": "Pausiert",
-          "Appointment": "Startverzögerung",
-          "Cooking": "Gart",
-          "Preheat": "Heizt vor",
-          "Cooked": "Fertig",
-          "PreheatFinish": "Vorgeheizt",
-          "PreheatPause": "Vorheizen pausiert",
-          "Pause2": "Pausiert",
-          "Keepwarm": "Hält warm",
-          "KeepwarmPause": "Warmhalten pausiert",
-          "KeepwarmFinish": "Warmhalten beendet",
-          "CrispyRoast": "Knusprig",
-          "Degrease": "Entfettet",
-          "Delay": "Startverzögerung",
-          "PotPause": "Pause zum Wenden"
+          "appointment": "Startverzögerung",
+          "cooked": "Fertig",
+          "cooking": "Gart",
+          "crispy_roast": "Knusprig",
+          "degrease": "Entfettet",
+          "delay": "Startverzögerung",
+          "keepwarm": "Hält warm",
+          "keepwarm_finish": "Warmhalten beendet",
+          "keepwarm_pause": "Warmhalten pausiert",
+          "pause": "Pausiert",
+          "pause2": "Pausiert",
+          "pot_pause": "Pause zum Wenden",
+          "preheat": "Heizt vor",
+          "preheat_finish": "Vorgeheizt",
+          "preheat_pause": "Vorheizen pausiert",
+          "shutdown": "Aus",
+          "standby": "Bereit",
+          "unknown": "Unbekannt"
         }
       },
       "switch_status": {
@@ -215,22 +215,22 @@
       "texture": {
         "name": "Bräunung",
         "state": {
-          "Unknown": "Unbekannt",
-          "NONE": "Keine",
-          "CrispyRoast": "Knusprig",
-          "TenderRoast": "Zart",
-          "Degrease": "Entfettet"
+          "crispy_roast": "Knusprig",
+          "degrease": "Entfettet",
+          "none": "Keine",
+          "tender_roast": "Zart",
+          "unknown": "Unbekannt"
         }
       },
       "turn_pot": {
         "name": "Wenden",
         "state": {
-          "Unknown": "Unbekannt",
-          "NotTurnPot": "Kein Wenden nötig",
-          "SwitchOff": "Aus",
-          "TurnPot": "Bitte wenden",
-          "NoNeedTurnOverPot": "Kein Wenden nötig",
-          "NeedTurnOverPot": "Bitte wenden"
+          "need_turn_over_pot": "Bitte wenden",
+          "no_need_turn_over_pot": "Kein Wenden nötig",
+          "not_turn_pot": "Kein Wenden nötig",
+          "switch_off": "Aus",
+          "turn_pot": "Bitte wenden",
+          "unknown": "Unbekannt"
         }
       },
       "turn_pot_config": {
@@ -239,9 +239,9 @@
       "turn_pot_status": {
         "name": "Wende-Status",
         "state": {
-          "Unknown": "Unbekannt",
-          "NoNeedTurnOverPot": "Kein Wenden nötig",
-          "NeedTurnOverPot": "Bitte wenden"
+          "need_turn_over_pot": "Bitte wenden",
+          "no_need_turn_over_pot": "Kein Wenden nötig",
+          "unknown": "Unbekannt"
         }
       }
     },
@@ -260,27 +260,27 @@
       "food_quanty": {
         "name": "Füllmenge",
         "state": {
-          "Null": "Keine",
-          "Single": "Einfache Portion",
-          "Double": "Doppelte Portion",
-          "Half": "Halb voll",
-          "Full": "Voll"
+          "double": "Doppelte Portion",
+          "full": "Voll",
+          "half": "Halb voll",
+          "null": "Keine",
+          "single": "Einfache Portion"
         }
       },
       "recipe_id": {
         "name": "Rezept-ID",
         "state": {
-          "Manual": "Manuell",
-          "FrenchFries": "Pommes frites",
-          "ChickenWing": "Hähnchenflügel",
-          "Fish": "Fisch",
-          "Steak": "Steak",
-          "Shrimp": "Garnelen",
-          "Vegetables": "Gemüse",
-          "Cake": "Kuchen",
-          "DriedFruit": "Trockenobst",
-          "Yogurt": "Joghurt",
-          "Defrost": "Auftauen"
+          "cake": "Kuchen",
+          "chicken_wing": "Hähnchenflügel",
+          "defrost": "Auftauen",
+          "dried_fruit": "Trockenobst",
+          "fish": "Fisch",
+          "french_fries": "Pommes frites",
+          "manual": "Manuell",
+          "shrimp": "Garnelen",
+          "steak": "Steak",
+          "vegetables": "Gemüse",
+          "yogurt": "Joghurt"
         }
       }
     },

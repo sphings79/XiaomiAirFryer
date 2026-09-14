@@ -41,6 +41,20 @@ from .const import (
 _LOGGER = logging.getLogger(__name__)
 
 
+def slugify_state(name):
+    """Turn an enum member name into a valid Home Assistant state key.
+
+    Translation keys have to match [a-z0-9-_]+, so "NotTurnPot" cannot be used
+    as a state as it stands. The states are therefore reported in snake_case
+    and the translations key off the same form.
+    """
+    if not isinstance(name, str) or not name:
+        return name
+
+    out = re.sub(r"(?<=[a-z0-9])(?=[A-Z])", "_", name)
+    return out.lower()
+
+
 def _decode_device_string(value):
     """Undo the backslash-less unicode escapes some fryers return.
 
@@ -669,17 +683,17 @@ class TurnPotViomi(enum.Enum):
 # entries. A slot that is not listed is reported unchanged.
 RECIPE_SLOTS = {
     MODEL_FRYER_MAF05A: {
-        "M0": "Manual",
-        "M1": "FrenchFries",
-        "M2": "ChickenWing",
-        "M3": "Fish",
-        "M4": "Steak",
-        "M5": "Shrimp",
-        "M6": "Vegetables",
-        "M7": "Cake",
-        "M8": "DriedFruit",
-        "M9": "Yogurt",
-        "M10": "Defrost",
+        "M0": "manual",
+        "M1": "french_fries",
+        "M2": "chicken_wing",
+        "M3": "fish",
+        "M4": "steak",
+        "M5": "shrimp",
+        "M6": "vegetables",
+        "M7": "cake",
+        "M8": "dried_fruit",
+        "M9": "yogurt",
+        "M10": "defrost",
     },
 }
 
@@ -847,7 +861,7 @@ class FryerStatusMiot(DeviceStatus):
         if not slots:
             return raw
 
-        return slots.get(raw, "Unknown")
+        return slots.get(raw, "unknown")
 
     @property
     def recipe_slot(self) -> str:

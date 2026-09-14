@@ -98,12 +98,12 @@
       "food_quanty": {
         "name": "Ilość",
         "state": {
-          "Unknown": "Nieznany",
-          "Null": "Brak",
-          "Single": "Pojedyncza porcja",
-          "Double": "Podwójna porcja",
-          "Half": "Do połowy",
-          "Full": "Pełny"
+          "double": "Podwójna porcja",
+          "full": "Pełny",
+          "half": "Do połowy",
+          "null": "Brak",
+          "single": "Pojedyncza porcja",
+          "unknown": "Nieznany"
         }
       },
       "left_percent": {
@@ -115,37 +115,37 @@
       "mode": {
         "name": "Tryb",
         "state": {
-          "Manual": "Ręczny",
-          "FrenchFries": "Frytki",
-          "ChickenWing": "Skrzydełka",
-          "Steak": "Stek",
-          "LambChops": "Kotlety jagnięce",
-          "Fish": "Ryba",
-          "Shrimp": "Krewetki",
-          "Vegetables": "Warzywa",
-          "Cake": "Ciasto",
-          "Pizza": "Pizza",
-          "Defrost": "Rozmrażanie",
-          "DriedFruit": "Suszone owoce",
-          "Yogurt": "Jogurt"
+          "cake": "Ciasto",
+          "chicken_wing": "Skrzydełka",
+          "defrost": "Rozmrażanie",
+          "dried_fruit": "Suszone owoce",
+          "fish": "Ryba",
+          "french_fries": "Frytki",
+          "lamb_chops": "Kotlety jagnięce",
+          "manual": "Ręczny",
+          "pizza": "Pizza",
+          "shrimp": "Krewetki",
+          "steak": "Stek",
+          "vegetables": "Warzywa",
+          "yogurt": "Jogurt"
         }
       },
       "preheat": {
         "name": "Faza nagrzewania",
         "state": {
-          "Unknown": "Nieznany",
-          "Null": "Brak",
-          "Off": "Wyłączone",
-          "On": "Włączone"
+          "null": "Brak",
+          "off": "Wyłączone",
+          "on": "Włączone",
+          "unknown": "Nieznany"
         }
       },
       "preheat_switch": {
         "name": "Faza nagrzewania",
         "state": {
-          "Unknown": "Nieznany",
-          "Null": "Brak",
-          "Off": "Wyłączone",
-          "On": "Włączone"
+          "null": "Brak",
+          "off": "Wyłączone",
+          "on": "Włączone",
+          "unknown": "Nieznany"
         }
       },
       "recipe_command": {
@@ -154,18 +154,18 @@
       "recipe_id": {
         "name": "ID przepisu",
         "state": {
-          "Manual": "Ręczny",
-          "FrenchFries": "Frytki",
-          "ChickenWing": "Skrzydełka",
-          "Fish": "Ryba",
-          "Steak": "Stek",
-          "Shrimp": "Krewetki",
-          "Vegetables": "Warzywa",
-          "Cake": "Ciasto",
-          "DriedFruit": "Suszone owoce",
-          "Yogurt": "Jogurt",
-          "Defrost": "Rozmrażanie",
-          "Unknown": "Nieznany"
+          "cake": "Ciasto",
+          "chicken_wing": "Skrzydełka",
+          "defrost": "Rozmrażanie",
+          "dried_fruit": "Suszone owoce",
+          "fish": "Ryba",
+          "french_fries": "Frytki",
+          "manual": "Ręczny",
+          "shrimp": "Krewetki",
+          "steak": "Stek",
+          "unknown": "Nieznany",
+          "vegetables": "Warzywa",
+          "yogurt": "Jogurt"
         }
       },
       "recipe_name": {
@@ -177,24 +177,24 @@
       "status": {
         "name": "Stan",
         "state": {
-          "Unknown": "Nieznany",
-          "Shutdown": "Wyłączony",
-          "Standby": "Gotowy",
-          "Pause": "Wstrzymany",
-          "Appointment": "Opóźniony start",
-          "Cooking": "Gotowanie",
-          "Preheat": "Nagrzewanie",
-          "Cooked": "Zakończono",
-          "PreheatFinish": "Nagrzany",
-          "PreheatPause": "Nagrzewanie wstrzymane",
-          "Pause2": "Wstrzymany",
-          "Keepwarm": "Podtrzymywanie ciepła",
-          "KeepwarmPause": "Podtrzymywanie wstrzymane",
-          "KeepwarmFinish": "Podtrzymywanie zakończone",
-          "CrispyRoast": "Chrupiące",
-          "Degrease": "Odtłuszczanie",
-          "Delay": "Opóźniony start",
-          "PotPause": "Pauza na przewrócenie"
+          "appointment": "Opóźniony start",
+          "cooked": "Zakończono",
+          "cooking": "Gotowanie",
+          "crispy_roast": "Chrupiące",
+          "degrease": "Odtłuszczanie",
+          "delay": "Opóźniony start",
+          "keepwarm": "Podtrzymywanie ciepła",
+          "keepwarm_finish": "Podtrzymywanie zakończone",
+          "keepwarm_pause": "Podtrzymywanie wstrzymane",
+          "pause": "Wstrzymany",
+          "pause2": "Wstrzymany",
+          "pot_pause": "Pauza na przewrócenie",
+          "preheat": "Nagrzewanie",
+          "preheat_finish": "Nagrzany",
+          "preheat_pause": "Nagrzewanie wstrzymane",
+          "shutdown": "Wyłączony",
+          "standby": "Gotowy",
+          "unknown": "Nieznany"
         }
       },
       "switch_status": {
@@ -215,22 +215,22 @@
       "texture": {
         "name": "Przyrumienienie",
         "state": {
-          "Unknown": "Nieznany",
-          "NONE": "Brak",
-          "CrispyRoast": "Chrupiące",
-          "TenderRoast": "Delikatne",
-          "Degrease": "Odtłuszczanie"
+          "crispy_roast": "Chrupiące",
+          "degrease": "Odtłuszczanie",
+          "none": "Brak",
+          "tender_roast": "Delikatne",
+          "unknown": "Nieznany"
         }
       },
       "turn_pot": {
         "name": "Przewracanie",
         "state": {
-          "Unknown": "Nieznany",
-          "NotTurnPot": "Nie trzeba przewracać",
-          "SwitchOff": "Wyłączony",
-          "TurnPot": "Przewróć potrawę",
-          "NoNeedTurnOverPot": "Nie trzeba przewracać",
-          "NeedTurnOverPot": "Przewróć potrawę"
+          "need_turn_over_pot": "Przewróć potrawę",
+          "no_need_turn_over_pot": "Nie trzeba przewracać",
+          "not_turn_pot": "Nie trzeba przewracać",
+          "switch_off": "Wyłączony",
+          "turn_pot": "Przewróć potrawę",
+          "unknown": "Nieznany"
         }
       },
       "turn_pot_config": {
@@ -239,9 +239,9 @@
       "turn_pot_status": {
         "name": "Stan przewracania",
         "state": {
-          "Unknown": "Nieznany",
-          "NoNeedTurnOverPot": "Nie trzeba przewracać",
-          "NeedTurnOverPot": "Przewróć potrawę"
+          "need_turn_over_pot": "Przewróć potrawę",
+          "no_need_turn_over_pot": "Nie trzeba przewracać",
+          "unknown": "Nieznany"
         }
       }
     },
@@ -260,27 +260,27 @@
       "food_quanty": {
         "name": "Ilość",
         "state": {
-          "Null": "Brak",
-          "Single": "Pojedyncza porcja",
-          "Double": "Podwójna porcja",
-          "Half": "Do połowy",
-          "Full": "Pełny"
+          "double": "Podwójna porcja",
+          "full": "Pełny",
+          "half": "Do połowy",
+          "null": "Brak",
+          "single": "Pojedyncza porcja"
         }
       },
       "recipe_id": {
         "name": "ID przepisu",
         "state": {
-          "Manual": "Ręczny",
-          "FrenchFries": "Frytki",
-          "ChickenWing": "Skrzydełka",
-          "Fish": "Ryba",
-          "Steak": "Stek",
-          "Shrimp": "Krewetki",
-          "Vegetables": "Warzywa",
-          "Cake": "Ciasto",
-          "DriedFruit": "Suszone owoce",
-          "Yogurt": "Jogurt",
-          "Defrost": "Rozmrażanie"
+          "cake": "Ciasto",
+          "chicken_wing": "Skrzydełka",
+          "defrost": "Rozmrażanie",
+          "dried_fruit": "Suszone owoce",
+          "fish": "Ryba",
+          "french_fries": "Frytki",
+          "manual": "Ręczny",
+          "shrimp": "Krewetki",
+          "steak": "Stek",
+          "vegetables": "Warzywa",
+          "yogurt": "Jogurt"
         }
       }
     },

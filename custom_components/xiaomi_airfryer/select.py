@@ -6,13 +6,15 @@ from homeassistant.components.select import SelectEntity
 
 from .const import DOMAIN
 from .entity import XiaomiAirFryerControl
-from .fryer_miot import FoodQuanty, RECIPE_SLOTS
+from .fryer_miot import FoodQuanty, RECIPE_SLOTS, slugify_state
 
 _LOGGER = logging.getLogger(__name__)
 
 # Food quantity is an enum on the device; Unknown is a read-only fallback and
 # is deliberately not offered as something to pick.
-FOOD_QUANTY_CHOICES = ["Null", "Single", "Double", "Half", "Full"]
+FOOD_QUANTY_MEMBERS = ["Null", "Single", "Double", "Half", "Full"]
+FOOD_QUANTY_CHOICES = [slugify_state(m) for m in FOOD_QUANTY_MEMBERS]
+_BY_CHOICE = dict(zip(FOOD_QUANTY_CHOICES, FOOD_QUANTY_MEMBERS))
 
 
 async def async_setup_entry(hass, entry, async_add_entities):
@@ -48,11 +50,14 @@ class XiaomiAirFryerFoodQuanty(XiaomiAirFryerControl, SelectEntity):
         """Return the quantity the fryer last reported."""
         value = self._status_value("food_quanty")
         name = getattr(value, "name", None)
-        return name if name in FOOD_QUANTY_CHOICES else None
+        choice = slugify_state(name) if name else None
+        return choice if choice in FOOD_QUANTY_CHOICES else None
 
     async def async_select_option(self, option: str) -> None:
         """Send a new quantity to the fryer."""
-        await self._async_write(self._device.food_quanty, FoodQuanty[option].value)
+        await self._async_write(
+            self._device.food_quanty, FoodQuanty[_BY_CHOICE[option]].value
+        )
 
 
 class XiaomiAirFryerRecipe(XiaomiAirFryerControl, SelectEntity):
