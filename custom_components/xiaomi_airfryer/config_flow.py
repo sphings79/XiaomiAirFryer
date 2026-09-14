@@ -399,18 +399,34 @@ class XiaomiAirFryerFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
             unique_id, raise_on_progress=False
         )
         if existing_entry:
-            data = existing_entry.data.copy()
-            data[CONF_HOST] = self.host
-            data[CONF_TOKEN] = self.token
+            # Merge into whichever of options/data the entry actually uses.
+            # Copying entry.data and writing it back destroyed the entry once
+            # async_setup_entry had migrated everything into options: data was
+            # empty by then, so the write left only host and token behind, and
+            # the next setup migrated those two over the options -- dropping
+            # model, mac and flow_type and failing with "Invalid FryerMiot
+            # model: None".
+            updates = {CONF_HOST: self.host, CONF_TOKEN: self.token}
             if (
                 self.cloud_username is not None
                 and self.cloud_password is not None
                 and self.cloud_country is not None
             ):
-                data[CONF_CLOUD_USERNAME] = self.cloud_username
-                data[CONF_CLOUD_PASSWORD] = self.cloud_password
-                data[CONF_CLOUD_COUNTRY] = self.cloud_country
-            self.hass.config_entries.async_update_entry(existing_entry, data=data)
+                updates[CONF_CLOUD_USERNAME] = self.cloud_username
+                updates[CONF_CLOUD_PASSWORD] = self.cloud_password
+                updates[CONF_CLOUD_COUNTRY] = self.cloud_country
+
+            if existing_entry.options:
+                self.hass.config_entries.async_update_entry(
+                    existing_entry,
+                    options={**existing_entry.options, **updates},
+                )
+            else:
+                self.hass.config_entries.async_update_entry(
+                    existing_entry,
+                    data={**existing_entry.data, **updates},
+                )
+
             await self.hass.config_entries.async_reload(existing_entry.entry_id)
             return self.async_abort(reason="reauth_successful")
 
