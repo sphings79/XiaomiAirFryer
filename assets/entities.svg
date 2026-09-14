@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="1200" height="700" role="img" aria-label="Entities in Home Assistant: read-only sensors on the left, and on the right the controls that set it apart — number sliders for time and temperature, dropdowns for recipe and quantity, switches for preheat and turn reminder, buttons for pause and resume">
+  <defs>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#41BDF5"/>
+      <stop offset="100%" stop-color="#3DDC97"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .panel { fill:#16202B; stroke:#28394A; stroke-width:2; }
+    .inner { fill:#0F1720; stroke:#28394A; stroke-width:1; }
+    .h     { font:700 26px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill:#E6EDF3; }
+    .sub   { font:400 15px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill:#9FB0C0; }
+    .lbl   { font:600 15px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill:#E6EDF3; }
+    .val   { font:600 15px ui-monospace,SFMono-Regular,Menlo,monospace; fill:#41BDF5; }
+    .valg  { font:600 15px ui-monospace,SFMono-Regular,Menlo,monospace; fill:#3DDC97; }
+    .dim   { font:400 13px ui-monospace,SFMono-Regular,Menlo,monospace; fill:#7A8B9C; }
+    .badge { font:700 12px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; }
+  </style>
+
+  <rect width="1200" height="700" rx="18" fill="#0F1720"/>
+  <rect x="0" y="0" width="1200" height="4" rx="2" fill="url(#accent)"/>
+
+  <!-- left: sensors -->
+  <rect class="panel" x="40" y="44" width="536" height="612" rx="16"/>
+  <rect x="64" y="72" width="94" height="24" rx="12" fill="#41BDF5" fill-opacity="0.14" stroke="#41BDF5" stroke-opacity="0.5"/>
+  <text class="badge" x="111" y="89" fill="#8FD6F7" text-anchor="middle">sensor</text>
+  <text class="h"   x="64" y="136">Reading</text>
+  <text class="sub" x="64" y="162">What the fryer reports</text>
+
+  <g>
+    <rect class="inner" x="64" y="186" width="488" height="52" rx="10"/>
+    <text class="lbl" x="86" y="209">Status</text>
+    <text class="dim" x="86" y="228">sensor.…_status</text>
+    <text class="val" x="530" y="218" text-anchor="end">Cooking</text>
+
+    <rect class="inner" x="64" y="250" width="488" height="52" rx="10"/>
+    <text class="lbl" x="86" y="273">Remaining</text>
+    <text class="dim" x="86" y="292">sensor.…_remaining</text>
+    <text class="val" x="530" y="282" text-anchor="end">12 min</text>
+
+    <rect class="inner" x="64" y="314" width="488" height="52" rx="10"/>
+    <text class="lbl" x="86" y="337">Remaining percent</text>
+    <text class="dim" x="86" y="356">sensor.…_remaining_percent</text>
+    <text class="val" x="530" y="346" text-anchor="end">80 %</text>
+
+    <rect class="inner" x="64" y="378" width="488" height="52" rx="10"/>
+    <text class="lbl" x="86" y="401">Recipe</text>
+    <text class="dim" x="86" y="420">sensor.…_recipe_id</text>
+    <text class="val" x="530" y="410" text-anchor="end">French fries</text>
+
+    <rect class="inner" x="64" y="442" width="488" height="52" rx="10"/>
+    <text class="lbl" x="86" y="465">Turn food</text>
+    <text class="dim" x="86" y="484">sensor.…_turn_pot</text>
+    <text class="val" x="530" y="474" text-anchor="end">No need to turn</text>
+
+    <rect class="inner" x="64" y="506" width="488" height="52" rx="10"/>
+    <text class="lbl" x="86" y="529">Preheat phase</text>
+    <text class="dim" x="86" y="548">sensor.…_preheat_phase</text>
+    <text class="val" x="530" y="538" text-anchor="end">Off</text>
+  </g>
+  <text class="sub" x="64" y="600">Unavailable while the fryer is unplugged,</text>
+  <text class="sub" x="64" y="622">back on its own once it answers again.</text>
+
+  <!-- right: controls -->
+  <rect class="panel" x="624" y="44" width="536" height="612" rx="16" stroke="#3DDC97" stroke-opacity="0.5"/>
+  <rect x="648" y="72" width="248" height="24" rx="12" fill="#3DDC97" fill-opacity="0.14" stroke="#3DDC97" stroke-opacity="0.5"/>
+  <text class="badge" x="772" y="89" fill="#86E9BE" text-anchor="middle">number &#183; select &#183; switch &#183; button</text>
+  <text class="h"   x="648" y="136">Operating</text>
+  <text class="sub" x="648" y="162">Set it from the dashboard</text>
+
+  <g>
+    <!-- slider: temperature -->
+    <rect class="inner" x="648" y="186" width="488" height="66" rx="10"/>
+    <text class="lbl" x="670" y="210">Target temperature</text>
+    <text class="valg" x="1114" y="210" text-anchor="end">180 &#176;C</text>
+    <rect x="670" y="226" width="444" height="8" rx="4" fill="#28394A"/>
+    <rect x="670" y="226" width="311" height="8" rx="4" fill="url(#accent)"/>
+    <circle cx="981" cy="230" r="9" fill="#3DDC97"/>
+
+    <!-- slider: time -->
+    <rect class="inner" x="648" y="264" width="488" height="66" rx="10"/>
+    <text class="lbl" x="670" y="288">Target time</text>
+    <text class="valg" x="1114" y="288" text-anchor="end">15 min</text>
+    <rect x="670" y="304" width="444" height="8" rx="4" fill="#28394A"/>
+    <rect x="670" y="304" width="150" height="8" rx="4" fill="url(#accent)"/>
+    <circle cx="820" cy="308" r="9" fill="#3DDC97"/>
+
+    <!-- select: recipe -->
+    <rect class="inner" x="648" y="342" width="488" height="52" rx="10"/>
+    <text class="lbl" x="670" y="374">Recipe</text>
+    <rect x="900" y="354" width="214" height="28" rx="6" fill="#16202B" stroke="#3DDC97" stroke-opacity="0.5"/>
+    <text class="valg" x="916" y="373">French fries</text>
+    <path d="M1092 366 l7 8 l7 -8" stroke="#86E9BE" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+    <!-- select: quantity -->
+    <rect class="inner" x="648" y="406" width="488" height="52" rx="10"/>
+    <text class="lbl" x="670" y="438">Food quantity</text>
+    <rect x="900" y="418" width="214" height="28" rx="6" fill="#16202B" stroke="#3DDC97" stroke-opacity="0.5"/>
+    <text class="valg" x="916" y="437">Double portion</text>
+    <path d="M1092 430 l7 8 l7 -8" stroke="#86E9BE" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+    <!-- switches -->
+    <rect class="inner" x="648" y="470" width="236" height="52" rx="10"/>
+    <text class="lbl" x="670" y="502">Preheat</text>
+    <rect x="820" y="484" width="44" height="24" rx="12" fill="#3DDC97"/>
+    <circle cx="852" cy="496" r="9" fill="#0F1720"/>
+
+    <rect class="inner" x="900" y="470" width="236" height="52" rx="10"/>
+    <text class="lbl" x="922" y="502">Reminder</text>
+    <rect x="1072" y="484" width="44" height="24" rx="12" fill="#28394A"/>
+    <circle cx="1084" cy="496" r="9" fill="#0F1720"/>
+
+    <!-- buttons -->
+    <rect x="648" y="534" width="236" height="48" rx="10" fill="#41BDF5" fill-opacity="0.12" stroke="#41BDF5" stroke-opacity="0.5"/>
+    <rect x="722" y="549" width="6" height="18" rx="2" fill="#8FD6F7"/>
+    <rect x="733" y="549" width="6" height="18" rx="2" fill="#8FD6F7"/>
+    <text class="lbl" x="752" y="564" fill="#8FD6F7">Pause</text>
+    <rect x="900" y="534" width="236" height="48" rx="10" fill="#3DDC97" fill-opacity="0.12" stroke="#3DDC97" stroke-opacity="0.5"/>
+    <path d="M962 549 l17 9 l-17 9 z" fill="#86E9BE"/>
+    <text class="lbl" x="990" y="564" fill="#86E9BE">Resume</text>
+  </g>
+  <text class="sub" x="648" y="622">Stay usable while it is off, so no grey rows.</text>
+
+  <text class="sub" x="40" y="684">Entities appear only where the model supports them. Names and states are translated into 14 languages.</text>
+</svg>

@@ -8,3 +8,6 @@ venv/
 
 # local test harness (simulator venv, MIoT spec, probe script)
 test/
+_preview.html
+.venv/
+_preview.html

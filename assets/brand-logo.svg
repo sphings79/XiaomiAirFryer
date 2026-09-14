@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 892 320" width="892" height="320" role="img" aria-label="Xiaomi Air Fryer wordmark with an air fryer icon">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#41BDF5"/><stop offset="100%" stop-color="#7C7CF5"/>
+    </linearGradient>
+    <linearGradient id="h" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#FFC107"/><stop offset="100%" stop-color="#FFC107" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(24 60) scale(0.39)">
+    <rect x="86" y="150" width="340" height="300" rx="52" fill="url(#g)"/>
+    <rect x="128" y="196" width="256" height="108" rx="22" fill="#0B1B2B" fill-opacity="0.82"/>
+    <text x="256" y="268" font-family="ui-monospace,SFMono-Regular,Menlo,monospace" font-size="60" font-weight="700" fill="#8FD6F7" text-anchor="middle">180</text>
+    <rect x="128" y="332" width="256" height="20" rx="10" fill="#0B1B2B" fill-opacity="0.55"/>
+    <rect x="128" y="332" width="168" height="20" rx="10" fill="#3DDC97"/>
+    <circle cx="172" cy="404" r="24" fill="#0B1B2B" fill-opacity="0.75"/>
+    <circle cx="256" cy="404" r="24" fill="#0B1B2B" fill-opacity="0.75"/>
+    <circle cx="340" cy="404" r="24" fill="#0B1B2B" fill-opacity="0.75"/>
+    <path d="M172 118 c18 -22 -18 -38 0 -62 c12 -17 4 -26 0 -34" stroke="url(#h)" stroke-width="16" stroke-linecap="round" fill="none"/>
+    <path d="M256 126 c18 -24 -18 -42 0 -68 c12 -19 4 -28 0 -36" stroke="url(#h)" stroke-width="16" stroke-linecap="round" fill="none"/>
+    <path d="M340 118 c18 -22 -18 -38 0 -62 c12 -17 4 -26 0 -34" stroke="url(#h)" stroke-width="16" stroke-linecap="round" fill="none"/>
+  </g>
+  <text x="234" y="168" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" font-size="72" font-weight="700" fill="#41BDF5">Xiaomi</text>
+  <text x="234" y="244" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" font-size="72" font-weight="700" fill="#7C7CF5">Air Fryer</text>
+</svg>

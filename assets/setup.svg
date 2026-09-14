@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="1200" height="380" role="img" aria-label="Three ways to obtain the device token during setup: scan a QR code with any scanner, upload a Mi Home app backup, or enter address and token by hand. Afterwards the fryer runs entirely locally.">
+  <defs>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#41BDF5"/>
+      <stop offset="100%" stop-color="#3DDC97"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .panel { fill:#16202B; stroke:#28394A; stroke-width:2; }
+    .h     { font:700 22px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill:#E6EDF3; }
+    .t     { font:400 15px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill:#9FB0C0; }
+    .num   { font:700 18px ui-monospace,SFMono-Regular,Menlo,monospace; fill:#0F1720; }
+    .badge { font:700 12px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; }
+    .goal  { font:700 18px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill:#86E9BE; }
+  </style>
+
+  <rect width="1200" height="380" rx="18" fill="#0F1720"/>
+  <rect x="0" y="0" width="1200" height="4" rx="2" fill="url(#accent)"/>
+
+  <rect class="panel" x="40" y="48" width="352" height="188" rx="14" stroke="#3DDC97" stroke-opacity="0.55"/>
+  <circle cx="72" cy="80" r="15" fill="#3DDC97"/>
+  <text class="num" x="72" y="86" text-anchor="middle">1</text>
+  <rect x="246" y="66" width="122" height="24" rx="12" fill="#3DDC97" fill-opacity="0.14" stroke="#3DDC97" stroke-opacity="0.5"/>
+  <text class="badge" x="307" y="83" fill="#86E9BE" text-anchor="middle">RECOMMENDED</text>
+  <text class="h" x="72" y="130">Scan a QR code</text>
+  <text class="t" x="72" y="160">Signs in to the Xiaomi cloud and</text>
+  <text class="t" x="72" y="182">reads the token for you. Any QR</text>
+  <text class="t" x="72" y="204">scanner works, no app required.</text>
+
+  <rect class="panel" x="424" y="48" width="352" height="188" rx="14"/>
+  <circle cx="456" cy="80" r="15" fill="#41BDF5"/>
+  <text class="num" x="456" y="86" text-anchor="middle">2</text>
+  <text class="h" x="456" y="130">Mi Home backup</text>
+  <text class="t" x="456" y="160">Upload an .ab backup or an</text>
+  <text class="t" x="456" y="182">extracted miio2.db. Nothing is</text>
+  <text class="t" x="456" y="204">sent to Xiaomi at all.</text>
+
+  <rect class="panel" x="808" y="48" width="352" height="188" rx="14"/>
+  <circle cx="840" cy="80" r="15" fill="#7C7CF5"/>
+  <text class="num" x="840" y="86" text-anchor="middle">3</text>
+  <text class="h" x="840" y="130">Address and token</text>
+  <text class="t" x="840" y="160">Enter the IP address and the</text>
+  <text class="t" x="840" y="182">32 character token yourself, if</text>
+  <text class="t" x="840" y="204">you already have them.</text>
+
+  <g stroke="#3B4C5E" stroke-width="2" fill="none">
+    <path d="M216 236 V268 H600"/>
+    <path d="M600 236 V268"/>
+    <path d="M984 236 V268 H600"/>
+    <path d="M600 268 V292"/>
+  </g>
+  <path d="M594 288 l6 8 l6 -8" fill="#3B4C5E"/>
+
+  <rect x="352" y="300" width="496" height="48" rx="12" fill="#3DDC97" fill-opacity="0.10" stroke="#3DDC97" stroke-opacity="0.5"/>
+  <text class="goal" x="600" y="330" text-anchor="middle">Runs entirely on your network afterwards</text>
+</svg>

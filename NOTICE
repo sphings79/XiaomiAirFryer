@@ -1,0 +1,27 @@
+Xiaomi Air Fryer for Home Assistant
+Copyright (c) 2026 sphings79
+
+This project is an independently maintained continuation of
+XiaomiAirFryer by tsunglung:
+
+    https://github.com/tsunglung/XiaomiAirFryer
+    Copyright (c) 2021 tsunglung
+    Licensed under the MIT License
+
+It builds on the following work:
+
+  python-miio by Teemu Rytilahti — the miIO protocol implementation
+    https://github.com/rytilahti/python-miio
+    Licensed under the GNU General Public License v3.0
+
+  Xiaomi-cloud-tokens-extractor by Piotr Machowski — the approach used for
+  the QR code sign-in to the Xiaomi cloud
+    https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor
+    Licensed under the MIT License
+
+Device property mappings are derived from the MIoT specifications published
+at https://miot-spec.org.
+
+This is an unofficial, community built integration. It is not affiliated
+with, endorsed by, or supported by Xiaomi, Careli, Silencare, Viomi, or the
+Home Assistant project.

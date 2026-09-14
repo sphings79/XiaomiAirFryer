@@ -1,0 +1,29 @@
+name: Add a model
+description: Request support for a fryer that is not listed yet
+labels: [model]
+body:
+  - type: input
+    id: model
+    attributes:
+      label: Model name
+      description: Shown in the Mi Home app under device info.
+      placeholder: careli.fryer.mafXX
+    validations:
+      required: true
+  - type: input
+    id: spec
+    attributes:
+      label: MIoT specification
+      description: >-
+        Search your model at https://miot-spec.org and paste the link to its
+        specification. Without it the property mapping would be guesswork.
+      placeholder: https://miot-spec.org/miot-spec-v2/instance?type=...
+    validations:
+      required: true
+  - type: textarea
+    id: recipes
+    attributes:
+      label: Recipe slots (optional)
+      description: >-
+        If your fryer has built-in recipes, list them in the order the app
+        shows them. That is how slot M1, M2, … can be given real names.
