@@ -1,104 +1,86 @@
 {
   "config": {
     "abort": {
-      "already_configured": "Устройство уже настроено",
-      "already_in_progress": "Настройка устройства уже запущена",
-      "incomplete_info": "Недостаточно данных для настройки устройства: хост или токен не указаны.",
-      "not_xiaomi_miio": "Устройство пока что не поддерживается в Xiaomi Miio.",
-      "reauth_successful": "Повторный вход успешно выполнен",
-      "cloud_login_error": "Could not sign in to the Xiaomi cloud.",
-      "cloud_no_devices": "No supported air fryer was found on this Xiaomi account."
+      "already_configured": "Этот аэрогриль уже настроен.",
+      "already_in_progress": "Настройка уже выполняется.",
+      "incomplete_info": "Недостаточно данных: не указан ни адрес, ни токен.",
+      "not_xiaomi_miio": "Это устройство не является поддерживаемым аэрогрилем.",
+      "reauth_successful": "Повторный вход выполнен.",
+      "cloud_login_error": "Не удалось войти в облако Xiaomi.",
+      "cloud_no_devices": "В этом аккаунте Xiaomi не найдено поддерживаемого аэрогриля."
     },
     "error": {
-      "cannot_connect": "Ошибка подключения",
-      "cloud_credentials_incomplete": "Недостаточно данных для подключения к облаку Xiaomi Miio, укажите имя пользователя, пароль и регион",
-      "cloud_login_error": "Не удалось подключиться к облаку Xiaomi Miio, проверьте учетные данные.",
-      "cloud_no_devices": "В этом аккаунте Xiaomi Miio устройства не найдены.",
-      "no_device_selected": "Не выбрано устройство. Пожалуйста, выберите одно.",
-      "unknown_device": "Модель устройства не опознана, невозможно продолжить настройку.",
-      "wrong_token": "Ошибка проверки контрольной суммы, неверный токен",
-      "backup_unreadable": "That file could not be read as a Mi Home backup. If it is an encrypted Android backup, enter its password.",
-      "backup_no_devices": "No supported air fryer was found in that backup."
+      "cannot_connect": "Не удалось связаться с аэрогрилем.",
+      "wrong_token": "Неверный токен — контрольная сумма не совпадает.",
+      "unknown_device": "Эта модель устройства не поддерживается.",
+      "cloud_credentials_incomplete": "Неполные данные облака — выберите страну сервера.",
+      "backup_unreadable": "Файл не удалось прочитать как резервную копию Mi Home. Если это зашифрованная копия Android, укажите пароль.",
+      "backup_no_devices": "В этой резервной копии не найдено поддерживаемого аэрогриля."
+    },
+    "progress": {
+      "scan_qr": "Отсканируйте код телефоном:\n\n{qr}\n\nПодойдёт любой сканер QR — он откроет страницу входа Xiaomi в браузере. Приложение Mi Home тоже подходит. После входа этот диалог продолжится сам. Если код не отображается, откройте на телефоне эту ссылку:\n\n{url}"
     },
     "flow_title": "{name}",
     "step": {
-      "cloud": {
-        "data": {
-          "cloud_country": "Регион устройства",
-          "manual": "Enter the IP address and token myself"
-        },
-        "description": "Sign in to the Xiaomi cloud by scanning a QR code with the Mi Home app to read the token automatically. Pick the server your account is registered on. Alternatively, enter the address and token yourself.",
-        "title": "Подключение к аэрогрилю Xiaomi Miio"
-      },
-      "connect": {
-        "data": {
-          "model": "Модель устройства"
-        },
-        "description": "Ручной выбор модели из списка поддерживаемых.",
-        "title": "Подключение к аэрогрилю Xiaomi Miio"
-      },
-      "device": {
-        "data": {
-          "host": "IP-адрес",
-          "model": "Модель устройства (необязательно)",
-          "name": "Имя устройства",
-          "token": "Токен доступа"
-        },
-        "description": "Вам потребуется 32 значный токен доступа, см. https://www.home-assistant.io/integrations/xiaomi_miio#retrieving-the-access-token. Учтите, что этот токен отличается от ключа, используемого в интеграции Xiaomi Aqara.",
-        "title": "Подключение к аэрогрилю Xiaomi Miio"
-      },
-      "manual": {
-        "data": {
-          "host": "IP-адрес",
-          "token": "Токен доступа"
-        },
-        "description": "Вам потребуется 32 значный токен доступа, см. https://www.home-assistant.io/integrations/xiaomi_miio#retrieving-the-access-token. Учтите, что этот токен отличается от ключа, используемого в интеграции Xiaomi Aqara.",
-        "title": "Подключение к аэрогрилю Xiaomi Miio"
-      },
-      "reauth_confirm": {
-        "description": "Интеграция Xiaomi Miio нуждается в повторном входе в ваш аккаунт для обновления токена и/или отсутствующих учетных данных.",
-        "title": "Повторный вход в аккаунт"
-      },
-      "select": {
-        "data": {
-          "select_device": "Аэрогриль Xiaomi"
-        },
-        "description": "Выберите аэрогриль Xiaomi для настройки.",
-        "title": "Подключение к аэрогрилю Xiaomi"
-      },
       "user": {
-        "title": "Connect to a Xiaomi Air Fryer",
-        "description": "How should the device token be obtained?",
+        "title": "Подключение аэрогриля Xiaomi",
+        "description": "Как получить токен устройства?",
         "menu_options": {
-          "cloud": "Sign in to the Xiaomi cloud (scan a QR code)",
-          "backup": "Read it from a Mi Home app backup (no cloud)",
-          "manual": "Enter the IP address and token myself"
+          "cloud": "Войти в облако Xiaomi (отсканировать QR-код)",
+          "backup": "Прочитать из резервной копии Mi Home (без облака)",
+          "manual": "Ввести IP-адрес и токен вручную"
+        }
+      },
+      "cloud": {
+        "title": "Подключение аэрогриля Xiaomi",
+        "description": "Войдите в облако Xiaomi, чтобы токен считался автоматически. Выберите сервер, на котором зарегистрирован ваш аккаунт.",
+        "data": {
+          "cloud_country": "Страна облачного сервера",
+          "manual": "Ввести IP-адрес и токен вручную"
         }
       },
       "backup": {
-        "title": "Read the token from a backup",
-        "description": "Upload a Mi Home app backup. On Android that is an `.ab` file made with `adb backup com.xiaomi.smarthome`; an already extracted `miio2.db` works too, as does the database from an iOS backup. Nothing is sent to Xiaomi.",
+        "title": "Прочитать токен из резервной копии",
+        "description": "Загрузите резервную копию приложения Mi Home. На Android это файл .ab из `adb backup com.xiaomi.smarthome`; подойдёт и уже извлечённая miio2.db или база из резервной копии iOS. Ничего не отправляется в Xiaomi.",
         "data": {
-          "backup_file": "Backup file",
-          "backup_password": "Backup password (only if encrypted)"
+          "backup_file": "Файл резервной копии",
+          "backup_password": "Пароль резервной копии (только если зашифрована)"
         }
+      },
+      "manual": {
+        "title": "Подключение аэрогриля Xiaomi",
+        "description": "Нужен 32-символьный API-токен фритюрницы.",
+        "data": {
+          "host": "IP-адрес",
+          "token": "API-токен"
+        }
+      },
+      "connect": {
+        "title": "Подключение аэрогриля Xiaomi",
+        "description": "Не удалось определить модель. Выберите её из поддерживаемых.",
+        "data": {
+          "model": "Модель устройства"
+        }
+      },
+      "select": {
+        "title": "Подключение аэрогриля Xiaomi",
+        "description": "Выберите аэрогриль для настройки.",
+        "data": {
+          "select_device": "Аэрогриль"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Повторная авторизация",
+        "description": "Интеграции нужно войти снова, чтобы обновить токен устройства."
       }
-    },
-    "progress": {
-      "scan_qr": "Scan this code with your phone:\n\n{qr}\n\nAny QR scanner works — it opens a Xiaomi sign-in page in the browser. The Mi Home app works too: tap **+** in the top right and choose **Scan QR code**.\n\nOnce you have signed in, this dialog continues on its own. If the code does not show, open this link on a phone instead:\n\n{url}"
     }
   },
   "options": {
-    "error": {
-      "cloud_credentials_incomplete": "Недостаточно данных для подключения к облаку Xiaomi Miio, укажите имя пользователя, пароль и регион"
-    },
     "step": {
       "init": {
         "data": {
-          "cloud_subdevices": "Используйте подключение к облаку для получения подключенных устройств"
-        },
-        "description": "Укажите дополнительные параметры",
-        "title": "Аэрогриль Xiaomi"
+          "scan_interval": "Интервал опроса (секунды)"
+        }
       }
     }
   },

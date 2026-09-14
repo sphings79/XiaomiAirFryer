@@ -1,104 +1,86 @@
 {
   "config": {
     "abort": {
-      "already_configured": "Device is already configured",
-      "already_in_progress": "Configuration flow is already in progress",
-      "incomplete_info": "Incomplete information to setup device, no host or token supplied.",
-      "not_xiaomi_miio": "Device is not (yet) supported by Xiaomi Miio.",
-      "reauth_successful": "Re-authentication was successful",
-      "cloud_login_error": "Could not sign in to the Xiaomi cloud.",
-      "cloud_no_devices": "No supported air fryer was found on this Xiaomi account."
+      "already_configured": "Denne airfryer er allerede sat op.",
+      "already_in_progress": "Opsætningen kører allerede.",
+      "incomplete_info": "For få oplysninger: hverken adresse eller token blev angivet.",
+      "not_xiaomi_miio": "Denne enhed er ikke en understøttet airfryer.",
+      "reauth_successful": "Ny godkendelse lykkedes.",
+      "cloud_login_error": "Kunne ikke logge ind på Xiaomi-skyen.",
+      "cloud_no_devices": "Der blev ikke fundet nogen understøttet airfryer på denne Xiaomi-konto."
     },
     "error": {
-      "cannot_connect": "Failed to connect",
-      "cloud_credentials_incomplete": "Cloud credentials incomplete, please fill in username, password and country",
-      "cloud_login_error": "Could not login to Xiaomi Miio Cloud, check the credentials.",
-      "cloud_no_devices": "No devices found in this Xiaomi Miio cloud account.",
-      "no_device_selected": "No device selected, please select one device.",
-      "unknown_device": "The device model is not known, not able to setup the device using config flow.",
-      "wrong_token": "Checksum error, wrong token",
-      "backup_unreadable": "That file could not be read as a Mi Home backup. If it is an encrypted Android backup, enter its password.",
-      "backup_no_devices": "No supported air fryer was found in that backup."
+      "cannot_connect": "Kunne ikke få forbindelse til airfryeren.",
+      "wrong_token": "Forkert token — kontrolsummen passer ikke.",
+      "unknown_device": "Denne enhedsmodel understøttes ikke.",
+      "cloud_credentials_incomplete": "Ufuldstændige skyoplysninger — vælg et serverland.",
+      "backup_unreadable": "Filen kunne ikke læses som en Mi Home-sikkerhedskopi. Er det en krypteret Android-sikkerhedskopi, så angiv adgangskoden.",
+      "backup_no_devices": "Der blev ikke fundet nogen understøttet airfryer i den sikkerhedskopi."
+    },
+    "progress": {
+      "scan_qr": "Scan denne kode med din telefon:\n\n{qr}\n\nEnhver QR-scanner virker — den åbner en Xiaomi-loginside i browseren. Mi Home-appen virker også. Når du har logget ind, fortsætter dialogen af sig selv. Vises koden ikke, så åbn dette link på telefonen i stedet:\n\n{url}"
     },
     "flow_title": "{name}",
     "step": {
-      "cloud": {
-        "data": {
-          "cloud_country": "Cloud server country",
-          "manual": "Enter the IP address and token myself"
-        },
-        "description": "Sign in to the Xiaomi cloud by scanning a QR code with the Mi Home app to read the token automatically. Pick the server your account is registered on. Alternatively, enter the address and token yourself.",
-        "title": "Connect to a Xiaomi Miio AirFryer"
-      },
-      "connect": {
-        "data": {
-          "model": "Device model"
-        },
-        "description": "Manually select the device model from the supported models.",
-        "title": "Connect to a Xiaomi Miio AirFryer"
-      },
-      "device": {
-        "data": {
-          "host": "IP Address",
-          "model": "Device model (Optional)",
-          "name": "Name of the device",
-          "token": "API Token"
-        },
-        "description": "You will need the 32 character API Token, see https://www.home-assistant.io/integrations/xiaomi_miio#retrieving-the-access-token for instructions. Please note, that this API Token is different from the key used by the Xiaomi Aqara integration.",
-        "title": "Connect to a Xiaomi Miio AirFryer"
-      },
-      "manual": {
-        "data": {
-          "host": "IP Address",
-          "token": "API Token"
-        },
-        "description": "You will need the 32 character API Token, see https://www.home-assistant.io/integrations/xiaomi_miio#retrieving-the-access-token for instructions. Please note, that this API Token is different from the key used by the Xiaomi Aqara integration.",
-        "title": "Connect to a Xiaomi AirFryer"
-      },
-      "reauth_confirm": {
-        "description": "The Xiaomi Miio integration needs to re-authenticate your account in order to update the tokens or add missing cloud credentials.",
-        "title": "Reauthenticate Integration"
-      },
-      "select": {
-        "data": {
-          "select_device": "Xiaomi AirFryer"
-        },
-        "description": "Select the Xiaomi AirFryer to setup.",
-        "title": "Connect to a Xiaomi AirFryer"
-      },
       "user": {
-        "title": "Connect to a Xiaomi Air Fryer",
-        "description": "How should the device token be obtained?",
+        "title": "Forbind til en Xiaomi airfryer",
+        "description": "Hvordan skal enhedens token hentes?",
         "menu_options": {
-          "cloud": "Sign in to the Xiaomi cloud (scan a QR code)",
-          "backup": "Read it from a Mi Home app backup (no cloud)",
-          "manual": "Enter the IP address and token myself"
+          "cloud": "Log ind på Xiaomi-skyen (scan en QR-kode)",
+          "backup": "Læs den fra en Mi Home-sikkerhedskopi (uden sky)",
+          "manual": "Indtast selv IP-adresse og token"
+        }
+      },
+      "cloud": {
+        "title": "Forbind til en Xiaomi airfryer",
+        "description": "Log ind på Xiaomi-skyen for at hente token automatisk. Vælg den server, din konto er registreret på.",
+        "data": {
+          "cloud_country": "Skyserverens land",
+          "manual": "Indtast selv IP-adresse og token"
         }
       },
       "backup": {
-        "title": "Read the token from a backup",
-        "description": "Upload a Mi Home app backup. On Android that is an `.ab` file made with `adb backup com.xiaomi.smarthome`; an already extracted `miio2.db` works too, as does the database from an iOS backup. Nothing is sent to Xiaomi.",
+        "title": "Læs token fra en sikkerhedskopi",
+        "description": "Upload en sikkerhedskopi af Mi Home-appen. På Android er det en .ab-fil lavet med `adb backup com.xiaomi.smarthome`; en allerede udpakket miio2.db virker også, ligesom databasen fra en iOS-sikkerhedskopi. Intet sendes til Xiaomi.",
         "data": {
-          "backup_file": "Backup file",
-          "backup_password": "Backup password (only if encrypted)"
+          "backup_file": "Sikkerhedskopifil",
+          "backup_password": "Adgangskode til sikkerhedskopi (kun hvis krypteret)"
         }
+      },
+      "manual": {
+        "title": "Forbind til en Xiaomi airfryer",
+        "description": "Du skal bruge frituregrydens 32-tegns API-token.",
+        "data": {
+          "host": "IP-adresse",
+          "token": "API-token"
+        }
+      },
+      "connect": {
+        "title": "Forbind til en Xiaomi airfryer",
+        "description": "Modellen kunne ikke registreres. Vælg den blandt de understøttede modeller.",
+        "data": {
+          "model": "Enhedsmodel"
+        }
+      },
+      "select": {
+        "title": "Forbind til en Xiaomi airfryer",
+        "description": "Vælg den airfryer, der skal opsættes.",
+        "data": {
+          "select_device": "Airfryer"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Godkend igen",
+        "description": "Integrationen skal logge ind igen for at forny enhedens token."
       }
-    },
-    "progress": {
-      "scan_qr": "Scan this code with your phone:\n\n{qr}\n\nAny QR scanner works — it opens a Xiaomi sign-in page in the browser. The Mi Home app works too: tap **+** in the top right and choose **Scan QR code**.\n\nOnce you have signed in, this dialog continues on its own. If the code does not show, open this link on a phone instead:\n\n{url}"
     }
   },
   "options": {
-    "error": {
-      "cloud_credentials_incomplete": "Cloud credentials incomplete, please fill in username, password and country"
-    },
     "step": {
       "init": {
         "data": {
-          "cloud_subdevices": "Use cloud to get connected subdevices"
-        },
-        "description": "Specify optional settings",
-        "title": "Xiaomi AirFryer"
+          "scan_interval": "Pollingsinterval (sekunder)"
+        }
       }
     }
   },

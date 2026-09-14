@@ -1,103 +1,86 @@
 {
   "config": {
     "abort": {
-      "already_configured": "裝置已經設定完成",
-      "already_in_progress": "設定已經進行中",
-      "incomplete_info": "所提供之裝置資訊不完整、無主機端或權杖，無法設定裝置。",
-      "not_xiaomi_miio": "小米 氣炸鍋 （尚）不支援該裝置。",
-      "reauth_successful": "重新認證成功",
-      "cloud_login_error": "Could not sign in to the Xiaomi cloud.",
-      "cloud_no_devices": "No supported air fryer was found on this Xiaomi account."
+      "already_configured": "這台氣炸鍋已經設定過了。",
+      "already_in_progress": "設定已在進行中。",
+      "incomplete_info": "資訊不足：未提供位址或 token。",
+      "not_xiaomi_miio": "這台裝置不是支援的氣炸鍋。",
+      "reauth_successful": "重新登入成功。",
+      "cloud_login_error": "無法登入小米雲端。",
+      "cloud_no_devices": "在這個小米帳號中找不到支援的氣炸鍋。"
     },
     "error": {
-      "cannot_connect": "連線失敗",
-      "cloud_credentials_incomplete": "雲端憑證未完成，請填寫使用者名稱、密碼與國家",
-      "cloud_login_error": "無法登入小米 氣炸鍋 雲服務，請檢查憑證。",
-      "cloud_no_devices": "小米 氣炸鍋 雲端帳號未找到任何裝置。",
-      "no_device_selected": "未選擇裝置，請選擇一項裝置。",
-      "unknown_device": "裝置型號未知，無法使用設定流程。",
-      "backup_unreadable": "That file could not be read as a Mi Home backup. If it is an encrypted Android backup, enter its password.",
-      "backup_no_devices": "No supported air fryer was found in that backup."
+      "cannot_connect": "無法連線到氣炸鍋。",
+      "wrong_token": "token 錯誤，檢查碼不符。",
+      "unknown_device": "不支援這個裝置型號。",
+      "cloud_credentials_incomplete": "雲端資訊不完整，請選擇伺服器所在地區。",
+      "backup_unreadable": "無法將該檔案讀取為 Mi Home 備份。若是加密的 Android 備份，請輸入密碼。",
+      "backup_no_devices": "在該備份中找不到支援的氣炸鍋。"
+    },
+    "progress": {
+      "scan_qr": "用手機掃描這個條碼：\n\n{qr}\n\n任何 QR 掃描器都可以，會在瀏覽器開啟小米登入頁面，Mi Home 應用程式同樣可用。登入後這個對話框會自動繼續。若條碼未顯示，請改用手機開啟這個連結：\n\n{url}"
     },
     "flow_title": "{name}",
     "step": {
-      "cloud": {
-        "data": {
-          "cloud_country": "雲端服務伺服器國家",
-          "manual": "Enter the IP address and token myself"
-        },
-        "description": "Sign in to the Xiaomi cloud by scanning a QR code with the Mi Home app to read the token automatically. Pick the server your account is registered on. Alternatively, enter the address and token yourself.",
-        "title": "連線至小米 氣炸鍋 裝置"
-      },
-      "connect": {
-        "data": {
-          "model": "裝置型號"
-        },
-        "description": "從支援的型號中手動選擇裝置型號。",
-        "title": "連線至小米 氣炸鍋 裝置"
-      },
-      "device": {
-        "data": {
-          "host": "IP 位址",
-          "model": "裝置型號（選項）",
-          "name": "裝置名稱",
-          "token": "API 權杖"
-        },
-        "description": "將需要輸入 32 位字元 API 權杖，請參閱 https://www.home-assistant.io/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token 以獲得獲取權杖的教學。請注意：此 API 權杖與 Xiaomi Aqara 整合所使用之權杖不同。",
-        "title": "連線至小米 氣炸鍋 裝置"
-      },
-      "manual": {
-        "data": {
-          "host": "IP 位址",
-          "token": "API 權杖"
-        },
-        "description": "將需要輸入 32 位字元 API 權杖，請參閱  https://www.home-assistant.io/integrations/xiaomi_miio#retrieving-the-access-token 以獲得獲取密鑰的教學。請注意：此 API 權杖與小米 Aqara 整合所使用之密鑰不同。",
-        "title": "連線至小米 氣炸鍋 裝置"
-      },
-      "reauth_confirm": {
-        "description": "小米 氣炸鍋 整合需要重新認證您的帳號、方能更新權杖或新增遺失的雲端憑證。",
-        "title": "重新認證整合"
-      },
-      "select": {
-        "data": {
-          "select_device": "氣炸鍋 裝置"
-        },
-        "description": "選擇所要設定的 小米 氣炸鍋 裝置。",
-        "title": "連線至小米 氣炸鍋 裝置"
-      },
       "user": {
-        "title": "Connect to a Xiaomi Air Fryer",
-        "description": "How should the device token be obtained?",
+        "title": "連接小米氣炸鍋",
+        "description": "要如何取得裝置 token？",
         "menu_options": {
-          "cloud": "Sign in to the Xiaomi cloud (scan a QR code)",
-          "backup": "Read it from a Mi Home app backup (no cloud)",
-          "manual": "Enter the IP address and token myself"
+          "cloud": "登入小米雲端（掃描 QR 碼）",
+          "backup": "從 Mi Home 備份讀取（不使用雲端）",
+          "manual": "自行輸入 IP 位址與 token"
+        }
+      },
+      "cloud": {
+        "title": "連接小米氣炸鍋",
+        "description": "登入小米雲端即可自動取得 token。請選擇帳號註冊所在的伺服器。",
+        "data": {
+          "cloud_country": "雲端伺服器所在地區",
+          "manual": "自行輸入 IP 位址與 token"
         }
       },
       "backup": {
-        "title": "Read the token from a backup",
-        "description": "Upload a Mi Home app backup. On Android that is an `.ab` file made with `adb backup com.xiaomi.smarthome`; an already extracted `miio2.db` works too, as does the database from an iOS backup. Nothing is sent to Xiaomi.",
+        "title": "從備份讀取 token",
+        "description": "上傳 Mi Home 應用程式的備份。在 Android 上是以 `adb backup com.xiaomi.smarthome` 建立的 .ab 檔；已解出的 miio2.db 或 iOS 備份中的資料庫同樣可用。不會傳送任何資料給小米。",
         "data": {
-          "backup_file": "Backup file",
-          "backup_password": "Backup password (only if encrypted)"
+          "backup_file": "備份檔案",
+          "backup_password": "備份密碼（僅加密時需要）"
         }
+      },
+      "manual": {
+        "title": "連接小米氣炸鍋",
+        "description": "需要氣炸鍋的 32 字元 API token。",
+        "data": {
+          "host": "IP 位址",
+          "token": "API token"
+        }
+      },
+      "connect": {
+        "title": "連接小米氣炸鍋",
+        "description": "無法偵測型號，請從支援的型號中選擇。",
+        "data": {
+          "model": "裝置型號"
+        }
+      },
+      "select": {
+        "title": "連接小米氣炸鍋",
+        "description": "選擇要設定的氣炸鍋。",
+        "data": {
+          "select_device": "氣炸鍋"
+        }
+      },
+      "reauth_confirm": {
+        "title": "重新驗證",
+        "description": "整合需要重新登入以更新裝置 token。"
       }
-    },
-    "progress": {
-      "scan_qr": "Scan this code with your phone:\n\n{qr}\n\nAny QR scanner works — it opens a Xiaomi sign-in page in the browser. The Mi Home app works too: tap **+** in the top right and choose **Scan QR code**.\n\nOnce you have signed in, this dialog continues on its own. If the code does not show, open this link on a phone instead:\n\n{url}"
     }
   },
   "options": {
-    "error": {
-      "cloud_credentials_incomplete": "雲端憑證未完成，請填寫使用者名稱、密碼與國家"
-    },
     "step": {
       "init": {
         "data": {
-          "cloud_subdevices": "使用雲端取得連線子裝置"
-        },
-        "description": "指定選項設定",
-        "title": "小米 氣炸鍋"
+          "scan_interval": "輪詢間隔（秒）"
+        }
       }
     }
   },

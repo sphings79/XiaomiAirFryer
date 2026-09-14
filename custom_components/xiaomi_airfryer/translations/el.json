@@ -1,104 +1,86 @@
 {
   "config": {
     "abort": {
-      "already_configured": "Η συσκευή έχει ήδη ρυθμιστεί",
-      "already_in_progress": "Η διαδικασία ρύθμισης βρίσκεται ήδη σε εξέλιξη",
-      "incomplete_info": "Ανεπαρκείς πληροφορίες για τη ρύθμιση της συσκευής. Δεν δόθηκε διεύθυνση IP ή token.",
-      "not_xiaomi_miio": "Η συσκευή δεν υποστηρίζεται (ακόμη) από το Xiaomi Miio.",
-      "reauth_successful": "Η επαναπιστοποίηση ολοκληρώθηκε με επιτυχία",
-      "cloud_login_error": "Could not sign in to the Xiaomi cloud.",
-      "cloud_no_devices": "No supported air fryer was found on this Xiaomi account."
+      "already_configured": "Αυτή η φριτέζα έχει ήδη ρυθμιστεί.",
+      "already_in_progress": "Η ρύθμιση βρίσκεται ήδη σε εξέλιξη.",
+      "incomplete_info": "Ανεπαρκή στοιχεία: δεν δόθηκε διεύθυνση ούτε token.",
+      "not_xiaomi_miio": "Αυτή η συσκευή δεν είναι υποστηριζόμενη φριτέζα.",
+      "reauth_successful": "Η επανασύνδεση ολοκληρώθηκε.",
+      "cloud_login_error": "Αποτυχία σύνδεσης στο cloud της Xiaomi.",
+      "cloud_no_devices": "Δεν βρέθηκε υποστηριζόμενη φριτέζα σε αυτόν τον λογαριασμό Xiaomi."
     },
     "error": {
-      "cannot_connect": "Αποτυχία σύνδεσης",
-      "cloud_credentials_incomplete": "Ελλιπή στοιχεία λογαριασμού Cloud. Συμπληρώστε όνομα χρήστη, κωδικό πρόσβασης και χώρα.",
-      "cloud_login_error": "Δεν ήταν δυνατή η σύνδεση στο Xiaomi Miio Cloud. Ελέγξτε τα στοιχεία σύνδεσής σας.",
-      "cloud_no_devices": "Δεν βρέθηκαν συσκευές σε αυτόν τον λογαριασμό Xiaomi Miio Cloud.",
-      "no_device_selected": "Δεν επιλέχθηκε συσκευή. Παρακαλώ επιλέξτε μία συσκευή.",
-      "unknown_device": "Το μοντέλο της συσκευής δεν είναι γνωστό και δεν μπορεί να ρυθμιστεί μέσω της διαδικασίας ρύθμισης.",
-      "wrong_token": "Σφάλμα επαλήθευσης. Λανθασμένο token.",
-      "backup_unreadable": "That file could not be read as a Mi Home backup. If it is an encrypted Android backup, enter its password.",
-      "backup_no_devices": "No supported air fryer was found in that backup."
+      "cannot_connect": "Δεν ήταν δυνατή η επικοινωνία με τη φριτέζα.",
+      "wrong_token": "Λανθασμένο token — το άθροισμα ελέγχου δεν ταιριάζει.",
+      "unknown_device": "Αυτό το μοντέλο συσκευής δεν υποστηρίζεται.",
+      "cloud_credentials_incomplete": "Ελλιπή στοιχεία cloud — επιλέξτε χώρα διακομιστή.",
+      "backup_unreadable": "Το αρχείο δεν διαβάστηκε ως αντίγραφο Mi Home. Αν είναι κρυπτογραφημένο αντίγραφο Android, δώστε τον κωδικό του.",
+      "backup_no_devices": "Δεν βρέθηκε υποστηριζόμενη φριτέζα σε αυτό το αντίγραφο."
+    },
+    "progress": {
+      "scan_qr": "Σαρώστε αυτόν τον κωδικό με το κινητό σας:\n\n{qr}\n\nΛειτουργεί οποιοσδήποτε σαρωτής QR — ανοίγει σελίδα σύνδεσης της Xiaomi στον browser. Λειτουργεί και η εφαρμογή Mi Home. Μετά τη σύνδεση ο διάλογος συνεχίζει μόνος του. Αν δεν εμφανιστεί ο κωδικός, ανοίξτε αυτόν τον σύνδεσμο στο κινητό:\n\n{url}"
     },
     "flow_title": "{name}",
     "step": {
-      "cloud": {
-        "data": {
-          "cloud_country": "Χώρα διακομιστή Cloud",
-          "manual": "Enter the IP address and token myself"
-        },
-        "description": "Sign in to the Xiaomi cloud by scanning a QR code with the Mi Home app to read the token automatically. Pick the server your account is registered on. Alternatively, enter the address and token yourself.",
-        "title": "Σύνδεση σε Xiaomi Miio AirFryer"
-      },
-      "connect": {
-        "data": {
-          "model": "Μοντέλο συσκευής"
-        },
-        "description": "Επιλέξτε χειροκίνητα το μοντέλο της συσκευής από τα υποστηριζόμενα μοντέλα.",
-        "title": "Σύνδεση σε Xiaomi Miio AirFryer"
-      },
-      "device": {
-        "data": {
-          "host": "Διεύθυνση IP",
-          "model": "Μοντέλο συσκευής (προαιρετικό)",
-          "name": "Όνομα συσκευής",
-          "token": "API Token"
-        },
-        "description": "Θα χρειαστείτε το API Token των 32 χαρακτήρων. Δείτε τις οδηγίες στο https://www.home-assistant.io/integrations/xiaomi_miio#retrieving-the-access-token. Σημειώστε ότι αυτό το API Token είναι διαφορετικό από το κλειδί που χρησιμοποιείται από την ενσωμάτωση Xiaomi Aqara.",
-        "title": "Σύνδεση σε Xiaomi Miio AirFryer"
-      },
-      "manual": {
-        "data": {
-          "host": "Διεύθυνση IP",
-          "token": "API Token"
-        },
-        "description": "Θα χρειαστείτε το API Token των 32 χαρακτήρων. Δείτε τις οδηγίες στο https://www.home-assistant.io/integrations/xiaomi_miio#retrieving-the-access-token. Σημειώστε ότι αυτό το API Token είναι διαφορετικό από το κλειδί που χρησιμοποιείται από την ενσωμάτωση Xiaomi Aqara.",
-        "title": "Σύνδεση σε Xiaomi AirFryer"
-      },
-      "reauth_confirm": {
-        "description": "Η ενσωμάτωση Xiaomi Miio πρέπει να επαναπιστοποιήσει τον λογαριασμό σας για να ενημερώσει τα tokens ή να προσθέσει στοιχεία Cloud που λείπουν.",
-        "title": "Επαναπιστοποίηση ενσωμάτωσης"
-      },
-      "select": {
-        "data": {
-          "select_device": "Xiaomi AirFryer"
-        },
-        "description": "Επιλέξτε το Xiaomi AirFryer που θέλετε να ρυθμίσετε.",
-        "title": "Σύνδεση σε Xiaomi AirFryer"
-      },
       "user": {
-        "title": "Connect to a Xiaomi Air Fryer",
-        "description": "How should the device token be obtained?",
+        "title": "Σύνδεση με φριτέζα Xiaomi",
+        "description": "Πώς να ληφθεί το token της συσκευής;",
         "menu_options": {
-          "cloud": "Sign in to the Xiaomi cloud (scan a QR code)",
-          "backup": "Read it from a Mi Home app backup (no cloud)",
-          "manual": "Enter the IP address and token myself"
+          "cloud": "Σύνδεση στο cloud της Xiaomi (σάρωση κωδικού QR)",
+          "backup": "Ανάγνωση από αντίγραφο ασφαλείας Mi Home (χωρίς cloud)",
+          "manual": "Εισαγωγή διεύθυνσης IP και token χειροκίνητα"
+        }
+      },
+      "cloud": {
+        "title": "Σύνδεση με φριτέζα Xiaomi",
+        "description": "Συνδεθείτε στο cloud της Xiaomi για αυτόματη ανάγνωση του token. Επιλέξτε τον διακομιστή όπου είναι εγγεγραμμένος ο λογαριασμός σας.",
+        "data": {
+          "cloud_country": "Χώρα διακομιστή cloud",
+          "manual": "Εισαγωγή διεύθυνσης IP και token χειροκίνητα"
         }
       },
       "backup": {
-        "title": "Read the token from a backup",
-        "description": "Upload a Mi Home app backup. On Android that is an `.ab` file made with `adb backup com.xiaomi.smarthome`; an already extracted `miio2.db` works too, as does the database from an iOS backup. Nothing is sent to Xiaomi.",
+        "title": "Ανάγνωση token από αντίγραφο ασφαλείας",
+        "description": "Ανεβάστε ένα αντίγραφο ασφαλείας της εφαρμογής Mi Home. Στο Android είναι αρχείο .ab από `adb backup com.xiaomi.smarthome`· λειτουργεί και μια ήδη εξαγμένη miio2.db ή η βάση από αντίγραφο iOS. Δεν αποστέλλεται τίποτα στη Xiaomi.",
         "data": {
-          "backup_file": "Backup file",
-          "backup_password": "Backup password (only if encrypted)"
+          "backup_file": "Αρχείο αντιγράφου ασφαλείας",
+          "backup_password": "Κωδικός αντιγράφου ασφαλείας (μόνο αν είναι κρυπτογραφημένο)"
         }
+      },
+      "manual": {
+        "title": "Σύνδεση με φριτέζα Xiaomi",
+        "description": "Χρειάζεστε το API token 32 χαρακτήρων της φριτέζας.",
+        "data": {
+          "host": "Διεύθυνση IP",
+          "token": "API token"
+        }
+      },
+      "connect": {
+        "title": "Σύνδεση με φριτέζα Xiaomi",
+        "description": "Δεν ήταν δυνατός ο εντοπισμός του μοντέλου. Επιλέξτε το από τα υποστηριζόμενα.",
+        "data": {
+          "model": "Μοντέλο συσκευής"
+        }
+      },
+      "select": {
+        "title": "Σύνδεση με φριτέζα Xiaomi",
+        "description": "Επιλέξτε τη φριτέζα προς ρύθμιση.",
+        "data": {
+          "select_device": "Φριτέζα"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Επανέλεγχος ταυτότητας",
+        "description": "Η ενσωμάτωση πρέπει να συνδεθεί ξανά για ανανέωση του token της συσκευής."
       }
-    },
-    "progress": {
-      "scan_qr": "Scan this code with your phone:\n\n{qr}\n\nAny QR scanner works — it opens a Xiaomi sign-in page in the browser. The Mi Home app works too: tap **+** in the top right and choose **Scan QR code**.\n\nOnce you have signed in, this dialog continues on its own. If the code does not show, open this link on a phone instead:\n\n{url}"
     }
   },
   "options": {
-    "error": {
-      "cloud_credentials_incomplete": "Ελλιπή στοιχεία λογαριασμού Cloud. Συμπληρώστε όνομα χρήστη, κωδικό πρόσβασης και χώρα."
-    },
     "step": {
       "init": {
         "data": {
-          "cloud_subdevices": "Χρήση του Cloud για ανάκτηση συνδεδεμένων υποσυσκευών"
-        },
-        "description": "Καθορίστε τις προαιρετικές ρυθμίσεις",
-        "title": "Xiaomi AirFryer"
+          "scan_interval": "Διάστημα ερωτημάτων (δευτερόλεπτα)"
+        }
       }
     }
   },
