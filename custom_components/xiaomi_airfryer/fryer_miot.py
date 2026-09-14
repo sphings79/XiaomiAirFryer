@@ -748,6 +748,14 @@ class FryerStatusMiot(DeviceStatus):
         return self.data["appoint_time"]
 
     @property
+    def appoint_time_left(self) -> int:
+        """Appoint Time Left"""
+        # Read with .get(): the sensor is defined for every SENSOR_TYPES_MAF
+        # model, but not every mapping requests this property, and a KeyError
+        # here would surface as an entity error instead of an unknown state.
+        return self.data.get("appoint_time_left")
+
+    @property
     def food_quanty(self) -> FoodQuanty:
         """Food Quanty."""
         try:
@@ -764,6 +772,34 @@ class FryerStatusMiot(DeviceStatus):
         except ValueError:
             _LOGGER.error("Unknown PreheatSwitch (%s)", self.data["preheat_switch"])
             return PreheatSwitch.Unknown
+
+    @property
+    def switch_status(self) -> int:
+        """Switch Status."""
+        return self.data.get("switch_status")
+
+    @property
+    def temperature(self) -> int:
+        """Current Temperature."""
+        return self.data.get("temperature")
+
+    @property
+    def recipe_command(self) -> str:
+        """Recipe Command."""
+        return self.data.get("recipe_command")
+
+    @property
+    def target_cooking_measure(self) -> int:
+        """Target Cooking Measure."""
+        return self.data.get("target_cooking_measure")
+
+    @property
+    def turn_pot_status(self) -> int:
+        """Turn Pot Status."""
+        # Returned raw on purpose: the V3 mapping carries turn_pot,
+        # turn_pot_config and turn_pot_status side by side, and which of the
+        # TurnPot enums applies to this one is not documented anywhere.
+        return self.data.get("turn_pot_status")
 
     def _turn_pot_enum(self) -> type[enum.Enum]:
         """Return the correct Turn Pot enum for this device layout."""
@@ -848,7 +884,7 @@ class FryerMiot(MiotDevice):
             "Work Temperature: {result.work_temp}\n"
             "Appoint Time: {result.appoint_time}\n"
             "Food Quanty: {result.food_quanty.name}\n"
-            "Preheat Switch: {result.preheat_switc.name}\n"
+            "Preheat Switch: {result.preheat_switch.name}\n"
             "Appoint Time Left: {result.appoint_time_left}\n"
             "Turn Pot: {result.turn_pot.name}\n",
         )
