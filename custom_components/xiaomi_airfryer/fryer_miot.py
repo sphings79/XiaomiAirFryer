@@ -662,6 +662,19 @@ class TurnPotViomi(enum.Enum):
     NeedTurnOverPot = 1
 
 
+# Models whose turn-pot property is 1 = no need, 2 = need, per their specs.
+# Everything else counts from 0.
+MODELS_TURN_POT_ONE_BASED = [
+    MODEL_FRYER_MAF07C,
+    MODEL_FRYER_MAF07D,
+    MODEL_FRYER_MAF09A,
+    MODEL_FRYER_MAF10A,
+    MODEL_FRYER_MAF14,
+    MODEL_FRYER_MAF15,
+    MODEL_FRYER_MAF16,
+]
+
+
 class PreheatSwitch(enum.Enum):
     """ Turn Pot """
     Unknown = -1
@@ -888,11 +901,16 @@ class FryerStatusMiot(DeviceStatus):
         return self.data.get("turn_pot_status")
 
     def _turn_pot_enum(self) -> type[enum.Enum]:
-        """Return the correct Turn Pot enum for this device layout."""
+        """Return the correct Turn Pot enum for this device layout.
+
+        Which values a model uses is a property of the model, taken from the
+        published specs, not of whether it happens to report turn_pot_config:
+        careli.fryer.maf05a reports both, yet counts from 0 like the default.
+        """
         if self.model == MODEL_FRYER_V3:
             return TurnPotViomi
 
-        if "turn_pot_config" in self.data:
+        if self.model in MODELS_TURN_POT_ONE_BASED:
             return TurnPotXiaomi
 
         return TurnPot

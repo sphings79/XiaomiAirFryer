@@ -3,6 +3,8 @@
 import asyncio
 import logging
 
+from miio import DeviceException
+
 import voluptuous as vol
 
 from homeassistant.components.switch import (
@@ -10,6 +12,7 @@ from homeassistant.components.switch import (
     SwitchEntity,
 )
 from homeassistant.config_entries import SOURCE_IMPORT
+from homeassistant.exceptions import HomeAssistantError
 from homeassistant.const import (
     ATTR_ENTITY_ID,
     ATTR_MODE,
@@ -265,6 +268,20 @@ class XiaomiAirFryer(CoordinatorEntity, SwitchEntity):
         self._state_attrs = {ATTR_MODEL: self._model}
         self._device_features = FEATURE_FLAGS_GENERIC
 
+    async def _async_call_device(self, method, *args):
+        """Run a device command, reporting failures as a clean error.
+
+        Without this a service call against an unreachable fryer -- which is
+        the normal state between uses -- surfaced as an unhandled exception
+        and a 500 from the API rather than a message naming the device.
+        """
+        try:
+            return await self.hass.async_add_executor_job(method, *args)
+        except DeviceException as ex:
+            raise HomeAssistantError(
+                f"Could not reach the air fryer at {self._host}: {ex}"
+            ) from ex
+
     @property
     def icon(self):
         """Return the icon to use for device if any."""
@@ -301,29 +318,29 @@ class XiaomiAirFryer(CoordinatorEntity, SwitchEntity):
 
     async def async_turn_on(self, **kwargs):
         """Turn the air fryer on."""
-        await self.hass.async_add_executor_job(self._device.start_cook)
+        await self._async_call_device(self._device.start_cook)
         await self.coordinator.async_request_refresh()
 
     async def async_turn_off(self, **kwargs):
         """Turn the air fryer off."""
-        await self.hass.async_add_executor_job(self._device.cancel_cooking)
+        await self._async_call_device(self._device.cancel_cooking)
         await self.coordinator.async_request_refresh()
 
     async def async_start(self):
         """Start cooking."""
-        await self.hass.async_add_executor_job(self._device.start_cook)
+        await self._async_call_device(self._device.start_cook)
 
     async def async_stop(self):
         """Stop cooking."""
-        await self.hass.async_add_executor_job(self._device.cancel_cooking)
+        await self._async_call_device(self._device.cancel_cooking)
 
     async def async_pause(self):
         """Pause cooking."""
-        await self.hass.async_add_executor_job(self._device.pause)
+        await self._async_call_device(self._device.pause)
 
     async def async_resume(self):
         """Resume cooking."""
-        await self.hass.async_add_executor_job(self._device.resume_cooking)
+        await self._async_call_device(self._device.resume_cooking)
 
     async def async_start_custom(self, mode: str):
         """Start custom cooking."""
@@ -339,41 +356,29 @@ class XiaomiAirFryer(CoordinatorEntity, SwitchEntity):
         else:
             mode_value = MODE[mode]
 
-        await self.hass.async_add_executor_job(
-            self._device.start_custom_cook, mode_value
-        )
+        await self._async_call_device(self._device.start_custom_cook, mode_value)
 
     async def async_preheat(self, preheat: bool):
         """Turn the preheat phase on or off."""
-        await self.hass.async_add_executor_job(self._device.preheat, preheat)
+        await self._async_call_device(self._device.preheat, preheat)
         await self.coordinator.async_request_refresh()
 
     async def async_food_quanty(self, food_quanty: int):
         """Set food quanty."""
-        await self.hass.async_add_executor_job(
-            self._device.food_quanty, food_quanty
-        )
+        await self._async_call_device(self._device.food_quanty, food_quanty)
 
     async def async_recipe_id(self, recipe_id: str):
         """Set recipe id."""
-        await self.hass.async_add_executor_job(
-            self._device.recipe_id, recipe_id
-        )
+        await self._async_call_device(self._device.recipe_id, recipe_id)
 
     async def async_appoint_time(self, time: int):
         """Set appoint time."""
-        await self.hass.async_add_executor_job(
-            self._device.appoint_time, time
-        )
+        await self._async_call_device(self._device.appoint_time, time)
 
     async def async_target_time(self, target_time: int):
         """Set target time."""
-        await self.hass.async_add_executor_job(
-            self._device.target_time, target_time
-        )
+        await self._async_call_device(self._device.target_time, target_time)
 
     async def async_target_temperature(self, target_temperature: int):
         """Set target temperature."""
-        await self.hass.async_add_executor_job(
-        self._device.target_temperature, target_temperature
-    )
+        await self._async_call_device(self._device.target_temperature, target_temperature)
