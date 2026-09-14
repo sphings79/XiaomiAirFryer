@@ -9,8 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Changed
 
 - Releases now carry the integration as an attached archive, which HACS
-  downloads instead of the tag tarball. GitHub counts downloads of attached
-  files only, so this is what makes an installation count possible at all.
+  downloads instead of the tag tarball: 171 KB instead of the whole repository
+  with its images and documents.
 
 ## [2.1.0] - 2026-09-14
 
