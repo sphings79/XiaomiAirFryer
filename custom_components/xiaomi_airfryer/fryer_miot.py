@@ -32,6 +32,7 @@ from .const import (
     MODEL_FRYER_MAF65,
     MODEL_FRYER_SCK501,
     MODEL_FRYER_SCK505,
+    MODEL_FRYER_ST701O,
     MODEL_FRYER_V3,
     MODEL_FRYER_YBAF01,
     MODEL_FRYER_YBAF02,
@@ -489,6 +490,31 @@ MIOT_MAPPING = {
         "start_recipe_cook": {"siid": 2, "aiid": 4},
         "resume_cooking": {"siid": 2, "aiid": 5},
     },
+    # https://miot-spec.org/miot-spec-v2/instance?type=urn:miot-spec-v2:device:air-fryer:0000A0A4:xiaomi-st701o:1
+    # Steam combi appliance: the same air fryer service, but with water-related
+    # states and a programme list that covers steaming and baking as well.
+    MODEL_FRYER_ST701O: {
+        "status": {"siid": 2, "piid": 2},  # read, notify
+        "device_fault": {"siid": 2, "piid": 3},  # read, notify
+        "mode": {"siid": 2, "piid": 4},  # read, notify, write
+        "target_time": {"siid": 2, "piid": 5},  # read, notify, write
+        "left_time": {"siid": 2, "piid": 6},  # read, notify
+        "target_temperature": {"siid": 2, "piid": 7},  # read, notify, write
+        "recipe_id": {"siid": 2, "piid": 12},  # read, notify, write
+        "turn_pot": {"siid": 2, "piid": 15},  # read, notify
+        "turn_pot_config": {"siid": 2, "piid": 16},  # read, notify, write
+        "current_keep_warm": {"siid": 2, "piid": 18},  # read, notify, write
+        "auto_keep_warm": {"siid": 2, "piid": 19},  # read, notify, write
+        "reservation_left_time": {"siid": 2, "piid": 20},  # read, notify, write
+        "cooking_weight": {"siid": 2, "piid": 21},  # read, notify, write
+        "target_cooking_measure": {"siid": 2, "piid": 24},  # read, notify, write
+        "texture": {"siid": 2, "piid": 25},  # read, notify, write
+        "start_cook": {"siid": 2, "aiid": 1},
+        "cancel_cooking": {"siid": 2, "aiid": 2},
+        "pause": {"siid": 2, "aiid": 3},
+        "start_recipe_cook": {"siid": 2, "aiid": 4},
+        "resume_cooking": {"siid": 2, "aiid": 5}
+    },
     # http://miot-spec.org/miot-spec-v2/instance?type=urn:miot-spec-v2:device:air-fryer:0000A0A4:silen-sck501:1
     MODEL_FRYER_SCK501: {
         "status": {"siid": 2, "piid": 1},  # read, notify
@@ -854,10 +880,49 @@ RECIPE_SLOTS = {
         "M11": "dried_fruit",
         "M12": "yogurt",
     },
+    MODEL_FRYER_ST701O: {
+        "M1": "air_fry_custom",
+        "M2": "air_fry_frozen_fries",
+        "M3": "air_fry_potato",
+        "M4": "air_fry_chicken_leg",
+        "M5": "air_fry_beef_steak",
+        "M6": "air_fry_fish",
+        "M7": "air_fry_vegetables",
+        "M8": "steam_custom",
+        "M9": "steam_root_vegetables",
+        "M10": "steam_broccoli",
+        "M11": "steam_corn",
+        "M12": "steam_salmon",
+        "M13": "steam_rice",
+        "M14": "steam_egg",
+        "M15": "steam_fry_chicken_leg",
+        "M16": "steam_fry_fish",
+        "M17": "steam_fry_vegetables",
+        "M18": "steam_fry_potato",
+        "M19": "steam_fry_dumplings",
+        "M20": "steam_fry_bread",
+        "M21": "bake_custom",
+        "M22": "bake_cake",
+        "M23": "bake_pizza",
+        "M24": "bake_bread",
+        "M25": "sous_vide_custom",
+        "M26": "sous_vide_beef_steak",
+        "M27": "sous_vide_chicken_steak",
+        "M28": "sous_vide_salmon",
+        "M29": "sous_vide_egg",
+        "M30": "roast",
+        "M31": "air_dry",
+        "M32": "ferment",
+        "M33": "defrost",
+        "M34": "reheat",
+        "M35": "care_dry",
+        "M36": "care_water_cleaning",
+        "M37": "care_deodorize",
+    },
     MODEL_FRYER_YBAF03: {
         "C1": "potato_wedges",
         "C2": "chicken_cutlet",
-        "C3": "steak",
+        "C3": "beef_steak",
         "C4": "lamb_chops",
         "C5": "curry_beef",
         "C6": "popcorn_chicken",
@@ -882,7 +947,7 @@ RECIPE_SLOTS = {
     MODEL_FRYER_YBAF04: {
         "C1": "potato_wedges",
         "C2": "chicken_cutlet",
-        "C3": "steak",
+        "C3": "beef_steak",
         "C4": "lamb_chops",
         "C5": "curry_beef",
         "C6": "popcorn_chicken",
@@ -966,6 +1031,75 @@ class CookingTexture(enum.Enum):
     TenderRoast = 2
     Degrease = 3
 
+class StatusSteam(enum.Enum):
+    """Status of the steam combi models, which add water-related states."""
+    Unknown = -1
+    Shutdown = 0
+    Standby = 1
+    Pause = 2
+    Appointment = 3
+    Cooking = 4
+    Cooked = 5
+    PotPause = 6
+    Keepwarm = 7
+    KeepwarmFinish = 8
+    WaterShortagePause = 12
+    WaterShortTimeout = 13
+    WaterShortPaused = 14
+    StandbyNetworking = 15
+
+
+class CookingModeSteam(enum.Enum):
+    """Programmes of the steam combi models, grouped by cooking method."""
+    NONE = 0
+    AirFryCustom = 1
+    AirFryFrozenFries = 2
+    AirFryPotato = 3
+    AirFryChickenLeg = 4
+    AirFryBeefSteak = 5
+    AirFryFish = 6
+    AirFryVegetables = 7
+    SteamCustom = 8
+    SteamRootVegetables = 9
+    SteamBroccoli = 10
+    SteamCorn = 11
+    SteamSalmon = 12
+    SteamRice = 13
+    SteamEgg = 14
+    SteamFryChickenLeg = 15
+    SteamFryFish = 16
+    SteamFryVegetables = 17
+    SteamFryPotato = 18
+    SteamFryDumplings = 19
+    SteamFryBread = 20
+    BakeCustom = 21
+    BakeCake = 22
+    BakePizza = 23
+    BakeBread = 24
+    SousVideCustom = 25
+    SousVideBeefSteak = 26
+    SousVideChickenSteak = 27
+    SousVideSalmon = 28
+    SousVideEgg = 29
+    Roast = 30
+    AirDry = 31
+    Ferment = 32
+    Defrost = 33
+    Reheat = 34
+    CareDry = 35
+    CareWaterCleaning = 36
+    CareDeodorize = 37
+
+
+class CookingTextureSteam(enum.Enum):
+    """Texture of the steam combi models: which heat source is in use."""
+    Unknown = -1
+    NONE = 0
+    AirFryer = 1
+    SteamFrying = 2
+    Steam = 3
+
+
 class FryerStatusMiot(DeviceStatus):
     """Container for status reports for Xiaomi FryerStatusMiot."""
 
@@ -1014,8 +1148,9 @@ class FryerStatusMiot(DeviceStatus):
         mode_raw = self.data["mode"]
         if self.model in [MODEL_FRYER_MAF14]:
             return CookingModeXiaomi(mode_raw)
-        else:
-            return CookingModeDefault(mode_raw)
+        if self.model in [MODEL_FRYER_ST701O]:
+            return CookingModeSteam(mode_raw)
+        return CookingModeDefault(mode_raw)
 
     @property
     def status(self) -> int:
@@ -1024,10 +1159,11 @@ class FryerStatusMiot(DeviceStatus):
             status_raw = self.data["status"]
             if self.model in [MODEL_FRYER_MAF14]:
                 return StatusXiaomi(status_raw)
-            elif self.model in [MODEL_FRYER_V3]:
+            if self.model in [MODEL_FRYER_ST701O]:
+                return StatusSteam(status_raw)
+            if self.model in [MODEL_FRYER_V3]:
                 return StatusV3(status_raw)
-            else:
-                return StatusDefault(status_raw)
+            return StatusDefault(status_raw)
         except ValueError:
             _LOGGER.error("Unknown Status (%s)", self.data["status"])
             return StatusDefault.Unknown
@@ -1202,11 +1338,13 @@ class FryerStatusMiot(DeviceStatus):
     @property
     def texture(self) -> CookingTexture:
         """Texture."""
+        texture = (CookingTextureSteam if self.model in [MODEL_FRYER_ST701O]
+                   else CookingTexture)
         try:
-            return CookingTexture(self.data["texture"])
+            return texture(self.data["texture"])
         except ValueError:
             _LOGGER.error("Unknown Texture (%s)", self.data["texture"])
-            return CookingTexture.Unknown
+            return texture.Unknown
 
     @property
     def reservation_left_time(self) -> int:

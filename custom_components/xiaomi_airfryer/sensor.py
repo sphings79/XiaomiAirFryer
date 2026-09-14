@@ -28,7 +28,8 @@ from .const import (
     MODELS_MIOT,
     MODELS_SILEN,
     MODELS_VIOMI,
-    MODELS_XIAOMI, MODEL_FRYER_MAF07C, MODEL_FRYER_MAF09A, MODEL_FRYER_MAF65
+    MODELS_XIAOMI, MODEL_FRYER_MAF07C, MODEL_FRYER_MAF09A, MODEL_FRYER_MAF65,
+    MODEL_FRYER_ST701O
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -44,11 +45,24 @@ SENSOR_OPTIONS = {
         "Preheat", "Cooked", "PreheatFinish", "PreheatPause", "Pause2",
         "Keepwarm", "KeepwarmPause", "KeepwarmFinish", "CrispyRoast",
         "Degrease", "Delay", "PotPause",
+        # the steam combi models add water-related states
+        "WaterShortagePause", "WaterShortTimeout", "WaterShortPaused",
+        "StandbyNetworking",
     ],
     "mode": [
         "Manual", "FrenchFries", "ChickenWing", "Steak", "LambChops", "Fish",
         "Shrimp", "Vegetables", "Cake", "Pizza", "Defrost", "DriedFruit",
         "Yogurt",
+        # programmes of the steam combi models
+        "NONE", "AirFryCustom", "AirFryFrozenFries", "AirFryPotato",
+        "AirFryChickenLeg", "AirFryBeefSteak", "AirFryFish", "AirFryVegetables",
+        "SteamCustom", "SteamRootVegetables", "SteamBroccoli", "SteamCorn",
+        "SteamSalmon", "SteamRice", "SteamEgg", "SteamFryChickenLeg",
+        "SteamFryFish", "SteamFryVegetables", "SteamFryPotato",
+        "SteamFryDumplings", "SteamFryBread", "BakeCustom", "BakeCake",
+        "BakePizza", "BakeBread", "SousVideCustom", "SousVideBeefSteak",
+        "SousVideChickenSteak", "SousVideSalmon", "SousVideEgg", "Roast",
+        "AirDry", "Ferment", "CareDry", "CareWaterCleaning", "CareDeodorize",
     ],
     "food_quanty": ["Unknown", "Null", "Single", "Double", "Half", "Full"],
     "turn_pot": [
@@ -57,7 +71,11 @@ SENSOR_OPTIONS = {
     ],
     "turn_pot_status": ["Unknown", "NoNeedTurnOverPot", "NeedTurnOverPot"],
     "preheat_switch": ["Unknown", "Null", "Off", "On"],
-    "texture": ["Unknown", "NONE", "CrispyRoast", "TenderRoast", "Degrease"],
+    "texture": [
+        "Unknown", "NONE", "CrispyRoast", "TenderRoast", "Degrease",
+        # the steam combi models report which heat source is running
+        "AirFryer", "SteamFrying", "Steam",
+    ],
 }
 
 
@@ -133,6 +151,21 @@ SENSOR_TYPES_XIAOMI = {
     "turn_pot": ["Turn Pot", None, "turn_pot", None, "mdi:rotate-3d-variant", None],
 }
 
+SENSOR_TYPES_ST701O = {
+    "status": ["Status", None, "status", None, "mdi:bowl", None],
+    "mode": ["Mode", None, "mode", None, "mdi:stairs", None],
+    "target_time": ["Target Time", None, "target_time", UnitOfTime.MINUTES, "mdi:menu", None],
+    "left_time": ["Remaining", None, "left_time", UnitOfTime.MINUTES, "mdi:timer", None],
+    "left_percent": ["Remaining Percent", None, "left_percent", PERCENTAGE, "mdi:timer-sand", None],
+    "target_temperature": ["Target Temperature", None, "target_temperature", UnitOfTemperature.CELSIUS, None, SensorDeviceClass.TEMPERATURE],
+    "recipe_id": ["Recipe Id", None, "recipe_id", None, "mdi:rice", None],
+    "turn_pot": ["Turn Pot", None, "turn_pot", None, "mdi:rotate-3d-variant", None],
+    "turn_pot_config": ["Turn Pot Config", None, "turn_pot_config", None, "mdi:rotate-3d-variant", None],
+    "texture": ["Texture", None, "texture", None, "mdi:pot-steam", None],
+    "reservation_left_time": ["Reservation Left Time", None, "reservation_left_time", UnitOfTime.MINUTES, "mdi:timer", None],
+    "cooking_weight": ["Cooking Weight", None, "cooking_weight", None, "mdi:scale", None],
+}
+
 SENSOR_TYPES_MAF10A = {
     "status": ["Status", None, "status", None, "mdi:bowl", None],
     "mode": ["Mode", None, "mode", None, "mdi:stairs", None],
@@ -177,7 +210,9 @@ async def async_setup_entry(hass, config, async_add_devices, discovery_info=None
         except DeviceException as ex:
             raise PlatformNotReady from ex
 
-    if model == MODEL_FRYER_YBAF01:
+    if model == MODEL_FRYER_ST701O:
+        sensor_types = SENSOR_TYPES_ST701O
+    elif model == MODEL_FRYER_YBAF01:
         sensor_types = SENSOR_TYPES_YBAF
     elif model in [MODEL_FRYER_MAF10A, MODEL_FRYER_MAF07C, MODEL_FRYER_MAF09A,
                    MODEL_FRYER_MAF65]:

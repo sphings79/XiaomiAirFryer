@@ -29,6 +29,7 @@ MODEL_FRYER_MAF14 = "xiaomi.fryer.maf14"
 MODEL_FRYER_MAF16 = "xiaomi.fryer.maf16"
 MODEL_FRYER_MAF15 = "xiaomi.fryer.maf15"
 MODEL_FRYER_MAF65 = "xiaomi.fryer.maf65"
+MODEL_FRYER_ST701O = "xiaomi.fryer.st701o"
 MODEL_FRYER_SCK501 = "silen.fryer.sck501"
 MODEL_FRYER_SCK505 = "silen.fryer.sck505"
 MODEL_FRYER_V3 = "viomi.fryer.v3"
@@ -56,6 +57,7 @@ OPT_MODEL = {
     MODEL_FRYER_MAF15: "Xiaomi Smart Air Fryer 4.5L",
     MODEL_FRYER_MAF16: "Xiaomi Smart Air Fryer",
     MODEL_FRYER_MAF65: "Xiaomi Smart Air Fryer 6.5L",
+    MODEL_FRYER_ST701O: "Mijia Smart Steam Air Fryer 7L",
     MODEL_FRYER_SCK501: "Silencare AirFryer 1.8L",
     MODEL_FRYER_SCK505: "Silencare Silent Smart Air Fryer",
     MODEL_FRYER_V3: "Viomi Smart Air Fryer Pro 6L",
@@ -99,6 +101,7 @@ MODELS_XIAOMI = [
     MODEL_FRYER_MAF15,
     MODEL_FRYER_MAF16,
     MODEL_FRYER_MAF65,
+    MODEL_FRYER_ST701O,
 ]
 MODELS_ALL_DEVICES = MODELS_CARELI + MODELS_SILEN + MODELS_MIOT + MODELS_VIOMI + MODELS_XIAOMI
 
