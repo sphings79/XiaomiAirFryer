@@ -2,9 +2,7 @@
 # pylint: disable=import-error
 import asyncio
 import logging
-from datetime import timedelta
 
-from miio import DeviceException
 import voluptuous as vol
 
 from homeassistant.components.switch import (
@@ -24,6 +22,7 @@ from homeassistant.const import (
 )
 import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers import device_registry as dr
+from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from homeassistant.util import slugify
 from homeassistant.components.xiaomi_miio.const import (
     CONF_FLOW_TYPE,
@@ -37,7 +36,6 @@ from .const import (
     ATTR_TARGET_TEMPERATURE,
     ATTR_TARGET_TIME,
     CONF_MODEL,
-    DATA_STATE,
     DATA_DEVICE,
     DATA_KEY,
     DEFAULT_NAME,
@@ -58,8 +56,6 @@ from .const import (
 )
 
 _LOGGER = logging.getLogger(__name__)
-
-SCAN_INTERVAL = timedelta(seconds=30)
 
 DEFAULT_NAME = DEFAULT_NAME + " Switch"
 
@@ -175,8 +171,8 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
             hass.data[DATA_KEY] = {}
 
         if model in MODELS_ALL_DEVICES:
-            fryer = hass.data[DOMAIN][host]
-            device = XiaomiAirFryer(name, fryer, config_entry, unique_id)
+            coordinator = hass.data[DOMAIN][config_entry.entry_id]
+            device = XiaomiAirFryer(name, coordinator, config_entry, unique_id)
             entities.append(device)
             hass.data[DATA_KEY][host][DATA_DEVICE] = device
         else:
@@ -196,27 +192,25 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
                 if key != ATTR_ENTITY_ID
             }
             entity_ids = service.data.get(ATTR_ENTITY_ID)
-            if entity_ids:
-                devices = [
-                    device[DATA_DEVICE]
-                    for device in hass.data[DATA_KEY].values()
-                    if device[DATA_DEVICE].entity_id in entity_ids
-                ]
-            else:
-                devices = [
-                    device[DATA_DEVICE]
-                    for device in hass.data[DATA_KEY].values()
-                ]
+            # Use .get(): an entry whose switch platform has not finished
+            # setting up yet has no DATA_DEVICE and used to raise a KeyError
+            # here, taking down the service call for every other fryer too.
+            devices = [
+                entry[DATA_DEVICE]
+                for entry in hass.data[DATA_KEY].values()
+                if entry.get(DATA_DEVICE) is not None
+                and (not entity_ids or entry[DATA_DEVICE].entity_id in entity_ids)
+            ]
 
-            update_tasks = []
+            refresh_tasks = []
             for device in devices:
                 if not hasattr(device, method["method"]):
                     continue
                 await getattr(device, method["method"])(**params)
-                update_tasks.append(device.async_update_ha_state(True))
+                refresh_tasks.append(device.coordinator.async_request_refresh())
 
-            if update_tasks:
-                task_objects = [asyncio.create_task(task) for task in update_tasks]
+            if refresh_tasks:
+                task_objects = [asyncio.create_task(task) for task in refresh_tasks]
                 await asyncio.wait(task_objects)
 
         for service, _ in SERVICE_TO_METHOD.items():
@@ -231,16 +225,14 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
     async_add_entities(entities, update_before_add=False)
 
 
-class XiaomiAirFryer(SwitchEntity):
+class XiaomiAirFryer(CoordinatorEntity, SwitchEntity):
     """Representation of a Xiaomi AirFryer."""
 
-    def __init__(self, name, device, entry, unique_id):
+    def __init__(self, name, coordinator, entry, unique_id):
         """Initialize the AirFryer."""
-        super().__init__()
+        super().__init__(coordinator)
 
-        self._available = False
-        self._state = None
-        self._device = device
+        self._device = coordinator.device
         self._host = entry.options[CONF_HOST]
         self._attr_name = name
         self._attr_unique_id = "{}.{}-{}".format(
@@ -250,7 +242,6 @@ class XiaomiAirFryer(SwitchEntity):
         self._mac = entry.options[CONF_MAC]
         self._state_attrs = {ATTR_MODEL: self._model}
         self._device_features = FEATURE_FLAGS_GENERIC
-        self._skip_update = False
 
         self.entity_id = ENTITY_ID_FORMAT.format(
             "{}_{}".format(DOMAIN, slugify(name))
@@ -262,19 +253,17 @@ class XiaomiAirFryer(SwitchEntity):
         return "mdi:pot-mix"
 
     @property
-    def available(self):
-        """Return true when state is known."""
-        return self._available
-
-    @property
     def extra_state_attributes(self):
         """Return the state attributes of the device."""
         return self._state_attrs
 
     @property
     def is_on(self):
-        """Return true if switch is on."""
-        return self._state
+        """Return true if the fryer is cooking."""
+        if self.coordinator.data is None:
+            return None
+
+        return self.coordinator.data.is_on
 
     @property
     def device_info(self):
@@ -293,19 +282,13 @@ class XiaomiAirFryer(SwitchEntity):
 
     async def async_turn_on(self, **kwargs):
         """Turn the air fryer on."""
-        result = await self.hass.async_add_executor_job(self._device.start_cook)
-
-        if result:
-            self._state = True
-            self._skip_update = True
+        await self.hass.async_add_executor_job(self._device.start_cook)
+        await self.coordinator.async_request_refresh()
 
     async def async_turn_off(self, **kwargs):
         """Turn the air fryer off."""
-        result = await self.hass.async_add_executor_job(self._device.cancel_cooking)
-
-        if result:
-            self._state = False
-            self._skip_update = True
+        await self.hass.async_add_executor_job(self._device.cancel_cooking)
+        await self.coordinator.async_request_refresh()
 
     async def async_start(self):
         """Start cooking."""
@@ -370,26 +353,3 @@ class XiaomiAirFryer(SwitchEntity):
         await self.hass.async_add_executor_job(
         self._device.target_temperature, target_temperature
     )
-
-    async def async_update(self):
-        """Fetch state from the device."""
-        # On state change the device doesn't provide the new state immediately.
-        if self._skip_update:
-            self._skip_update = False
-            return
-
-        try:
-            state = await self.hass.async_add_executor_job(self._device.status)
-            _LOGGER.debug("Got new state: %s", state)
-            self.hass.data[DATA_KEY][self._host][DATA_STATE] = state
-
-            if state is not None:
-                self._available = True
-                self._state = state.is_on
-
-            self.async_schedule_update_ha_state()
-        except DeviceException as ex:
-            if self._available:
-                self._available = False
-                _LOGGER.error("Got exception while fetching the state: %s", ex)
-

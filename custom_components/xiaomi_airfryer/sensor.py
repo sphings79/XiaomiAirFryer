@@ -1,7 +1,6 @@
 """Sensors of the Xiaomi AirFryer component."""
 # pylint: disable=import-error
 import logging
-from datetime import timedelta
 from enum import Enum
 from typing import Optional
 
@@ -9,21 +8,18 @@ from homeassistant.components.sensor import ENTITY_ID_FORMAT, SensorEntity
 from homeassistant.components.sensor.const import SensorDeviceClass
 from homeassistant.config_entries import SOURCE_IMPORT
 from homeassistant.const import (
-    CONF_HOST,
     CONF_MAC,
-    CONF_TOKEN,
     UnitOfTemperature,
     UnitOfTime,
 )
 from homeassistant.exceptions import PlatformNotReady
 from homeassistant.helpers import device_registry as dr
+from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from homeassistant.util import slugify
-from miio import Device, DeviceException
+from miio import DeviceException
 
 from .const import (
     CONF_MODEL,
-    DATA_KEY,
-    DATA_STATE,
     DOMAIN,
     MODEL_FRYER_YBAF01,
     MODEL_FRYER_MAF10A,
@@ -35,8 +31,6 @@ from .const import (
 )
 
 _LOGGER = logging.getLogger(__name__)
-
-SCAN_INTERVAL = timedelta(seconds=10)
 
 SENSOR_TYPES_MAF = {
     "status": ["Status", None, "status", None, "mdi:bowl", None],
@@ -130,59 +124,32 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
     )
 
 async def async_setup_entry(hass, config, async_add_devices, discovery_info=None):
-    """Set up the miio fan device from config."""
+    """Set up the air fryer sensors from a config entry."""
 
-    if DATA_KEY not in hass.data:
-        hass.data[DATA_KEY] = {}
-
-    if config.data.get(CONF_HOST, None):
-        host = config.data[CONF_HOST]
-        token = config.data[CONF_TOKEN]
-        model = config.data.get(CONF_MODEL)
-    else:
-        host = config.options[CONF_HOST]
-        token = config.options[CONF_TOKEN]
-        model = config.options.get(CONF_MODEL)
-
-    _LOGGER.info("Initializing with host %s (token %s...)", host, token[:5])
+    coordinator = hass.data[DOMAIN][config.entry_id]
+    model = config.options.get(CONF_MODEL) or config.data.get(CONF_MODEL)
 
     if model is None:
         try:
-            miio_device = Device(host, token)
-            device_info = await hass.async_add_executor_job(miio_device.info)
+            device_info = await hass.async_add_executor_job(coordinator.device.info)
             model = device_info.model
-            _LOGGER.info(
-                "%s %s %s detected",
-                model,
-                device_info.firmware_version,
-                device_info.hardware_version,
-            )
         except DeviceException as ex:
             raise PlatformNotReady from ex
 
-    sensors = []
-    fryer = hass.data[DOMAIN][host]
     if model == MODEL_FRYER_YBAF01:
-        for stype in SENSOR_TYPES_YBAF.values():
-            sensors.append(XiaomiAirFryerSensor(fryer, host, stype, config))
+        sensor_types = SENSOR_TYPES_YBAF
     elif model in [MODEL_FRYER_MAF10A, MODEL_FRYER_MAF07C, MODEL_FRYER_MAF09A]:
-        for stype in SENSOR_TYPES_MAF10A.values():
-            sensors.append(XiaomiAirFryerSensor(fryer, host, stype, config))
+        sensor_types = SENSOR_TYPES_MAF10A
     elif model in MODELS_CARELI:
-        for stype in SENSOR_TYPES_MAF.values():
-            sensors.append(XiaomiAirFryerSensor(fryer, host, stype, config))
+        sensor_types = SENSOR_TYPES_MAF
     elif model in MODELS_SILEN:
-        for stype in SENSOR_TYPES_SCK.values():
-            sensors.append(XiaomiAirFryerSensor(fryer, host, stype, config))
+        sensor_types = SENSOR_TYPES_SCK
     elif model in MODELS_MIOT:
-        for stype in SENSOR_TYPES_MIOT.values():
-            sensors.append(XiaomiAirFryerSensor(fryer, host, stype, config))
+        sensor_types = SENSOR_TYPES_MIOT
     elif model in MODELS_VIOMI:
-        for stype in SENSOR_TYPES_VIOMI.values():
-            sensors.append(XiaomiAirFryerSensor(fryer, host, stype, config))
+        sensor_types = SENSOR_TYPES_VIOMI
     elif model in MODELS_XIAOMI:
-        for stype in SENSOR_TYPES_XIAOMI.values():
-            sensors.append(XiaomiAirFryerSensor(fryer, host, stype, config))
+        sensor_types = SENSOR_TYPES_XIAOMI
     else:
         _LOGGER.error(
             "Unsupported device found! Please create an issue at "
@@ -192,15 +159,22 @@ async def async_setup_entry(hass, config, async_add_devices, discovery_info=None
         )
         return False
 
-    async_add_devices(sensors, update_before_add=False)
+    async_add_devices(
+        [
+            XiaomiAirFryerSensor(coordinator, stype, config)
+            for stype in sensor_types.values()
+        ],
+        update_before_add=False,
+    )
 
 
-class XiaomiAirFryerSensor(SensorEntity):
+class XiaomiAirFryerSensor(CoordinatorEntity, SensorEntity):
     """ Xiaomi AirFryer Sensor """
-    def __init__(self, device, host, config, entry):
+
+    def __init__(self, coordinator, config, entry):
         """Initialize sensor."""
-        self._device = device
-        self._host = host
+        super().__init__(coordinator)
+        self._host = coordinator.host
         self._model = entry.options.get(CONF_MODEL)
         self._mac = entry.options[CONF_MAC]
         self._device_id = entry.unique_id
@@ -211,9 +185,6 @@ class XiaomiAirFryerSensor(SensorEntity):
         self._attr_native_unit_of_measurement = config[3]
         self._icon = config[4]
         self._attr_device_class = config[5]
-        self._state = None
-        self._retry = 0
-        self._retries = 3
         self._attr_unique_id = "{}.{}-{}".format(
             DOMAIN, entry.unique_id, self._attr_name.lower().replace(" ", "-"))
 
@@ -236,46 +207,25 @@ class XiaomiAirFryerSensor(SensorEntity):
 
         return device_info
 
-    async def async_update(self):
-        """Fetch state from the device."""
-        # On state change the device doesn't provide the new state immediately.
-        try:
-            state = self.hass.data[DATA_KEY][self._host].get(DATA_STATE, None)
-
-            if self._child is not None:
-                state = getattr(state, self._child, None)
-                # Unset state if child attribute isn't available anymore
-                if state is None:
-                    self._state = None
-
-            if state is not None:
-                value = getattr(state, self._attr, None)
-                if isinstance(value, Enum):
-                    self._state = value.name
-                else:
-                    self._state = value
-
-            self.async_schedule_update_ha_state()
-
-        except DeviceException as ex:
-            self._retry = self._retry + 1
-            if self._retry < self._retries:
-                _LOGGER.info(
-                    "Got exception while fetching the state: %s , _retry=%s",
-                    ex,
-                    self._retry,
-                )
-            else:
-                _LOGGER.error(
-                    "Got exception while fetching the state: %s , _retry=%s",
-                    ex,
-                    self._retry,
-                )
-
     @property
-    def state(self):
-        """Return the state."""
-        return self._state
+    def native_value(self):
+        """Return the state read from the last successful poll."""
+        state = self.coordinator.data
+
+        if state is None:
+            return None
+
+        if self._child is not None:
+            state = getattr(state, self._child, None)
+            if state is None:
+                return None
+
+        value = getattr(state, self._attr, None)
+
+        if isinstance(value, Enum):
+            return value.name
+
+        return value
 
     @property
     def icon(self) -> Optional[str]:

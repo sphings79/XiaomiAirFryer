@@ -5,3 +5,6 @@ __pycache__/
 
 .idea/
 venv/
+
+# local test harness (simulator venv, MIoT spec, probe script)
+test/
