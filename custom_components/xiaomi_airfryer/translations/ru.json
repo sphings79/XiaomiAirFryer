@@ -85,7 +85,7 @@
       }
     },
     "progress": {
-      "scan_qr": "Open the Mi Home app, tap the **+** in the top right and choose **Scan QR code**, then scan this code:\n\n{qr}\n\nIf the code does not show, open this link on a device that is signed in instead:\n\n{url}"
+      "scan_qr": "Scan this code with your phone:\n\n{qr}\n\nAny QR scanner works — it opens a Xiaomi sign-in page in the browser. The Mi Home app works too: tap **+** in the top right and choose **Scan QR code**.\n\nOnce you have signed in, this dialog continues on its own. If the code does not show, open this link on a phone instead:\n\n{url}"
     }
   },
   "options": {
