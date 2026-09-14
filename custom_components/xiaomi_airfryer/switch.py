@@ -285,6 +285,7 @@ class XiaomiAirFryer(CoordinatorEntity, SwitchEntity):
             "manufacturer": (self._model or "Xiaomi").split(".", 1)[0].capitalize(),
             "name": self._device_name,
             "model": self._model,
+            "sw_version": self.coordinator.firmware_version,
         }
 
         if self._mac is not None:

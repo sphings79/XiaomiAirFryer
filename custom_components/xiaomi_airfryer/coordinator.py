@@ -36,6 +36,8 @@ class XiaomiAirFryerCoordinator(DataUpdateCoordinator):
         """Initialize the coordinator."""
         self.device = device
         self.host = host
+        self.firmware_version = None
+        self._info_read = False
 
         super().__init__(
             hass,
@@ -46,6 +48,17 @@ class XiaomiAirFryerCoordinator(DataUpdateCoordinator):
 
     async def _async_update_data(self):
         """Fetch the current state from the device."""
+        # The firmware version only ships with miIO.info, which is a separate
+        # request, so it is read once on the first successful contact.
+        if not self._info_read:
+            try:
+                info = await self.hass.async_add_executor_job(self.device.info)
+                self.firmware_version = info.firmware_version
+            except (DeviceException, OSError) as ex:
+                _LOGGER.debug("Could not read device info from %s: %s", self.host, ex)
+            else:
+                self._info_read = True
+
         try:
             state = await self.hass.async_add_executor_job(self.device.status)
         except DeviceException as ex:

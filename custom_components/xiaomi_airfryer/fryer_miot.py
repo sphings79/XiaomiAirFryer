@@ -3,6 +3,7 @@ Support for Xiaomi AirFryer.
 
 """
 import enum
+import re
 from typing import Any, Dict
 import logging
 import click
@@ -36,6 +37,23 @@ from .const import (
 )
 
 _LOGGER = logging.getLogger(__name__)
+
+
+def _decode_device_string(value):
+    """Undo the backslash-less unicode escapes some fryers return.
+
+    A recipe name comes back as "u624bu52a8u6a21u5f0f" rather than
+    "\\u624b\\u52a8\\u6a21\\u5f0f", so it reaches Home Assistant as
+    unreadable ASCII. Only strings made up entirely of uXXXX groups are
+    touched, so an ordinary name containing a "u" is left alone.
+    """
+    if not isinstance(value, str) or not value:
+        return value
+
+    if not re.fullmatch(r"(u[0-9a-fA-F]{4})+", value):
+        return value
+
+    return re.sub(r"u([0-9a-fA-F]{4})", lambda m: chr(int(m.group(1), 16)), value)
 
 
 # http://miot-spec.org/miot-spec-v2/instance?type=urn:miot-spec-v2:device:air-fryer:0000A0A4:careli-maf02:1
@@ -144,7 +162,9 @@ MIOT_MAPPING = {
         "cancel_cooking": {"siid": 2, "aiid": 2},
         "pause": {"siid": 2, "aiid": 3},
         "start_custom_cook": {"siid": 3, "aiid": 1},
-        "resume_cooking": {"siid": 3, "aiid": 2}
+        "resume_cooking": {"siid": 3, "aiid": 2},
+        "recipe_name": {"siid": 3, "piid": 2},
+        "turn_pot_config": {"siid": 3, "piid": 11},
     },
     # https://miot-spec.org/miot-spec-v2/instance?type=urn:miot-spec-v2:device:air-fryer:0000A0A4:careli-maf06:1
     MODEL_FRYER_MAF06: {
@@ -731,6 +751,11 @@ class FryerStatusMiot(DeviceStatus):
     def recipe_id(self) -> str:
         """Recipe ID."""
         return self.data["recipe_id"]
+
+    @property
+    def recipe_name(self) -> str:
+        """Recipe name as shown in the app."""
+        return _decode_device_string(self.data.get("recipe_name"))
 
     @property
     def work_time(self) -> int:
