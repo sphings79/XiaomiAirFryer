@@ -17,6 +17,8 @@ from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from miio import DeviceException
 
+from .fryer_miot import RECIPE_SLOTS
+
 from .const import (
     CONF_MODEL,
     DOMAIN,
@@ -30,6 +32,34 @@ from .const import (
 )
 
 _LOGGER = logging.getLogger(__name__)
+
+# Home Assistant only translates a sensor's state when the sensor declares
+# the enum device class together with every value it can report, so these
+# lists are the union across the models that share a sensor. A value that is
+# missing here would raise, which is why recipe_id is handled separately: its
+# values depend on the model's recipe slots and fall back to the raw slot.
+SENSOR_OPTIONS = {
+    "status": [
+        "Unknown", "Shutdown", "Standby", "Pause", "Appointment", "Cooking",
+        "Preheat", "Cooked", "PreheatFinish", "PreheatPause", "Pause2",
+        "Keepwarm", "KeepwarmPause", "KeepwarmFinish", "CrispyRoast",
+        "Degrease", "Delay", "PotPause",
+    ],
+    "mode": [
+        "Manual", "FrenchFries", "ChickenWing", "Steak", "LambChops", "Fish",
+        "Shrimp", "Vegetables", "Cake", "Pizza", "Defrost", "DriedFruit",
+        "Yogurt",
+    ],
+    "food_quanty": ["Unknown", "Null", "Single", "Double", "Half", "Full"],
+    "turn_pot": [
+        "Unknown", "NotTurnPot", "SwitchOff", "TurnPot",
+        "NoNeedTurnOverPot", "NeedTurnOverPot",
+    ],
+    "turn_pot_status": ["Unknown", "NoNeedTurnOverPot", "NeedTurnOverPot"],
+    "preheat_switch": ["Unknown", "Null", "Off", "On"],
+    "texture": ["Unknown", "NONE", "CrispyRoast", "TenderRoast", "Degrease"],
+}
+
 
 SENSOR_TYPES_MAF = {
     "status": ["Status", None, "status", None, "mdi:bowl", None],
@@ -205,6 +235,16 @@ class XiaomiAirFryerSensor(CoordinatorEntity, SensorEntity):
         self._attr_unique_id = "{}.{}-{}".format(
             DOMAIN, entry.unique_id, config[0].lower().replace(" ", "-"))
 
+        options = SENSOR_OPTIONS.get(config[2])
+        if config[2] == "recipe_id":
+            # Only the slots this model is known to have; without an entry the
+            # sensor reports the raw slot and stays a plain string sensor.
+            slots = RECIPE_SLOTS.get(self._model)
+            options = sorted(set(slots.values()) | {"Unknown"}) if slots else None
+        if options:
+            self._attr_device_class = SensorDeviceClass.ENUM
+            self._attr_options = options
+
     @property
     def device_info(self):
         """Return the device info."""
@@ -220,6 +260,15 @@ class XiaomiAirFryerSensor(CoordinatorEntity, SensorEntity):
             device_info["connections"] = {(dr.CONNECTION_NETWORK_MAC, self._mac)}
 
         return device_info
+
+    @property
+    def extra_state_attributes(self):
+        """Expose the raw slot behind a named recipe."""
+        if self._attr != "recipe_id":
+            return None
+        state = self.coordinator.data
+        slot = getattr(state, "recipe_slot", None) if state else None
+        return {"slot": slot} if slot else None
 
     @property
     def native_value(self):

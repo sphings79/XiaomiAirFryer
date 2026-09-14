@@ -164,7 +164,8 @@
           "Cake": "Ciasto",
           "DriedFruit": "Suszone owoce",
           "Yogurt": "Jogurt",
-          "Defrost": "Rozmrażanie"
+          "Defrost": "Rozmrażanie",
+          "Unknown": "Nieznany"
         }
       },
       "recipe_name": {

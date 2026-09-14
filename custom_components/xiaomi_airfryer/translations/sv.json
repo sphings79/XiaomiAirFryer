@@ -164,7 +164,8 @@
           "Cake": "Kaka",
           "DriedFruit": "Torkad frukt",
           "Yogurt": "Yoghurt",
-          "Defrost": "Upptining"
+          "Defrost": "Upptining",
+          "Unknown": "Okänd"
         }
       },
       "recipe_name": {

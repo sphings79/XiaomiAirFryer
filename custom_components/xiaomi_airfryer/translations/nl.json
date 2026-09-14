@@ -164,7 +164,8 @@
           "Cake": "Cake",
           "DriedFruit": "Gedroogd fruit",
           "Yogurt": "Yoghurt",
-          "Defrost": "Ontdooien"
+          "Defrost": "Ontdooien",
+          "Unknown": "Onbekend"
         }
       },
       "recipe_name": {

@@ -164,7 +164,8 @@
           "Cake": "Torta",
           "DriedFruit": "Frutta secca",
           "Yogurt": "Yogurt",
-          "Defrost": "Scongelamento"
+          "Defrost": "Scongelamento",
+          "Unknown": "Sconosciuto"
         }
       },
       "recipe_name": {

@@ -164,7 +164,8 @@
           "Cake": "Kuchen",
           "DriedFruit": "Trockenobst",
           "Yogurt": "Joghurt",
-          "Defrost": "Auftauen"
+          "Defrost": "Auftauen",
+          "Unknown": "Unbekannt"
         }
       },
       "recipe_name": {

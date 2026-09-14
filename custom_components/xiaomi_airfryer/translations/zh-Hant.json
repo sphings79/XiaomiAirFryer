@@ -164,7 +164,8 @@
           "Cake": "蛋糕",
           "DriedFruit": "果乾",
           "Yogurt": "優格",
-          "Defrost": "解凍"
+          "Defrost": "解凍",
+          "Unknown": "未知"
         }
       },
       "recipe_name": {

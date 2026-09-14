@@ -164,7 +164,8 @@
           "Cake": "Bolo",
           "DriedFruit": "Fruta seca",
           "Yogurt": "Iogurte",
-          "Defrost": "Descongelar"
+          "Defrost": "Descongelar",
+          "Unknown": "Desconhecido"
         }
       },
       "recipe_name": {

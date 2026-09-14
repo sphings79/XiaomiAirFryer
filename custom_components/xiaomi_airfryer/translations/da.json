@@ -164,7 +164,8 @@
           "Cake": "Kage",
           "DriedFruit": "Tørret frugt",
           "Yogurt": "Yoghurt",
-          "Defrost": "Optøning"
+          "Defrost": "Optøning",
+          "Unknown": "Ukendt"
         }
       },
       "recipe_name": {

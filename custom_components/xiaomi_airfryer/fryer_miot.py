@@ -834,9 +834,25 @@ class FryerStatusMiot(DeviceStatus):
 
     @property
     def recipe_id(self) -> str:
-        """The recipe the device is set to, named where the slot is known."""
+        """The recipe the device is set to, named where the slot is known.
+
+        Anything the model's slot table does not cover reports as Unknown
+        rather than the raw value: the sensor declares its options up front,
+        and Home Assistant drops an entity whose state is not among them.
+        The raw value stays available as an attribute.
+        """
         raw = self.data["recipe_id"]
-        return RECIPE_SLOTS.get(self.model, {}).get(raw, raw)
+        slots = RECIPE_SLOTS.get(self.model)
+
+        if not slots:
+            return raw
+
+        return slots.get(raw, "Unknown")
+
+    @property
+    def recipe_slot(self) -> str:
+        """The raw slot the device reports, whatever it holds."""
+        return self.data.get("recipe_id")
 
     @property
     def recipe_name(self) -> str:

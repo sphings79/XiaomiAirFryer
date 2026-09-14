@@ -164,7 +164,8 @@
           "Cake": "Gâteau",
           "DriedFruit": "Fruits secs",
           "Yogurt": "Yaourt",
-          "Defrost": "Décongélation"
+          "Defrost": "Décongélation",
+          "Unknown": "Inconnu"
         }
       },
       "recipe_name": {

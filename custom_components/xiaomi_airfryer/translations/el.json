@@ -164,7 +164,8 @@
           "Cake": "Κέικ",
           "DriedFruit": "Αποξηραμένα φρούτα",
           "Yogurt": "Γιαούρτι",
-          "Defrost": "Απόψυξη"
+          "Defrost": "Απόψυξη",
+          "Unknown": "Άγνωστο"
         }
       },
       "recipe_name": {
