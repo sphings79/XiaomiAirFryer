@@ -31,8 +31,8 @@ from homeassistant.components.xiaomi_miio.const import (
     CONF_MANUAL,
     DEFAULT_CLOUD_COUNTRY,
     SERVER_COUNTRY_CODES,
-#    AuthException,
-#    SetupException
+    AuthException,
+    SetupException,
 )
 from homeassistant.components.xiaomi_miio.device import ConnectXiaomiDevice
 
@@ -72,15 +72,6 @@ DEVICE_BACKUP_CONFIG = vol.Schema(
         vol.Optional(CONF_BACKUP_PASSWORD): str,
     }
 )
-
-# Exceptions
-class AuthException(Exception):
-    """Exception indicating an authentication error."""
-
-
-class SetupException(Exception):
-    """Exception indicating a failure during setup."""
-
 
 class OptionsFlowHandler(config_entries.OptionsFlow):
     """Options for the component."""
