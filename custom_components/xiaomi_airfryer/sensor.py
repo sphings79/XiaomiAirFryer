@@ -9,6 +9,7 @@ from homeassistant.components.sensor.const import SensorDeviceClass
 from homeassistant.config_entries import SOURCE_IMPORT
 from homeassistant.const import (
     CONF_MAC,
+    PERCENTAGE,
     UnitOfTemperature,
     UnitOfTime,
 )
@@ -36,6 +37,7 @@ SENSOR_TYPES_MAF = {
     "target_time": ["Target Time", None, "target_time", UnitOfTime.MINUTES, "mdi:menu", None],
     "target_temperature": ["Target Temperature", None, "target_temperature", UnitOfTemperature.CELSIUS, None,SensorDeviceClass.TEMPERATURE],
     "left_time": ["Remaining", None, "left_time", UnitOfTime.MINUTES, "mdi:timer", None],
+    "left_percent": ["Remaining Percent", None, "left_percent", PERCENTAGE, "mdi:timer-sand", None],
     "recipe_id": ["Recipe Id", None, "recipe_id", None, "mdi:rice", None],
     "appoint_time": ["Appoint Time", None, "appoint_time", UnitOfTime.MINUTES, "mdi:timelapse", None],
     "food_quanty": ["Food Quanty", None, "food_quanty", None, "mdi:flash-outline", None],
@@ -49,6 +51,7 @@ SENSOR_TYPES_YBAF = {
     "target_time": ["Target Time", None, "target_time", None, "mdi:menu", None],
     "target_temperature": ["Target Temperature", None, "target_temperature", UnitOfTemperature.CELSIUS, None, SensorDeviceClass.TEMPERATURE],
     "left_time": ["Remaining", None, "left_time", UnitOfTime.MINUTES, "mdi:timer", None],
+    "left_percent": ["Remaining Percent", None, "left_percent", PERCENTAGE, "mdi:timer-sand", None],
     "mode": ["Recipe Id", None, "mode", None, "mdi:stairs", None]
 }
 
@@ -57,6 +60,7 @@ SENSOR_TYPES_SCK = {
     "target_time": ["Target Time", None, "target_time", None, "mdi:menu", None],
     "target_temperature": ["Target Temperature", None, "target_temperature", UnitOfTemperature.CELSIUS, None, SensorDeviceClass.TEMPERATURE],
     "left_time": ["Remaining", None, "left_time", UnitOfTime.MINUTES, "mdi:timer", None],
+    "left_percent": ["Remaining Percent", None, "left_percent", PERCENTAGE, "mdi:timer-sand", None],
     "switch_status": ["Switch Status", None, "switch_status", None, "mdi:pot-steam-outline", None],
     "mode": ["Recipe Id", None, "mode", None, "mdi:stairs", None]
 }
@@ -66,6 +70,7 @@ SENSOR_TYPES_MIOT = {
     "target_time": ["Target Time", None, "target_time", None, "mdi:menu", None],
     "target_temperature": ["Target Temperature", None, "target_temperature", UnitOfTemperature.CELSIUS, None, SensorDeviceClass.TEMPERATURE],
     "left_time": ["Remaining", None, "left_time", UnitOfTime.MINUTES, "mdi:timer", None],
+    "left_percent": ["Remaining Percent", None, "left_percent", PERCENTAGE, "mdi:timer-sand", None],
     "switch_status": ["Switch Status", None, "switch_status", None, "mdi:pot-steam-outline", None],
     "temperature": ["Temperature", None, "temperature", UnitOfTemperature.CELSIUS, None, SensorDeviceClass.TEMPERATURE],
     "preheat": ["Preheat Phase", None, "preheat", None, "mdi:pot-steam-outline", None],
@@ -79,6 +84,7 @@ SENSOR_TYPES_VIOMI = {
     "target_time": ["Target Time", None, "target_time", None, "mdi:menu", None],
     "target_temperature": ["Target Temperature", None, "target_temperature", UnitOfTemperature.CELSIUS, None, SensorDeviceClass.TEMPERATURE],
     "left_time": ["Remaining", None, "left_time", UnitOfTime.MINUTES, "mdi:timer", None],
+    "left_percent": ["Remaining Percent", None, "left_percent", PERCENTAGE, "mdi:timer-sand", None],
     "recipe_id": ["Recipe Id", None, "recipe_id", None, "mdi:rice", None],
     "turn_pot_status": ["Turn Pot Status", None, "turn_pot_status", None, "mdi:rotate-3d-variant", None],
 }
@@ -88,6 +94,7 @@ SENSOR_TYPES_XIAOMI = {
     "mode": ["Mode", None, "mode", None, "mdi:stairs", None],
     "target_time": ["Target Time", None, "target_time", UnitOfTime.MINUTES, "mdi:menu", None],
     "left_time": ["Remaining", None, "left_time", UnitOfTime.MINUTES, "mdi:timer", None],
+    "left_percent": ["Remaining Percent", None, "left_percent", PERCENTAGE, "mdi:timer-sand", None],
     "target_temperature": ["Target Temperature", None, "target_temperature", UnitOfTemperature.CELSIUS, None,SensorDeviceClass.TEMPERATURE],
     "recipe_id": ["Recipe Id", None, "recipe_id", None, "mdi:rice", None],
     "turn_pot": ["Turn Pot", None, "turn_pot", None, "mdi:rotate-3d-variant", None],
@@ -98,6 +105,7 @@ SENSOR_TYPES_MAF10A = {
     "mode": ["Mode", None, "mode", None, "mdi:stairs", None],
     "target_time": ["Target Time", None, "target_time", UnitOfTime.MINUTES, "mdi:menu", None],
     "left_time": ["Remaining", None, "left_time", UnitOfTime.MINUTES, "mdi:timer", None],
+    "left_percent": ["Remaining Percent", None, "left_percent", PERCENTAGE, "mdi:timer-sand", None],
     "target_temperature": ["Target Temperature", None, "target_temperature", UnitOfTemperature.CELSIUS, None, SensorDeviceClass.TEMPERATURE],
     "recipe_id": ["Recipe Id", None, "recipe_id", None, "mdi:rice", None],
     "preheat": ["Preheat Phase", None, "preheat", None, "mdi:pot-steam-outline", None],

@@ -748,6 +748,17 @@ class FryerStatusMiot(DeviceStatus):
         return self.data["appoint_time"]
 
     @property
+    def left_percent(self) -> int:
+        """Remaining cooking time as a percentage of the target time."""
+        target_time = self.data.get("target_time")
+        left_time = self.data.get("left_time")
+
+        if not target_time or left_time is None:
+            return None
+
+        return round(left_time * 100 / target_time)
+
+    @property
     def appoint_time_left(self) -> int:
         """Appoint Time Left"""
         # Read with .get(): the sensor is defined for every SENSOR_TYPES_MAF
