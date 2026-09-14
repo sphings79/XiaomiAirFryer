@@ -1,257 +1,143 @@
-# Xiaomi AirFryer
+# Xiaomi Air Fryer
 
-[!["Buy Me A Coffee"](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg)](https://www.buymeacoffee.com/tsunglung)
+Home Assistant integration for Xiaomi, Careli, Silencare and Viomi air fryers.
+Runs entirely on your network — the cloud is only used once, to look up the
+device token, and can be skipped altogether.
 
-This is a custom component for home assistant to integrate the Xiaomi AirFryer.
+**[Deutsche Fassung](README.de.md)**
 
-Credits: Thanks to [Rytilahti](https://github.com/rytilahti/python-miio) for all the work.
+---
+
+## Setting up
+
+<img src="docs/setup.svg" alt="Three ways to obtain the device token: scan a QR code, read it from a Mi Home backup, or enter it by hand" width="100%">
+
+A Xiaomi device only answers to whoever holds its token. There are three ways
+to get one, and the integration asks which you would like at the start.
+
+**Scan a QR code.** The integration signs in to the Xiaomi cloud and reads the
+token off your account, so nothing has to be typed. Any QR scanner works — your
+phone's camera opens Xiaomi's sign-in page in the browser — and the Mi Home app
+works too.
+
+**From a Mi Home backup.** Upload an Android `.ab` backup, an already extracted
+`miio2.db`, or the database out of an iOS backup. Nothing leaves your network.
+Useful if you would rather not sign in, or if the sign-in ever stops working.
+
+**By hand.** If you already know the address and the 32 character token, enter
+them directly.
+
+Whichever route you take, the token is stored once and everything afterwards
+happens locally over the miIO protocol.
+
+---
+
+## What you get
+
+<img src="docs/entities.svg" alt="Sensors for reading the fryer's state, and number, select, switch and button entities for operating it" width="100%">
+
+Entities are only created where the model supports them, so a fryer without a
+delayed start does not get a delayed start box.
+
+Alongside the entities, eleven services cover the same ground for automations:
+`start`, `stop`, `pause`, `resume`, `start_custom`, `preheat`, `recipe_id`,
+`food_quanty`, `appoint_time`, `target_time` and `target_temperature`.
+
+### Languages
+
+Entity names, their states and the whole setup dialog are translated into
+fourteen languages:
+
+Czech · Danish · Dutch · English · French · German · Greek · Italian ·
+Polish · Portuguese · Russian · Spanish · Swedish · Traditional Chinese
+
+That includes the values themselves — a German dashboard reads *Gart* and
+*Kein Wenden nötig* rather than `Cooking` and `NotTurnPot`. Recipes show as
+*French fries* or *Chicken wings* instead of `M1` and `M2`, where the model's
+recipe slots are known.
+
+---
 
 ## Supported devices
 
-| Name                         | Model                  | Model no. |
-|------------------------------| ---------------------- | --------- |
-|                              | careli.fryer.maf01  |   |
-| Mi Smart Air Fryer           | careli.fryer.maf02  |   |
-|                              | careli.fryer.maf03  | |
-|                              | careli.fryer.maf05a  | |
-| Xiaomi Smart Air Fryer 6.5L  | careli.fryer.maf10a  | |
-|                              | careli.fryer.maf07  | |
-| Upany Air Fryer YB-02208DTW  | careli.fryer.ybaf01 | |
-| Silencare AirFryer 1.8L      | silen.fryer.sck501  |   |
-| Silencare AirFryer           | silen.fryer.sck505  | |
-| Viomi Smart Air Fryer Pro 6L | viomi.fryer.v3      | |
-| Xiaomi Smart Air Fryer 4.5L  | xiaomi.fryer.maf14      | |
+| Name | Model |
+|------|-------|
+| Mi Smart Air Fryer | `careli.fryer.maf01` |
+| Mi Smart Air Fryer | `careli.fryer.maf02` |
+| Mi Smart Air Fryer 3.5L | `careli.fryer.maf03` |
+| Xiaomi Smart Air Fryer Pro 4L | `careli.fryer.maf05a` |
+| Mi Smart Air Fryer | `careli.fryer.maf06` |
+| Mijia Smart Air Fryer 4.5L | `careli.fryer.maf06a` |
+| Mijia Smart Air Fryer 4.5L | `careli.fryer.maf06b` |
+| Mi Smart Air Fryer 3.5L Global | `careli.fryer.maf07` |
+| Mijia Smart Air Fryer 5.5L | `careli.fryer.maf07c` |
+| Youban Mijia Smart Air Fryer 6.5L | `careli.fryer.maf09a` |
+| Xiaomi Smart Air Fryer 6.5L | `careli.fryer.maf10` |
+| Mi Smart Air Fryer EU 6.5L | `careli.fryer.maf10a` |
+| Upany Air Fryer YB-02208DTW | `careli.fryer.ybaf01` |
+| Youban Smart Air Fryer 2208DTW | `careli.fryer.ybaf02` |
+| Youban KitchenMi Smart Air Fryer 6007WA | `careli.fryer.ybaf03` |
+| Youban KitchenMi Smart Air Fryer 6007WAB | `careli.fryer.ybaf04` |
+| Xiaomi Smart Air Fryer 4.5L Global | `xiaomi.fryer.maf14` |
+| Xiaomi Smart Air Fryer 4.5L | `xiaomi.fryer.maf15` |
+| Xiaomi Smart Air Fryer | `xiaomi.fryer.maf16` |
+| Xiaomi Smart Air Fryer | `xiaomi.fryer.maf07d` |
+| Silencare Air Fryer 1.8L | `silen.fryer.sck501` |
+| Silencare Silent Smart Air Fryer | `silen.fryer.sck505` |
+| Viomi Smart Air Fryer Pro 6L | `viomi.fryer.v3` |
+| Mi Smart Air Fryer | `miot.fryer.534` |
 
-## Features
+Property mappings are taken from the published MIoT specs rather than guessed.
+If your model is missing, open an issue with its model name — visible in the
+Mi Home app under device info — and a link to its spec on
+[miot-spec.org](https://miot-spec.org).
 
-### Mi Smart Air Fryer
+---
 
-* Start cooking
-* Start cooking with custom mode
-* Stop cooking
-* Set Recipe ID
-* Pause cooking
-* Resume cooking
-* Set Appoint Time
-* Sensors
-  - status
-  - target_time
-  - target_temperature
-  - left_time
-  - rice_id (available while cooking)
-  - work_time (available while cooking)
-  - work_temp (available while cooking)
-  - appoint_time (available while cooking)
-  - food_quanty (available while cooking)
-  - preheat_switch (available while cooking)
-  - appoint_time_left (available while cooking)
-  - turn_pot (available while cooking)
-* Switches
-  -  Start/Stop
-* Services
-  - TODO: child lock
+## Installing
 
+**Through HACS.** HACS → Integrations → ⋯ → Custom repositories →
+`sphings79/XiaomiAirFryer`, category *Integration*. Install, then restart Home
+Assistant.
 
-## Install
+**By hand.** Copy the `custom_components/xiaomi_airfryer` folder into your
+config folder and restart.
 
-You can install component with [HACS](https://hacs.xyz/) custom repo: HACS > Integrations > 3 dots (upper top corner) > Custom repositories > URL: `tsunglung/XiaomiAirFryer` > Category: Integration
+Then add it under Settings → Devices & Services → Add Integration → *Xiaomi
+AirFryer*.
 
-Or manually copy `xiaomi_airfryer` folder to `custom_components` folder in your config folder.
+---
 
-Then restart HA.
+## Notes
 
-## Setup
+**The fryer is usually unplugged between uses.** Sensors report as unavailable
+when it cannot be reached and recover on their own once it is back — no restart
+needed. The controls stay usable and keep showing the last known setting, so
+they do not clutter a dashboard with unavailable rows.
 
+**Power consumption cannot be read.** None of these fryers measure it; their
+MIoT specs carry no electrical values at all. A metering smart plug is the only
+way to get real figures.
 
-1. With GUI. Configuration > Integration > Add Integration > Xiaomi AirFryer
-   1. If the integration didn't show up in the list please REFRESH the page
-   2. If the integration is still not in the list, you need to clear the browser cache.
-2. Enter your Xiaomi Account and Password
-3. Select the AirFryer device that you want to integrate.
+**Recipes live in the app, not the appliance.** The device reports which slot is
+selected (`M1`, `M2`, …) but not what it holds, and its `recipe_name` stays on a
+placeholder. The slot names in this integration were established by watching a
+device while its recipes were selected one after another. Contributions for
+other models are welcome — the table is per model, and unknown slots are passed
+through unchanged.
 
-Or you also can manually input AirFryer IP address and token
+---
 
-If everything is configured correctly, Home Assistant’s Configuration - Devices list should have a device "AirFryer" and will show the following entities.
-![device card example](device_card_before.jpg "device card")
+## About this project
 
-## Lovelace
+This is an independently maintained continuation of
+[tsunglung/XiaomiAirFryer](https://github.com/tsunglung/XiaomiAirFryer), which
+has not answered an issue since November 2024. It carries a working cloud
+sign-in after the original one stopped functioning, a rewritten update path,
+translations, controls, and fixes for a number of long-standing reports.
 
-```
-type: vertical-stack
-cards:
-  - type: entities
-    title: Air Fryer
-    state_color: false
-    entities:
-      - entity: switch.xiaomi_airfryer_mi_smart_air_fryer_3_5l
-      - entity: sensor.xiaomi_airfryer_appoint_time_left
-      - entity: sensor.xiaomi_airfryer_target_time
-      - entity: sensor.xiaomi_airfryer_preheat_phase
-      - entity: sensor.xiaomi_airfryer_food_quanty
-        secondary_info: last-changed
-      - entity: sensor.xiaomi_airfryer_recipe_id
-      - entity: sensor.xiaomi_airfryer_status
-        secondary_info: last-changed
-      - entity: sensor.xiaomi_airfryer_turn_pot
-      - entity: sensor.xiaomi_airfryer_target_temperature
-        secondary_info: last-changed
-  - type: sensor
-    entity: sensor.xiaomi_airfryer_remaining
-    detail: 2
-    hours_to_show: 1
-
-```
-
-![Lovelace card example](lovelace-card-example.png "lovelace card")
-
-If you prefer a button instead of a switch entity you could add a lovelace button card to you dashboard:
-
-```
-type: horizontal-stack
-cards:
-  - type: button
-    tap_action:
-      action: call-service
-      service: xiaomi_airfryer.start
-      service_data:
-        entity_id: switch.xiaomi_airfryer_mi_smart_air_fryer_3_5l
-      target: {}
-    hold_action:
-      action: more-info
-    show_icon: true
-    show_name: true
-    icon: mdi:pot-steam
-    name: Start
-    icon_height: 40px
-  - type: button
-    tap_action:
-      action: call-service
-      service: xiaomi_airfryer.stop
-      service_data:
-        entity_id: switch.xiaomi_airfryer_mi_smart_air_fryer_3_5l
-      target: {}
-    hold_action:
-      action: more-info
-    show_icon: true
-    show_name: true
-    icon: mdi:pot-steam-outline
-    name: Stop
-    icon_height: 40px
-  - type: button
-    tap_action:
-      action: call-service
-      service: xiaomi_airfryer.recipe_id
-      service_data:
-        entity_id: switch.xiaomi_airfryer_mi_smart_air_fryer_3_5l
-        recipe_id: M1
-      target: {}
-    hold_action:
-      action: more-info
-    show_icon: true
-    show_name: true
-    icon: mdi:french-fries
-    name: French Fries
-    icon_height: 40px
-  - type: button
-    tap_action:
-      action: call-service
-      service: xiaomi_airfryer.recipe_id
-      service_data:
-        entity_id: switch.xiaomi_airfryer_mi_smart_air_fryer_3_5l
-        recipe_id: M7
-      target: {}
-    hold_action:
-      action: more-info
-    show_icon: true
-    show_name: true
-    icon: mdi:cake
-    name: Baking Cake
-    icon_height: 40px
-```
-
-![Lovelace button to start cooking](lovelace-button-start-cooking.png "lovelace button")
-
-## Debugging
-
-If the custom component doesn't work out of the box for your device please update your configuration to increase the log level:
-
-```
-logger:
-  default: warn
-  logs:
-    custom_components.xiaomi_airfryer: debug
-    miio: debug
-```
-
-## Platform services
-
-#### Service `xiaomi_airfryer.start_custom`
-
-Start cooking with mode.
-
-| Service data attribute    | Optional | Description                                                          |
-|---------------------------|----------|----------------------------------------------------------------------|
-| `mode`                 |       no | Mode data .                  |
-
-#### Service `xiaomi_airfryer.start`
-
-Start the cooking process.
-
-#### Service `xiaomi_airfryer.stop`
-
-Stop the cooking process.
-
-#### Service `xiaomi_airfryer.pause`
-
-Pause the cooking process.
-
-#### Service `xiaomi_airfryer.resume`
-
-Resume the cooking process.
-
-#### Service `xiaomi_airfryer.appoint_time`
-
-Start appoint cooking time.
-
-| Service data attribute    | Optional | Description                                                          |
-|---------------------------|----------|----------------------------------------------------------------------|
-| `time`                 |       no | Time data .                  |
-
-#### Service `xiaomi_airfryer.recipe_id`
-
-Start cooking recipe id.
-
-| Service data attribute    | Optional | Description                                                          |
-|---------------------------|----------|----------------------------------------------------------------------|
-| `recipe_id`                 |       no | Recipe ID data .                  |
-
-#### Service `xiaomi_airfryer.food_quanty`
-
-Start cooking food quanty.
-
-| Service data attribute    | Optional | Description                                                          |
-|---------------------------|----------|----------------------------------------------------------------------|
-| `food_quanty`                 |       no | Food Quanty data .                  |
-
-#### Service `xiaomi_airfryer.target_time`
-
-Start cooking target time.
-
-| Service data attribute    | Optional | Description                                                          |
-|---------------------------|----------|----------------------------------------------------------------------|
-| `target_time`                 |       no | Target Time data .                  |
-
-#### Service `xiaomi_airfryer.target_temperature`
-
-Start cooking target temperature.
-
-| Service data attribute    | Optional | Description                                                          |
-|---------------------------|----------|----------------------------------------------------------------------|
-| `target_temperature`      |       no | Target Temperature data .                  |
-
-
-Buy me a Coffee
-
-|  LINE Pay | LINE Bank | JKao Pay |
-| :------------: | :------------: | :------------: |
-|![LINE Pay](linepay.jpg "LINE Pay")|![Line Bank](linebank.jpg "Line Bank") |![Jko Pay](jkopay.jpg "Jko Pay") |
+Original work © 2021 tsunglung, MIT licensed. The miIO protocol implementation
+comes from [python-miio](https://github.com/rytilahti/python-miio) by Teemu
+Rytilahti. The cloud sign-in follows the approach of
+[Xiaomi-cloud-tokens-extractor](https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor)
+by Piotr Machowski, also MIT licensed.
