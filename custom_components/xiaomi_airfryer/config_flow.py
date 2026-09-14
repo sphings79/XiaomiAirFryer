@@ -1,9 +1,8 @@
 """Config flow to configure Mijia AirFryer component."""
+import base64
 import logging
 from re import search
 
-from micloud import MiCloud
-from micloud.micloudexception import MiCloudAccessDenied
 import voluptuous as vol
 
 from homeassistant import config_entries
@@ -35,6 +34,8 @@ from homeassistant.components.xiaomi_miio.const import (
 )
 from homeassistant.components.xiaomi_miio.device import ConnectXiaomiDevice
 
+from .xiaomi_cloud import XiaomiCloud, XiaomiCloudException
+
 from .const import (
     DOMAIN,
     DEFAULT_SCAN_INTERVAL,
@@ -50,8 +51,6 @@ DEVICE_CONFIG = vol.Schema({vol.Required(CONF_HOST): str}).extend(DEVICE_SETTING
 DEVICE_MODEL_CONFIG = vol.Schema({vol.Required(CONF_MODEL): vol.In(MODELS_ALL_DEVICES)})
 DEVICE_CLOUD_CONFIG = vol.Schema(
     {
-        vol.Optional(CONF_CLOUD_USERNAME): str,
-        vol.Optional(CONF_CLOUD_PASSWORD): str,
         vol.Optional(CONF_CLOUD_COUNTRY, default=DEFAULT_CLOUD_COUNTRY): vol.In(
             SERVER_COUNTRY_CODES
         ),
@@ -133,6 +132,8 @@ class XiaomiAirFryerFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         self.cloud_password = None
         self.cloud_country = None
         self.cloud_devices = {}
+        self._cloud = None
+        self._login_task = None
 
     @staticmethod
     @callback
@@ -256,74 +257,102 @@ class XiaomiAirFryerFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
         self.token = cloud_device_info["token"]
 
     async def async_step_cloud(self, user_input=None):
-        """Configure a xiaomi miio device through the Miio Cloud."""
-        errors = {}
+        """Pick a server and sign in to the Xiaomi cloud by scanning a QR code."""
         if user_input is not None:
             if user_input[CONF_MANUAL]:
                 return await self.async_step_manual()
 
-            cloud_username = user_input.get(CONF_CLOUD_USERNAME)
-            cloud_password = user_input.get(CONF_CLOUD_PASSWORD)
-            cloud_country = user_input.get(CONF_CLOUD_COUNTRY)
-
-            if not cloud_username or not cloud_password or not cloud_country:
-                errors["base"] = "cloud_credentials_incomplete"
-                return self.async_show_form(
-                    step_id="cloud", data_schema=DEVICE_CLOUD_CONFIG, errors=errors
-                )
-
-            miio_cloud = MiCloud(cloud_username, cloud_password)
-            try:
-                if not await self.hass.async_add_executor_job(miio_cloud.login):
-                    errors["base"] = "cloud_login_error"
-            except MiCloudAccessDenied:
-                errors["base"] = "cloud_login_error"
-
-            if errors:
-                return self.async_show_form(
-                    step_id="cloud", data_schema=DEVICE_CLOUD_CONFIG, errors=errors
-                )
-
-            devices_raw = await self.hass.async_add_executor_job(
-                miio_cloud.get_devices, cloud_country
-            )
-
-            if not devices_raw:
-                errors["base"] = "cloud_no_devices"
-                return self.async_show_form(
-                    step_id="cloud", data_schema=DEVICE_CLOUD_CONFIG, errors=errors
-                )
-
-            self.cloud_devices = {}
-            for device in devices_raw:
-                if device['model'] in MODELS_ALL_DEVICES:
-                    parent_id = device.get("parent_id")
-                    if not parent_id:
-                        name = device["name"]
-                        model = device["model"]
-                        list_name = f"{name} - {model}"
-                        self.cloud_devices[list_name] = device
-
-            self.cloud_username = cloud_username
-            self.cloud_password = cloud_password
-            self.cloud_country = cloud_country
-
-            if self.host is not None:
-                for device in self.cloud_devices.values():
-                    cloud_host = device.get("localip")
-                    if cloud_host == self.host:
-                        self.extract_cloud_info(device)
-                        return await self.async_step_connect()
-
-            if len(self.cloud_devices) == 1:
-                self.extract_cloud_info(list(self.cloud_devices.values())[0])
-                return await self.async_step_connect()
-
-            return await self.async_step_select()
+            self.cloud_country = user_input[CONF_CLOUD_COUNTRY]
+            return await self.async_step_qr()
 
         return self.async_show_form(
-            step_id="cloud", data_schema=DEVICE_CLOUD_CONFIG, errors=errors
+            step_id="cloud", data_schema=DEVICE_CLOUD_CONFIG, errors={}
         )
+
+    async def async_step_qr(self, user_input=None):
+        """Show a QR code and wait for the Mi Home app to scan it."""
+        if self._login_task is None:
+            self._cloud = XiaomiCloud(self.cloud_country)
+            try:
+                await self._cloud.async_open()
+                await self._cloud.async_start_login()
+            except XiaomiCloudException as ex:
+                _LOGGER.error("Could not start the Xiaomi login: %s", ex)
+                await self._async_close_cloud()
+                return self.async_abort(reason="cloud_login_error")
+
+            self._login_task = self.hass.async_create_task(
+                self._cloud.async_wait_for_scan()
+            )
+
+        if not self._login_task.done():
+            placeholders = {"url": self._cloud.login_url}
+            if self._cloud.qr_image is not None:
+                encoded = base64.b64encode(self._cloud.qr_image).decode()
+                placeholders["qr"] = f"![QR](data:image/png;base64,{encoded})"
+            else:
+                placeholders["qr"] = ""
+
+            return self.async_show_progress(
+                step_id="qr",
+                progress_action="scan_qr",
+                description_placeholders=placeholders,
+                progress_task=self._login_task,
+            )
+
+        try:
+            self._login_task.result()
+        except XiaomiCloudException as ex:
+            _LOGGER.error("Xiaomi login failed: %s", ex)
+            await self._async_close_cloud()
+            self._login_task = None
+            return self.async_show_progress_done(next_step_id="login_failed")
+        finally:
+            self._login_task = None
+
+        return self.async_show_progress_done(next_step_id="cloud_devices")
+
+    async def async_step_login_failed(self, user_input=None):
+        """Report that the QR login did not complete."""
+        return self.async_abort(reason="cloud_login_error")
+
+    async def async_step_cloud_devices(self, user_input=None):
+        """Pick the fryer out of the devices on the account."""
+        try:
+            devices_raw = await self._cloud.async_get_devices()
+        except XiaomiCloudException as ex:
+            _LOGGER.error("Could not list the devices on the account: %s", ex)
+            return self.async_abort(reason="cloud_login_error")
+        finally:
+            await self._async_close_cloud()
+
+        self.cloud_devices = {}
+        for device in devices_raw:
+            if device.get("model") in MODELS_ALL_DEVICES and not device.get("parent_id"):
+                list_name = f"{device['name']} - {device['model']}"
+                self.cloud_devices[list_name] = device
+
+        if not self.cloud_devices:
+            return self.async_abort(reason="cloud_no_devices")
+
+        # Discovery already told us which address we are configuring.
+        if self.host is not None:
+            for device in self.cloud_devices.values():
+                if device.get("localip") == self.host:
+                    self.extract_cloud_info(device)
+                    return await self.async_step_connect()
+
+        if len(self.cloud_devices) == 1:
+            self.extract_cloud_info(list(self.cloud_devices.values())[0])
+            return await self.async_step_connect()
+
+        return await self.async_step_select()
+
+    async def _async_close_cloud(self):
+        """Drop the cloud session once the token has been read out of it."""
+        if self._cloud is not None:
+            await self._cloud.async_close()
+            self._cloud = None
 
     async def async_step_select(self, user_input=None):
         """Handle multiple cloud devices found."""

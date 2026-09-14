@@ -1,89 +1,92 @@
 {
-    "config": {
-        "abort": {
-            "already_configured": "\u88dd\u7f6e\u5df2\u7d93\u8a2d\u5b9a\u5b8c\u6210",
-            "already_in_progress": "\u8a2d\u5b9a\u5df2\u7d93\u9032\u884c\u4e2d",
-            "incomplete_info": "\u6240\u63d0\u4f9b\u4e4b\u88dd\u7f6e\u8cc7\u8a0a\u4e0d\u5b8c\u6574\u3001\u7121\u4e3b\u6a5f\u7aef\u6216\u6b0a\u6756\uff0c\u7121\u6cd5\u8a2d\u5b9a\u88dd\u7f6e\u3002",
-            "not_xiaomi_miio": "\u5c0f\u7c73 \u6c23\u70b8\u934b \uff08\u5c1a\uff09\u4e0d\u652f\u63f4\u8a72\u88dd\u7f6e\u3002",
-            "reauth_successful": "\u91cd\u65b0\u8a8d\u8b49\u6210\u529f"
-        },
-        "error": {
-            "cannot_connect": "\u9023\u7dda\u5931\u6557",
-            "cloud_credentials_incomplete": "\u96f2\u7aef\u6191\u8b49\u672a\u5b8c\u6210\uff0c\u8acb\u586b\u5beb\u4f7f\u7528\u8005\u540d\u7a31\u3001\u5bc6\u78bc\u8207\u570b\u5bb6",
-            "cloud_login_error": "\u7121\u6cd5\u767b\u5165\u5c0f\u7c73 \u6c23\u70b8\u934b \u96f2\u670d\u52d9\uff0c\u8acb\u6aa2\u67e5\u6191\u8b49\u3002",
-            "cloud_no_devices": "\u5c0f\u7c73 \u6c23\u70b8\u934b \u96f2\u7aef\u5e33\u865f\u672a\u627e\u5230\u4efb\u4f55\u88dd\u7f6e\u3002",
-            "no_device_selected": "\u672a\u9078\u64c7\u88dd\u7f6e\uff0c\u8acb\u9078\u64c7\u4e00\u9805\u88dd\u7f6e\u3002",
-            "unknown_device": "\u88dd\u7f6e\u578b\u865f\u672a\u77e5\uff0c\u7121\u6cd5\u4f7f\u7528\u8a2d\u5b9a\u6d41\u7a0b\u3002"
-        },
-        "flow_title": "{name}",
-        "step": {
-            "cloud": {
-                "data": {
-                    "cloud_country": "\u96f2\u7aef\u670d\u52d9\u4f3a\u670d\u5668\u570b\u5bb6",
-                    "cloud_password": "\u96f2\u7aef\u670d\u52d9\u5bc6\u78bc",
-                    "cloud_username": "\u96f2\u7aef\u670d\u52d9\u4f7f\u7528\u8005\u540d\u7a31",
-                    "manual": "\u624b\u52d5\u8a2d\u5b9a (\u4e0d\u5efa\u8b70)"
-                },
-                "description": "\u767b\u5165\u81f3\u5c0f\u7c73 \u6c23\u70b8\u934b \u96f2\u670d\u52d9\uff0c\u8acb\u53c3\u95b1 https://www.openhab.org/addons/bindings/miio/#country-servers \u4ee5\u4e86\u89e3\u9078\u64c7\u54ea\u4e00\u7d44\u96f2\u7aef\u4f3a\u670d\u5668\u3002",
-                "title": "\u9023\u7dda\u81f3\u5c0f\u7c73 \u6c23\u70b8\u934b \u88dd\u7f6e"
-            },
-            "connect": {
-                "data": {
-                    "model": "\u88dd\u7f6e\u578b\u865f"
-                },
-                "description": "\u5f9e\u652f\u63f4\u7684\u578b\u865f\u4e2d\u624b\u52d5\u9078\u64c7\u88dd\u7f6e\u578b\u865f\u3002",
-                "title": "\u9023\u7dda\u81f3\u5c0f\u7c73 \u6c23\u70b8\u934b \u88dd\u7f6e"
-            },
-            "device": {
-                "data": {
-                    "host": "IP \u4f4d\u5740",
-                    "model": "\u88dd\u7f6e\u578b\u865f\uff08\u9078\u9805\uff09",
-                    "name": "\u88dd\u7f6e\u540d\u7a31",
-                    "token": "API \u6b0a\u6756"
-                },
-                "description": "\u5c07\u9700\u8981\u8f38\u5165 32 \u4f4d\u5b57\u5143 API \u6b0a\u6756\uff0c\u8acb\u53c3\u95b1 https://www.home-assistant.io/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token \u4ee5\u7372\u5f97\u7372\u53d6\u6b0a\u6756\u7684\u6559\u5b78\u3002\u8acb\u6ce8\u610f\uff1a\u6b64 API \u6b0a\u6756\u8207 Xiaomi Aqara \u6574\u5408\u6240\u4f7f\u7528\u4e4b\u6b0a\u6756\u4e0d\u540c\u3002",
-                "title": "\u9023\u7dda\u81f3\u5c0f\u7c73 \u6c23\u70b8\u934b \u88dd\u7f6e"
-            },
-            "manual": {
-                "data": {
-                    "host": "IP \u4f4d\u5740",
-                    "token": "API \u6b0a\u6756"
-                },
-                "description": "\u5c07\u9700\u8981\u8f38\u5165 32 \u4f4d\u5b57\u5143 API \u6b0a\u6756\uff0c\u8acb\u53c3\u95b1  https://www.home-assistant.io/integrations/xiaomi_miio#retrieving-the-access-token \u4ee5\u7372\u5f97\u7372\u53d6\u5bc6\u9470\u7684\u6559\u5b78\u3002\u8acb\u6ce8\u610f\uff1a\u6b64 API \u6b0a\u6756\u8207\u5c0f\u7c73 Aqara \u6574\u5408\u6240\u4f7f\u7528\u4e4b\u5bc6\u9470\u4e0d\u540c\u3002",
-                "title": "\u9023\u7dda\u81f3\u5c0f\u7c73 \u6c23\u70b8\u934b \u88dd\u7f6e"
-            },
-            "reauth_confirm": {
-                "description": "\u5c0f\u7c73 \u6c23\u70b8\u934b \u6574\u5408\u9700\u8981\u91cd\u65b0\u8a8d\u8b49\u60a8\u7684\u5e33\u865f\u3001\u65b9\u80fd\u66f4\u65b0\u6b0a\u6756\u6216\u65b0\u589e\u907a\u5931\u7684\u96f2\u7aef\u6191\u8b49\u3002",
-                "title": "\u91cd\u65b0\u8a8d\u8b49\u6574\u5408"
-            },
-            "select": {
-                "data": {
-                    "select_device": "\u6c23\u70b8\u934b \u88dd\u7f6e"
-                },
-                "description": "\u9078\u64c7\u6240\u8981\u8a2d\u5b9a\u7684 \u5c0f\u7c73 \u6c23\u70b8\u934b \u88dd\u7f6e\u3002",
-                "title": "\u9023\u7dda\u81f3\u5c0f\u7c73 \u6c23\u70b8\u934b \u88dd\u7f6e"
-            },
-            "user": {
-                "data": {
-                    "gateway": "\u9023\u7dda\u81f3\u5c0f\u7c73\u7db2\u95dc"
-                },
-                "description": "\u9078\u64c7\u6240\u8981\u9023\u7dda\u7684\u88dd\u7f6e\u3002",
-                "title": "\u5c0f\u7c73 \u6c23\u70b8\u934b "
-            }
-        }
+  "config": {
+    "abort": {
+      "already_configured": "裝置已經設定完成",
+      "already_in_progress": "設定已經進行中",
+      "incomplete_info": "所提供之裝置資訊不完整、無主機端或權杖，無法設定裝置。",
+      "not_xiaomi_miio": "小米 氣炸鍋 （尚）不支援該裝置。",
+      "reauth_successful": "重新認證成功",
+      "cloud_login_error": "Could not sign in to the Xiaomi cloud.",
+      "cloud_no_devices": "No supported air fryer was found on this Xiaomi account."
     },
-    "options": {
-        "error": {
-            "cloud_credentials_incomplete": "\u96f2\u7aef\u6191\u8b49\u672a\u5b8c\u6210\uff0c\u8acb\u586b\u5beb\u4f7f\u7528\u8005\u540d\u7a31\u3001\u5bc6\u78bc\u8207\u570b\u5bb6"
+    "error": {
+      "cannot_connect": "連線失敗",
+      "cloud_credentials_incomplete": "雲端憑證未完成，請填寫使用者名稱、密碼與國家",
+      "cloud_login_error": "無法登入小米 氣炸鍋 雲服務，請檢查憑證。",
+      "cloud_no_devices": "小米 氣炸鍋 雲端帳號未找到任何裝置。",
+      "no_device_selected": "未選擇裝置，請選擇一項裝置。",
+      "unknown_device": "裝置型號未知，無法使用設定流程。"
+    },
+    "flow_title": "{name}",
+    "step": {
+      "cloud": {
+        "data": {
+          "cloud_country": "雲端服務伺服器國家",
+          "manual": "Enter the IP address and token myself"
         },
-        "step": {
-            "init": {
-                "data": {
-                    "cloud_subdevices": "\u4f7f\u7528\u96f2\u7aef\u53d6\u5f97\u9023\u7dda\u5b50\u88dd\u7f6e"
-                },
-                "description": "\u6307\u5b9a\u9078\u9805\u8a2d\u5b9a",
-                "title": "\u5c0f\u7c73 \u6c23\u70b8\u934b"
-            }
-        }
+        "description": "Sign in to the Xiaomi cloud by scanning a QR code with the Mi Home app to read the token automatically. Pick the server your account is registered on. Alternatively, enter the address and token yourself.",
+        "title": "連線至小米 氣炸鍋 裝置"
+      },
+      "connect": {
+        "data": {
+          "model": "裝置型號"
+        },
+        "description": "從支援的型號中手動選擇裝置型號。",
+        "title": "連線至小米 氣炸鍋 裝置"
+      },
+      "device": {
+        "data": {
+          "host": "IP 位址",
+          "model": "裝置型號（選項）",
+          "name": "裝置名稱",
+          "token": "API 權杖"
+        },
+        "description": "將需要輸入 32 位字元 API 權杖，請參閱 https://www.home-assistant.io/integrations/vacuum.xiaomi_miio/#retrieving-the-access-token 以獲得獲取權杖的教學。請注意：此 API 權杖與 Xiaomi Aqara 整合所使用之權杖不同。",
+        "title": "連線至小米 氣炸鍋 裝置"
+      },
+      "manual": {
+        "data": {
+          "host": "IP 位址",
+          "token": "API 權杖"
+        },
+        "description": "將需要輸入 32 位字元 API 權杖，請參閱  https://www.home-assistant.io/integrations/xiaomi_miio#retrieving-the-access-token 以獲得獲取密鑰的教學。請注意：此 API 權杖與小米 Aqara 整合所使用之密鑰不同。",
+        "title": "連線至小米 氣炸鍋 裝置"
+      },
+      "reauth_confirm": {
+        "description": "小米 氣炸鍋 整合需要重新認證您的帳號、方能更新權杖或新增遺失的雲端憑證。",
+        "title": "重新認證整合"
+      },
+      "select": {
+        "data": {
+          "select_device": "氣炸鍋 裝置"
+        },
+        "description": "選擇所要設定的 小米 氣炸鍋 裝置。",
+        "title": "連線至小米 氣炸鍋 裝置"
+      },
+      "user": {
+        "data": {
+          "gateway": "連線至小米網關"
+        },
+        "description": "選擇所要連線的裝置。",
+        "title": "小米 氣炸鍋 "
+      }
+    },
+    "progress": {
+      "scan_qr": "Open the Mi Home app, tap the **+** in the top right and choose **Scan QR code**, then scan this code:\n\n{qr}\n\nIf the code does not show, open this link on a device that is signed in instead:\n\n{url}"
     }
+  },
+  "options": {
+    "error": {
+      "cloud_credentials_incomplete": "雲端憑證未完成，請填寫使用者名稱、密碼與國家"
+    },
+    "step": {
+      "init": {
+        "data": {
+          "cloud_subdevices": "使用雲端取得連線子裝置"
+        },
+        "description": "指定選項設定",
+        "title": "小米 氣炸鍋"
+      }
+    }
+  }
 }
