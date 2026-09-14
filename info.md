@@ -19,7 +19,7 @@ Afterwards everything runs on your own network.
 
 ## Good to know
 
-- 24 models supported; the property mappings are transcribed from the published
+- 28 models supported; the property mappings are transcribed from the published
   MIoT specifications
 - Entity names, their states and the setup dialog are translated into 14 languages
 - Sensors report as unavailable while the fryer is unplugged and recover on their

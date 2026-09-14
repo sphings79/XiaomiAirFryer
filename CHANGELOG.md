@@ -4,6 +4,30 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.1.0] - 2026-09-14
+
+### Added
+
+- **Named recipes for sixteen models** instead of one. The fryer only reports
+  `M1`, `M2` and so on; which dish that is comes from the Mi Home plugin for
+  the model, which carries the table in plain text together with Xiaomi's own
+  wording. 240 slots in total, translated into all fourteen languages.
+- `xiaomi.fryer.maf65` — Xiaomi Smart Air Fryer 6.5L.
+- `xiaomi.fryer.st701o` — Mijia Smart Steam Air Fryer 7L, a steam combi
+  appliance with 37 programmes across air frying, steaming, baking and
+  sous-vide, its own water-related states, and a texture that says which heat
+  source is running.
+- `xiaomi.fryer.jl12` and `xiaomi.fryer.jl12w` — Xiaomi Smart Double Stack Air
+  Fryer 12L. Both baskets are supported in full: each has its own status,
+  programme, recipe, remaining time, target time and temperature, shake
+  reminder and start/pause/resume/stop buttons, alongside the switch that makes
+  them finish together.
+
+### Fixed
+
+- `start_custom` only checked one model for the missing `start_custom_cook`
+  action, although fourteen models do not have it.
+
 ## [2.0.1] - 2026-09-14
 
 ### Fixed
