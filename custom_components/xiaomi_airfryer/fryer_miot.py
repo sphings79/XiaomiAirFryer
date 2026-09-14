@@ -662,6 +662,28 @@ class TurnPotViomi(enum.Enum):
     NeedTurnOverPot = 1
 
 
+# The recipe slots a model ships with. The device only reports the slot
+# ("M1"), never what it holds -- the Mi Home app keeps that mapping, and
+# recipe_name stays on a placeholder like "demo". Mapping the slot to the
+# same keys the cooking modes use means both get translated by the same
+# entries. A slot that is not listed is reported unchanged.
+RECIPE_SLOTS = {
+    MODEL_FRYER_MAF05A: {
+        "M0": "Manual",
+        "M1": "FrenchFries",
+        "M2": "ChickenWing",
+        "M3": "Fish",
+        "M4": "Steak",
+        "M5": "Shrimp",
+        "M6": "Vegetables",
+        "M7": "Cake",
+        "M8": "DriedFruit",
+        "M9": "Yogurt",
+        "M10": "Defrost",
+    },
+}
+
+
 # Models whose turn-pot property is 1 = no need, 2 = need, per their specs.
 # Everything else counts from 0.
 MODELS_TURN_POT_ONE_BASED = [
@@ -812,8 +834,9 @@ class FryerStatusMiot(DeviceStatus):
 
     @property
     def recipe_id(self) -> str:
-        """Recipe ID."""
-        return self.data["recipe_id"]
+        """The recipe the device is set to, named where the slot is known."""
+        raw = self.data["recipe_id"]
+        return RECIPE_SLOTS.get(self.model, {}).get(raw, raw)
 
     @property
     def recipe_name(self) -> str:

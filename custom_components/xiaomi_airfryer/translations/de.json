@@ -170,7 +170,20 @@
         "name": "Rezeptbefehl"
       },
       "recipe_id": {
-        "name": "Rezept-ID"
+        "name": "Rezept-ID",
+        "state": {
+          "Manual": "Manuell",
+          "FrenchFries": "Pommes frites",
+          "ChickenWing": "Hähnchenflügel",
+          "Fish": "Fisch",
+          "Steak": "Steak",
+          "Shrimp": "Garnelen",
+          "Vegetables": "Gemüse",
+          "Cake": "Kuchen",
+          "DriedFruit": "Trockenobst",
+          "Yogurt": "Joghurt",
+          "Defrost": "Auftauen"
+        }
       },
       "recipe_name": {
         "name": "Rezeptname"

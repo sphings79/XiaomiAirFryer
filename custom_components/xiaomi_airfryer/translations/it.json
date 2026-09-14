@@ -170,7 +170,20 @@
         "name": "Comando ricetta"
       },
       "recipe_id": {
-        "name": "ID ricetta"
+        "name": "ID ricetta",
+        "state": {
+          "Manual": "Manuale",
+          "FrenchFries": "Patatine fritte",
+          "ChickenWing": "Alette di pollo",
+          "Fish": "Pesce",
+          "Steak": "Bistecca",
+          "Shrimp": "Gamberi",
+          "Vegetables": "Verdure",
+          "Cake": "Torta",
+          "DriedFruit": "Frutta secca",
+          "Yogurt": "Yogurt",
+          "Defrost": "Scongelamento"
+        }
       },
       "recipe_name": {
         "name": "Nome ricetta"

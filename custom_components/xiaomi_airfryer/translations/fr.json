@@ -170,7 +170,20 @@
         "name": "Commande de recette"
       },
       "recipe_id": {
-        "name": "ID de recette"
+        "name": "ID de recette",
+        "state": {
+          "Manual": "Manuel",
+          "FrenchFries": "Frites",
+          "ChickenWing": "Ailes de poulet",
+          "Fish": "Poisson",
+          "Steak": "Steak",
+          "Shrimp": "Crevettes",
+          "Vegetables": "Légumes",
+          "Cake": "Gâteau",
+          "DriedFruit": "Fruits secs",
+          "Yogurt": "Yaourt",
+          "Defrost": "Décongélation"
+        }
       },
       "recipe_name": {
         "name": "Nom de la recette"

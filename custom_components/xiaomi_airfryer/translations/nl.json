@@ -170,7 +170,20 @@
         "name": "Receptopdracht"
       },
       "recipe_id": {
-        "name": "Recept-ID"
+        "name": "Recept-ID",
+        "state": {
+          "Manual": "Handmatig",
+          "FrenchFries": "Frieten",
+          "ChickenWing": "Kippenvleugels",
+          "Fish": "Vis",
+          "Steak": "Biefstuk",
+          "Shrimp": "Garnalen",
+          "Vegetables": "Groenten",
+          "Cake": "Cake",
+          "DriedFruit": "Gedroogd fruit",
+          "Yogurt": "Yoghurt",
+          "Defrost": "Ontdooien"
+        }
       },
       "recipe_name": {
         "name": "Receptnaam"

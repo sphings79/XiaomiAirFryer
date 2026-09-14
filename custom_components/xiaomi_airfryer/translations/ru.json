@@ -170,7 +170,20 @@
         "name": "Команда рецепта"
       },
       "recipe_id": {
-        "name": "ID рецепта"
+        "name": "ID рецепта",
+        "state": {
+          "Manual": "Ручной",
+          "FrenchFries": "Картофель фри",
+          "ChickenWing": "Куриные крылышки",
+          "Fish": "Рыба",
+          "Steak": "Стейк",
+          "Shrimp": "Креветки",
+          "Vegetables": "Овощи",
+          "Cake": "Кекс",
+          "DriedFruit": "Сухофрукты",
+          "Yogurt": "Йогурт",
+          "Defrost": "Разморозка"
+        }
       },
       "recipe_name": {
         "name": "Название рецепта"

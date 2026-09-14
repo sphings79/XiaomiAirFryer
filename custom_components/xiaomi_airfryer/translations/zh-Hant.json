@@ -169,7 +169,20 @@
         "name": "食譜指令"
       },
       "recipe_id": {
-        "name": "食譜編號"
+        "name": "食譜編號",
+        "state": {
+          "Manual": "手動",
+          "FrenchFries": "薯條",
+          "ChickenWing": "雞翅",
+          "Fish": "魚",
+          "Steak": "牛排",
+          "Shrimp": "蝦",
+          "Vegetables": "蔬菜",
+          "Cake": "蛋糕",
+          "DriedFruit": "果乾",
+          "Yogurt": "優格",
+          "Defrost": "解凍"
+        }
       },
       "recipe_name": {
         "name": "食譜名稱"

@@ -170,7 +170,20 @@
         "name": "Receptkommando"
       },
       "recipe_id": {
-        "name": "Recept-ID"
+        "name": "Recept-ID",
+        "state": {
+          "Manual": "Manuell",
+          "FrenchFries": "Pommes frites",
+          "ChickenWing": "Kycklingvingar",
+          "Fish": "Fisk",
+          "Steak": "Biff",
+          "Shrimp": "Räkor",
+          "Vegetables": "Grönsaker",
+          "Cake": "Kaka",
+          "DriedFruit": "Torkad frukt",
+          "Yogurt": "Yoghurt",
+          "Defrost": "Upptining"
+        }
       },
       "recipe_name": {
         "name": "Receptnamn"

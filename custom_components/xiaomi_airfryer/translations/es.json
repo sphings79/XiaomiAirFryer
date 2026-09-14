@@ -170,7 +170,20 @@
         "name": "Comando de receta"
       },
       "recipe_id": {
-        "name": "ID de receta"
+        "name": "ID de receta",
+        "state": {
+          "Manual": "Manual",
+          "FrenchFries": "Patatas fritas",
+          "ChickenWing": "Alitas de pollo",
+          "Fish": "Pescado",
+          "Steak": "Filete",
+          "Shrimp": "Gambas",
+          "Vegetables": "Verduras",
+          "Cake": "Pastel",
+          "DriedFruit": "Fruta deshidratada",
+          "Yogurt": "Yogur",
+          "Defrost": "Descongelar"
+        }
       },
       "recipe_name": {
         "name": "Nombre de la receta"

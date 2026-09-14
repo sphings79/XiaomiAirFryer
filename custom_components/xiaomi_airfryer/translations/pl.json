@@ -170,7 +170,20 @@
         "name": "Polecenie przepisu"
       },
       "recipe_id": {
-        "name": "ID przepisu"
+        "name": "ID przepisu",
+        "state": {
+          "Manual": "Ręczny",
+          "FrenchFries": "Frytki",
+          "ChickenWing": "Skrzydełka",
+          "Fish": "Ryba",
+          "Steak": "Stek",
+          "Shrimp": "Krewetki",
+          "Vegetables": "Warzywa",
+          "Cake": "Ciasto",
+          "DriedFruit": "Suszone owoce",
+          "Yogurt": "Jogurt",
+          "Defrost": "Rozmrażanie"
+        }
       },
       "recipe_name": {
         "name": "Nazwa przepisu"

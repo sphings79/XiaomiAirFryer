@@ -170,7 +170,20 @@
         "name": "Opskriftskommando"
       },
       "recipe_id": {
-        "name": "Opskrifts-ID"
+        "name": "Opskrifts-ID",
+        "state": {
+          "Manual": "Manuel",
+          "FrenchFries": "Pommes frites",
+          "ChickenWing": "Kyllingevinger",
+          "Fish": "Fisk",
+          "Steak": "Bøf",
+          "Shrimp": "Rejer",
+          "Vegetables": "Grøntsager",
+          "Cake": "Kage",
+          "DriedFruit": "Tørret frugt",
+          "Yogurt": "Yoghurt",
+          "Defrost": "Optøning"
+        }
       },
       "recipe_name": {
         "name": "Opskriftsnavn"
