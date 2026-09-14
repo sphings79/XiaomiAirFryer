@@ -115,13 +115,13 @@ each model supports.
 | Youban Mijia Smart Air Fryer 6.5L | `careli.fryer.maf09a` | 1 | ✅ | ✅ | ✅ | ✅ | — | ✅ 13 |
 | Xiaomi Smart Air Fryer 6.5L | `careli.fryer.maf10` | 1 | ✅ | ✅ | ✅ | ✅ | ✅ | ☆ |
 | Mi Smart Air Fryer EU 6.5L | `careli.fryer.maf10a` | 1 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ 13 |
-| Upany Air Fryer YB-02208DTW | `careli.fryer.ybaf01` | 1 | ✅ | ✅ | — | — | — | ☆ |
+| Upany Air Fryer YB-02208DTW | `careli.fryer.ybaf01` | 1 | ✅ | ✅ | — | — | — | — |
 | Youban Smart Air Fryer 2208DTW | `careli.fryer.ybaf02` | 1 | ✅ | ✅ | ✅ | ✅ | ✅ | ☆ |
 | Youban KitchenMi 6007WA | `careli.fryer.ybaf03` | 1 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ 23 |
 | Youban KitchenMi 6007WAB | `careli.fryer.ybaf04` | 1 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ 23 |
-| Mi Smart Air Fryer | `miot.fryer.534` | 1 | ✅ | ✅ | — | ✅ | ✅ | ☆ |
-| Silencare Air Fryer 1.8L | `silen.fryer.sck501` | 1 | ✅ | ✅ | — | — | — | ☆ |
-| Silencare Silent Smart Air Fryer | `silen.fryer.sck505` | 1 | ✅ | ✅ | — | — | — | ☆ |
+| Mi Smart Air Fryer | `miot.fryer.534` | 1 | ✅ | ✅ | — | ✅ | ✅ | — |
+| Silencare Air Fryer 1.8L | `silen.fryer.sck501` | 1 | ✅ | ✅ | — | — | — | — |
+| Silencare Silent Smart Air Fryer | `silen.fryer.sck505` | 1 | ✅ | ✅ | — | — | — | — |
 | Viomi Smart Air Fryer Pro 6L | `viomi.fryer.v3` | 1 | ✅ | ✅ | — | — | — | ☆ |
 | Xiaomi Smart Double Stack Air Fryer 12L | `xiaomi.fryer.jl12` | 2 | ✅ | ✅ | ✅ | — | — | ✅ 17 |
 | Xiaomi Smart Double Stack Air Fryer 12L | `xiaomi.fryer.jl12w` | 2 | ✅ | ✅ | ✅ | — | — | ✅ 17 |
