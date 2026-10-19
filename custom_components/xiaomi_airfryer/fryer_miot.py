@@ -8,6 +8,7 @@ from typing import Any, Dict
 import logging
 import click
 
+from miio import DeviceException
 from miio.click_common import command, format_output
 from miio.device import DeviceStatus
 from miio.miot_device import MiotDevice
@@ -735,10 +736,6 @@ MIOT_MAPPING = {
         "resume_cooking": {"siid": 3, "aiid": 2},
     },
 }
-
-
-class DeviceException(Exception):
-    """Exception wrapping any communication errors with the device."""
 
 
 class StatusDefault(enum.Enum):
