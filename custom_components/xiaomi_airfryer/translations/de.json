@@ -1075,6 +1075,9 @@
       "lower_turn_pot_config": {
         "name": "Unterer Korb wende-Erinnerung"
       },
+      "power": {
+        "name": "Netz / Bereitschaft"
+      },
       "preheat": {
         "name": "Vorheizen"
       },

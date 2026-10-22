@@ -1075,6 +1075,9 @@
       "lower_turn_pot_config": {
         "name": "Dolny kosz przypomnienie o przewróceniu"
       },
+      "power": {
+        "name": "Zasilanie"
+      },
       "preheat": {
         "name": "Nagrzewanie"
       },

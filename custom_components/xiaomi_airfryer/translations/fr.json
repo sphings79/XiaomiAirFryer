@@ -1075,6 +1075,9 @@
       "lower_turn_pot_config": {
         "name": "Panier inférieur rappel de retournement"
       },
+      "power": {
+        "name": "Alimentation"
+      },
       "preheat": {
         "name": "Préchauffage"
       },

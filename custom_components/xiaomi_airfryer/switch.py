@@ -45,6 +45,7 @@ from .const import (
     DEFAULT_NAME,
     DOMAIN,
     MODELS_CARELI,
+    MODELS_DUAL_BASKET,
     MODELS_ALL_DEVICES,
     SERVICE_APPOINT_TIME,
     SERVICE_FOOD_QUANTY,
@@ -252,7 +253,12 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
         ("upper_turn_pot_config", "upper_turn_pot_config", "upper_turn_pot_config"),
         ("lower_turn_pot_config", "lower_turn_pot_config", "lower_turn_pot_config"),
         ("end_cooking_together", "end_cooking_together", "end_cooking_together"),
+        ("switch_status", "switch_status", "power"),
     ):
+        # Only the dual basket models take a write here; elsewhere the same
+        # property is reported but not a power switch.
+        if key == "switch_status" and model not in MODELS_DUAL_BASKET:
+            continue
         source = "preheat_switch" if key == "preheat" else key
         if key.endswith("turn_pot_config") and key != "turn_pot_config":
             source = key.replace("turn_pot_config", "turn_pot_reminder")
@@ -299,7 +305,7 @@ class XiaomiAirFryer(CoordinatorEntity, SwitchEntity):
             return await self.hass.async_add_executor_job(method, *args)
         except DeviceException as ex:
             raise HomeAssistantError(
-                f"Could not reach the air fryer at {self._host}: {ex}"
+                f"The air fryer at {self._host} did not take the command: {ex}"
             ) from ex
 
     @property

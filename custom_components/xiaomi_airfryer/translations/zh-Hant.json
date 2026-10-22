@@ -1075,6 +1075,9 @@
       "lower_turn_pot_config": {
         "name": "下層籃 翻面提醒"
       },
+      "power": {
+        "name": "Power"
+      },
       "preheat": {
         "name": "預熱"
       },

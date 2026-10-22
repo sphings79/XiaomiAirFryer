@@ -73,7 +73,7 @@ class XiaomiAirFryerControl(CoordinatorEntity):
             await self.hass.async_add_executor_job(method, *args)
         except DeviceException as ex:
             raise HomeAssistantError(
-                f"Could not reach the air fryer at {self._host}: {ex}"
+                f"The air fryer at {self._host} did not take the command: {ex}"
             ) from ex
 
         await self.coordinator.async_request_refresh()

@@ -1075,6 +1075,9 @@
       "lower_turn_pot_config": {
         "name": "Lower basket turn food reminder"
       },
+      "power": {
+        "name": "Power"
+      },
       "preheat": {
         "name": "Preheat"
       },

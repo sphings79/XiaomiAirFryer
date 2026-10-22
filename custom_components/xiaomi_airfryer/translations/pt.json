@@ -1075,6 +1075,9 @@
       "lower_turn_pot_config": {
         "name": "Cesto inferior lembrete para virar"
       },
+      "power": {
+        "name": "Power"
+      },
       "preheat": {
         "name": "Pré-aquecer"
       },

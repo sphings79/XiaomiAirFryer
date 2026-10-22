@@ -4,6 +4,26 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Fixed
+
+- Dual basket models (`xiaomi.fryer.jl12`, `jl12w`): every update failed because
+  the device cuts its reply to the second 15-property request off at 1 KB.
+  Properties are now requested in batches of 8 (issue #1).
+- The shared status of these models is read with the dual basket status list,
+  so a value of 15 no longer logs "Unknown Status" (issue #1).
+- The main switch of these models starts, pauses, resumes and cancels both
+  baskets instead of failing with "Unable to find cancel_cooking in the
+  mapping", and shows as on while either basket is active (issue #1).
+- A command the fryer rejects is no longer reported as the device being
+  unreachable.
+
+### Added
+
+- A power switch on `switch_status` for the dual basket models: on wakes the
+  fryer, off sends it back to connected standby (issue #1).
+
 ## [2.1.2] - 2026-10-19
 
 ### Fixed

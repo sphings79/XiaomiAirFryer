@@ -1075,6 +1075,9 @@
       "lower_turn_pot_config": {
         "name": "Нижняя корзина напоминание перевернуть"
       },
+      "power": {
+        "name": "Power"
+      },
       "preheat": {
         "name": "Разогрев"
       },

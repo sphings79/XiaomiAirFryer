@@ -40,7 +40,8 @@ from .const import (
     MODEL_FRYER_YBAF01,
     MODEL_FRYER_YBAF02,
     MODEL_FRYER_YBAF03,
-    MODEL_FRYER_YBAF04
+    MODEL_FRYER_YBAF04,
+    MODELS_DUAL_BASKET
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -1312,6 +1313,11 @@ class FryerStatusMiot(DeviceStatus):
         """True if device is currently on."""
         if self.model in [MODEL_FRYER_MAF14]:
             return False if self.data["status"] in [0, 1, 7, 8] else True
+        elif self.model in MODELS_DUAL_BASKET:
+            # Either basket running counts; the shared status alone is not
+            # reliable, it reads 15 while the fryer sits in standby.
+            return any(
+                self._basket_active(prefix) for prefix in ("upper", "lower"))
         else:
             return False if self.data["status"] in [0, 1, 6, 9] else True
 
@@ -1336,6 +1342,8 @@ class FryerStatusMiot(DeviceStatus):
                 return StatusSteam(status_raw)
             if self.model in [MODEL_FRYER_V3]:
                 return StatusV3(status_raw)
+            if self.model in MODELS_DUAL_BASKET:
+                return StatusDualBasket(status_raw)
             return StatusDefault(status_raw)
         except ValueError:
             _LOGGER.error("Unknown Status (%s)", self.data["status"])
@@ -1392,6 +1400,22 @@ class FryerStatusMiot(DeviceStatus):
         except ValueError:
             _LOGGER.error("Unknown Status (%s)", raw)
             return StatusDualBasket.Unknown
+
+    def _basket_active(self, prefix: str) -> bool:
+        """True while one basket is doing something."""
+        status = self._basket_status(prefix)
+        return status not in (
+            None,
+            StatusDualBasket.Unknown,
+            StatusDualBasket.Shutdown,
+            StatusDualBasket.Standby,
+            StatusDualBasket.Cooked,
+            StatusDualBasket.KeepwarmFinish,
+            StatusDualBasket.CoolingFinish,
+            StatusDualBasket.CookCancel,
+            StatusDualBasket.KeepwarmCancel,
+            StatusDualBasket.ConnectedStandby,
+        )
 
     def _basket_mode(self, prefix: str):
         """Programme of one basket."""
@@ -1682,6 +1706,15 @@ class FryerMiot(MiotDevice):
         self._model = model
         self.mapping = MIOT_MAPPING[model]
 
+    def _max_properties(self) -> int:
+        """Properties to ask for per request.
+
+        The dual basket models have long property names, and with the default
+        of 15 the device cuts its reply off at 1 KB, which python-miio then
+        cannot parse.
+        """
+        return 8 if self._model in MODELS_DUAL_BASKET else 15
+
     @command(
         default_output=format_output(
             "",
@@ -1706,7 +1739,8 @@ class FryerMiot(MiotDevice):
             self._model,
             {
                 prop["did"]: prop["value"] if prop["code"] == 0 else None
-                for prop in self.get_properties_for_mapping()
+                for prop in self.get_properties_for_mapping(
+                    max_properties=self._max_properties())
             },
         )
 
@@ -1793,20 +1827,38 @@ class FryerMiot(MiotDevice):
             raise DeviceException("Invalid value for target_temperature: %s" % target_temperature)
         return self.set_property("target_temperature", target_temperature)
 
+    def _call_shared_action(self, name: str):
+        """Run an action on the fryer, or on both baskets where it has two."""
+        if name in self.mapping or f"upper_{name}" not in self.mapping:
+            return self.call_action(name)
+
+        return [self.call_action(f"{prefix}_{name}") for prefix in ("upper", "lower")]
+
+    @command(
+        click.argument("on", type=bool),
+        default_output=format_output("Setting power to {on}"),
+    )
+    def power(self, on: bool):
+        """Wake the fryer, or send it back to connected standby."""
+        if "switch_status" not in self.mapping:
+            raise DeviceException("Power is not supported by %s" % self._model)
+
+        return self.set_property("switch_status", on)
+
     @command()
     def start_cook(self) -> None:
         """Start cook"""
-        return self.call_action("start_cook")
+        return self._call_shared_action("start_cook")
 
     @command()
     def cancel_cooking(self) -> None:
         """Cancel cooking."""
-        return self.call_action("cancel_cooking")
+        return self._call_shared_action("cancel_cooking")
 
     @command()
     def pause(self) -> None:
         """Pause cook"""
-        return self.call_action("pause")
+        return self._call_shared_action("pause")
 
     @command()
     def start_custom_cook(self, mode) -> None:
@@ -1818,7 +1870,7 @@ class FryerMiot(MiotDevice):
     @command()
     def resume_cooking(self) -> None:
         """Resume cooking."""
-        return self.call_action("resume_cooking")
+        return self._call_shared_action("resume_cooking")
 
     @command(
         click.argument("target_time", type=int),

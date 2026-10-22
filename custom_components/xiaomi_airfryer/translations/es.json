@@ -1075,6 +1075,9 @@
       "lower_turn_pot_config": {
         "name": "Cesta inferior aviso para dar la vuelta"
       },
+      "power": {
+        "name": "Encendido"
+      },
       "preheat": {
         "name": "Precalentar"
       },

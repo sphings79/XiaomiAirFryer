@@ -1075,6 +1075,9 @@
       "lower_turn_pot_config": {
         "name": "Cestello inferiore promemoria per girare"
       },
+      "power": {
+        "name": "Alimentazione"
+      },
       "preheat": {
         "name": "Preriscaldamento"
       },

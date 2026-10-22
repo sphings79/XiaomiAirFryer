@@ -1075,6 +1075,9 @@
       "lower_turn_pot_config": {
         "name": "Onderste mand omdraaiherinnering"
       },
+      "power": {
+        "name": "Voeding"
+      },
       "preheat": {
         "name": "Voorverwarmen"
       },
