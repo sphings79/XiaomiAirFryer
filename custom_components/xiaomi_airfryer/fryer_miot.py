@@ -1249,9 +1249,15 @@ class StatusDualBasket(enum.Enum):
     CoolingFinish = 12
     CookCancel = 13
     KeepwarmCancel = 14
-    # the spec lists "Cooling Down" a second time under 15
-    CoolingDownAlt = 15
     ConnectedStandby = 16
+
+    @classmethod
+    def _missing_(cls, value):
+        # The spec lists "Cooling Down" a second time under 15, but a jl12
+        # reports 15 as the shared status while it sits in standby.
+        if value == 15:
+            return cls.ConnectedStandby
+        return None
 
 
 class CookingModeDualBasket(enum.Enum):
@@ -1832,7 +1838,19 @@ class FryerMiot(MiotDevice):
         if name in self.mapping or f"upper_{name}" not in self.mapping:
             return self.call_action(name)
 
-        return [self.call_action(f"{prefix}_{name}") for prefix in ("upper", "lower")]
+        results = []
+        errors = []
+        for prefix in ("upper", "lower"):
+            try:
+                results.append(self.call_action(f"{prefix}_{name}"))
+            except DeviceException as ex:
+                # A basket that is not running may reject pause/cancel; the
+                # other one must still get the command.
+                _LOGGER.debug("%s_%s rejected: %s", prefix, name, ex)
+                errors.append(ex)
+        if len(errors) == 2:
+            raise errors[0]
+        return results
 
     @command(
         click.argument("on", type=bool),

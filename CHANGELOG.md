@@ -4,6 +4,16 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Fixed
+
+- Dual basket models: a shared status of 15 is shown as connected standby
+  instead of "cooling down", which is what a jl12 reports while idle (issue #1).
+- The main switch keeps going when one basket rejects pause or cancel (for
+  example because it is not running); it only fails if both baskets do
+  (issue #1).
+
 ## [2.1.3] - 2026-10-22
 
 ### Fixed

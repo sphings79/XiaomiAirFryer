@@ -50,7 +50,7 @@ SENSOR_OPTIONS = {
         "StandbyNetworking",
         # the dual basket models report their own cycle
         "WaitCooking", "WaitCookingPause", "CoolingDown", "CoolingFinish",
-        "CookCancel", "KeepwarmCancel", "CoolingDownAlt", "ConnectedStandby",
+        "CookCancel", "KeepwarmCancel", "ConnectedStandby",
     ],
     "mode": [
         "Manual", "FrenchFries", "ChickenWing", "Steak", "LambChops", "Fish",
