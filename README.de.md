@@ -6,12 +6,12 @@
   **Zeit, Temperatur und Rezept der Xiaomi-Heißluftfritteuse direkt aus Home Assistant setzen.**
   Läuft über das lokale miIO-Protokoll; die Cloud wird nur einmal gebraucht, um den Geräte-Token zu holen, und lässt sich auch ganz umgehen.
 
-  [![HACS](https://img.shields.io/badge/HACS-Custom-41BDF5?style=for-the-badge)](https://hacs.xyz)
+  [![Marketplace](https://img.shields.io/badge/Marketplace-41BDF5?style=for-the-badge)](https://my.home-assistant.io/redirect/marketplace_browse/)
   [![Release](https://img.shields.io/github/v/release/sphings79/XiaomiAirFryer?style=for-the-badge&color=3DDC97)](https://github.com/sphings79/XiaomiAirFryer/releases)
   [![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2024.6%2B-41BDF5?style=for-the-badge)](https://www.home-assistant.io)
   [![Lizenz](https://img.shields.io/github/license/sphings79/XiaomiAirFryer?style=for-the-badge&color=7C7CF5)](LICENSE)
 
-  [![Öffne deine Home-Assistant-Instanz und zeige ein Repository im Home Assistant Community Store an.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=sphings79&repository=XiaomiAirFryer&category=integration)
+  [![Öffne deine Home-Assistant-Instanz und zeige dieses Repository im Marketplace an.](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=sphings79&repository=XiaomiAirFryer&category=integration)
 
   [English](README.md) &#183; **Deutsch**
 
@@ -161,13 +161,25 @@ mit dem Modellnamen und einem Link zur Spezifikation auf
 
 ## Installation
 
-### Über HACS
+### Marketplace (Home Assistant 2026.11 und neuer)
+
+Home Assistant 2026.11 ersetzt HACS durch den eingebauten **Marketplace**. Wenn du Xiaomi Heißluftfritteuse über HACS installiert hast, übernimmt der Marketplace es beim Upgrade, und du musst nichts tun.
+
+Für eine Neuinstallation öffne **Einstellungen → Marketplace**, suche nach **Xiaomi Heißluftfritteuse** und installiere es, oder nutze diesen Button:
+
+[![Öffne deine Home-Assistant-Instanz und zeige dieses Repository im Marketplace an.](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=sphings79&repository=XiaomiAirFryer&category=integration)
+
+Starte Home Assistant neu, falls eine Reparatur dich dazu auffordert.
+
+Falls **Xiaomi Heißluftfritteuse** in der Suche nicht auftaucht, füge es stattdessen als benutzerdefiniertes Repository hinzu: unter **Einstellungen → Marketplace** `https://github.com/sphings79/XiaomiAirFryer` hinzufügen (Kategorie **Integration**) und es dort installieren. Benutzerdefinierte Repositories setzen voraus, dass der Marketplace mit GitHub verbunden ist; beim ersten Mal fragt er danach.
+
+### HACS (Home Assistant 2026.10 und älter)
 
 [![Öffne deine Home-Assistant-Instanz und zeige ein Repository im Home Assistant Community Store an.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=sphings79&repository=XiaomiAirFryer&category=integration)
 
-Oder von Hand: HACS → Integrationen → ⋯ → Benutzerdefinierte Repositories →
-`sphings79/XiaomiAirFryer`, Kategorie *Integration*. Installieren, dann Home Assistant neu
-starten.
+Oder in HACS nach **Xiaomi Heißluftfritteuse** suchen und installieren, dann Home Assistant neu starten.
+Falls sie nicht auftaucht, von Hand hinzufügen: HACS → Integrationen → ⋯ → Benutzerdefinierte Repositories →
+`sphings79/XiaomiAirFryer`, Kategorie *Integration*.
 
 ### Manuell
 

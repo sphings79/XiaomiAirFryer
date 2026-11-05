@@ -6,12 +6,12 @@
   **Set time, temperature and recipe on your Xiaomi air fryer straight from Home Assistant.**
   Works over the local miIO protocol; the cloud is only touched once, to look up the device token, and can be skipped entirely.
 
-  [![HACS](https://img.shields.io/badge/HACS-Custom-41BDF5?style=for-the-badge)](https://hacs.xyz)
+  [![Marketplace](https://img.shields.io/badge/Marketplace-41BDF5?style=for-the-badge)](https://my.home-assistant.io/redirect/marketplace_browse/)
   [![Release](https://img.shields.io/github/v/release/sphings79/XiaomiAirFryer?style=for-the-badge&color=3DDC97)](https://github.com/sphings79/XiaomiAirFryer/releases)
   [![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2024.6%2B-41BDF5?style=for-the-badge)](https://www.home-assistant.io)
   [![License](https://img.shields.io/github/license/sphings79/XiaomiAirFryer?style=for-the-badge&color=7C7CF5)](LICENSE)
 
-  [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=sphings79&repository=XiaomiAirFryer&category=integration)
+  [![Open your Home Assistant instance and open this repository in the Marketplace.](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=sphings79&repository=XiaomiAirFryer&category=integration)
 
   **English** &#183; [Deutsch](README.de.md)
 
@@ -158,13 +158,25 @@ with its model name and a link to its spec on [miot-spec.org](https://miot-spec.
 
 ## Installation
 
-### Through HACS
+### Marketplace (Home Assistant 2026.11 and newer)
+
+Home Assistant 2026.11 replaces HACS with the built-in **Marketplace**. If you installed Xiaomi Air Fryer through HACS, the Marketplace takes it over on upgrade, and you don't need to do anything.
+
+For a new install, open **Settings → Marketplace**, search for **Xiaomi Air Fryer** and install it, or use this button:
+
+[![Open your Home Assistant instance and open this repository in the Marketplace.](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=sphings79&repository=XiaomiAirFryer&category=integration)
+
+Restart Home Assistant if a repair asks you to.
+
+If **Xiaomi Air Fryer** doesn't show up in the search, add it as a custom repository instead: in **Settings → Marketplace**, add `https://github.com/sphings79/XiaomiAirFryer` (category **Integration**), then install it from there. Custom repositories need the Marketplace to be connected to GitHub, and it asks you to connect the first time.
+
+### HACS (Home Assistant 2026.10 and older)
 
 [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=sphings79&repository=XiaomiAirFryer&category=integration)
 
-Or by hand: HACS → Integrations → ⋯ → Custom repositories →
-`sphings79/XiaomiAirFryer`, category *Integration*. Install it, then restart Home
-Assistant.
+Or search for **Xiaomi Air Fryer** in HACS and install it, then restart Home Assistant.
+If it doesn't show up, add it by hand: HACS → Integrations → ⋯ → Custom repositories →
+`sphings79/XiaomiAirFryer`, category *Integration*.
 
 ### Manually
 
