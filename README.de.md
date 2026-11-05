@@ -385,5 +385,5 @@ sphings79. Einzelheiten zur Attribution stehen in [NOTICE](NOTICE).
 <sub>
 Xiaomi Heißluftfritteuse Home Assistant · Mijia Airfryer Integration · Xiaomi Smart Air
 Fryer Pro 4L · careli.fryer · miIO lokale Steuerung · Heißluftfritteuse ohne Cloud ·
-HACS Integration · Viomi Heißluftfritteuse · Silencare Fritteuse · Xiaomi Airfryer Token
+Marketplace Integration · HACS Integration · Viomi Heißluftfritteuse · Silencare Fritteuse · Xiaomi Airfryer Token
 </sub>

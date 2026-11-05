@@ -378,6 +378,6 @@ sphings79. Attribution details are in [NOTICE](NOTICE).
 <sub>
 Home Assistant Xiaomi air fryer integration · Mi Smart Air Fryer Home Assistant · Xiaomi
 Smart Air Fryer Pro 4L · careli.fryer · miIO local control · air fryer without cloud ·
-HACS custom integration · Mijia Heißluftfritteuse Home Assistant · Viomi air fryer ·
+Marketplace custom integration · HACS custom integration · Mijia Heißluftfritteuse Home Assistant · Viomi air fryer ·
 Silencare air fryer · Xiaomi air fryer token
 </sub>
